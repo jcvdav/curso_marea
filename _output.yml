@@ -1,17 +1,33 @@
 bookdown::gitbook:
-  css: style.css
+  dev: svglite
+  css: css/style.css
+  split_by: section
   config:
     toc:
+      collapse: none
       before: |
-        <li><a href="./">Costeo y Evaluación de Resrvas Marinas</a></li>
+        <li><a href="./">Costeo y Evaluación de Reservas Marinas</a></li>
       after: |
-        <li><a href="https://github.com/jcvdav/curso_marea" target="blank">Published with bookdown</a></li>
-    edit: https://github.com/jcvdav/curso_marea/edit/master/%s
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     download: ["pdf", "epub"]
+    edit: https://github.com/jcvdav/curso_marea/edit/master/inst/examples/%s
+    sharing:
+      github: yes
+      facebook: yes
 bookdown::pdf_book:
   includes:
-    in_header: preamble.tex
+    in_header: latex/preamble.tex
+    after_body: latex/after_body.tex
+  keep_tex: yes
+  dev: "cairo_pdf"
   latex_engine: xelatex
   citation_package: natbib
-  keep_tex: yes
-bookdown::epub_book: default
+  template: null
+  pandoc_args: --top-level-division=chapter
+  toc_depth: 3
+  toc_unnumbered: no
+  toc_appendix: yes
+  quote_footer: ["\\VA{", "}{}"]
+bookdown::epub_book:
+  dev: svglite
+  stylesheet: css/style.css

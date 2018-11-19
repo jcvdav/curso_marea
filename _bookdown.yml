@@ -1,6 +1,22 @@
 book_filename: "evaluacion-reservas"
 language:
+  label:
+    fig: 'Figura '
+    tab: 'Tabla '
+    eq: 'Equación '
+    thm: 'Teorema '
+    lem: 'Lemma '
+    cor: 'Corolario '
+    prp: 'Proposición '
+    cnj: 'Conjecture '
+    def: 'Definición '
+    exm: 'Ejemplo '
+    exr: 'Ejercicio '
+    proof: 'Proof. '
+    remark: 'Remark. '
+    solution: 'Solución. '
   ui:
-    chapter_name: "Capítulo "
+    edit: Edit
+    chapter_name: 'Capítulo '
 delete_merged_file: true
 output_dir: "docs"
