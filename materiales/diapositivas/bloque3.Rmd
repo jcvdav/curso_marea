@@ -1,0 +1,219 @@
+---
+title: "Bloque 3"
+subtitle: "Datos y formato de datos"
+author: "Villaseñor-Derbez, J.C."
+date: "Septiembre, 2017"
+output:
+  ioslides_presentation:
+    incremental: yes
+    transition: faster
+    widescreen: yes
+    css: myCSS.css
+bibliography: exported-references.bib
+---
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('slide:not(.title-slide, .backdrop, .segue)').append('<footer></footer>');    
+    $('footer').attr('label', 'Bloque 3: Datos y formato de datos');
+
+  })
+</script>
+
+<style>
+  footer:after {
+    font-size: 12pt;
+    content: attr(label);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    line-height: 1.9;
+    display: block;
+  }
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Temas
+
+- Buenas prácticas
+- Tipos de formatos
+- Fuentes de datos
+- Variables necesarias
+- Ejemplos
+
+## Buenas prácticas {.smaller}
+
+- Todo nuestro esfuerzo es para obtener datos, **hay que cuidarlos**
+- Nombres de columna
+    - Sin espacios (usar *snake_case, CamelCase* o *dot.case*)
+    - Sin caracteres especiales
+    - Sin unidades
+- Metadatos
+- Almacenamiento online (*e.g.* mySQL, KoBo Toolbox, Open Data Kit)
+- Sistemas de control de versión (*e.g.* GitHub, SVN, Mercurial)
+- Aprovechar todas las opciones "OpenScience" @lowndes_2017-xh
+- Crear capacidad de manejo de datos más allá de Excel / Access
+
+## Tipos de formato
+
+- Casi cualquier base de datos puede tenerse en dos formatos
+- Formato ancho
+    - Una variable ocupa varias columnas (la base tiende a ser ancha)
+    - Cada una de estas columnas tiene valores de otra variable
+- Formato largo
+    - Una variable por columna, una fila por registro
+
+## Tipos de formato
+
+**Ejemplo largo**
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+
+df <- data.frame(Recurso = c("Mero", "Barracuda"), A1 = c(10, 20), A2 = c(15, 28), A3 = c(22, 18))
+
+knitr::kable(df, col.names = c("Recurso", "2015", "2016", "2017"), format = "html", caption = "Producción pesquera de 2 recursos en 3 años") %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+- Se lee "fácil"
+- Difícil hacer gráficas, prueba de hipótesis, análisis
+- No sabemos lo que se reporta las celdas
+- Bueno para reportar datos en forma tabular (*e.g.* tabla en un reporte)
+
+## Formato de datos {.smaller}
+
+**Ejemplo largo**
+
+```{r}
+df2 <- df %>%
+  magrittr::set_colnames(value = c("Recurso", "2015", "2016", "2017")) %>% 
+  gather(Ano, Arribos, -Recurso) %>% 
+  mutate(Ano = as.numeric(as.character(Ano)))
+
+knitr::kable(df2, col.names = c("Recurso", "Año", "Arribos"), format = "html", caption = "Producción pesquera de 2 recursos en 3 años") %>% 
+  kableExtra::kable_styling(full_width = F)
+```
+
+- No es tan fácil de leer para nosotros
+- Ideal para hacer análisis (`lm(Arribos ~ Año + Recurso)`)
+- Formato requerido por muchos softwares de análisis y visualización (*e.g.* Tableau, miniTab, Statistica, SPSS)
+- Permite orden jerárquico
+
+## Formato de datos
+
+**Ejemplo largo**
+
+```{r, fig.height = 2, fig.width = 4, echo = T, fig.align = "center"}
+library(ggplot2)
+
+ggplot(df2, aes(x = Ano, y = Arribos, color = Recurso)) +
+  geom_line(size = 2) +
+  geom_point(size = 3, color = "black") +
+  theme_bw()
+```
+
+## Fuentes de datos
+
+**Una comunidad costera**
+
+```{r, fig.height = 4.5, fig.align = "center"}
+knitr::include_graphics("./Figs/B2/comunidad.png")
+```
+
+## Variables mínimas necesarias: Biológicos {.smaller}
+
+- Año
+- Comunidad
+- Sitio
+- Zona
+- **RC**
+- Transecto
+- Profunidad
+- Visibilidad
+- Temperatura
+- GeneroEspecie
+- Talla
+- Abudnancia
+- Historia de vida (*a*, *b*, *NT*, *Lm*)
+- [Ejemplo](./Datos/peces_natividad.csv)
+
+## Ejemplo biológico {.smaller}
+
+```{r}
+read.csv("./Datos/peces_natividad.csv") %>%
+  select(Ano, Sitio, Zona, RC, Transecto, Prof = ProfundidadInicial, Vis = Visibilidad, Temp = Temperatura, GeneroEspecie, Talla, Abundancia) %>% 
+  filter(Abundancia > 0) %>% 
+  head(100) %>% 
+  DT::datatable(rownames = F) %>% 
+  DT::formatStyle(columns = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11), fontSize = '40%')
+```
+
+
+## Variables mínimas necesarias: Socioeconómico {.smaller}
+
+- Año
+- Comunidad
+- GeneroEspecie
+- Arribos
+- Ingresos
+- CPI
+- [Ejemplo](./Datos/natividad_landings_conapesca.csv)
+
+## Ejemplo socioeconómico {.smaller}
+
+```{r}
+read.csv("./Datos/natividad_landings_conapesca.csv") %>%
+  select(Ano, Comunidad, GeneroEspecie, Arribos, Ingresos, CPI) %>% 
+  DT::datatable(rownames = F) %>% 
+  DT::formatStyle(columns = c(1, 2, 3, 4, 5, 6), fontSize = '40%')
+```
+
+## Variables mínimas necesarias: Gobernanza {.smaller}
+
+```{r}
+gov <- read.csv("./Datos/Governancedata_MAREA.csv")
+```
+
+- Base muy larga (`r dim(gov)[2]` columnas)
+- `r colnames(gov)`
+- [Forma de Access](https://github.com/turfeffect/Docs/blob/master/Governance%20DB/Governance_0509.accdb) para captura de datos
+- [Ejemplo](./Datos/Governancedata_MAREA.csv)
+
+## Forma de Access
+
+```{r, fig.align = "center"}
+knitr::include_graphics("./Figs/B3/access.PNG")
+```
+
+## Forma de Access
+
+```{r, fig.align = "center"}
+knitr::include_graphics("./Figs/B3/access2.PNG")
+```
+
+## Extensiones
+
+- MAREA requiere que **todos** los datos estén en formato \*.csv:
+    - Valores coma-separados
+    - Elimina fórmulas, validaciones y funciones en celdas
+    - Elimina espacios en blanco antes y después de palabras ("Mero rojo" vs. "Mero rojo ")
+    - Elimina filas en blanco al final del archivo
+    - Archivos más ligeros
+
+## Convertir \*.xls a \*csv
+
+```{r, fig.width = 3}
+knitr::include_graphics("./Figs/B3/xls2csv.png")
+```
+
+## Referencias {.smaller}
+
+<div id="refs"></div>
+
+# [Bloque 4](./bloque4.html)

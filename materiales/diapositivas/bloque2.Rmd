@@ -1,0 +1,187 @@
+---
+title: "Bloque 2"
+subtitle: "Objetivos e indicadores"
+author: "Villaseñor-Derbez, J.C."
+date: "Septiembre, 2017"
+output:
+  ioslides_presentation:
+    incremental: yes
+    transition: faster
+    widescreen: yes
+    css: myCSS.css
+bibliography: exported-references.bib
+---
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('slide:not(.title-slide, .backdrop, .segue)').append('<footer></footer>');    
+    $('footer').attr('label', 'Bloque 2: Objetivos e indicadores');
+
+  })
+</script>
+
+<style>
+  footer:after {
+    font-size: 12pt;
+    content: attr(label);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    line-height: 1.9;
+    display: block;
+  }
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Temas
+
+- Otros marcos para evaluación
+- Objetivos generales de RM en México
+- Indicadores
+- Alinear objetivos con indicadores
+
+
+# Marcos para evaluar reservas
+
+## Trabajos anteriores
+
+<center>
+![@pomeroy_2005-Py](Figs/B2/IUCN.png) ![@mascia_2017-m_](Figs/B2/Mascia.PNG)
+</center>
+
+## IUCN
+
+- Lista de indicadores biofísicos y sociales
+- Buenos ejemplos y casos de estudio
+- Breves indicaciones de cómo recopilar información
+- No indica cómo evaluar indicadores
+
+## @mascia_2017-m_
+
+- Aproximación 3FIGS (*"Three-framework  approach for  impact evaluation  of  governance  in  social–ecological systems"*):
+    - Teoría de sistemas socio-ecológicos [@ostrom_2009-hg]
+    - Evaluación de impacto
+    - Teoría de gobernanza de recursos de uso común
+
+## Estos marcos
+
+- Buena fuente para obtener indicadores (pero no alínean objetivos - indicadores)
+- Buenos para análisis a gran escala
+- No hay herramienta:
+    - Replicabilidad
+    - Estandarización
+    - Empoderamiento (*e.g.* ZRP)
+
+# Objetivos
+
+¿Por qué?
+
+- Los indicadores deben de seleccionarse según los objetivos
+
+## Objetivos identificados
+
+Extraidos de DOF, ETJ, planes de manejo, @nom049sagpesc_2014-V6
+
+1. Evitar la sobreexplotación
+2. Conservar especies bajo régimen de protección especial
+3. Mantener procesos biológicos
+4. Incrementar la productividad pesquera en aguas adyacentes
+5. Preservar la diversidad biológica y los ecosistemas
+6. Recuperar especies sobreexplotadas
+7. Recuperar especies de interés comercial
+
+## Una comunidad costera
+
+```{r, fig.height = 4.5, fig.align = "center"}
+knitr::include_graphics("./Figs/B2/comunidad.png")
+```
+
+# Indicadores
+
+## Indicadores {.smaller}
+
+- Proceso de selección
+    - Según los objetivos
+    - Revisión de literatura
+    - Disponibilidad de datos (**A**DCI)
+    - Talleres
+    - Comentarios de pescadores
+- 3 categorías (B, S, G)
+- Algunos indicadores
+    - Responden a la reserva (*e.g.* Biomasa)
+    - Influencían a la reserva **y** pueden cambiarse (*e.g.* Inspección y vigilancia)
+    - Influencían a la reserva y **no** pueden cambiarse (*e.g.* Perturbación natural)
+    - Indirectamente se relacionan con la reserva (*e.g.* Oportunidades económicas alternativas a la pesca)
+
+## Biológicos
+
+Se calculan antes y después de la implementación de la reserva para la reserva y control
+
+- **B1**	Índice de diversidad de Shannon
+- **B2**	Riqueza de especies
+- **B3**	Densidad de organismos potencialmente maduros\*
+- **B4**	Densidad\*
+- **B5**	Perturbación Natural
+- **B6**	Nivel Trófico Medio
+- **B7**	Biomasa\*
+    
+    - \*Aplica también a especies objetivo
+
+## Socioeconómicos
+
+- **S1**	Arribos\*
+- **S2**	Ingreso por arribos\*
+- **S3**	Oportunidades económicas alternativas a la pesca
+    
+    - \*Aplica también a especies objetivo
+    
+## Gobernanza {.smaller}
+
+- **G1**	Acceso a la pesquería
+- **G2**	Número de pescadores
+- **G3**	Reconocimiento legal de la reserva
+- **G4**	Tipo de reserva
+- **G5**	Grado de pesca ilegal
+- **G6**	Existencia de plan de manejo
+- **G7**	Inspección y vigilancia de la reserva
+- **G8**	Tamaño de la reserva
+- **G9**	Rzonamiento para la ubicación de la reserva
+- **G10**	Pertenencia a organizaciones pesqueras
+- **G11**	Tipo de organizaciones pesqueras
+- **G12**	Representación
+- **G13** Regulaciones internas
+- **G14**	Efectividad percibida
+- **G15**	Impacto social de la reserva
+
+## Objetivos e Indicadores {.smaller}
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+
+read.csv("./Tabs/B2/Objectives_Indicators.csv") %>% 
+  mutate(Objective = c("Evitar la sobreexplotación", "Conservar especies bajo régimen de protección especial", "Mantener procesos biológicos", "Incrementar la productividad pesquera en aguas adyacentes", "Preservar la diversidad biológica y los ecosistemas", "Recuperar especies sobreexplotadas", "Recuperar especies de interés comercial")) %>% 
+  select(Objective, B1, B2, B3, B4, B4., B5, B6, B7, B7., S1, S1., S2, S2., S3) %>% 
+  knitr::kable(col.names = c("Objetivo", "B1", "B2", "B3", "B4", "B4*", "B5", "B6", "B7", "B7*", "S1", "S1*", "S2", "S2*", "S3"))
+```
+
+- Todos los de gobernanza se sugieren siempre
+
+## Cálculo de los indicadores
+
+- MAREA realiza los cálculos
+    - Sólo hay que ingresar datos crudos (formato en siguiente bloque)
+- Biológicos por transecto
+- Socioeconómicos por año
+
+# ¿Qué otros indicadores?
+
+## Referencias {.smaller}
+
+<div id="refs"></div>
+
+# [Bloque 3](./bloque3.html)

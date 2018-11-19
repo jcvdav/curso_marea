@@ -1,0 +1,145 @@
+---
+title: "Bloque 5"
+subtitle: "MAREA"
+author: "Villaseñor-Derbez, J.C."
+date: "Septiembre, 2017"
+output:
+  ioslides_presentation:
+    incremental: yes
+    transition: faster
+    widescreen: yes
+    css: myCSS.css
+bibliography: exported-references.bib
+---
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    $('slide:not(.title-slide, .backdrop, .segue)').append('<footer></footer>');    
+    $('footer').attr('label', 'Bloque 5: MAREA');
+
+  })
+</script>
+
+<style>
+  footer:after {
+    font-size: 12pt;
+    content: attr(label);
+    position: absolute;
+    bottom: 20px;
+    left: 60px;
+    line-height: 1.9;
+    display: block;
+  }
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+suppressPackageStartupMessages({
+  library(MPAtools)
+  library(magrittr)
+  library(tidyverse)
+})
+```
+
+## Temas
+
+- Qué es MAREA?
+- Cómo funciona?
+- Qué hace / no hace?
+- Demostración
+- Ejemplos
+
+## ¿Qué es MAREA?
+
+- Aplicación web (*Beta*): [MAREA](turfeffect.shinyapps.io/MAREA)
+- Desarrollada en R, con shiny
+    - Permite mezclar `R`, `html`, `JavaScript` y `css`
+- Libre acceso
+- Se puede ejecutar localmente
+- Usa paquete de R [MPAtools](https://github.com/turfeffect/MPAtools)
+
+## `MPAtools` {.smaller}
+
+- Se puede instalar en R con `devtools::install_github("turfeffect/MPAtools")`
+- Contiene todas las funciones necesarias para analizar sin MAREA
+
+```{r, echo = T}
+natividad <- read.csv("Datos/peces_natividad.csv") %>% 
+  filter(Ano < 2011) %>% 
+  MPAtools::shannon(location = "Isla Natividad") %>% 
+  MPAtools::turfeffect(reserve = "La Plana / Las Cuevas",
+                       control = c("La Dulce", "Babencho"),
+                       type = "bio",
+                       year.imp = 2006)
+```
+
+## `MPA tools` {.smaller}
+
+```{r, echo = T}
+summary(natividad$model)
+```
+
+## `MPAtools`
+
+```{r, echo = T, fig.width=5, fig.height=3}
+MPAtools::mpa_plot4(model = natividad$model,
+                    y.lab = "Diversidad de Shannon")
+```
+
+## ¿Qué hace?
+
+- Al indicar objetivos, sugiere indicadores
+- Calcula todos los indicadores a partir de datos crudos
+    - Identifica algunos errores en datos
+    - Incluye historia de vida de **algunas** especies
+- Permite evaluar hasta 8 sp objetivo
+- Corre hasta 47 modelos simultáneamente (~ 4 segundos total)
+- Genera tabla de puntajes
+- Genera reporte técnico
+- Almacena información del usuario
+
+## ¿Qué **no** hace?
+
+- No provee recomendaciones de manejo
+- No limpia datos
+- No calcula otros indicadores (pero ya sabemos cómo evaluarlos, y hay paquete de R)
+- No reemplaza sentido común ni otros análisis
+- No es la única forma de evaluar reservas
+- No es la solución absoluta
+
+## ¿Puedo usarlo para AMPs o con otros indicadores?
+
+- AMPs sí, pero la interpretación de los coeficientes es diferente
+- Para otros indicadores se puede usar el paquete `MPAtools`
+
+## Demostración de MAREA
+
+[LINK A MAREA](turfeffect.shinyapps.io)
+
+## Su turno
+
+- Descarguen datos en la carpeta de dropbox o de MAREA ([turfeffect.shinyapps.io](turfeffect.shinyapps.io))
+
+```{r}
+read.csv("../AppDraft/MAREA/www/bio_fish.csv") %>% 
+  group_by(Comunidad, RC) %>% 
+  summarize(ano = min(Ano)) %>% 
+  knitr::kable(format = "html", booktabs = T) %>% 
+  kableExtra::kable_styling() %>% 
+  kableExtra::collapse_rows(columns = 1)
+```
+
+- Datos "inventados"
+- Selecciones sus objetivos
+- Jueguen con MAREA
+- Intenten cometer errores y ver qué pasó
+
+## Futuras mejoras en MAREA
+
+- Mejor identificación de errores en datos
+- Generar mapas
+- Opción a incluir otros indicadores
+
