@@ -1,0 +1,10 @@
+# Uso de MAREA
+
+
+## Evaluación de indicadores biológicos para 1 reserva
+
+## Evaluación de indicadores biológicos y especie objetivo para 1 reserva
+
+## Evaluación de todos los indicadores para 1 reserva
+
+## Evaluación de todos los indicadores para varias reservas, simultáneamente

@@ -1,18 +1,28 @@
 ---
 title: "Costeo y Evaluación de Reservas Marinas"
 author: "Juan Carlos Villaseñor-Derbez"
-date: "2018-11-28"
+date: "Bren School of Environmental Science & Management, UCSB"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [references.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: jcvdav/curso_marea
-url: 'http\://seankross.com/bookdown-start/'
-description: ""
+description: "Algo por aqui"
 ---
 
-# Requisitos
+# Antes de empezar {-}
 
-Texto por aqui
+Este manual es la segunda iteración de los esfuerzos por impulsar el uso de metodologías estandarizadas para la evaluación de reservas marinas. Trabajos anteriores incluyen el manual generalizado de evaluación de reservas marinas en México [@villaseorderbez_2017] y la publicación arbitrada que presenta a [MAREA](https://turfeffect.shinyapps.io/marea/) como una herramienta amigable y gratuita [@villasenorderbez_2018]. Esta versión del manual pretende incorporar partes de ambos trabajos, pero también incluye una serie de ejercicios prácticos para el uso de MAREA y la nueva App de Costeo de Reservas. Además, el manual está públicamente disponible en [internet](https://jcvdav.github.io/curso_marea/), donde el lector puede descargar el manual como PDF o EPUB para Kindle.
+
+## Requisitos
+
+MAREA y la nueva App de Costeo de Reservas son aplicaciones web, y para poder utilizarlas es necesario tener un explorador de internet y una conexión estable. Aunque no siempre tenemos acceso a internet, este formato nos evita problemas de compatibilidad entre diferentes sistemas operativos. Si tienes un explorador de internet y una conexión estable, puedes usar estas Apps.
+
+Si participaste en uno de los cursos presenciales, el USB que recibise contiene este manual como PDF y EPUB además de los [datos sintéticos](https://github.com/jcvdav/curso_marea/materiales/datos) para los ejercicios prácticos y las [diapositivas del curso](https://github.com/jcvdav/curso_marea/materiales/diapositivas). Puedes distribuir libremente estos materiales, o descargarlos desde el [repositorio de GitHub](https://github.com/jcvdav/curso_marea). La versión en línea siempre será la más actualizada.
+
+
+
+
+
 

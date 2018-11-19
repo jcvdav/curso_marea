@@ -1,0 +1,5 @@
+# Errores comunes y solución de problemas
+
+## Especie / Indicador no tiene diseño BACI
+
+## Diferentes especies en bases biológicas vs pesca
