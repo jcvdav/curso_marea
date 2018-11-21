@@ -1,7 +1,7 @@
 \PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
 \PassOptionsToPackage{hyphens}{url}
 %
-\documentclass[]{book}
+\documentclass[]{krantz}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -29,14 +29,63 @@
 }
 \usepackage{hyperref}
 \hypersetup{
-            pdftitle={Costeo y Evaluación de Reservas Marinas},
+            pdftitle={Costeo y Evaluación de Reservas Marinas con Shiny Apps},
             pdfauthor={Juan Carlos Villaseñor-Derbez},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 % Fix footnotes in tables (requires footnote package)
 \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
 \setlength{\emergencystretch}{3em}  % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -60,8 +109,6 @@
 \usepackage{longtable}
 \usepackage[bf,singlelinecheck=off]{caption}
 
-\setmainfont[UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}]{Alegreya}
-
 \usepackage{framed,color}
 \definecolor{shadecolor}{RGB}{248,248,248}
 
@@ -73,20 +120,6 @@
 \renewenvironment{quote}{\begin{VF}}{\end{VF}}
 \let\oldhref\href
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
-
-\ifxetex
-  \usepackage{letltxmacro}
-  \setlength{\XeTeXLinkMargin}{1pt}
-  \LetLtxMacro\SavedIncludeGraphics\includegraphics
-  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
-    \IncludeGraphicsAux{#1}%
-  }%
-  \newcommand*{\IncludeGraphicsAux}[2]{%
-    \XeTeXLinkBox{%
-      \SavedIncludeGraphics#1{#2}%
-    }%
-  }%
-\fi
 
 \makeatletter
 \newenvironment{kframe}{%
@@ -108,42 +141,7 @@
  \at@end@of@kframe}
 \makeatother
 
-\makeatletter
-\@ifundefined{Shaded}{
-}{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
-\makeatother
-
-\newenvironment{rmdblock}[1]
-  {
-  \begin{itemize}
-  \renewcommand{\labelitemi}{
-    \raisebox{-.7\height}[0pt][0pt]{
-      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
-    }
-  }
-  \setlength{\fboxsep}{1em}
-  \begin{kframe}
-  \item
-  }
-  {
-  \end{kframe}
-  \end{itemize}
-  }
-\newenvironment{rmdnote}
-  {\begin{rmdblock}{note}}
-  {\end{rmdblock}}
-\newenvironment{rmdcaution}
-  {\begin{rmdblock}{caution}}
-  {\end{rmdblock}}
-\newenvironment{rmdimportant}
-  {\begin{rmdblock}{important}}
-  {\end{rmdblock}}
-\newenvironment{rmdtip}
-  {\begin{rmdblock}{tip}}
-  {\end{rmdblock}}
-\newenvironment{rmdwarning}
-  {\begin{rmdblock}{warning}}
-  {\end{rmdblock}}
+\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}
 
 \usepackage{makeidx}
 \makeindex
@@ -162,7 +160,9 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Costeo y Evaluación de Reservas Marinas}
+\title{Costeo y Evaluación de Reservas Marinas con Shiny Apps}
+\providecommand{\subtitle}[1]{}
+\subtitle{Una guía para gestores ambientales}
 \author{Juan Carlos Villaseñor-Derbez}
 \date{Bren School of Environmental Science \& Management, UCSB}
 
@@ -190,6 +190,15 @@ la nueva App de Costeo de Reservas. Además, el manual está públicamente
 disponible en \href{https://jcvdav.github.io/curso_marea/}{internet},
 donde el lector puede descargar el manual como PDF o EPUB para Kindle.
 
+Aunque el manual y la Aplicación para Evaluación de Reservas Marinas
+(MAREA) pueden ser utilizados alrededor del mundo, es importante
+mencionar que el proyecto fue diseñado para evaluar la efectividad de
+las reservas marinas en México. Por lo tanto, las metodologías
+utilizadas reflejan las necesidades de las comunidades costeras
+mexicanas, y no debe de interpretarse como un conjunto de instrucciones
+definitivas. Aún así, creemos que la guía ha sido creada para permitir
+su aplicación en otros lugares con el mismo fin.
+
 \hypertarget{requisitos}{%
 \section{Requisitos}\label{requisitos}}
 
@@ -210,12 +219,27 @@ descargarlos desde el
 \href{https://github.com/jcvdav/curso_marea}{repositorio de GitHub}. La
 versión en línea siempre será la más actualizada.
 
+\clearpage
+
+\hypertarget{part-parte-i}{%
+\part{Parte I}\label{part-parte-i}}
+
 \hypertarget{introduccion}{%
 \chapter{Introducción}\label{introduccion}}
 
-\hypertarget{antecedentes-en-la-evaluacion-de-reservas}{%
-\chapter{Antecedentes en la evaluación de
-reservas}\label{antecedentes-en-la-evaluacion-de-reservas}}
+El desarrollo de \href{https://turfeffect.shinyapps.io/marea/}{MAREA}
+fue motivado por la necesidad de proveer metodologías estandarizadas y
+rigurosas para evaluar las zonas de refugio pesquero, un tipo de
+reservass marinas diseñadas como herramientas de manejo pesuero
+\citep{nom}.
+
+Comunidad y Biodiversidad (COBI) es una Organización de la Sociedad
+Civil (OSC) involucrada en el diseño, implementación y manejo de
+reservas marinas en el Caribe Mexicano, así como el Golfo de California
+y la costa Pacífica de Baja California.
+
+\hypertarget{formas-de-evaluar-reservas}{%
+\chapter{Formas de evaluar reservas}\label{formas-de-evaluar-reservas}}
 
 \hypertarget{dentro-vs.fuera}{%
 \section{Dentro vs.~Fuera}\label{dentro-vs.fuera}}
@@ -258,6 +282,9 @@ etapas}\label{evaluacion-de-reservas-en-6-etapas}}
 \section{Interpretación de
 resultados}\label{interpretacion-de-resultados}}
 
+\hypertarget{part-parte-ii}{%
+\part{Parte II}\label{part-parte-ii}}
+
 \hypertarget{uso-de-marea}{%
 \chapter{Uso de MAREA}\label{uso-de-marea}}
 
@@ -288,6 +315,454 @@ BACI}\label{especie-indicador-no-tiene-diseno-baci}}
 \hypertarget{diferentes-especies-en-bases-biologicas-vs-pesca}{%
 \section{Diferentes especies en bases biológicas vs
 pesca}\label{diferentes-especies-en-bases-biologicas-vs-pesca}}
+
+\hypertarget{appendix-appendice}{%
+\appendix \addcontentsline{toc}{chapter}{\appendixname}}
+
+
+\hypertarget{datos-sinteticos}{%
+\chapter{Datos sintéticos}\label{datos-sinteticos}}
+
+Este apéndice muestra el código usado para obtener los datos sintéticos
+del curso y el manual de evaluación. Primero, debemos definir una serie
+de variables que contengan los valores predeterminados o rangos de
+valores que cada variable puede tomar. Para los propósitos del curso,
+generaremos únicamente información biológica y económica de peces.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Cargamos los paquetes que necesitamos}
+\KeywordTok{suppressPackageStartupMessages}\NormalTok{(\{}
+  \KeywordTok{library}\NormalTok{(magrittr)}
+  \KeywordTok{library}\NormalTok{(tidyverse)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{######################################}
+\CommentTok{# Generar variables predeterminadas}
+\CommentTok{######################################}
+
+\CommentTok{# Las fechas estaran centradas en el dia 1 de cada mes}
+\NormalTok{dia <-}\StringTok{ }\DecValTok{1}
+
+\CommentTok{# Los muestreos ocurren aleatoriamente entre abril y junio}
+\NormalTok{mes <-}\StringTok{ }\DecValTok{4}\OperatorTok{:}\DecValTok{6}
+
+\CommentTok{# Generaremos datos del 200 al 2018}
+\NormalTok{ano <-}\StringTok{ }\DecValTok{2000}\OperatorTok{:}\DecValTok{2018}
+
+\CommentTok{# El estado va a ser NA}
+\NormalTok{estado <-}\StringTok{ }\OtherTok{NA}
+
+\CommentTok{# La comunidad imaginaria va a ser Las Positas}
+\NormalTok{comunidad <-}\StringTok{ "Las Positas"}
+
+\CommentTok{# En Las Positas hay 4 sitios, dos reservas y dos controles}
+\CommentTok{# el tipo de sitio se define mas adelante}
+\NormalTok{sitio <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Las cruces"}\NormalTok{,}
+           \StringTok{"Cerro prieto"}\NormalTok{,}
+           \StringTok{"Calencho"}\NormalTok{,}
+           \StringTok{"Popotla"}\NormalTok{)}
+
+\CommentTok{# No es necesario definir el habitat}
+\NormalTok{habitat <-}\StringTok{ }\OtherTok{NA}
+
+\CommentTok{# La zona es determinada con esta funcion}
+\NormalTok{zona <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(sitio)\{}
+  \KeywordTok{ifelse}\NormalTok{(sitio }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Las cruces"}\NormalTok{,}
+                      \StringTok{"Cerro prieto"}\NormalTok{),}
+         \StringTok{"Reserva"}\NormalTok{,}
+         \StringTok{"Control"}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{# Tipo de proteccion es NA}
+\NormalTok{tipo_proteccion <-}\StringTok{ }\OtherTok{NA}
+
+\CommentTok{# ANP es NA}
+\NormalTok{ANP <-}\StringTok{ }\OtherTok{NA}
+
+\CommentTok{# Lista de posibles buzos monitores (http://www.laff.bren.ucsb.edu/laff-network/alumni)}
+\NormalTok{buzo_monitor <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Caio Faro"}\NormalTok{,}
+                  \StringTok{"Alexandra Smith"}\NormalTok{,}
+                  \StringTok{"Diana Flores"}\NormalTok{, }
+                  \StringTok{"Ignacia Rivera"}\NormalTok{,}
+                  \StringTok{"Wagner Quiros"}\NormalTok{,}
+                  \StringTok{"Gonzalo Banda"}\NormalTok{,}
+                  \StringTok{"Camila Vargas"}\NormalTok{,}
+                  \StringTok{"Diego Undurraga"}\NormalTok{,}
+                  \StringTok{"Denise Garcia"}\NormalTok{,}
+                  \StringTok{"Cristobal Libertad"}\NormalTok{,}
+                  \StringTok{"Catalina Milagros"}\NormalTok{)}
+
+\CommentTok{# Horas iniciales arbitrarias}
+\NormalTok{hora_inicial <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"6:50"}\NormalTok{, }\StringTok{"8:40"}\NormalTok{, }\StringTok{"10:20"}\NormalTok{, }\StringTok{"12:15"}\NormalTok{, }\StringTok{"13:40"}\NormalTok{, }\StringTok{"14:45"}\NormalTok{, }\StringTok{"15:20"}\NormalTok{)}
+
+\CommentTok{# Rango de profundidades iniciales posibles}
+\NormalTok{profundidad_inicial <-}\StringTok{ }\DecValTok{5}\OperatorTok{:}\DecValTok{27}
+
+\CommentTok{# Esta funcion inventa una profundidad final}
+\CommentTok{# segun la profundidad inicial}
+\NormalTok{profundidad_final <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(profundidad_inicial)\{}
+  \KeywordTok{round}\NormalTok{(profundidad_inicial }\OperatorTok{+}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{), }\DataTypeTok{digits =} \DecValTok{1}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{# Rango de temperaturas}
+\NormalTok{temperatura <-}\StringTok{ }\DecValTok{25}\OperatorTok{:}\DecValTok{27}
+
+\CommentTok{# Rango de visibilidades}
+\NormalTok{visibilidad <-}\StringTok{ }\DecValTok{3}\OperatorTok{:}\DecValTok{12}
+
+\CommentTok{# Corriente es NA}
+\NormalTok{corriente <-}\StringTok{ }\OtherTok{NA}
+
+\CommentTok{# Numeros de transectos}
+\NormalTok{transecto <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{12}
+
+\CommentTok{# Crear un origen en comun para las secuencias aleatorias}
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{42}\NormalTok{)}
+
+\CommentTok{# De la lista de especies filtramos para tener}
+\CommentTok{# especies menores a 160 cm y que tengan todos}
+\CommentTok{# los parametros de a,b, NT y Lmax}
+\NormalTok{spp <-}\StringTok{ }\NormalTok{MPAtools}\OperatorTok{::}\NormalTok{species_bio }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(Lmax }\OperatorTok{<}\StringTok{ }\DecValTok{160}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(GeneroEspecie, a, b, NT, Lmax) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{drop_na}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{sample_n}\NormalTok{(}\DecValTok{15}\NormalTok{)}
+
+\CommentTok{# Crear un vector con todas las especies}
+\NormalTok{genero_especie <-}\StringTok{ }\NormalTok{spp}\OperatorTok{$}\NormalTok{GeneroEspecie}
+
+\CommentTok{# Esta funcion inventa una talla observada con una }
+\CommentTok{# distribucion normal con promedio = la mitad entre}
+\CommentTok{# 0 y la longitud maxima reportada y desviacion}
+\CommentTok{# estandar = 0.3 * el promedio}
+\NormalTok{tallas <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(spp, generoespecie)\{}
+  
+  \CommentTok{# calcular talla media}
+\NormalTok{  talla <-}\StringTok{ }\NormalTok{spp }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{filter}\NormalTok{(GeneroEspecie }\OperatorTok{==}\StringTok{ }\NormalTok{generoespecie) }\OperatorTok{%$%}\StringTok{ }
+\StringTok{    }\NormalTok{Lmax }\OperatorTok{/}\StringTok{ }\DecValTok{2}
+  
+  \CommentTok{# obtener ruido al rededor de la talla media}
+\NormalTok{  noise <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \FloatTok{0.3} \OperatorTok{*}\StringTok{ }\NormalTok{talla }\OperatorTok{/}\StringTok{ }\DecValTok{2}\NormalTok{)}
+  
+  \CommentTok{# Redondear para evitar decimales}
+  \KeywordTok{round}\NormalTok{(talla }\OperatorTok{+}\StringTok{ }\NormalTok{noise)}
+\NormalTok{\}}
+
+\CommentTok{# Esta funcion regresa la abundancia de la especie}
+\CommentTok{# que es un numero que sigue una distribucion de}
+\CommentTok{# poisson con Lambda = 12}
+\NormalTok{mean_sp <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(generoespecie)\{}
+  \KeywordTok{rpois}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1}\NormalTok{, }\DataTypeTok{lambda =} \DecValTok{12}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{# Esta funcion regresa el par RC para cada sitio}
+\NormalTok{rc <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(sitio)\{}
+  \KeywordTok{ifelse}\NormalTok{(sitio }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Las cruces"}\NormalTok{,}
+                      \StringTok{"Calencho"}\NormalTok{),}
+         \StringTok{"Las cruces - Calencho"}\NormalTok{,}
+         \StringTok{"Cerro prieto - Popotla"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{######################################}
+\CommentTok{# Simular datos}
+\CommentTok{######################################}
+
+\CommentTok{# Crear un data.frame vacio}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{tibble}\NormalTok{(}\DataTypeTok{Dia =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Mes =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Ano =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Estado =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Comunidad =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Sitio =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Latitud =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Longitud =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Habitat =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Zona =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{TipoProteccion =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{ANP =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{BuzoMonitor =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{HoraInicial =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{ProfundidadInicial =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{ProfundidadFinal =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Temperatura =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Visibilidad =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Corriente =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Transecto =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Genero =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Especie =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{GeneroEspecie =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Sexo =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Talla =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{ClaseTalla =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{Abundancia =} \OtherTok{NA}\NormalTok{,}
+                \DataTypeTok{RC =} \OtherTok{NA}\NormalTok{)}
+
+\CommentTok{# Definir un ciclo para iterar cada año}
+\ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in}\NormalTok{ ano)\{}
+  \CommentTok{# El ano es determinado por el ciclo}
+\NormalTok{  Ano <-}\StringTok{ }\NormalTok{i}
+  
+  \CommentTok{# El estado es constante}
+\NormalTok{  Estado <-}\StringTok{ }\NormalTok{estado}
+  
+  \CommentTok{# La comunidad es constante}
+\NormalTok{  Comunidad <-}\StringTok{ }\NormalTok{comunidad}
+  
+  \CommentTok{# Definir un ciclo para iterar cada sitio}
+  \ControlFlowTok{for}\NormalTok{(j }\ControlFlowTok{in}\NormalTok{ sitio)\{}
+    
+    \CommentTok{# El sitio es determinado por el ciclo}
+\NormalTok{    Sitio <-}\StringTok{ }\NormalTok{j}
+    
+    \CommentTok{#La latitud y longitud son NAs}
+\NormalTok{    Latitud <-}\StringTok{ }\OtherTok{NA}
+\NormalTok{    Longitud <-}\StringTok{ }\OtherTok{NA}
+    
+    \CommentTok{# El habitat es constante (NA)}
+\NormalTok{    Habitat <-}\StringTok{ }\NormalTok{habitat}
+    
+    \CommentTok{# Definir la zona segun la funcion anterior}
+\NormalTok{    Zona <-}\StringTok{ }\KeywordTok{zona}\NormalTok{(j)}
+    
+    \CommentTok{# El tipo de proteccion es constante (NA)}
+\NormalTok{    TipoProteccion <-}\StringTok{ }\NormalTok{tipo_proteccion}
+    
+    \CommentTok{# El ANP es constante (NA)}
+\NormalTok{    ANP <-}\StringTok{ }\NormalTok{ANP}
+    
+    \CommentTok{# Definir un ciclo para iterar cada transecto}
+    \ControlFlowTok{for}\NormalTok{(k }\ControlFlowTok{in}\NormalTok{ transecto)\{}
+      
+\NormalTok{      Dia <-}\StringTok{ }\NormalTok{dia}
+      
+      \CommentTok{# Aleatoriamente muestreamos un mes de la lista anterior (mes)}
+\NormalTok{      Mes <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ mes,}
+                    \DataTypeTok{size =}\NormalTok{ 1L)}
+      
+      \CommentTok{# Escoger aleatoriamente un buzo monitor}
+\NormalTok{      BuzoMonitor <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ buzo_monitor,}
+                            \DataTypeTok{size =}\NormalTok{ 1L)}
+      
+      \CommentTok{# Escoger aleatoriamente la hora inicial}
+\NormalTok{      HoraInicial <-}\StringTok{ }\NormalTok{hora_inicial[}\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =} \DecValTok{1}\OperatorTok{:}\DecValTok{7}\NormalTok{,}
+                                         \DataTypeTok{size =}\NormalTok{ 1L)]}
+      
+      \CommentTok{# Escoger alteatoriamente la profundidad inicial}
+\NormalTok{      ProfundidadInicial <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ profundidad_inicial,}
+                                   \DataTypeTok{size =}\NormalTok{ 1L)}
+      
+      \CommentTok{# Calcular la profundidad final segun la funcion anterior}
+\NormalTok{      ProfundidadFinal <-}\StringTok{ }\KeywordTok{profundidad_final}\NormalTok{(ProfundidadInicial)}
+      
+      \CommentTok{# Escoger una temperatura alteatoria}
+\NormalTok{      Temperatura <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ temperatura,}
+                            \DataTypeTok{size =}\NormalTok{ 1L)}
+      
+      \CommentTok{# Escoger una visibilidad aleatoria}
+\NormalTok{      Visibilidad <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ visibilidad,}
+                            \DataTypeTok{size =}\NormalTok{ 1L)}
+      
+      \CommentTok{# Corriente es NA}
+\NormalTok{      Corriente <-}\StringTok{ }\OtherTok{NA}
+      
+      \CommentTok{# El transecto esta determinado por el ciclo}
+\NormalTok{      Transecto <-}\StringTok{ }\NormalTok{k}
+      
+      \CommentTok{# Obtener un numero aleatorio para la riqueza}
+\NormalTok{      n_spp <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1}\NormalTok{, }\DataTypeTok{min =} \DecValTok{0}\NormalTok{, }\DataTypeTok{max =} \DecValTok{10}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{        }\KeywordTok{as.integer}\NormalTok{()}
+      
+      \CommentTok{# Muestrear la lista de especies para obtener las}
+      \CommentTok{# observadas en este transecto}
+\NormalTok{      GeneroEspecie <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(genero_especie,}
+                              \DataTypeTok{size =}\NormalTok{ n_spp)}
+      \CommentTok{# Sexo es NA}
+\NormalTok{      Sexo <-}\StringTok{ }\OtherTok{NA}
+      
+      \CommentTok{# La funcion rc me dice los pares RC}
+\NormalTok{      RC <-}\StringTok{ }\KeywordTok{rc}\NormalTok{(Sitio)}
+      
+      \CommentTok{# Definir un ciclo para iterar cada especie}
+      \ControlFlowTok{for}\NormalTok{(l }\ControlFlowTok{in}\NormalTok{ GeneroEspecie)\{}
+        
+        \CommentTok{# Separar genero y especie}
+\NormalTok{        Genero <-}\StringTok{ }\KeywordTok{str_split}\NormalTok{(l, }\StringTok{" "}\NormalTok{)[[}\DecValTok{1}\NormalTok{]][[}\DecValTok{1}\NormalTok{]]}
+\NormalTok{        Especie <-}\StringTok{ }\KeywordTok{str_split}\NormalTok{(l, }\StringTok{" "}\NormalTok{)[[}\DecValTok{1}\NormalTok{]][[}\DecValTok{2}\NormalTok{]]}
+        
+        \CommentTok{# Obtener un numero aleatorio entre 1 y 5 para}
+        \CommentTok{# definir el numero de grupos de tallas observados}
+\NormalTok{        nobs <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{size =}\NormalTok{ 1L)}
+        
+        \CommentTok{# Definir un ciclo para iterar cada grupo de observaciones de una spp}
+        \ControlFlowTok{for}\NormalTok{(m }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nobs)\{}
+          
+          \CommentTok{# Escoger una talla aleatoria segun la funcion anterior}
+\NormalTok{          Talla <-}\StringTok{ }\KeywordTok{tallas}\NormalTok{(}\DataTypeTok{spp =}\NormalTok{ spp, }\DataTypeTok{generoespecie =}\NormalTok{ l)}
+          
+          \CommentTok{# Clase talla es constante (NA)}
+\NormalTok{          ClaseTalla <-}\StringTok{ }\OtherTok{NA}
+          
+          \CommentTok{# Muestrear una abundanciasegun la funcion}
+\NormalTok{          Abundancia <-}\StringTok{ }\KeywordTok{mean_sp}\NormalTok{(}\DataTypeTok{generoespecie =}\NormalTok{ l)}
+          
+          \CommentTok{# Juntar las observaciones de este grupo de tallas}
+\NormalTok{          datos_ijklm <-}\StringTok{ }\KeywordTok{tibble}\NormalTok{(Dia,}
+\NormalTok{                                Mes,}
+\NormalTok{                                Ano,}
+\NormalTok{                                Estado,}
+\NormalTok{                                Comunidad,}
+\NormalTok{                                Sitio,}
+\NormalTok{                                Latitud,}
+\NormalTok{                                Longitud,}
+\NormalTok{                                Habitat,}
+\NormalTok{                                Zona,}
+\NormalTok{                                TipoProteccion,}
+\NormalTok{                                ANP,}
+\NormalTok{                                BuzoMonitor, }
+\NormalTok{                                HoraInicial,}
+\NormalTok{                                ProfundidadInicial,}
+\NormalTok{                                ProfundidadFinal,}
+\NormalTok{                                Temperatura,}
+\NormalTok{                                Visibilidad,}
+\NormalTok{                                Corriente,}
+\NormalTok{                                Transecto,}
+\NormalTok{                                Genero,}
+\NormalTok{                                Especie,}
+                                \DataTypeTok{GeneroEspecie =}\NormalTok{ l,}
+\NormalTok{                                Sexo,}
+\NormalTok{                                Talla,}
+\NormalTok{                                ClaseTalla,}
+\NormalTok{                                Abundancia,}
+\NormalTok{                                RC)}
+          
+\NormalTok{          datos <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(datos, datos_ijklm)}
+\NormalTok{        \} }\CommentTok{# Fin nobs}
+\NormalTok{      \} }\CommentTok{# Fin especie}
+\NormalTok{    \} }\CommentTok{# Fin transecto}
+\NormalTok{  \} }\CommentTok{# Fin sitio}
+\NormalTok{\} }\CommentTok{# Fin años}
+
+\CommentTok{# Borrar los NAs originales y agrupar grupos de}
+\CommentTok{# talla en caso de que esten duplicados}
+\NormalTok{datos }\OperatorTok{%<>%}
+\StringTok{  }\KeywordTok{drop_na}\NormalTok{(dia) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(Dia, Mes, Ano, Estado, Comunidad, Sitio, Latitud,}
+\NormalTok{           Longitud, Habitat, Zona, TipoProteccion, ANP, BuzoMonitor, }
+\NormalTok{           HoraInicial, ProfundidadInicial, ProfundidadFinal,}
+\NormalTok{           Temperatura, Visibilidad, Corriente, Transecto, Genero,}
+\NormalTok{           Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, RC) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{Abundancia =} \KeywordTok{sum}\NormalTok{(Abundancia, }\DataTypeTok{na.rm =}\NormalTok{ T)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ungroup}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(Dia, Mes, Ano, Estado, Comunidad, Sitio, Latitud,}
+\NormalTok{         Longitud, Habitat, Zona, TipoProteccion, ANP, BuzoMonitor, }
+\NormalTok{         HoraInicial, ProfundidadInicial, ProfundidadFinal,}
+\NormalTok{         Temperatura, Visibilidad, Corriente, Transecto, Genero,}
+\NormalTok{         Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, Abundancia, RC)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Graficar los datos}
+\NormalTok{datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Ano, }\DataTypeTok{y =}\NormalTok{ Abundancia, }\DataTypeTok{color =}\NormalTok{ Zona, }\DataTypeTok{group =}\NormalTok{ Sitio, }\DataTypeTok{linetype =}\NormalTok{ RC)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{stat_summary}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{fun.y =} \StringTok{"mean"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{GeneroEspecie, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{scales =} \StringTok{"free_y"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\NormalTok{startR}\OperatorTok{::}\KeywordTok{ggtheme_plot}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"top"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Set1"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Año"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-1.pdf}
+\caption{\label{fig:graficar-datos}Series de tiempo de los datos antes de
+agregar tendencias}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Ahora agregamos tendencias en abundancias y tallas.}
+\CommentTok{# Las abundancias aumentan un 10% cada ano despues del 2000.}
+\CommentTok{# Las tallas aumentan 1 cm cada año.}
+\NormalTok{datos <-}\StringTok{ }\NormalTok{datos }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{neg =} \KeywordTok{ifelse}\NormalTok{(RC }\OperatorTok{==}\StringTok{ "Cerro prieto - Popotla"}\NormalTok{, }\DecValTok{-1}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+         \DataTypeTok{Abundancia =} \KeywordTok{ifelse}\NormalTok{(Zona }\OperatorTok{==}\StringTok{ "Reserva"} \OperatorTok{&}\StringTok{ }\NormalTok{Ano }\OperatorTok{>}\StringTok{ }\DecValTok{2000}\NormalTok{,}
+\NormalTok{                             Abundancia }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{(neg }\OperatorTok{*}\StringTok{ }\NormalTok{((Ano }\OperatorTok{-}\StringTok{ }\DecValTok{2000}\NormalTok{) }\OperatorTok{*}\StringTok{ }\FloatTok{0.1}\NormalTok{))),}
+\NormalTok{                             Abundancia),}
+         \DataTypeTok{Talla =} \KeywordTok{ifelse}\NormalTok{(Zona }\OperatorTok{==}\StringTok{ "Reserva"} \OperatorTok{&}\StringTok{ }\NormalTok{Ano }\OperatorTok{>}\StringTok{ }\DecValTok{2000}\NormalTok{,}
+\NormalTok{                        Talla }\OperatorTok{+}\StringTok{ }\NormalTok{((Ano }\OperatorTok{-}\StringTok{ }\DecValTok{2000}\NormalTok{) }\OperatorTok{*}\StringTok{ }\DecValTok{1}\NormalTok{),}
+\NormalTok{                        Talla)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{neg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Graficar los datos}
+\NormalTok{datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Ano, }\DataTypeTok{y =}\NormalTok{ Abundancia, }\DataTypeTok{color =}\NormalTok{ Zona, }\DataTypeTok{group =}\NormalTok{ Sitio, }\DataTypeTok{linetype =}\NormalTok{ RC)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{stat_summary}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{fun.y =} \StringTok{"mean"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{GeneroEspecie, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{scales =} \StringTok{"free_y"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\NormalTok{startR}\OperatorTok{::}\KeywordTok{ggtheme_plot}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"top"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Set1"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Año"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-abundancias-1.pdf}
+\caption{\label{fig:graficar-datos-abundancias}Series de tiempo de los datos
+con tendencias (10\% anual) despés del primer año. Note como una reserva
+funciona y otra no.}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Graficar los datos}
+\NormalTok{datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Ano, }\DataTypeTok{y =}\NormalTok{ Talla, }\DataTypeTok{color =}\NormalTok{ Zona, }\DataTypeTok{group =}\NormalTok{ Sitio, }\DataTypeTok{linetype =}\NormalTok{ RC)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{stat_summary}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{fun.y =} \StringTok{"mean"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{GeneroEspecie, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{scales =} \StringTok{"free_y"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\NormalTok{startR}\OperatorTok{::}\KeywordTok{ggtheme_plot}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position =} \StringTok{"top"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_color_brewer}\NormalTok{(}\DataTypeTok{palette =} \StringTok{"Set1"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Año"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-tallas-1.pdf}
+\caption{\label{fig:graficar-datos-tallas}Series de tiempo de los datos con
+tendencias (10\% anual) despés del primer año. Note como una reserva
+funciona y otra no.}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.csv}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ datos,}
+          \DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"materiales"}\NormalTok{, }\StringTok{"datos"}\NormalTok{, }\StringTok{"datos_peces.csv"}\NormalTok{),}
+          \DataTypeTok{row.names =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
 
 \bibliography{references.bib}
 

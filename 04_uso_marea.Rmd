@@ -1,0 +1,11 @@
+# (PART) Parte II {-}
+
+# Uso de MAREA
+
+## Indicadores biológicos para 1 reserva
+
+## Indicadores biológicos y especie objetivo para 1 reserva
+
+## Todos los indicadores para 1 reserva
+
+## Indicadores biológicos para varias reservas, simultáneamente

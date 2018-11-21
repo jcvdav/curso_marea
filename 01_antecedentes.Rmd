@@ -1,0 +1,25 @@
+# (PART) Parte I {-} 
+
+# Antecedentes
+
+La evaluación de reservas marinas no es algo nuevo. Sin embargo, muy pocos trabajos las han evaluado utilizando técnicas que distingan entre correlación y causalidad. Por lo tanto, es útil hacer una recapitulación de metodologías comúnmente usadas antes de presentar la metodología utilizada por MAREA. Este capítulo se enfoca en los indicadores y diseños muestreales, presentando casos publicados en la literatura científica. Revisaremos tres diseños de muestro generales que se han utilizado en la evaluación de reservas marinas y discutiremos sus ventajas y desventajas, así como las implicaciones en el manejo.
+
+## Antes vs. Después
+
+Una de las formas más comunes de evaluar reservas marinas es mediante la comparación de indicadores biológicos antes y después de la implementación de la reserva. Por ejemplo @wantiez_1997 evaluan el efecto de las reservas marinas en las comunidades de peces de cinco islas en Nueva Celadonia. El trabajo compara número de especies (riqueza), número de organismos (densidades) y biomasa obtenidas para nueve sitios en 1990 y 1994. Aunque las reservas fueron establecidas en 1989, la vigilancia y cumplimiento de las reglas comienza en 1990. Aunque los autores identifican pocos cambios estadísticamente significativos (solamente dos sitios muestran un incremento en densidad), la metodología empleada ignora otras eventos que puedan haber causado los efectos observados.
+
+Por ejemplo, es posible que entre 1990 y 1994 hayan existido intervenciones de manejo pesquero que redujeran el esfuerzo de pesca, el ambiente pudo haber sufrido cambios que modificaran la productividad del sistema, la sobrepesca de especies depredadoras o una serie de años de buen reclutamiento podrían llevar a observar incrementos en densidad [@szuwalski_2017;@chavez_2003]. Para poder distinguir este tipo de cambios, sería necesario un sitio control con el cual comparar [@betti_2017]. Un sitio control podría ser un área con hábitat similar al de la reserva, pero que presenta actividad pesquera.
+
+## Dentro vs. Fuera
+
+Evaluación Dentro-Fuera (Lester et al., 2009; Aburto-Oropeza et al., 2011; Guidetti et al., 2014; Rodriguez & Fanning, 2017; Friedlander et al., 2017)
+
+This approach does not account for other factors for which one must control [@davies_2017] in order to causally attribute a biological change to the reserve.
+
+## Antes vs. Después - Dentro vs. Fuera
+
+Evaluación Antes-Después-Control-Impacto (Lester et al., 2009; Moland et al., 2013; Soykan & Lewison, 2015)
+Importancia del Contrafactual (Davies, Mees & Milner-Gulland, 2017)
+
+## Otras cosas
+

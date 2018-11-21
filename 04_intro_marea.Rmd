@@ -1,9 +1,0 @@
-# Introducción a MAREA
-
-## Tipos y formatos de datos
-
-## Capacidades y limitaciones
-
-## Evaluación de reservas en 6 etapas
-
-## Interpretación de resultados

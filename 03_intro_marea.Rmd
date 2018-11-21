@@ -1,0 +1,15 @@
+# Introducción a MAREA
+
+Presentaremos los pasos necesarios para evaluar una reserva con MAREA. Ya conoceremos los datos y análisis, por lo que no nos limitaremos a aprender su uso, sino comprender las operaciones y procesos que realiza. Esto permitirá anticipar errores y comprender las capacidades y limitaciones de MAREA. Comentaremos sobre la manera de prevenir errores y, en caso de que existan, reportarlos para su arreglo. Usaremos Isla Natividad como ejemplo para llevar a cabo la evaluación de la reserva de “La Plana / Las Cuevas”.
+
+## Tipos y formatos de datos
+
+Para poder usar MAREA sin problemas, es necesario que los datos tengan el formato correcto. Se presentarán los conceptos de datos largos y anchos, y discutiremos sobre las ventajas de cada uno. Usaremos bases en ambos formatos para identificar las ventajas / desventajas de cada una y justificaremos el uso de datos largos en MAREA. Hablaremos sobre buenas prácticas de mantenimiento de bases de datos, nombres de columnas y metadatos. Terminaremos hablando de las extensiones (e.g. *.csv) en las que se pueden exportar los datos / importar datos desde Excel.
+
+## Evaluación de reservas en 6 etapas
+
+## Interpretación de resultados
+
+Comenzaremos por describir los resultados que produce MAREA: la tabla de puntuación y el reporte técnico. Primero discutiremos sobre el desempeño de la reserva utilizando únicamente la tabla de puntuación. Después, descargaremos el reporte técnico que produce MAREA para llegar a conclusiones definitivas sobre el desempeño de la reserva.
+
+## Capacidades y limitaciones

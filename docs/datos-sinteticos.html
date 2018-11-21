@@ -6,21 +6,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Costeo y Evaluación de Reservas Marinas con Shiny Apps</title>
-  <meta name="description" content="Algo por aqui">
+  <meta name="description" content="Manual de evaluación de reservas marinas para gestores ambientales.">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
   <meta property="og:title" content="Costeo y Evaluación de Reservas Marinas con Shiny Apps" />
   <meta property="og:type" content="book" />
   
-  
-  <meta property="og:description" content="Algo por aqui" />
+  <meta property="og:image" content="img/flow.tif" />
+  <meta property="og:description" content="Manual de evaluación de reservas marinas para gestores ambientales." />
   <meta name="github-repo" content="jcvdav/curso_marea" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Costeo y Evaluación de Reservas Marinas con Shiny Apps" />
   
-  <meta name="twitter:description" content="Algo por aqui" />
-  
+  <meta name="twitter:description" content="Manual de evaluación de reservas marinas para gestores ambientales." />
+  <meta name="twitter:image" content="img/flow.tif" />
 
 <meta name="author" content="Juan Carlos Villaseñor-Derbez">
 
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="errores-comunes-y-solucion-de-problemas.html">
+<link rel="prev" href="errores-y-soluciones.html">
 <link rel="next" href="referencias.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -130,35 +130,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Antes de empezar</a><ul>
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#requisitos"><i class="fa fa-check"></i><b>0.1</b> Requisitos</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#sobre-este-libro"><i class="fa fa-check"></i><b>0.2</b> Sobre este libro</a><ul>
+<li class="chapter" data-level="0.2.1" data-path="index.html"><a href="index.html#motivacion"><i class="fa fa-check"></i><b>0.2.1</b> Motivación</a></li>
+<li class="chapter" data-level="0.2.2" data-path="index.html"><a href="index.html#estructura"><i class="fa fa-check"></i><b>0.2.2</b> Estructura</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>I Parte I</b></span></li>
-<li class="chapter" data-level="1" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
-<li class="chapter" data-level="2" data-path="formas-de-evaluar-reservas.html"><a href="formas-de-evaluar-reservas.html"><i class="fa fa-check"></i><b>2</b> Formas de evaluar reservas</a><ul>
-<li class="chapter" data-level="2.1" data-path="formas-de-evaluar-reservas.html"><a href="formas-de-evaluar-reservas.html#dentro-vs.fuera"><i class="fa fa-check"></i><b>2.1</b> Dentro vs. Fuera</a></li>
-<li class="chapter" data-level="2.2" data-path="formas-de-evaluar-reservas.html"><a href="formas-de-evaluar-reservas.html#antes-vs.despues"><i class="fa fa-check"></i><b>2.2</b> Antes vs. Después</a></li>
-<li class="chapter" data-level="2.3" data-path="formas-de-evaluar-reservas.html"><a href="formas-de-evaluar-reservas.html#dentro-vs.fuera---antes-vs.despues"><i class="fa fa-check"></i><b>2.3</b> Dentro vs. Fuera - Antes vs. Después</a></li>
-<li class="chapter" data-level="2.4" data-path="formas-de-evaluar-reservas.html"><a href="formas-de-evaluar-reservas.html#dentro-vs.fuera---antes-vs.despues-multiple"><i class="fa fa-check"></i><b>2.4</b> Dentro vs. Fuera - Antes vs. Después multiple</a></li>
+<li class="chapter" data-level="1" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>1</b> Antecedentes</a><ul>
+<li class="chapter" data-level="1.1" data-path="antecedentes.html"><a href="antecedentes.html#antes-vs.despues"><i class="fa fa-check"></i><b>1.1</b> Antes vs. Después</a></li>
+<li class="chapter" data-level="1.2" data-path="antecedentes.html"><a href="antecedentes.html#dentro-vs.fuera"><i class="fa fa-check"></i><b>1.2</b> Dentro vs. Fuera</a></li>
+<li class="chapter" data-level="1.3" data-path="antecedentes.html"><a href="antecedentes.html#antes-vs.despues---dentro-vs.fuera"><i class="fa fa-check"></i><b>1.3</b> Antes vs. Después - Dentro vs. Fuera</a></li>
+<li class="chapter" data-level="1.4" data-path="antecedentes.html"><a href="antecedentes.html#otras-cosas"><i class="fa fa-check"></i><b>1.4</b> Otras cosas</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="evaluacion-de-reservas.html"><a href="evaluacion-de-reservas.html"><i class="fa fa-check"></i><b>3</b> Evaluación de reservas</a><ul>
-<li class="chapter" data-level="3.1" data-path="evaluacion-de-reservas.html"><a href="evaluacion-de-reservas.html#objetivos-e-indicadores"><i class="fa fa-check"></i><b>3.1</b> Objetivos e indicadores</a></li>
-<li class="chapter" data-level="3.2" data-path="evaluacion-de-reservas.html"><a href="evaluacion-de-reservas.html#analisis-de-inferencia-de-causalidad"><i class="fa fa-check"></i><b>3.2</b> Análisis de inferencia de causalidad</a></li>
+<li class="chapter" data-level="2" data-path="metodologia-de-marea.html"><a href="metodologia-de-marea.html"><i class="fa fa-check"></i><b>2</b> Metodología de MAREA</a><ul>
+<li class="chapter" data-level="2.1" data-path="metodologia-de-marea.html"><a href="metodologia-de-marea.html#objetivos-e-indicadores"><i class="fa fa-check"></i><b>2.1</b> Objetivos e indicadores</a></li>
+<li class="chapter" data-level="2.2" data-path="metodologia-de-marea.html"><a href="metodologia-de-marea.html#analisis-de-inferencia-de-causalidad"><i class="fa fa-check"></i><b>2.2</b> Análisis de inferencia de causalidad</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html"><i class="fa fa-check"></i><b>4</b> Introducción a MAREA</a><ul>
-<li class="chapter" data-level="4.1" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html#tipos-y-formatos-de-datos"><i class="fa fa-check"></i><b>4.1</b> Tipos y formatos de datos</a></li>
-<li class="chapter" data-level="4.2" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html#capacidades-y-limitaciones"><i class="fa fa-check"></i><b>4.2</b> Capacidades y limitaciones</a></li>
-<li class="chapter" data-level="4.3" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html#evaluacion-de-reservas-en-6-etapas"><i class="fa fa-check"></i><b>4.3</b> Evaluación de reservas en 6 etapas</a></li>
-<li class="chapter" data-level="4.4" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html#interpretacion-de-resultados"><i class="fa fa-check"></i><b>4.4</b> Interpretación de resultados</a></li>
+<li class="chapter" data-level="3" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html"><i class="fa fa-check"></i><b>3</b> Introducción a MAREA</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html#tipos-y-formatos-de-datos"><i class="fa fa-check"></i><b>3.1</b> Tipos y formatos de datos</a></li>
+<li class="chapter" data-level="3.2" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html#evaluacion-de-reservas-en-6-etapas"><i class="fa fa-check"></i><b>3.2</b> Evaluación de reservas en 6 etapas</a></li>
+<li class="chapter" data-level="3.3" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html#interpretacion-de-resultados"><i class="fa fa-check"></i><b>3.3</b> Interpretación de resultados</a></li>
+<li class="chapter" data-level="3.4" data-path="introduccion-a-marea.html"><a href="introduccion-a-marea.html#capacidades-y-limitaciones"><i class="fa fa-check"></i><b>3.4</b> Capacidades y limitaciones</a></li>
 </ul></li>
 <li class="part"><span><b>II Parte II</b></span></li>
-<li class="chapter" data-level="5" data-path="uso-de-marea.html"><a href="uso-de-marea.html"><i class="fa fa-check"></i><b>5</b> Uso de MAREA</a><ul>
-<li class="chapter" data-level="5.1" data-path="uso-de-marea.html"><a href="uso-de-marea.html#evaluacion-de-indicadores-biologicos-para-1-reserva"><i class="fa fa-check"></i><b>5.1</b> Evaluación de indicadores biológicos para 1 reserva</a></li>
-<li class="chapter" data-level="5.2" data-path="uso-de-marea.html"><a href="uso-de-marea.html#evaluacion-de-indicadores-biologicos-y-especie-objetivo-para-1-reserva"><i class="fa fa-check"></i><b>5.2</b> Evaluación de indicadores biológicos y especie objetivo para 1 reserva</a></li>
-<li class="chapter" data-level="5.3" data-path="uso-de-marea.html"><a href="uso-de-marea.html#evaluacion-de-todos-los-indicadores-para-1-reserva"><i class="fa fa-check"></i><b>5.3</b> Evaluación de todos los indicadores para 1 reserva</a></li>
-<li class="chapter" data-level="5.4" data-path="uso-de-marea.html"><a href="uso-de-marea.html#evaluacion-de-todos-los-indicadores-para-varias-reservas-simultaneamente"><i class="fa fa-check"></i><b>5.4</b> Evaluación de todos los indicadores para varias reservas, simultáneamente</a></li>
+<li class="chapter" data-level="4" data-path="uso-de-marea.html"><a href="uso-de-marea.html"><i class="fa fa-check"></i><b>4</b> Uso de MAREA</a><ul>
+<li class="chapter" data-level="4.1" data-path="uso-de-marea.html"><a href="uso-de-marea.html#indicadores-biologicos-para-1-reserva"><i class="fa fa-check"></i><b>4.1</b> Indicadores biológicos para 1 reserva</a></li>
+<li class="chapter" data-level="4.2" data-path="uso-de-marea.html"><a href="uso-de-marea.html#indicadores-biologicos-y-especie-objetivo-para-1-reserva"><i class="fa fa-check"></i><b>4.2</b> Indicadores biológicos y especie objetivo para 1 reserva</a></li>
+<li class="chapter" data-level="4.3" data-path="uso-de-marea.html"><a href="uso-de-marea.html#todos-los-indicadores-para-1-reserva"><i class="fa fa-check"></i><b>4.3</b> Todos los indicadores para 1 reserva</a></li>
+<li class="chapter" data-level="4.4" data-path="uso-de-marea.html"><a href="uso-de-marea.html#indicadores-biologicos-para-varias-reservas-simultaneamente"><i class="fa fa-check"></i><b>4.4</b> Indicadores biológicos para varias reservas, simultáneamente</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="errores-comunes-y-solucion-de-problemas.html"><a href="errores-comunes-y-solucion-de-problemas.html"><i class="fa fa-check"></i><b>6</b> Errores comunes y solución de problemas</a><ul>
-<li class="chapter" data-level="6.1" data-path="errores-comunes-y-solucion-de-problemas.html"><a href="errores-comunes-y-solucion-de-problemas.html#especie-indicador-no-tiene-diseno-baci"><i class="fa fa-check"></i><b>6.1</b> Especie / Indicador no tiene diseño BACI</a></li>
-<li class="chapter" data-level="6.2" data-path="errores-comunes-y-solucion-de-problemas.html"><a href="errores-comunes-y-solucion-de-problemas.html#diferentes-especies-en-bases-biologicas-vs-pesca"><i class="fa fa-check"></i><b>6.2</b> Diferentes especies en bases biológicas vs pesca</a></li>
+<li class="chapter" data-level="5" data-path="errores-y-soluciones.html"><a href="errores-y-soluciones.html"><i class="fa fa-check"></i><b>5</b> Errores y soluciones</a><ul>
+<li class="chapter" data-level="5.1" data-path="errores-y-soluciones.html"><a href="errores-y-soluciones.html#especie-indicador-no-tiene-diseno-baci"><i class="fa fa-check"></i><b>5.1</b> Especie / Indicador no tiene diseño BACI</a></li>
+<li class="chapter" data-level="5.2" data-path="errores-y-soluciones.html"><a href="errores-y-soluciones.html#diferentes-especies-en-bases-biologicas-vs-pesca"><i class="fa fa-check"></i><b>5.2</b> Diferentes especies en bases biológicas vs pesca</a></li>
 </ul></li>
 <li class="appendix"><span><b>Appéndice</b></span></li>
 <li class="chapter" data-level="A" data-path="datos-sinteticos.html"><a href="datos-sinteticos.html"><i class="fa fa-check"></i><b>A</b> Datos sintéticos</a></li>
@@ -583,7 +586,7 @@ Figura A.3: Series de tiempo de los datos con tendencias (10% anual) despés del
           </div>
         </div>
       </div>
-<a href="errores-comunes-y-solucion-de-problemas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="errores-y-soluciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="referencias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -614,7 +617,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jcvdav/curso_marea/edit/master/inst/examples/07_datos.Rmd",
+"link": "https://github.com/jcvdav/curso_marea/edit/master/06_datos.Rmd",
 "text": "Edit"
 },
 "download": ["evaluacion-reservas.pdf", "evaluacion-reservas.epub"],
