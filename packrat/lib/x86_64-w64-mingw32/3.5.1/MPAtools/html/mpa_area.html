@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: area matrix generator</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for mpa_area {MPAtools}"><tr><td>mpa_area {MPAtools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>area matrix generator</h2>
+
+<h3>Description</h3>
+
+<p>Generates the area matrix that will be simulated, based on size of the area, size of the MPA, number of MPAs,harvesting rate, and harvesting strategy.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+mpa_area(m, n, mpa.size, mpa.number, harvesting.rate = 0.1,
+  harvesting.strategy = FALSE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>m</code></td>
+<td>
+<p>number of vertical cells (rows)</p>
+</td></tr>
+<tr valign="top"><td><code>n</code></td>
+<td>
+<p>number of horizontal cells (columns)</p>
+</td></tr>
+<tr valign="top"><td><code>mpa.size</code></td>
+<td>
+<p>proportion of cells to be MPAs (from 0 to 1)</p>
+</td></tr>
+<tr valign="top"><td><code>mpa.number</code></td>
+<td>
+<p>number of MPAs</p>
+</td></tr>
+<tr valign="top"><td><code>harvesting.rate</code></td>
+<td>
+<p>harvesting rate expressed as a proportion (0 to 1) of organisms harvested per cell. If harvesting.strategy = TRUE, this is the maximum value observed in the borders of the MPA.</p>
+</td></tr>
+<tr valign="top"><td><code>harvesting.strategy</code></td>
+<td>
+<p>A logical value that indicates if &quot;Fising the line&quot; occurs. harvesting.strategy=FALSE is the default that indicates equal harvesting rate outside the MPA. If TRUE, it creates a pattern in which harvesting rate depends on the distance to MPA.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>area A matriz of size m by n that simulates harvesting rates and MPAs
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Villasenor-Derbez, J.C.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>MPAtools</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

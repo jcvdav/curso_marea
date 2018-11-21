@@ -1,0 +1,32 @@
+---
+title: "Resumen"
+output: html_document
+params:
+  summary: ""
+---
+
+Clase de indicador | Indicador      | Valor
+-------------------|----------------|------------------------------------------
+Bio                | Densidad P     | `r knitr::include_graphics(params$summary$Bio$P$Dp)`
+Bio                | Riqueza P      | `r knitr::include_graphics(params$summary$Bio$P$Sp)`
+Bio                | Biomasa P      | `r knitr::include_graphics(params$summary$Bio$P$Bp)`
+Bio                | Nivel Trofico P| `r knitr::include_graphics(params$summary$Bio$P$NT)`
+Bio                | Densidad I     | `r knitr::include_graphics(params$summary$Bio$I$Di)`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

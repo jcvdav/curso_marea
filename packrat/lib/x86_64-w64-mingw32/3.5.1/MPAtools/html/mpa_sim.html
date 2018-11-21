@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Spatial MPA simulation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for mpa_sim {MPAtools}"><tr><td>mpa_sim {MPAtools}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Spatial MPA simulation</h2>
+
+<h3>Description</h3>
+
+<p>Simulates MPA and surrounding fishing grounds. Growth is modeled with a discrete logistic growth model. This version assumes a closed population and no age structure. Organisms leaving the area through the right margin reincorporate the population through the left margin; same happens for uppper and lower margins.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+mpa_sim(area, nsteps, r, pop0, K, mrate, op = FALSE, cf = NULL,
+  closure.vec = NULL)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>area</code></td>
+<td>
+<p>An N by M matrix with harvesting rates for fishing grounds (0 &lt; harvesting rate &lt;= 1) and MPAs (harvesting rate = 0) for the simulated area.</p>
+</td></tr>
+<tr valign="top"><td><code>nsteps</code></td>
+<td>
+<p>Number of steps to run the simulation.</p>
+</td></tr>
+<tr valign="top"><td><code>r</code></td>
+<td>
+<p>Population growth rate.</p>
+</td></tr>
+<tr valign="top"><td><code>pop0</code></td>
+<td>
+<p>Initial population size. If single, assumes equal population size across all cells in area. If a matrix, it must have the same dimensions as area.</p>
+</td></tr>
+<tr valign="top"><td><code>K</code></td>
+<td>
+<p>Carrying capacity</p>
+</td></tr>
+<tr valign="top"><td><code>mrate</code></td>
+<td>
+<p>Movement rate expressed as a proportion (relative to 1). Indicates the proportion of organisms that will move out of a cell in one timestep.</p>
+</td></tr>
+<tr valign="top"><td><code>op</code></td>
+<td>
+<p>A logical value that indicates if a filled.contour is to be created. WARNING: op = TRUE may make the simulation slow. Alternatively, see closure.vec.</p>
+</td></tr>
+<tr valign="top"><td><code>cf</code></td>
+<td>
+<p>A single integer that indicates the frequency (how many n steps) in which a closure to fishing occurs (i.e. no fishing).</p>
+</td></tr>
+<tr valign="top"><td><code>closure.vec</code></td>
+<td>
+<p>a vector that contains all nsteps in which a closure must occur. For example, closure.vec=c(1,2,3,10) will close the fishery in yers 1,2,3 consecutively, and then again on nstep 10.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>results A list containing pop: a matrix of size N by M (same dimensions as area, above) with population size within each cell; and timeseries: a dataframe with 5 columns and nstep rows. The columns contain time (timeseries$time), population SIZE at each timestep (timeseries$pop), population DENSITY inside the MPA (timeseries$pop.in), population DENSITY outside the MPA (timeseries$pop.out) and yearly total catches (timeseries$total.catches).
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Villasenor-Derbez, J.C.
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>MPAtools</em> version 0.1.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

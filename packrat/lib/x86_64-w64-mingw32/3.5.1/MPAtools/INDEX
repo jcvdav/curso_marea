@@ -1,0 +1,48 @@
+DATAisFORMAT            DATA is FORMAT
+a2b                     Convert data format
+a2c                     Convert data format
+b2a                     Convert data format
+b2c                     Convert data format
+bio_model               Fit a generalized linear model
+bio_results             Biophysical Results
+bio_results_i           Biophysical Results
+bio_score               Scoring system
+c2a                     Convert data format
+c2b                     Convert data format
+covars_wrapper          A wrapper for define_covars
+define_covars           Title
+density                 Calculate density
+fish_biomass            Calculate biomass
+fish_size               Calculate a descriptor for fish size
+fix_na                  Fix NA
+gen_score               General Score
+gov_results             Governance Results
+indB_sel                Select indicators
+indG_sel                Select indicators
+indS_sel                Select indicators
+landings                Title
+mpa_area                area matrix generator
+mpa_check               mpa_sim input validator
+mpa_compare             Scneario concatenator
+mpa_plot                Plots results of mpa_sim
+mpa_plot2               Plots results from biophysical indicator
+                        functions
+mpa_plot3               Plots results from biophysical indicator
+                        functions by site
+mpa_plot4               Plot a turfeffect object for biophysical
+                        indicators
+mpa_sim                 Spatial MPA simulation
+mpa_xls2Rdata           *.xls to .Rdata converter
+reg_table               Create a regression table
+reserve_size            Title
+richness                Calculate species richness
+saveMAREA               Title
+shannon                 Shannon-Wiener Diversity Index
+soc_plot                Plot a turfeffect object for socioeconomic
+                        indicators
+soc_results             Results
+soc_score               Title
+sp_list                 Title
+trophic                 Calculate mean trophic level
+turfeffect              turfeffect
+valueBoxString          valueBoxValues
