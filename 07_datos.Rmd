@@ -335,6 +335,7 @@ datos %<>%
            Temperatura, Visibilidad, Corriente, Transecto, Genero,
            Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, RC) %>% 
   summarize(Abundancia = sum(Abundancia, na.rm = T)) %>% 
+  ungroup() %>% 
   select(Dia, Mes, Ano, Estado, Comunidad, Sitio, Latitud,
          Longitud, Habitat, Zona, TipoProteccion, ANP, BuzoMonitor, 
          HoraInicial, ProfundidadInicial, ProfundidadFinal,
@@ -357,17 +358,37 @@ datos %>%
 ```
 
 ```{r agregar-tendencias}
+# Ahora agregamos tendencias en abundancias y tallas.
+# Las abundancias aumentan un 10% cada ano despues del 2000.
+# Las tallas aumentan 1 cm cada año.
 datos <- datos %>%
   mutate(neg = ifelse(RC == "Cerro prieto - Popotla", -1, 1),
          Abundancia = ifelse(Zona == "Reserva" & Ano > 2000,
                              Abundancia * (1 + (neg * ((Ano - 2000) * 0.1))),
-                             Abundancia))
+                             Abundancia),
+         Talla = ifelse(Zona == "Reserva" & Ano > 2000,
+                        Talla + ((Ano - 2000) * 1),
+                        Talla)) %>% 
+  select(-neg)
 ```
 
-```{r graficar-datos2, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
+```{r graficar-datos-abundancias, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
 # Graficar los datos
 datos %>% 
   ggplot(aes(x = Ano, y = Abundancia, color = Zona, group = Sitio, linetype = RC)) +
+  geom_point(alpha = 0.5, size = 0.5) +
+  stat_summary(geom = "line", fun.y = "mean", size = 1) +
+  facet_wrap(~GeneroEspecie, ncol = 3, scales = "free_y") +
+  startR::ggtheme_plot() +
+  theme(legend.position = "top") +
+  scale_color_brewer(palette = "Set1") +
+  xlab("Año")
+```
+
+```{r graficar-datos-tallas, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
+# Graficar los datos
+datos %>% 
+  ggplot(aes(x = Ano, y = Talla, color = Zona, group = Sitio, linetype = RC)) +
   geom_point(alpha = 0.5, size = 0.5) +
   stat_summary(geom = "line", fun.y = "mean", size = 1) +
   facet_wrap(~GeneroEspecie, ncol = 3, scales = "free_y") +
