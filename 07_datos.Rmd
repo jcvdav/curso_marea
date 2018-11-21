@@ -1,0 +1,387 @@
+# (APPENDIX) Appéndice {-}
+
+# Datos sintéticos
+
+Este apéndice muestra el código usado para obtener los datos sintéticos del curso y el manual de evaluación. Primero, debemos definir una serie de variables que contengan los valores predeterminados o rangos de valores que cada variable puede tomar. Para los propósitos del curso, generaremos únicamente información biológica y económica de peces.
+
+```{r cargar-pkts}
+# Cargamos los paquetes que necesitamos
+suppressPackageStartupMessages({
+  library(magrittr)
+  library(tidyverse)
+})
+```
+
+
+```{r crear-predeterminados}
+######################################
+# Generar variables predeterminadas
+######################################
+
+# Las fechas estaran centradas en el dia 1 de cada mes
+dia <- 1
+
+# Los muestreos ocurren aleatoriamente entre abril y junio
+mes <- 4:6
+
+# Generaremos datos del 200 al 2018
+ano <- 2000:2018
+
+# El estado va a ser NA
+estado <- NA
+
+# La comunidad imaginaria va a ser Las Positas
+comunidad <- "Las Positas"
+
+# En Las Positas hay 4 sitios, dos reservas y dos controles
+# el tipo de sitio se define mas adelante
+sitio <- c("Las cruces",
+           "Cerro prieto",
+           "Calencho",
+           "Popotla")
+
+# No es necesario definir el habitat
+habitat <- NA
+
+# La zona es determinada con esta funcion
+zona <- function(sitio){
+  ifelse(sitio %in% c("Las cruces",
+                      "Cerro prieto"),
+         "Reserva",
+         "Control")
+}
+
+# Tipo de proteccion es NA
+tipo_proteccion <- NA
+
+# ANP es NA
+ANP <- NA
+
+# Lista de posibles buzos monitores (http://www.laff.bren.ucsb.edu/laff-network/alumni)
+buzo_monitor <- c("Caio Faro",
+                  "Alexandra Smith",
+                  "Diana Flores", 
+                  "Ignacia Rivera",
+                  "Wagner Quiros",
+                  "Gonzalo Banda",
+                  "Camila Vargas",
+                  "Diego Undurraga",
+                  "Denise Garcia",
+                  "Cristobal Libertad",
+                  "Catalina Milagros")
+
+# Horas iniciales arbitrarias
+hora_inicial <- c("6:50", "8:40", "10:20", "12:15", "13:40", "14:45", "15:20")
+
+# Rango de profundidades iniciales posibles
+profundidad_inicial <- 5:27
+
+# Esta funcion inventa una profundidad final
+# segun la profundidad inicial
+profundidad_final <- function(profundidad_inicial){
+  round(profundidad_inicial + rnorm(n = 1, mean = 0, sd = 1), digits = 1)
+}
+
+# Rango de temperaturas
+temperatura <- 25:27
+
+# Rango de visibilidades
+visibilidad <- 3:12
+
+# Corriente es NA
+corriente <- NA
+
+# Numeros de transectos
+transecto <- 1:12
+
+# Crear un origen en comun para las secuencias aleatorias
+set.seed(42)
+
+# De la lista de especies filtramos para tener
+# especies menores a 160 cm y que tengan todos
+# los parametros de a,b, NT y Lmax
+spp <- MPAtools::species_bio %>%
+  filter(Lmax < 160) %>% 
+  select(GeneroEspecie, a, b, NT, Lmax) %>%
+  drop_na() %>% 
+  sample_n(15)
+
+# Crear un vector con todas las especies
+genero_especie <- spp$GeneroEspecie
+
+# Esta funcion inventa una talla observada con una 
+# distribucion normal con promedio = la mitad entre
+# 0 y la longitud maxima reportada y desviacion
+# estandar = 0.3 * el promedio
+tallas <- function(spp, generoespecie){
+  
+  # calcular talla media
+  talla <- spp %>% 
+    filter(GeneroEspecie == generoespecie) %$% 
+    Lmax / 2
+  
+  # obtener ruido al rededor de la talla media
+  noise <- rnorm(n = 1, mean = 0, sd = 0.3 * talla / 2)
+  
+  # Redondear para evitar decimales
+  round(talla + noise)
+}
+
+# Esta funcion regresa la abundancia de la especie
+# que es un numero que sigue una distribucion de
+# poisson con Lambda = 12
+mean_sp <- function(generoespecie){
+  rpois(n = 1, lambda = 12)
+}
+
+# Esta funcion regresa el par RC para cada sitio
+rc <- function(sitio){
+  ifelse(sitio %in% c("Las cruces",
+                      "Calencho"),
+         "Las cruces - Calencho",
+         "Cerro prieto - Popotla")
+}
+
+```
+
+```{r simular-datos}
+
+######################################
+# Simular datos
+######################################
+
+# Crear un data.frame vacio
+datos <- tibble(Dia = NA,
+                Mes = NA,
+                Ano = NA,
+                Estado = NA,
+                Comunidad = NA,
+                Sitio = NA,
+                Latitud = NA,
+                Longitud = NA,
+                Habitat = NA,
+                Zona = NA,
+                TipoProteccion = NA,
+                ANP = NA,
+                BuzoMonitor = NA,
+                HoraInicial = NA,
+                ProfundidadInicial = NA,
+                ProfundidadFinal = NA,
+                Temperatura = NA,
+                Visibilidad = NA,
+                Corriente = NA,
+                Transecto = NA,
+                Genero = NA,
+                Especie = NA,
+                GeneroEspecie = NA,
+                Sexo = NA,
+                Talla = NA,
+                ClaseTalla = NA,
+                Abundancia = NA,
+                RC = NA)
+
+# Definir un ciclo para iterar cada año
+for(i in ano){
+  # El ano es determinado por el ciclo
+  Ano <- i
+  
+  # El estado es constante
+  Estado <- estado
+  
+  # La comunidad es constante
+  Comunidad <- comunidad
+  
+  # Definir un ciclo para iterar cada sitio
+  for(j in sitio){
+    
+    # El sitio es determinado por el ciclo
+    Sitio <- j
+    
+    #La latitud y longitud son NAs
+    Latitud <- NA
+    Longitud <- NA
+    
+    # El habitat es constante (NA)
+    Habitat <- habitat
+    
+    # Definir la zona segun la funcion anterior
+    Zona <- zona(j)
+    
+    # El tipo de proteccion es constante (NA)
+    TipoProteccion <- tipo_proteccion
+    
+    # El ANP es constante (NA)
+    ANP <- ANP
+    
+    # Definir un ciclo para iterar cada transecto
+    for(k in transecto){
+      
+      Dia <- dia
+      
+      # Aleatoriamente muestreamos un mes de la lista anterior (mes)
+      Mes <- sample(x = mes,
+                    size = 1L)
+      
+      # Escoger aleatoriamente un buzo monitor
+      BuzoMonitor <- sample(x = buzo_monitor,
+                            size = 1L)
+      
+      # Escoger aleatoriamente la hora inicial
+      HoraInicial <- hora_inicial[sample(x = 1:7,
+                                         size = 1L)]
+      
+      # Escoger alteatoriamente la profundidad inicial
+      ProfundidadInicial <- sample(x = profundidad_inicial,
+                                   size = 1L)
+      
+      # Calcular la profundidad final segun la funcion anterior
+      ProfundidadFinal <- profundidad_final(ProfundidadInicial)
+      
+      # Escoger una temperatura alteatoria
+      Temperatura <- sample(x = temperatura,
+                            size = 1L)
+      
+      # Escoger una visibilidad aleatoria
+      Visibilidad <- sample(x = visibilidad,
+                            size = 1L)
+      
+      # Corriente es NA
+      Corriente <- NA
+      
+      # El transecto esta determinado por el ciclo
+      Transecto <- k
+      
+      # Obtener un numero aleatorio para la riqueza
+      n_spp <- runif(n = 1, min = 0, max = 10) %>% 
+        as.integer()
+      
+      # Muestrear la lista de especies para obtener las
+      # observadas en este transecto
+      GeneroEspecie <- sample(genero_especie,
+                              size = n_spp)
+      # Sexo es NA
+      Sexo <- NA
+      
+      # La funcion rc me dice los pares RC
+      RC <- rc(Sitio)
+      
+      # Definir un ciclo para iterar cada especie
+      for(l in GeneroEspecie){
+        
+        # Separar genero y especie
+        Genero <- str_split(l, " ")[[1]][[1]]
+        Especie <- str_split(l, " ")[[1]][[2]]
+        
+        # Obtener un numero aleatorio entre 1 y 5 para
+        # definir el numero de grupos de tallas observados
+        nobs <- sample(x = 1:5, size = 1L)
+        
+        # Definir un ciclo para iterar cada grupo de observaciones de una spp
+        for(m in 1:nobs){
+          
+          # Escoger una talla aleatoria segun la funcion anterior
+          Talla <- tallas(spp = spp, generoespecie = l)
+          
+          # Clase talla es constante (NA)
+          ClaseTalla <- NA
+          
+          # Muestrear una abundanciasegun la funcion
+          Abundancia <- mean_sp(generoespecie = l)
+          
+          # Juntar las observaciones de este grupo de tallas
+          datos_ijklm <- tibble(Dia,
+                                Mes,
+                                Ano,
+                                Estado,
+                                Comunidad,
+                                Sitio,
+                                Latitud,
+                                Longitud,
+                                Habitat,
+                                Zona,
+                                TipoProteccion,
+                                ANP,
+                                BuzoMonitor, 
+                                HoraInicial,
+                                ProfundidadInicial,
+                                ProfundidadFinal,
+                                Temperatura,
+                                Visibilidad,
+                                Corriente,
+                                Transecto,
+                                Genero,
+                                Especie,
+                                GeneroEspecie = l,
+                                Sexo,
+                                Talla,
+                                ClaseTalla,
+                                Abundancia,
+                                RC)
+          
+          datos <- rbind(datos, datos_ijklm)
+        } # Fin nobs
+      } # Fin especie
+    } # Fin transecto
+  } # Fin sitio
+} # Fin años
+
+# Borrar los NAs originales y agrupar grupos de
+# talla en caso de que esten duplicados
+datos %<>%
+  drop_na(dia) %>% 
+  group_by(Dia, Mes, Ano, Estado, Comunidad, Sitio, Latitud,
+           Longitud, Habitat, Zona, TipoProteccion, ANP, BuzoMonitor, 
+           HoraInicial, ProfundidadInicial, ProfundidadFinal,
+           Temperatura, Visibilidad, Corriente, Transecto, Genero,
+           Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, RC) %>% 
+  summarize(Abundancia = sum(Abundancia, na.rm = T)) %>% 
+  select(Dia, Mes, Ano, Estado, Comunidad, Sitio, Latitud,
+         Longitud, Habitat, Zona, TipoProteccion, ANP, BuzoMonitor, 
+         HoraInicial, ProfundidadInicial, ProfundidadFinal,
+         Temperatura, Visibilidad, Corriente, Transecto, Genero,
+         Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, Abundancia, RC)
+```
+
+
+```{r graficar-datos, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos antes de agregar tendencias"}
+# Graficar los datos
+datos %>% 
+  ggplot(aes(x = Ano, y = Abundancia, color = Zona, group = Sitio, linetype = RC)) +
+  geom_point(alpha = 0.5, size = 0.5) +
+  stat_summary(geom = "line", fun.y = "mean", size = 1) +
+  facet_wrap(~GeneroEspecie, ncol = 3, scales = "free_y") +
+  startR::ggtheme_plot() +
+  theme(legend.position = "top") +
+  scale_color_brewer(palette = "Set1") +
+  xlab("Año")
+```
+
+```{r agregar-tendencias}
+datos <- datos %>%
+  mutate(neg = ifelse(RC == "Cerro prieto - Popotla", -1, 1),
+         Abundancia = ifelse(Zona == "Reserva" & Ano > 2000,
+                             Abundancia * (1 + (neg * ((Ano - 2000) * 0.1))),
+                             Abundancia))
+```
+
+```{r graficar-datos2, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
+# Graficar los datos
+datos %>% 
+  ggplot(aes(x = Ano, y = Abundancia, color = Zona, group = Sitio, linetype = RC)) +
+  geom_point(alpha = 0.5, size = 0.5) +
+  stat_summary(geom = "line", fun.y = "mean", size = 1) +
+  facet_wrap(~GeneroEspecie, ncol = 3, scales = "free_y") +
+  startR::ggtheme_plot() +
+  theme(legend.position = "top") +
+  scale_color_brewer(palette = "Set1") +
+  xlab("Año")
+```
+
+```{r exportar-datos}
+write.csv(x = datos,
+          file = here::here("materiales", "datos", "datos_peces.csv"),
+          row.names = F)
+```
+
+
+
