@@ -29,7 +29,7 @@
 }
 \usepackage{hyperref}
 \hypersetup{
-            pdftitle={Costeo y Evaluación de Reservas Marinas con Shiny Apps},
+            pdftitle={Costeo y Evaluación de Reservas Marinas},
             pdfauthor={Juan Carlos Villaseñor-Derbez},
             pdfborder={0 0 0},
             breaklinks=true}
@@ -160,7 +160,7 @@
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
-\title{Costeo y Evaluación de Reservas Marinas con Shiny Apps}
+\title{Costeo y Evaluación de Reservas Marinas}
 \providecommand{\subtitle}[1]{}
 \subtitle{Una guía para gestores ambientales}
 \author{Juan Carlos Villaseñor-Derbez}
@@ -221,42 +221,118 @@ versión en línea siempre será la más actualizada.
 
 \clearpage
 
+\hypertarget{sobre-este-libro}{%
+\section{Sobre este libro}\label{sobre-este-libro}}
+
+\hypertarget{motivacion}{%
+\subsection{Motivación}\label{motivacion}}
+
+El desarrollo de MAREA fue motivado por la necesidad de proveer
+metodologías estandarizadas para evaluar las zonas de refugio pesquero,
+un tipo de reservas marinas diseñadas como herramientas de manejo
+pesuero \citep{nom}. MAREA es una plataforma amigable que usa técnicas
+econométricas de inferencia de causalidad para estimar el efecto de una
+reserva en una serie de indicadores de interés. Los resultados generados
+pueden ser comunicados con las tarjetas de puntuaciones o con el reporte
+automatizado que el usuario puede descargar.
+
+La aplicación de costeo es mucho más sencilla. Esta app permite obtener
+los costos de operación asociados al diseño, implementación y monitoreo
+y evaluación de una reserva marina comunitaria siguiendo la metodología
+de \href{https://cobi.org.mx/}{COBI} \citep{uribe_2010}. Aunque el
+usuario puede agregar diferentes rubros, las categorías predeterminadas
+están basadas en la experiencia que COBI ha adquirido a lo largo de los
+años.
+
+\hypertarget{estructura}{%
+\subsection{Estructura}\label{estructura}}
+
+Este manual se divide en dos partes. La Parte 1 se compone de tres
+capítulos: El Capítulo \ref{antecedentes} presenta una revisión de otros
+métodos usados para evaluar reservas marinas. El Capítulo
+\ref{metodologia-de-marea} introduce la metodología usada por MAREA, con
+un énfasis en los \emph{Objetivos} e \emph{Indicadores} utilizados, así
+como el modelo de Diferencias-en-Diferencias utilizado para estimar el
+efecto de la reserva. Finalmente el Capítulo \ref{introduccion-a-marea}
+provee una introducción a MAREA, incluyendo el tipo y formato de datos
+necesarios, los 6 pasos de la evaluación, la interpretación de los
+resultados y una discusión de sus capacidades y limitaciones.
+
+La Parte 2 consta de dos capítulos. El Capítulo \ref{uso-de-marea}
+contiene cuatro ejercicios, representativos de operaciones comunes a
+realiza con MAREA. El Capítulo \ref{errores-y-soluciones} presenta
+algunos de los errores comunes y sus soluciones.
+
 \hypertarget{part-parte-i}{%
 \part{Parte I}\label{part-parte-i}}
 
-\hypertarget{introduccion}{%
-\chapter{Introducción}\label{introduccion}}
+\hypertarget{antecedentes}{%
+\chapter{Antecedentes}\label{antecedentes}}
 
-El desarrollo de \href{https://turfeffect.shinyapps.io/marea/}{MAREA}
-fue motivado por la necesidad de proveer metodologías estandarizadas y
-rigurosas para evaluar las zonas de refugio pesquero, un tipo de
-reservass marinas diseñadas como herramientas de manejo pesuero
-\citep{nom}.
-
-Comunidad y Biodiversidad (COBI) es una Organización de la Sociedad
-Civil (OSC) involucrada en el diseño, implementación y manejo de
-reservas marinas en el Caribe Mexicano, así como el Golfo de California
-y la costa Pacífica de Baja California.
-
-\hypertarget{formas-de-evaluar-reservas}{%
-\chapter{Formas de evaluar reservas}\label{formas-de-evaluar-reservas}}
-
-\hypertarget{dentro-vs.fuera}{%
-\section{Dentro vs.~Fuera}\label{dentro-vs.fuera}}
+La evaluación de reservas marinas no es algo nuevo. Sin embargo, muy
+pocos trabajos las han evaluado utilizando técnicas que distingan entre
+correlación y causalidad. Por lo tanto, es útil hacer una recapitulación
+de metodologías comúnmente usadas antes de presentar la metodología
+utilizada por MAREA. Este capítulo se enfoca en los indicadores y
+diseños muestreales, presentando casos publicados en la literatura
+científica. Revisaremos tres diseños de muestro generales que se han
+utilizado en la evaluación de reservas marinas y discutiremos sus
+ventajas y desventajas, así como las implicaciones en el manejo.
 
 \hypertarget{antes-vs.despues}{%
 \section{Antes vs.~Después}\label{antes-vs.despues}}
 
-\hypertarget{dentro-vs.fuera---antes-vs.despues}{%
-\section{Dentro vs.~Fuera - Antes
-vs.~Después}\label{dentro-vs.fuera---antes-vs.despues}}
+Una de las formas más comunes de evaluar reservas marinas es mediante la
+comparación de indicadores biológicos antes y después de la
+implementación de la reserva. Por ejemplo \citet{wantiez_1997} evaluan
+el efecto de las reservas marinas en las comunidades de peces de cinco
+islas en Nueva Celadonia. El trabajo compara número de especies
+(riqueza), número de organismos (densidades) y biomasa obtenidas para
+nueve sitios en 1990 y 1994. Aunque las reservas fueron establecidas en
+1989, la vigilancia y cumplimiento de las reglas comienza en 1990.
+Aunque los autores identifican pocos cambios estadísticamente
+significativos (solamente dos sitios muestran un incremento en
+densidad), la metodología empleada ignora otras eventos que puedan haber
+causado los efectos observados.
 
-\hypertarget{dentro-vs.fuera---antes-vs.despues-multiple}{%
-\section{Dentro vs.~Fuera - Antes vs.~Después
-multiple}\label{dentro-vs.fuera---antes-vs.despues-multiple}}
+Por ejemplo, es posible que entre 1990 y 1994 hayan existido
+intervenciones de manejo pesquero que redujeran el esfuerzo de pesca, el
+ambiente pudo haber sufrido cambios que modificaran la productividad del
+sistema, la sobrepesca de especies depredadoras o una serie de años de
+buen reclutamiento podrían llevar a observar incrementos en densidad
+\citep{szuwalski_2017, chavez_2003}. Para poder distinguir este tipo de
+cambios, sería necesario un sitio control con el cual comparar
+\citep{betti_2017}. Un sitio control podría ser un área con hábitat
+similar al de la reserva, pero que presenta actividad pesquera.
 
-\hypertarget{evaluacion-de-reservas}{%
-\chapter{Evaluación de reservas}\label{evaluacion-de-reservas}}
+\hypertarget{dentro-vs.fuera}{%
+\section{Dentro vs.~Fuera}\label{dentro-vs.fuera}}
+
+Evaluación Dentro-Fuera (Lester et al., 2009; Aburto-Oropeza et al.,
+2011; Guidetti et al., 2014; Rodriguez \& Fanning, 2017; Friedlander et
+al., 2017)
+
+This approach does not account for other factors for which one must
+control \citep{davies_2017} in order to causally attribute a biological
+change to the reserve.
+
+\hypertarget{antes-vs.despues---dentro-vs.fuera}{%
+\section{Antes vs.~Después - Dentro
+vs.~Fuera}\label{antes-vs.despues---dentro-vs.fuera}}
+
+Evaluación Antes-Después-Control-Impacto (Lester et al., 2009; Moland et
+al., 2013; Soykan \& Lewison, 2015) Importancia del Contrafactual
+(Davies, Mees \& Milner-Gulland, 2017)
+
+\hypertarget{otras-cosas}{%
+\section{Otras cosas}\label{otras-cosas}}
+
+\hypertarget{metodologia-de-marea}{%
+\chapter{Metodología de MAREA}\label{metodologia-de-marea}}
+
+Importancia de incorporar dimensiones socioeconómicas y de gobernanza
+(Basurto \& Nenadovic, 2012; Basurto, Gelcich \& Ostrom, 2013) Halpern
+tripple bottom down
 
 \hypertarget{objetivos-e-indicadores}{%
 \section{Objetivos e indicadores}\label{objetivos-e-indicadores}}
@@ -268,11 +344,26 @@ causalidad}\label{analisis-de-inferencia-de-causalidad}}
 \hypertarget{introduccion-a-marea}{%
 \chapter{Introducción a MAREA}\label{introduccion-a-marea}}
 
+Presentaremos los pasos necesarios para evaluar una reserva con MAREA.
+Ya conoceremos los datos y análisis, por lo que no nos limitaremos a
+aprender su uso, sino comprender las operaciones y procesos que realiza.
+Esto permitirá anticipar errores y comprender las capacidades y
+limitaciones de MAREA. Comentaremos sobre la manera de prevenir errores
+y, en caso de que existan, reportarlos para su arreglo. Usaremos Isla
+Natividad como ejemplo para llevar a cabo la evaluación de la reserva de
+``La Plana / Las Cuevas''.
+
 \hypertarget{tipos-y-formatos-de-datos}{%
 \section{Tipos y formatos de datos}\label{tipos-y-formatos-de-datos}}
 
-\hypertarget{capacidades-y-limitaciones}{%
-\section{Capacidades y limitaciones}\label{capacidades-y-limitaciones}}
+Para poder usar MAREA sin problemas, es necesario que los datos tengan
+el formato correcto. Se presentarán los conceptos de datos largos y
+anchos, y discutiremos sobre las ventajas de cada uno. Usaremos bases en
+ambos formatos para identificar las ventajas / desventajas de cada una y
+justificaremos el uso de datos largos en MAREA. Hablaremos sobre buenas
+prácticas de mantenimiento de bases de datos, nombres de columnas y
+metadatos. Terminaremos hablando de las extensiones (e.g. *.csv) en las
+que se pueden exportar los datos / importar datos desde Excel.
 
 \hypertarget{evaluacion-de-reservas-en-6-etapas}{%
 \section{Evaluación de reservas en 6
@@ -282,31 +373,39 @@ etapas}\label{evaluacion-de-reservas-en-6-etapas}}
 \section{Interpretación de
 resultados}\label{interpretacion-de-resultados}}
 
+Comenzaremos por describir los resultados que produce MAREA: la tabla de
+puntuación y el reporte técnico. Primero discutiremos sobre el desempeño
+de la reserva utilizando únicamente la tabla de puntuación. Después,
+descargaremos el reporte técnico que produce MAREA para llegar a
+conclusiones definitivas sobre el desempeño de la reserva.
+
+\hypertarget{capacidades-y-limitaciones}{%
+\section{Capacidades y limitaciones}\label{capacidades-y-limitaciones}}
+
 \hypertarget{part-parte-ii}{%
 \part{Parte II}\label{part-parte-ii}}
 
 \hypertarget{uso-de-marea}{%
 \chapter{Uso de MAREA}\label{uso-de-marea}}
 
-\hypertarget{evaluacion-de-indicadores-biologicos-para-1-reserva}{%
-\section{Evaluación de indicadores biológicos para 1
-reserva}\label{evaluacion-de-indicadores-biologicos-para-1-reserva}}
+\hypertarget{indicadores-biologicos-para-1-reserva}{%
+\section{Indicadores biológicos para 1
+reserva}\label{indicadores-biologicos-para-1-reserva}}
 
-\hypertarget{evaluacion-de-indicadores-biologicos-y-especie-objetivo-para-1-reserva}{%
-\section{Evaluación de indicadores biológicos y especie objetivo para 1
-reserva}\label{evaluacion-de-indicadores-biologicos-y-especie-objetivo-para-1-reserva}}
+\hypertarget{indicadores-biologicos-y-especie-objetivo-para-1-reserva}{%
+\section{Indicadores biológicos y especie objetivo para 1
+reserva}\label{indicadores-biologicos-y-especie-objetivo-para-1-reserva}}
 
-\hypertarget{evaluacion-de-todos-los-indicadores-para-1-reserva}{%
-\section{Evaluación de todos los indicadores para 1
-reserva}\label{evaluacion-de-todos-los-indicadores-para-1-reserva}}
+\hypertarget{todos-los-indicadores-para-1-reserva}{%
+\section{Todos los indicadores para 1
+reserva}\label{todos-los-indicadores-para-1-reserva}}
 
-\hypertarget{evaluacion-de-todos-los-indicadores-para-varias-reservas-simultaneamente}{%
-\section{Evaluación de todos los indicadores para varias reservas,
-simultáneamente}\label{evaluacion-de-todos-los-indicadores-para-varias-reservas-simultaneamente}}
+\hypertarget{indicadores-biologicos-para-varias-reservas-simultaneamente}{%
+\section{Indicadores biológicos para varias reservas,
+simultáneamente}\label{indicadores-biologicos-para-varias-reservas-simultaneamente}}
 
-\hypertarget{errores-comunes-y-solucion-de-problemas}{%
-\chapter{Errores comunes y solución de
-problemas}\label{errores-comunes-y-solucion-de-problemas}}
+\hypertarget{errores-y-soluciones}{%
+\chapter{Errores y soluciones}\label{errores-y-soluciones}}
 
 \hypertarget{especie-indicador-no-tiene-diseno-baci}{%
 \section{Especie / Indicador no tiene diseño

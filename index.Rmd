@@ -1,5 +1,5 @@
 ---
-title: "Costeo y Evaluación de Reservas Marinas con Shiny Apps"
+title: "Costeo y Evaluación de Reservas Marinas"
 subtitle: "Una guía para gestores ambientales"
 author: "Juan Carlos Villaseñor-Derbez"
 date: "Bren School of Environmental Science & Management, UCSB"
@@ -10,7 +10,8 @@ biblio-style: apalike
 link-citations: yes
 github-repo: jcvdav/curso_marea
 description: "Manual de evaluación de reservas marinas para gestores ambientales."
-cover-image: img/flow.tif
+cover-image: "img/flow.tif"
+favicon: "marea.ico"
 ---
 
 # Antes de empezar {-}

@@ -367,12 +367,12 @@ datos <- datos %>%
                              Abundancia * (1 + (neg * ((Ano - 2000) * 0.1))),
                              Abundancia),
          Talla = ifelse(Zona == "Reserva" & Ano > 2000,
-                        Talla + ((Ano - 2000) * 1),
+                        Talla + (neg * ((Ano - 2000) * 1)),
                         Talla)) %>% 
   select(-neg)
 ```
 
-```{r graficar-datos-abundancias, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
+```{r graficar-datos-abundancias, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las abundancias con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
 # Graficar los datos
 datos %>% 
   ggplot(aes(x = Ano, y = Abundancia, color = Zona, group = Sitio, linetype = RC)) +
@@ -385,7 +385,7 @@ datos %>%
   xlab("Año")
 ```
 
-```{r graficar-datos-tallas, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
+```{r graficar-datos-tallas, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las tallas con tendencias (+2 cm anual) despés del primer año. Note como una reserva funciona y otra no."}
 # Graficar los datos
 datos %>% 
   ggplot(aes(x = Ano, y = Talla, color = Zona, group = Sitio, linetype = RC)) +

@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Costeo y Evaluación de Reservas Marinas con Shiny Apps</title>
+  <title>Costeo y Evaluación de Reservas Marinas</title>
   <meta name="description" content="Manual de evaluación de reservas marinas para gestores ambientales.">
   <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Costeo y Evaluación de Reservas Marinas con Shiny Apps" />
+  <meta property="og:title" content="Costeo y Evaluación de Reservas Marinas" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="img/flow.tif" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="jcvdav/curso_marea" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Costeo y Evaluación de Reservas Marinas con Shiny Apps" />
+  <meta name="twitter:title" content="Costeo y Evaluación de Reservas Marinas" />
   
   <meta name="twitter:description" content="Manual de evaluación de reservas marinas para gestores ambientales." />
   <meta name="twitter:image" content="img/flow.tif" />
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
-  
+  <link rel="shortcut icon" href="marea.ico" type="image/x-icon">
 <link rel="prev" href="errores-y-soluciones.html">
 <link rel="next" href="referencias.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -178,7 +178,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Costeo y Evaluación de Reservas Marinas con Shiny Apps</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Costeo y Evaluación de Reservas Marinas</a>
           </h1>
         </div>
 
@@ -541,7 +541,7 @@ Figura A.1: Series de tiempo de los datos antes de agregar tendencias
 <a class="sourceLine" id="cb5-7" data-line-number="7">                             Abundancia <span class="op">*</span><span class="st"> </span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>(neg <span class="op">*</span><span class="st"> </span>((Ano <span class="op">-</span><span class="st"> </span><span class="dv">2000</span>) <span class="op">*</span><span class="st"> </span><span class="fl">0.1</span>))),</a>
 <a class="sourceLine" id="cb5-8" data-line-number="8">                             Abundancia),</a>
 <a class="sourceLine" id="cb5-9" data-line-number="9">         <span class="dt">Talla =</span> <span class="kw">ifelse</span>(Zona <span class="op">==</span><span class="st"> &quot;Reserva&quot;</span> <span class="op">&amp;</span><span class="st"> </span>Ano <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>,</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">                        Talla <span class="op">+</span><span class="st"> </span>((Ano <span class="op">-</span><span class="st"> </span><span class="dv">2000</span>) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>),</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">                        Talla <span class="op">+</span><span class="st"> </span>(neg <span class="op">*</span><span class="st"> </span>((Ano <span class="op">-</span><span class="st"> </span><span class="dv">2000</span>) <span class="op">*</span><span class="st"> </span><span class="dv">1</span>)),</a>
 <a class="sourceLine" id="cb5-11" data-line-number="11">                        Talla)) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb5-12" data-line-number="12"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>neg)</a></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Graficar los datos</span></a>
@@ -555,9 +555,9 @@ Figura A.1: Series de tiempo de los datos antes de agregar tendencias
 <a class="sourceLine" id="cb6-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb6-10" data-line-number="10"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Año&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:graficar-datos-abundancias"></span>
-<img src="evaluacion-reservas_files/figure-html/graficar-datos-abundancias-1.svg" alt="Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no." width="576" />
+<img src="evaluacion-reservas_files/figure-html/graficar-datos-abundancias-1.svg" alt="Series de tiempo de las abundancias con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no." width="576" />
 <p class="caption">
-Figura A.2: Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no.
+Figura A.2: Series de tiempo de las abundancias con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no.
 </p>
 </div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Graficar los datos</span></a>
@@ -571,9 +571,9 @@ Figura A.2: Series de tiempo de los datos con tendencias (10% anual) despés del
 <a class="sourceLine" id="cb7-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_color_brewer</span>(<span class="dt">palette =</span> <span class="st">&quot;Set1&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb7-10" data-line-number="10"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Año&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:graficar-datos-tallas"></span>
-<img src="evaluacion-reservas_files/figure-html/graficar-datos-tallas-1.svg" alt="Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no." width="576" />
+<img src="evaluacion-reservas_files/figure-html/graficar-datos-tallas-1.svg" alt="Series de tiempo de las tallas con tendencias (+2 cm anual) despés del primer año. Note como una reserva funciona y otra no." width="576" />
 <p class="caption">
-Figura A.3: Series de tiempo de los datos con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no.
+Figura A.3: Series de tiempo de las tallas con tendencias (+2 cm anual) despés del primer año. Note como una reserva funciona y otra no.
 </p>
 </div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">write.csv</span>(<span class="dt">x =</span> datos,</a>
