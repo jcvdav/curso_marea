@@ -1,3 +1,4 @@
+\usepackage[spanish,mexico]{babel}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage[bf,singlelinecheck=off]{caption}
@@ -34,7 +35,10 @@
  \at@end@of@kframe}
 \makeatother
 
-\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}
+\makeatletter
+\@ifundefined{Shaded}{
+}{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
+\makeatother
 
 \usepackage{makeidx}
 \makeindex
