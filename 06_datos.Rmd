@@ -4,7 +4,7 @@
 
 Este apéndice muestra el código usado para obtener los datos sintéticos del curso y el manual de evaluación. Primero, debemos definir una serie de variables que contengan los valores predeterminados o rangos de valores que cada variable puede tomar. Para los propósitos del curso, generaremos únicamente información biológica y económica de peces.
 
-```{r cargar-pkts}
+```{r cargar-pkts, echo = T}
 # Cargamos los paquetes que necesitamos
 suppressPackageStartupMessages({
   library(magrittr)
@@ -13,7 +13,7 @@ suppressPackageStartupMessages({
 ```
 
 
-```{r crear-predeterminados}
+```{r crear-predeterminados, eval = F, echo = T}
 ######################################
 # Generar variables predeterminadas
 ######################################
@@ -144,7 +144,7 @@ rc <- function(sitio){
 
 ```
 
-```{r simular-datos}
+```{r simular-datos, eval = F, echo = T}
 
 ######################################
 # Simular datos
@@ -343,8 +343,19 @@ datos %<>%
          Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, Abundancia, RC)
 ```
 
+```{r exportar-datos-crudos, echo = F, eval = F}
+write.csv(x = datos,
+          file = here::here("materiales", "datos", "datos_crudos.csv"),
+          row.names = F)
+```
 
-```{r graficar-datos, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos antes de agregar tendencias"}
+```{r read-data, echo = F}
+datos <- read.csv(file = here::here("materiales", "datos", "datos_crudos.csv"),
+                  stringsAsFactors = F)
+```
+
+
+```{r graficar-datos, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos antes de agregar tendencias"}
 # Graficar los datos
 datos %>% 
   ggplot(aes(x = Ano, y = Abundancia, color = Zona, group = Sitio, linetype = RC)) +
@@ -357,7 +368,7 @@ datos %>%
   xlab("Año")
 ```
 
-```{r agregar-tendencias}
+```{r agregar-tendencias, echo = T}
 # Ahora agregamos tendencias en abundancias y tallas.
 # Las abundancias aumentan un 10% cada ano despues del 2000.
 # Las tallas aumentan 1 cm cada año.
@@ -372,7 +383,7 @@ datos <- datos %>%
   select(-neg)
 ```
 
-```{r graficar-datos-abundancias, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las abundancias con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
+```{r graficar-datos-abundancias, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las abundancias con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
 # Graficar los datos
 datos %>% 
   ggplot(aes(x = Ano, y = Abundancia, color = Zona, group = Sitio, linetype = RC)) +
@@ -385,7 +396,7 @@ datos %>%
   xlab("Año")
 ```
 
-```{r graficar-datos-tallas, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las tallas con tendencias (+2 cm anual) despés del primer año. Note como una reserva funciona y otra no."}
+```{r graficar-datos-tallas, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las tallas con tendencias (+2 cm anual) despés del primer año. Note como una reserva funciona y otra no."}
 # Graficar los datos
 datos %>% 
   ggplot(aes(x = Ano, y = Talla, color = Zona, group = Sitio, linetype = RC)) +
@@ -398,7 +409,7 @@ datos %>%
   xlab("Año")
 ```
 
-```{r exportar-datos}
+```{r exportar-datos, echp = T}
 write.csv(x = datos,
           file = here::here("materiales", "datos", "datos_peces.csv"),
           row.names = F)
