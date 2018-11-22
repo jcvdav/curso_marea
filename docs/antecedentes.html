@@ -48,69 +48,6 @@
 
 
 
-<style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <link rel="stylesheet" href="css\style.css" type="text/css" />
 </head>
@@ -137,9 +74,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="part"><span><b>I Parte I</b></span></li>
 <li class="chapter" data-level="1" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>1</b> Antecedentes</a><ul>
-<li class="chapter" data-level="1.1" data-path="antecedentes.html"><a href="antecedentes.html#antes-vs.despues"><i class="fa fa-check"></i><b>1.1</b> Antes vs. Después</a></li>
-<li class="chapter" data-level="1.2" data-path="antecedentes.html"><a href="antecedentes.html#dentro-vs.fuera"><i class="fa fa-check"></i><b>1.2</b> Dentro vs. Fuera</a></li>
-<li class="chapter" data-level="1.3" data-path="antecedentes.html"><a href="antecedentes.html#antes-vs.despues---dentro-vs.fuera"><i class="fa fa-check"></i><b>1.3</b> Antes vs. Después - Dentro vs. Fuera</a></li>
+<li class="chapter" data-level="1.1" data-path="antecedentes.html"><a href="antecedentes.html#antes-despues"><i class="fa fa-check"></i><b>1.1</b> Antes-Después</a></li>
+<li class="chapter" data-level="1.2" data-path="antecedentes.html"><a href="antecedentes.html#dentro-fuera"><i class="fa fa-check"></i><b>1.2</b> Dentro-Fuera</a></li>
+<li class="chapter" data-level="1.3" data-path="antecedentes.html"><a href="antecedentes.html#antes-despues-dentro-fuera"><i class="fa fa-check"></i><b>1.3</b> Antes-Después-Dentro-Fuera</a></li>
 <li class="chapter" data-level="1.4" data-path="antecedentes.html"><a href="antecedentes.html#otras-cosas"><i class="fa fa-check"></i><b>1.4</b> Otras cosas</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="metodologia-de-marea.html"><a href="metodologia-de-marea.html"><i class="fa fa-check"></i><b>2</b> Metodología de MAREA</a><ul>
@@ -189,20 +126,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="antecedentes" class="section level1">
 <h1><span class="header-section-number">Capítulo 1</span> Antecedentes</h1>
 <p>La evaluación de reservas marinas no es algo nuevo. Sin embargo, muy pocos trabajos las han evaluado utilizando técnicas que distingan entre correlación y causalidad. Por lo tanto, es útil hacer una recapitulación de metodologías comúnmente usadas antes de presentar la metodología utilizada por MAREA. Este capítulo se enfoca en los indicadores y diseños muestreales, presentando casos publicados en la literatura científica. Revisaremos tres diseños de muestro generales que se han utilizado en la evaluación de reservas marinas y discutiremos sus ventajas y desventajas, así como las implicaciones en el manejo.</p>
-<div id="antes-vs.despues" class="section level2">
-<h2><span class="header-section-number">1.1</span> Antes vs. Después</h2>
+<div id="antes-despues" class="section level2">
+<h2><span class="header-section-number">1.1</span> Antes-Después</h2>
 <p>Una de las formas más comunes de evaluar reservas marinas es mediante la comparación de indicadores biológicos antes y después de la implementación de la reserva. Por ejemplo <span class="citation">Wantiez, Thollot, and Kulbicki (<a href="#ref-wantiez_1997">1997</a>)</span> evaluan el efecto de las reservas marinas en las comunidades de peces de cinco islas en Nueva Celadonia. El trabajo compara número de especies (riqueza), número de organismos (densidades) y biomasa obtenidas para nueve sitios en 1990 y 1994. Aunque las reservas fueron establecidas en 1989, la vigilancia y cumplimiento de las reglas comienza en 1990. Aunque los autores identifican pocos cambios estadísticamente significativos (solamente dos sitios muestran un incremento en densidad), la metodología empleada ignora otras eventos que puedan haber causado los efectos observados.</p>
 <p>Por ejemplo, es posible que entre 1990 y 1994 hayan existido intervenciones de manejo pesquero que redujeran el esfuerzo de pesca, el ambiente pudo haber sufrido cambios que modificaran la productividad del sistema, la sobrepesca de especies depredadoras o una serie de años de buen reclutamiento podrían llevar a observar incrementos en densidad <span class="citation">(Szuwalski et al. <a href="#ref-szuwalski_2017">2017</a>; Chavez et al. <a href="#ref-chavez_2003">2003</a>)</span>. Para poder distinguir este tipo de cambios, sería necesario un sitio control con el cual comparar <span class="citation">(Betti et al. <a href="#ref-betti_2017">2017</a>)</span>. Un sitio control podría ser un área con hábitat similar al de la reserva, pero que presenta actividad pesquera.</p>
+<p>La Figura <a href="#disenos"><strong>??</strong></a>A muestra un caso hipotético de una evaluación antres-después. En este caso, el indicador en la reserva incrementó de 4 a 9 unidades. En esta evaluación, concluiríamos que la reserva resulta en un incremento de 5 unidades al año. Sin embargo, la línea azul muestra la tendencia temporal del control, mostrada en opaco para representar que el evaluador no observa esa información.</p>
 </div>
-<div id="dentro-vs.fuera" class="section level2">
-<h2><span class="header-section-number">1.2</span> Dentro vs. Fuera</h2>
-<p>Evaluación Dentro-Fuera (Lester et al., 2009; Aburto-Oropeza et al., 2011; Guidetti et al., 2014; Rodriguez &amp; Fanning, 2017; Friedlander et al., 2017)</p>
-<p>This approach does not account for other factors for which one must control <span class="citation">(Davies, Mees, and Milner-Gulland <a href="#ref-davies_2017">2017</a>)</span> in order to causally attribute a biological change to the reserve.</p>
+<div id="dentro-fuera" class="section level2">
+<h2><span class="header-section-number">1.2</span> Dentro-Fuera</h2>
+<p>Muchos trabajos evitan el problema de cambios temporales al evaluar indicadores dentro y fuera de las zonas protegidas en una fecha única. Por ejemplo, <span class="citation">Guidetti et al. (<a href="#ref-guidetti_2014">2014</a>)</span> comparan 30 localidades del Mediterráneo, que dividen en reservas estrictas, reservas intermedias y áreas de pesca. El trabajo reporta diferencias en biomasa y riqueza -pero no en densidades- con las reservas estrictas mostrando el mayor efecto. Aunque el hábitat es similar entre grupos de sitios, esta aproximación no toma encuenta las trayectorias o estados intrínsecos de cada localidad ni otras inherentes diferencias espaciales que uno debe tomar en cuenta.</p>
+<p>En este caso, es posible que los sitios de pesca y reservas intermedias siempre mostraran menor biomasa y riqueza, incluso antes de la implementación de las reservas estrictas. También es posible que los valores dentro de las reservas se hayan mantenido constantes desde su creación, pero que las condiciones fuera de las reservas se hayan deteriorado. Cualquiera de estas situaciones podría causar los patrones observados, y un diseño muestreal que compare reservas contra zonas control difícilmente podrá rechazar estas explicaciones alternas.</p>
+<p>La Figura <a href="#disenos"><strong>??</strong></a>B muestra un ejemplo de una evaluación donde se compara dentro-fuera. Esta comparación indica que hay 4 unidades más en la reserva que en el control. Este ejercicio ignora el hecho de que, incluso antes de la implementación de la reserva, el sitio de reserva presentaba una diferencia de 2 unidades. En este diseño muestreal el evaluador no observa los valores históricos, por lo que aparecen en opaco. Estos ejemplos muestran como los mismos datos pueden resultar en estimaciones distintas, según la información que se tome en cuenta. ¿Entonces, cuál es el valor correcto? En realidad, ninguno de estos.</p>
 </div>
-<div id="antes-vs.despues---dentro-vs.fuera" class="section level2">
-<h2><span class="header-section-number">1.3</span> Antes vs. Después - Dentro vs. Fuera</h2>
-<p>Evaluación Antes-Después-Control-Impacto (Lester et al., 2009; Moland et al., 2013; Soykan &amp; Lewison, 2015)
-Importancia del Contrafactual (Davies, Mees &amp; Milner-Gulland, 2017)</p>
+<div id="antes-despues-dentro-fuera" class="section level2">
+<h2><span class="header-section-number">1.3</span> Antes-Después-Dentro-Fuera</h2>
+<p>Las secciones anteriores muestran que las evaluaciones antes-después o dentro-fuera pueden ignorar factores importantes y, por lo tanto, producir estimaciones incorrectas del efecto de una reserva. ¿Esto quiere decir que las evaluaciones de <span class="citation">Wantiez, Thollot, and Kulbicki (<a href="#ref-wantiez_1997">1997</a>)</span> y <span class="citation">Guidetti et al. (<a href="#ref-guidetti_2014">2014</a>)</span> están equivocados? ¡Para nada! Sus conclusiones indican que hay diferencias a través del tiempo, o entre sitios reserva y sitios control, lo cual es cierto. Sin embargo, no es posible atribuir la totalidad de las diferencias observadas a las reservas.</p>
+<p>Cuando hablamos de intervenciones de manejo, nos interesa saber cual es el <em>impacto neto</em> de la intervención. En este sentido, y retomando los ejemplos de las Figuras <a href="#disenos"><strong>??</strong></a>A-B, queremos descomponer el incremento de la reserva en sus tres partes: i) El incremento causado por la evolución temporal, ii) el incremento <em>aparente</em> causado por las diferencias originales, y iii) el <em>incremento neto</em> una vez que tomamos en cuenta los anteriores.</p>
+<p>Por ejemplo <span class="citation">(Moland et al. <a href="#ref-moland_2013">2013</a>,villasenorderbez_2018)</span></p>
+<p>Una menor cantidad de trabajos han evaluado reservas marinas con esta aproximación, pues es necesario tener datos en la reserva y el control antes y después de la implementación. Evidentemente, esto requiere de más planeación y recursos. Sin embargo, sin este diseño muestreal es difícil poder descomponer los patrones observados en los cambios anteriormente mencionados.</p>
+<p>Importancia del Contrafactual (Davies, Mees &amp; Milner-Gulland, 2017)</p>
+<p><img src="evaluacion-reservas_files/figure-html/disenos-1.svg" width="384" /></p>
 </div>
 <div id="otras-cosas" class="section level2">
 <h2><span class="header-section-number">1.4</span> Otras cosas</h2>
@@ -223,8 +166,11 @@ Importancia del Contrafactual (Davies, Mees &amp; Milner-Gulland, 2017)</p>
 <div id="ref-betti_2017">
 <p>Betti, Federico, Giorgio Bavestrello, Marzia Bo, Valentina Asnaghi, Mariachiara Chiantore, Simone Bava, and Riccardo Cattaneo-Vietti. 2017. “Over 10 Years of Variation in Mediterranean Reef Benthic Communities.” <em>Marine Ecology</em> 38 (3): e12439. <a href="https://doi.org/10.1111/maec.12439">https://doi.org/10.1111/maec.12439</a>.</p>
 </div>
-<div id="ref-davies_2017">
-<p>Davies, Tim K., Chris C. Mees, and E. J. Milner-Gulland. 2017. “Use of a Counterfactual Approach to Evaluate the Effect of Area Closures on Fishing Location in a Tropical Tuna Fishery.” <em>PLoS ONE</em> 12 (3): e0174758. <a href="https://doi.org/10.1371/journal.pone.0174758">https://doi.org/10.1371/journal.pone.0174758</a>.</p>
+<div id="ref-guidetti_2014">
+<p>Guidetti, Paolo, Pasquale Baiata, Enric Ballesteros, Antonio Di Franco, Bernat Hereu, Enrique Macpherson, Fiorenza Micheli, et al. 2014. “Large-Scale Assessment of Mediterranean Marine Protected Areas Effects on Fish Assemblages.” <em>PLoS ONE</em> 9 (4): e91841. <a href="https://doi.org/10.1371/journal.pone.0091841">https://doi.org/10.1371/journal.pone.0091841</a>.</p>
+</div>
+<div id="ref-moland_2013">
+<p>Moland, E., E. M. Olsen, H. Knutsen, P. Garrigou, S. H. Espeland, A. R. Kleiven, C. Andre, and J. A. Knutsen. 2013. “Lobster and Cod Benefit from Small-Scale Northern Marine Protected Areas: Inference from an Empirical Before-After Control-Impact Study.” <em>Proceedings of the Royal Society B: Biological Sciences</em> 280 (1754): 20122679–9. <a href="https://doi.org/10.1098/rspb.2012.2679">https://doi.org/10.1098/rspb.2012.2679</a>.</p>
 </div>
 </div>
             </section>

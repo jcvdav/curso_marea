@@ -105,6 +105,7 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\usepackage[spanish,mexico]{babel}
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage[bf,singlelinecheck=off]{caption}
@@ -141,7 +142,10 @@
  \at@end@of@kframe}
 \makeatother
 
-\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}
+\makeatletter
+\@ifundefined{Shaded}{
+}{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
+\makeatother
 
 \usepackage{makeidx}
 \makeindex
@@ -219,8 +223,6 @@ descargarlos desde el
 \href{https://github.com/jcvdav/curso_marea}{repositorio de GitHub}. La
 versión en línea siempre será la más actualizada.
 
-\clearpage
-
 \hypertarget{sobre-este-libro}{%
 \section{Sobre este libro}\label{sobre-este-libro}}
 
@@ -279,8 +281,8 @@ científica. Revisaremos tres diseños de muestro generales que se han
 utilizado en la evaluación de reservas marinas y discutiremos sus
 ventajas y desventajas, así como las implicaciones en el manejo.
 
-\hypertarget{antes-vs.despues}{%
-\section{Antes vs.~Después}\label{antes-vs.despues}}
+\hypertarget{antes-despues}{%
+\section{Antes-Después}\label{antes-despues}}
 
 Una de las formas más comunes de evaluar reservas marinas es mediante la
 comparación de indicadores biológicos antes y después de la
@@ -305,27 +307,88 @@ cambios, sería necesario un sitio control con el cual comparar
 \citep{betti_2017}. Un sitio control podría ser un área con hábitat
 similar al de la reserva, pero que presenta actividad pesquera.
 
-\hypertarget{dentro-vs.fuera}{%
-\section{Dentro vs.~Fuera}\label{dentro-vs.fuera}}
+La Figura \ref{fig:disenos}A muestra un caso hipotético de una
+evaluación antres-después. En este caso, el indicador en la reserva
+incrementó de 4 a 9 unidades. En esta evaluación, concluiríamos que la
+reserva resulta en un incremento de 5 unidades al año. Sin embargo, la
+línea azul muestra la tendencia temporal del control, mostrada en opaco
+para representar que el evaluador no observa esa información.
 
-Evaluación Dentro-Fuera (Lester et al., 2009; Aburto-Oropeza et al.,
-2011; Guidetti et al., 2014; Rodriguez \& Fanning, 2017; Friedlander et
-al., 2017)
+\hypertarget{dentro-fuera}{%
+\section{Dentro-Fuera}\label{dentro-fuera}}
 
-This approach does not account for other factors for which one must
-control \citep{davies_2017} in order to causally attribute a biological
-change to the reserve.
+Muchos trabajos evitan el problema de cambios temporales al evaluar
+indicadores dentro y fuera de las zonas protegidas en una fecha única.
+Por ejemplo, \citet{guidetti_2014} comparan 30 localidades del
+Mediterráneo, que dividen en reservas estrictas, reservas intermedias y
+áreas de pesca. El trabajo reporta diferencias en biomasa y riqueza
+-pero no en densidades- con las reservas estrictas mostrando el mayor
+efecto. Aunque el hábitat es similar entre grupos de sitios, esta
+aproximación no toma encuenta las trayectorias o estados intrínsecos de
+cada localidad ni otras inherentes diferencias espaciales que uno debe
+tomar en cuenta.
 
-\hypertarget{antes-vs.despues---dentro-vs.fuera}{%
-\section{Antes vs.~Después - Dentro
-vs.~Fuera}\label{antes-vs.despues---dentro-vs.fuera}}
+En este caso, es posible que los sitios de pesca y reservas intermedias
+siempre mostraran menor biomasa y riqueza, incluso antes de la
+implementación de las reservas estrictas. También es posible que los
+valores dentro de las reservas se hayan mantenido constantes desde su
+creación, pero que las condiciones fuera de las reservas se hayan
+deteriorado. Cualquiera de estas situaciones podría causar los patrones
+observados, y un diseño muestreal que compare reservas contra zonas
+control difícilmente podrá rechazar estas explicaciones alternas.
 
-Evaluación Antes-Después-Control-Impacto (Lester et al., 2009; Moland et
-al., 2013; Soykan \& Lewison, 2015) Importancia del Contrafactual
-(Davies, Mees \& Milner-Gulland, 2017)
+La Figura \ref{fig:disenos}B muestra un ejemplo de una evaluación donde
+se compara dentro-fuera. Esta comparación indica que hay 4 unidades más
+en la reserva que en el control. Este ejercicio ignora el hecho de que,
+incluso antes de la implementación de la reserva, el sitio de reserva
+presentaba una diferencia de 2 unidades. En este diseño muestreal el
+evaluador no observa los valores históricos, por lo que aparecen en
+opaco. Estos ejemplos muestran como los mismos datos pueden resultar en
+estimaciones distintas, según la información que se tome en cuenta.
+¿Entonces, cuál es el valor correcto? En realidad, ninguno de estos.
 
-\hypertarget{otras-cosas}{%
-\section{Otras cosas}\label{otras-cosas}}
+\hypertarget{antes-despues-dentro-fuera}{%
+\section{Antes-Después-Dentro-Fuera}\label{antes-despues-dentro-fuera}}
+
+Las secciones anteriores muestran que las evaluaciones antes-después o
+dentro-fuera pueden ignorar factores importantes y, por lo tanto,
+producir estimaciones incorrectas del efecto de una reserva. ¿Esto
+quiere decir que las evaluaciones de \citet{wantiez_1997} y
+\citet{guidetti_2014} están equivocados? ¡Para nada! Sus conclusiones
+indican que hay diferencias a través del tiempo, o entre sitios reserva
+y sitios control, lo cual es cierto. Sin embargo, no es posible atribuir
+la totalidad de las diferencias observadas a las reservas.
+
+Cuando hablamos de intervenciones de manejo, nos interesa saber cual es
+el \emph{impacto neto} de la intervención. En este sentido, y retomando
+los ejemplos de las Figuras \ref{fig:disenos}A-B, queremos descomponer
+el incremento de la reserva en sus tres partes: i) El incremento causado
+por la evolución temporal, ii) el incremento \emph{aparente} causado por
+las diferencias originales, y iii) el \emph{incremento neto} una vez que
+tomamos en cuenta los anteriores.
+
+Por ejemplo \citep{moland_2013, villasenorderbez_2018}
+
+Una menor cantidad de trabajos han evaluado reservas marinas con esta
+aproximación, pues es necesario tener datos en la reserva y el control
+antes y después de la implementación. Evidentemente, esto requiere de
+más planeación y recursos. Sin embargo, sin este diseño muestreal es
+difícil poder descomponer los patrones observados en los cambios
+anteriormente mencionados.
+
+Importancia del Contrafactual (Davies, Mees \& Milner-Gulland, 2017)
+
+\begin{figure}
+\centering
+\includegraphics{evaluacion-reservas_files/figure-latex/disenos-1.pdf}
+\caption{\label{fig:disenos}Ejemplos de evaluaciones antes-después (A),
+dentro-fuera (B) y antes-después-dentro-fuera (C) para una reserva
+hipotética implementada al final del 2010. Rojo representa reserva y
+azul control, los colores opacos indican datos no observados u omitidos
+en cada tipo de evaluación. La línea punteada en la figura C represente
+la evolución que se hubiera esperado del sitio protegido si la reserva
+no se hubiera implementado.}
+\end{figure}
 
 \hypertarget{metodologia-de-marea}{%
 \chapter{Metodología de MAREA}\label{metodologia-de-marea}}
@@ -803,7 +866,7 @@ agregar tendencias}
 \NormalTok{                             Abundancia }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\NormalTok{(neg }\OperatorTok{*}\StringTok{ }\NormalTok{((Ano }\OperatorTok{-}\StringTok{ }\DecValTok{2000}\NormalTok{) }\OperatorTok{*}\StringTok{ }\FloatTok{0.1}\NormalTok{))),}
 \NormalTok{                             Abundancia),}
          \DataTypeTok{Talla =} \KeywordTok{ifelse}\NormalTok{(Zona }\OperatorTok{==}\StringTok{ "Reserva"} \OperatorTok{&}\StringTok{ }\NormalTok{Ano }\OperatorTok{>}\StringTok{ }\DecValTok{2000}\NormalTok{,}
-\NormalTok{                        Talla }\OperatorTok{+}\StringTok{ }\NormalTok{((Ano }\OperatorTok{-}\StringTok{ }\DecValTok{2000}\NormalTok{) }\OperatorTok{*}\StringTok{ }\DecValTok{1}\NormalTok{),}
+\NormalTok{                        Talla }\OperatorTok{+}\StringTok{ }\NormalTok{(neg }\OperatorTok{*}\StringTok{ }\NormalTok{((Ano }\OperatorTok{-}\StringTok{ }\DecValTok{2000}\NormalTok{) }\OperatorTok{*}\StringTok{ }\DecValTok{1}\NormalTok{)),}
 \NormalTok{                        Talla)) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{neg)}
 \end{Highlighting}
@@ -827,9 +890,9 @@ agregar tendencias}
 \begin{figure}
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-abundancias-1.pdf}
-\caption{\label{fig:graficar-datos-abundancias}Series de tiempo de los datos
-con tendencias (10\% anual) despés del primer año. Note como una reserva
-funciona y otra no.}
+\caption{\label{fig:graficar-datos-abundancias}Series de tiempo de las
+abundancias con tendencias (10\% anual) despés del primer año. Note como
+una reserva funciona y otra no.}
 \end{figure}
 
 \begin{Shaded}
@@ -850,18 +913,10 @@ funciona y otra no.}
 \begin{figure}
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-tallas-1.pdf}
-\caption{\label{fig:graficar-datos-tallas}Series de tiempo de los datos con
-tendencias (10\% anual) despés del primer año. Note como una reserva
+\caption{\label{fig:graficar-datos-tallas}Series de tiempo de las tallas con
+tendencias (+2 cm anual) despés del primer año. Note como una reserva
 funciona y otra no.}
 \end{figure}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{write.csv}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ datos,}
-          \DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"materiales"}\NormalTok{, }\StringTok{"datos"}\NormalTok{, }\StringTok{"datos_peces.csv"}\NormalTok{),}
-          \DataTypeTok{row.names =}\NormalTok{ F)}
-\end{Highlighting}
-\end{Shaded}
 
 \bibliography{references.bib}
 
