@@ -1,7 +1,44 @@
-# Metodología de MAREA
+# Evaluación de reservas
 
-Importancia de incorporar dimensiones socioeconómicas y de gobernanza (Basurto & Nenadovic, 2012; Basurto, Gelcich & Ostrom, 2013) Halpern tripple bottom down
+Las reservas marinas son sistemas socio-ecológicos complejos. Su efectividad depende de las interacciones y combinaciones de factores sociales y ambientales. Por muchos años, la ciencia de reservas marinas sea ha enfocado en comprender los efectos ecológicos de estas áreas, reportando aumentos en biomasa, riqueza y densidad de organismos o beneficios de mitigación de cambio climático y protección ambiental [@lester_2009;@micheli_2012;@giakoumi_2017;@sala_2017;@roberts_2017]. Más recientemente, algunos trabajos se han enfocado en la relación entre estructuras de governanza y aspectos socioeconómicos y la efectividad de las reservas [@halpern_2013;@lpezangarita_2014;@mascia_2017]. Por lo tanto, es importante que la evaluación de reservas tome en cuenta las dimensiones ecológicas, socioeconómicas y de governanza.
+
+La metodología propuesta e implementada en MAREA utiliza una serie de indicadores de cada dimensión. Los indicadores sugeriods pueden ser usados en función de los objetivos de la reserva o de otras preguntas de interés. En este capítulo definimos los objetivos generales para los cuales las reservas pueden ser implementadas y los indicadores sugeridos para cada caso. Después explicamos a profundidad cómo MAREA utiliza el análisis de Diferencias entre Diferencias presentado previamente en el capítulo anterior (Capítulo \@ref(antecedentes)).
 
 ## Objetivos e indicadores
 
-## Análisis de inferencia de causalidad
+Como cualquier otra intervención de manejo, las reservas marinas deben de tener objetivos claros\footnotecite{Idealmente, usaremos objetivos [SMART](https://en.wikipedia.org/wiki/SMART_criteria)}. Los objetivos nos ayudan a identificar los cambios que deseamos ver y, por lo tanto, seleccionar indicadores para evaluar la efectividad de la intervención.
+
+En práctica, los objetivos suelen ser difusos y se encuentran escondidos en documentos oficiales. Habrá ocasiones en las que diferentes agencias, cuerpos o actores tengan percepciones distintas sobre los objetivos. Otras, las reservas tendrán objetivos muy específicos (por ejemplo "Duplicar la biomasa de mero en los primeros 10 años"). Por lo tanto, es difícil generar una lista de todos los objetivos e indicadores posibles.
+
+En su lugar, la metodología desarrollada por @villasenorderbez_2018 e implementada en MAREA presenta una serie de 7 objetivos generales a los cuales se asignan 25 indicadores divididos en indicadores biológicos (n = 7), socioeconómicos (n = 3) y de gobernanza (n = 15). Los 7 objetivos están inspirados en la normatividad de las zonas de refugio pesquero [@nom], pero agrupan muchos otros objetivos más particulares. 
+
+```{r tabla-oi}
+read.csv(here::here("tab","oi.csv"),
+         stringsAsFactors = F) %>% 
+  select(c(1:5, 7:9, 11, 13, 15)) %>% 
+  knitr::kable(booktabs = T, caption = "Matriz de objetivos e indicadores. Cada columna representa un indicador biológico (B) o socioeconómico (S). Los indicadores de gobernanza no se muestran, pues sugerimos que todos sean utilizados sin importar el objetivo.")
+```
+
+
+### Indicadores biológicos
+
+La lista de indicadores presentada fue el resultado de un proceso de selección con más de 40 indicadores iniciales. Los indicadores restantes fueron depurados según la facilidad de medición, existencia de información anterior, presencia de programas de monitoreo que los midan anualmente. La selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobeierno. Los indicadores biológicos son[^spp_obj]:
+
+- **B1** - Índice de diversidad de Shannon
+- **B2** - Riqueza de especies
+- **B3** - Densidad de organismos maduros (proporción de organismos mayores a la talla de primera maduréz)
+- **B4** - Densidad de organismos
+- **B5** - Presencia de una perturbación ambiental
+- **B6** - Nivel trófico medio
+- **B7** - Biomasa
+
+[^spp_obj]: La biomasa y la densidad de organismos puede aplicarse a todas las especies o a especies de interés particular.
+
+Tabla aquí
+
+## Análisis 
+
+### Inferencia de causalidad
+
+### Socioeconómicos y de governanza
+

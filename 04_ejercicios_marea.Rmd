@@ -1,6 +1,6 @@
 # (PART) Parte II {-}
 
-# Uso de MAREA
+# Ejercicios con MAREA
 
 ## Indicadores biológicos para 1 reserva
 

@@ -1,4 +1,4 @@
-# Introducción a MAREA
+# Uso de MAREA
 
 Presentaremos los pasos necesarios para evaluar una reserva con MAREA. Ya conoceremos los datos y análisis, por lo que no nos limitaremos a aprender su uso, sino comprender las operaciones y procesos que realiza. Esto permitirá anticipar errores y comprender las capacidades y limitaciones de MAREA. Comentaremos sobre la manera de prevenir errores y, en caso de que existan, reportarlos para su arreglo. Usaremos Isla Natividad como ejemplo para llevar a cabo la evaluación de la reserva de “La Plana / Las Cuevas”.
 

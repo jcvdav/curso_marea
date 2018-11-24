@@ -57,7 +57,8 @@ tipo_proteccion <- NA
 # ANP es NA
 ANP <- NA
 
-# Lista de posibles buzos monitores (http://www.laff.bren.ucsb.edu/laff-network/alumni)
+# Lista de posibles buzos monitores
+# (http://www.laff.bren.ucsb.edu/laff-network/alumni)
 buzo_monitor <- c("Caio Faro",
                   "Alexandra Smith",
                   "Diana Flores", 
@@ -71,7 +72,13 @@ buzo_monitor <- c("Caio Faro",
                   "Catalina Milagros")
 
 # Horas iniciales arbitrarias
-hora_inicial <- c("6:50", "8:40", "10:20", "12:15", "13:40", "14:45", "15:20")
+hora_inicial <- c("6:50",
+                  "8:40",
+                  "10:20",
+                  "12:15",
+                  "13:40",
+                  "14:45",
+                  "15:20")
 
 # Rango de profundidades iniciales posibles
 profundidad_inicial <- 5:27
@@ -79,7 +86,8 @@ profundidad_inicial <- 5:27
 # Esta funcion inventa una profundidad final
 # segun la profundidad inicial
 profundidad_final <- function(profundidad_inicial){
-  round(profundidad_inicial + rnorm(n = 1, mean = 0, sd = 1), digits = 1)
+  round(profundidad_inicial + rnorm(n = 1, mean = 0, sd = 1),
+        digits = 1)
 }
 
 # Rango de temperaturas
@@ -218,7 +226,7 @@ for(i in ano){
       
       Dia <- dia
       
-      # Aleatoriamente muestreamos un mes de la lista anterior (mes)
+      # Aleatoriamente muestreamos un mes de la lista anterior
       Mes <- sample(x = mes,
                     size = 1L)
       
@@ -276,7 +284,8 @@ for(i in ano){
         # definir el numero de grupos de tallas observados
         nobs <- sample(x = 1:5, size = 1L)
         
-        # Definir un ciclo para iterar cada grupo de observaciones de una spp
+        # Definir un ciclo para iterar cada grupo de
+        # observaciones de una spp
         for(m in 1:nobs){
           
           # Escoger una talla aleatoria segun la funcion anterior
@@ -330,17 +339,19 @@ for(i in ano){
 datos %<>%
   drop_na(dia) %>% 
   group_by(Dia, Mes, Ano, Estado, Comunidad, Sitio, Latitud,
-           Longitud, Habitat, Zona, TipoProteccion, ANP, BuzoMonitor, 
-           HoraInicial, ProfundidadInicial, ProfundidadFinal,
-           Temperatura, Visibilidad, Corriente, Transecto, Genero,
-           Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, RC) %>% 
+           Longitud, Habitat, Zona, TipoProteccion, ANP,
+           BuzoMonitor,  HoraInicial, ProfundidadInicial,
+           ProfundidadFinal, Temperatura, Visibilidad, Corriente,
+           Transecto, Genero, Especie, GeneroEspecie, Sexo,
+           Talla, ClaseTalla, RC) %>% 
   summarize(Abundancia = sum(Abundancia, na.rm = T)) %>% 
   ungroup() %>% 
   select(Dia, Mes, Ano, Estado, Comunidad, Sitio, Latitud,
-         Longitud, Habitat, Zona, TipoProteccion, ANP, BuzoMonitor, 
-         HoraInicial, ProfundidadInicial, ProfundidadFinal,
-         Temperatura, Visibilidad, Corriente, Transecto, Genero,
-         Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, Abundancia, RC)
+           Longitud, Habitat, Zona, TipoProteccion, ANP,
+           BuzoMonitor,  HoraInicial, ProfundidadInicial,
+           ProfundidadFinal, Temperatura, Visibilidad, Corriente,
+           Transecto, Genero, Especie, GeneroEspecie, Sexo,
+           Talla, ClaseTalla, Abundancia, RC)
 ```
 
 ```{r exportar-datos-crudos, echo = F, eval = F}
@@ -357,8 +368,9 @@ datos <- read.csv(file = here::here("materiales", "datos", "datos_crudos.csv"),
 
 ```{r graficar-datos, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos antes de agregar tendencias"}
 # Graficar los datos
-datos %>% 
-  ggplot(aes(x = Ano, y = Abundancia, color = Zona, group = Sitio, linetype = RC)) +
+ggplot(data = datos,
+       mapping = aes(x = Ano, y = Abundancia,
+                     color = Zona, group = Sitio, linetype = RC)) +
   geom_point(alpha = 0.5, size = 0.5) +
   stat_summary(geom = "line", fun.y = "mean", size = 1) +
   facet_wrap(~GeneroEspecie, ncol = 3, scales = "free_y") +
@@ -385,8 +397,9 @@ datos <- datos %>%
 
 ```{r graficar-datos-abundancias, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las abundancias con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
 # Graficar los datos
-datos %>% 
-  ggplot(aes(x = Ano, y = Abundancia, color = Zona, group = Sitio, linetype = RC)) +
+ggplot(data = datos,
+       mapping = aes(x = Ano, y = Abundancia,
+                     color = Zona, group = Sitio, linetype = RC)) +
   geom_point(alpha = 0.5, size = 0.5) +
   stat_summary(geom = "line", fun.y = "mean", size = 1) +
   facet_wrap(~GeneroEspecie, ncol = 3, scales = "free_y") +
@@ -398,8 +411,9 @@ datos %>%
 
 ```{r graficar-datos-tallas, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las tallas con tendencias (+2 cm anual) despés del primer año. Note como una reserva funciona y otra no."}
 # Graficar los datos
-datos %>% 
-  ggplot(aes(x = Ano, y = Talla, color = Zona, group = Sitio, linetype = RC)) +
+ggplot(data = datos,
+       mapping = aes(x = Ano, y = Abundancia,
+                     color = Zona, group = Sitio, linetype = RC)) +
   geom_point(alpha = 0.5, size = 0.5) +
   stat_summary(geom = "line", fun.y = "mean", size = 1) +
   facet_wrap(~GeneroEspecie, ncol = 3, scales = "free_y") +
