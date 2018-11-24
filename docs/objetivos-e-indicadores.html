@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="marea.ico" type="image/x-icon">
-<link rel="prev" href="capacidades-y-limitaciones.html">
-<link rel="next" href="indicadores-biologicos-para-1-reserva.html">
+<link rel="prev" href="evaluacion-de-reservas.html">
+<link rel="next" href="analisis.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -188,16 +188,201 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ejercicios-con-marea" class="section level1">
-<h1><span class="header-section-number">Capítulo 4</span> Ejercicios con MAREA</h1> 
+<div id="objetivos-e-indicadores" class="section level2">
+<h2><span class="header-section-number">2.1</span> Objetivos e indicadores</h2>
+<p>Como cualquier otra intervención de manejo, las reservas marinas deben de tener objetivos claros<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Los objetivos nos ayudan a identificar los cambios que deseamos ver y, por lo tanto, seleccionar indicadores para evaluar la efectividad de la intervención.</p>
+<p>En práctica, los objetivos suelen ser difusos y se encuentran escondidos en documentos oficiales. Habrá ocasiones en las que diferentes agencias, cuerpos o actores tengan percepciones distintas sobre los objetivos. Otras, las reservas tendrán objetivos muy específicos (por ejemplo “Duplicar la biomasa de mero en los primeros 10 años”). Por lo tanto, es difícil generar una lista de todos los objetivos e indicadores posibles.</p>
+<p>En su lugar, la metodología desarrollada por <span class="citation">Villaseñor-Derbez et al. (<a href="#ref-villasenorderbez_2018">2018</a>)</span> e implementada en MAREA presenta una serie de 7 objetivos generales a los cuales se asignan 25 indicadores divididos en indicadores biológicos (n = 7), socioeconómicos (n = 3) y de gobernanza (n = 15). Los 7 objetivos están inspirados en la normatividad de las zonas de refugio pesquero <span class="citation">(NOM-049-SAG/PESC <a href="#ref-nom">2014</a>)</span>, pero agrupan muchos otros objetivos más particulares.</p>
+<table>
+<caption><span id="tab:tabla-oi">Tabla 2.1: </span>Matriz de objetivos e indicadores. Cada columna representa un indicador biológico (B) o socioeconómico (S). Los indicadores de gobernanza no se muestran, pues sugerimos que todos sean utilizados sin importar el objetivo.</caption>
+<thead>
+<tr class="header">
+<th align="left">Objetivo</th>
+<th align="left">B1</th>
+<th align="left">B2</th>
+<th align="left">B3</th>
+<th align="left">B4</th>
+<th align="left">B5</th>
+<th align="left">B6</th>
+<th align="left">B7</th>
+<th align="left">S1</th>
+<th align="left">S2</th>
+<th align="left">S3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Evitar la sobreexplotación</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+</tr>
+<tr class="even">
+<td align="left">Conservar especies bajo protección especial</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+</tr>
+<tr class="odd">
+<td align="left">Mantener procesos biológicos</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+</tr>
+<tr class="even">
+<td align="left">Mejorar la productividad de las zonas de pesca</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+</tr>
+<tr class="odd">
+<td align="left">Preservar la biodiversidad y los ecosistemas</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+</tr>
+<tr class="even">
+<td align="left">Recuperar especies sobreexplotadas</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+</tr>
+<tr class="odd">
+<td align="left">Recuperar especies de inerés comercial</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left">x</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">x</td>
+</tr>
+</tbody>
+</table>
+<p>La lista de indicadores presentada es el resultado de un proceso de depuración de más de 40 indicadores iniciales obtenidos de la literatura científica <span class="citation">(Halpern and Warner <a href="#ref-halpern_2002">2002</a>; Lester et al. <a href="#ref-lester_2009">2009</a>; Lester and Halpern <a href="#ref-lester_2008">2008</a>; Micheli et al. <a href="#ref-micheli_2012">2012</a>; Halpern et al. <a href="#ref-halpern_2013">2013</a>; Basurto, Gelcich, and Ostrom <a href="#ref-basurto_2013">2013</a>; Leslie et al. <a href="#ref-leslie_2015">2015</a>)</span>. El proceso de selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobeierno. Los indicadores fueron elegidos según su facilidad de medición, la existencia de información anterior y presencia de programas de monitoreo que los midan anualmente. Además de separar explícitamente los indicadores en las ctegorías previamente mencionadas, también hay una separación implícita entre indicadores que cambian por efecto de la reserva (por ejemplo, <strong>B</strong> - Biomasa) o indicadores que pueden explicar la efectividad -o ausencia de- de la reserva, como <strong>G5</strong> - Pesca ilegal.</p>
+<p>Los indicadores biológicos son:</p>
+<ul>
+<li><strong>B1</strong> - Índice de diversidad de Shannon</li>
+<li><strong>B2</strong> - Riqueza de especies</li>
+<li><strong>B3</strong> - Densidad de organismos maduros (proporción de organismos mayores a la talla de primera maduréz)</li>
+<li><strong>B4</strong> - Densidad de organismos</li>
+<li><strong>B5</strong> - Presencia de una perturbación ambiental</li>
+<li><strong>B6</strong> - Nivel trófico medio</li>
+<li><strong>B7</strong> - Biomasa</li>
+</ul>
+<p>Los indicadores socioeconómicos son:</p>
+<ul>
+<li><strong>S1</strong> - Arribos totales</li>
+<li><strong>S2</strong> - Ingresos totales</li>
+<li><strong>S3</strong> - Oportunidades económicas alternativas a la pesca</li>
+</ul>
+<p>Los indicadores de gobernanza son:</p>
+<ul>
+<li><strong>G1</strong> - Acceso a la pesquería</li>
+<li><strong>G2</strong> - Número de pescadores</li>
+<li><strong>G3</strong> - Reconocimiento legal de la reserva</li>
+<li><strong>G4</strong> - Tipo de reserva</li>
+<li><strong>G5</strong> - Pesca ilegal</li>
+<li><strong>G6</strong> - Plan de manejo</li>
+<li><strong>G7</strong> - Procuración y vigilancia de la reserva</li>
+<li><strong>G8</strong> - Tamaño de la reserva</li>
+<li><strong>G9</strong> - Razonamiento para la localización de la reserva</li>
+<li><strong>G10</strong> - Presencia de organizaciones pesqueras</li>
+<li><strong>G11</strong> - Tipo de organizaciones pesqueras</li>
+<li><strong>G12</strong> - Representación</li>
+<li><strong>G13</strong> - Regulaciones internas</li>
+<li><strong>G14</strong> - Efectividad percibida</li>
+<li><strong>G15</strong> - Impacto social de la reserva</li>
+</ul>
+</div>
+<h3>Referencias</h3>
+<div id="refs" class="references">
+<div id="ref-villasenorderbez_2018">
+<p>Villaseñor-Derbez, Juan Carlos, Caio Faro, Melaina Wright, Jael Martínez, Sean Fitzgerald, Stuart Fulton, Maria del Mar Mancha-Cisneros, et al. 2018. “A User-Friendly Tool to Evaluate the Effectiveness of No-Take Marine Reserves.” <em>PLOS ONE</em> 13 (1): 1–21. <a href="https://doi.org/10.1371/journal.pone.0191821">https://doi.org/10.1371/journal.pone.0191821</a>.</p>
+</div>
+<div id="ref-nom">
+<p>NOM-049-SAG/PESC. 2014. “NORMA Oficial Mexicana Nom-049-Sag/Pesc-2014, Que Determina El Procedimiento Para Establecer Zonas de Refugio Para Los Recursos Pesqueros En Aguas de Jurisdicción Federal de Los Estados Unidos Mexicanos.” <em>DOF</em>.</p>
+</div>
+<div id="ref-halpern_2002">
+<p>Halpern, Benjamin S, and Robert R Warner. 2002. “Marine Reserves Have Rapid and Lasting Effects.” <em>Ecology Letters</em> 5 (3): 361–66. <a href="https://doi.org/10.1046/j.1461-0248.2002.00326.x">https://doi.org/10.1046/j.1461-0248.2002.00326.x</a>.</p>
+</div>
+<div id="ref-lester_2009">
+<p>Lester, SE, BS Halpern, K Grorud-Colvert, J Lubchenco, BI Ruttenberg, SD Gaines, S Airamé, and RR Warner. 2009. “Biological Effects Within No-Take Marine Reserves: A Global Synthesis.” <em>Mar. Ecol. Prog. Ser.</em> 384 (May): 33–46. <a href="https://doi.org/10.3354/meps08029">https://doi.org/10.3354/meps08029</a>.</p>
+</div>
+<div id="ref-lester_2008">
+<p>Lester, SE, and BS Halpern. 2008. “Biological Responses in Marine No-Take Reserves Versus Partially Protected Areas.” <em>Mar. Ecol. Prog. Ser.</em> 367 (September): 49–56. <a href="https://doi.org/10.3354/meps07599">https://doi.org/10.3354/meps07599</a>.</p>
+</div>
+<div id="ref-micheli_2012">
+<p>Micheli, Fiorenza, Andrea Saenz-Arroyo, Ashley Greenley, Leonardo Vazquez, Jose Antonio Espinoza Montes, Marisa Rossetto, and Giulio A. De Leo. 2012. “Evidence That Marine Reserves Enhance Resilience to Climatic Impacts.” <em>PLoS ONE</em> 7 (7): e40832. <a href="https://doi.org/10.1371/journal.pone.0040832">https://doi.org/10.1371/journal.pone.0040832</a>.</p>
+</div>
+<div id="ref-halpern_2013">
+<p>Halpern, Benjamin S, Carissa J Klein, Christopher J Brown, Maria Beger, Hedley S Grantham, Sangeeta Mangubhai, Mary Ruckelshaus, et al. 2013. “Achieving the Triple Bottom Line in the Face of Inherent Trade-Offs Among Social Equity, Economic Return, and Conservation.” <em>Proc Natl Acad Sci USA</em> 110 (15): 6229–34. <a href="https://doi.org/10.1073/pnas.1217689110">https://doi.org/10.1073/pnas.1217689110</a>.</p>
+</div>
+<div id="ref-basurto_2013">
+<p>Basurto, Xavier, Stefan Gelcich, and Elinor Ostrom. 2013. “The Social–Ecological System Framework as a Knowledge Classificatory System for Benthic Small-Scale Fisheries.” <em>Global Environmental Change</em> 23 (6): 1366–80. <a href="https://doi.org/10.1016/j.gloenvcha.2013.08.001">https://doi.org/10.1016/j.gloenvcha.2013.08.001</a>.</p>
+</div>
+<div id="ref-leslie_2015">
+<p>Leslie, Heather M, Xavier Basurto, Mateja Nenadovic, Leila Sievanen, Kyle C Cavanaugh, Juan José Cota-Nieto, Brad E Erisman, et al. 2015. “Operationalizing the Social-Ecological Systems Framework to Assess Sustainability.” <em>Proc Natl Acad Sci U S A</em> 112 (19): 5979–84. <a href="https://doi.org/10.1073/pnas.1414640112">https://doi.org/10.1073/pnas.1414640112</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>Idealmente, usaremos objetivos <a href="https://en.wikipedia.org/wiki/SMART_criteria">SMART</a><a href="objetivos-e-indicadores.html#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="capacidades-y-limitaciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="indicadores-biologicos-para-1-reserva.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="evaluacion-de-reservas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analisis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -227,7 +412,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jcvdav/curso_marea/edit/master/04_ejercicios_marea.Rmd",
+"link": "https://github.com/jcvdav/curso_marea/edit/master/02_evaluacion.Rmd",
 "text": "Edit"
 },
 "download": ["evaluacion-reservas.pdf", "evaluacion-reservas.epub"],

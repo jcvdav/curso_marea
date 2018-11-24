@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="marea.ico" type="image/x-icon">
-
-<link rel="next" href="requisitos.html">
+<link rel="prev" href="objetivos-e-indicadores.html">
+<link rel="next" href="uso-de-marea.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -188,19 +188,222 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Costeo y Evaluación de Reservas Marinas</h1>
-<h3 class="subtitle"><em>Una guía para gestores ambientales</em></h3>
-<h4 class="author"><em>Juan Carlos Villaseñor-Derbez</em></h4>
-<h4 class="date"><em>Bren School of Environmental Science &amp; Management, UCSB</em></h4>
+<div id="analisis" class="section level2">
+<h2><span class="header-section-number">2.2</span> Análisis</h2>
+<p>Una vez definidos los indicadores, debemos establecer formas de analizarlo. La metodología de colecta de datos no es parte central de este manual, y ha sido descrita a detalle en otros trabajos <span class="citation">(Suman et al. <a href="#ref-suman_2010">2010</a>; Villaseñor-Derbez et al. <a href="#ref-villaseorderbez_2017">2017</a>, <a href="#ref-villasenorderbez_2018">2018</a>)</span>. En esta sección describimos el análisis de Diferencias entre Diferencias empleado para estimar el efecto de la reserva en los indicadores biológicos y los análisis para indicadores socioeconómicos y de gobernanza.</p>
+<div id="inferencia-de-causalidad" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Inferencia de causalidad</h3>
+<p>Como se mencionó en la Sección <a href="antes-despues-dentro-fuera.html#antes-despues-dentro-fuera">1.3</a>, MAERA usa un análisis de Diferencias en Diferencias. Pero ¿cómo funciona este análisis cuando tenemos más de cuatro observciones? El análisis puede hacerse por medio de una regresión lineal múltiple.</p>
+<p>Retomando el ejemplo del capítulo anterior (Captítulo <a href="antecedentes.html#antecedentes">1</a>), podemos imaginarnos un caso en el que tenemos dos observaciones para cada sitio en cada periodo. En tal caso, podríamos calcular el promedio de cada sitio en cada periodo. La Figura <a href="analisis.html#fig:baci-multi">2.1</a> muestra las observaciones como puntos y los promedios como líneas. En este caso, podríamos calcular la pendiente de cada línea (esto es, el cambio en el tiempo) y así obtener el contrafactual (línea punteada roja) y calcular el efecto de la reserva.</p>
+<div class="figure"><span id="fig:baci-multi"></span>
+<img src="evaluacion-reservas_files/figure-html/baci-multi-1.svg" alt="Diseño muestreal antes-despues-dentro-fuera con dos observaciones por sitio y periodo (puntos). Las líneas sólidas muestran las tendencias promedio de cada sitio con azul para el control y rojo para la reserva. La línea punteada roja muestra el contrafactual de la reserva. Las líneas punteadas negras horizontales y verticales presentan los promedios de cada sitio y periodo." width="672" />
+<p class="caption">
+Figura 2.1: Diseño muestreal antes-despues-dentro-fuera con dos observaciones por sitio y periodo (puntos). Las líneas sólidas muestran las tendencias promedio de cada sitio con azul para el control y rojo para la reserva. La línea punteada roja muestra el contrafactual de la reserva. Las líneas punteadas negras horizontales y verticales presentan los promedios de cada sitio y periodo.
+</p>
 </div>
-<div id="antes-de-empezar" class="section level1 unnumbered">
-<h1>Antes de empezar</h1>
-<p>Este manual es la segunda iteración de los esfuerzos por impulsar el uso de metodologías estandarizadas para la evaluación de reservas marinas. Trabajos anteriores incluyen el manual generalizado de evaluación de reservas marinas en México <span class="citation">(Villaseñor-Derbez et al. <a href="#ref-villaseorderbez_2017">2017</a>)</span> y la publicación arbitrada que presenta a <a href="https://turfeffect.shinyapps.io/marea/">MAREA</a> como una herramienta amigable y gratuita <span class="citation">(Villaseñor-Derbez et al. <a href="#ref-villasenorderbez_2018">2018</a>)</span>. Esta versión del manual pretende incorporar partes de ambos trabajos, pero también incluye una serie de ejercicios prácticos para el uso de MAREA y la nueva App de Costeo de Reservas. Además, el manual está públicamente disponible en <a href="https://jcvdav.github.io/curso_marea/">internet</a>, donde el lector puede descargar el manual como PDF o EPUB para Kindle.</p>
-<p>Aunque el manual y la Aplicación para Evaluación de Reservas Marinas (MAREA) pueden ser utilizados alrededor del mundo, es importante mencionar que el proyecto fue diseñado para evaluar la efectividad de las reservas marinas en México. Por lo tanto, las metodologías utilizadas reflejan las necesidades de las comunidades costeras mexicanas, y no debe de interpretarse como un conjunto de instrucciones definitivas. Aún así, creemos que la guía ha sido creada para permitir su aplicación en otros lugares con el mismo fin.</p> 
+<p>Como el cambio a través del tiempo es básicamente una pendiente, podemos usar una regersión lineal múltiple para obtener esos valores. En el caso de Diferencias en Diferencias, nos interesan 3 cambios o pendientes: i) La diferencia a través del tiempo y ii) La diferencia entre sitios y iii) La diferencia entre estas diferencias.</p>
+<p>Para calcular la diferencia a través del tiempo, podems definir una variable llamada <span class="math inline">\(Post\)</span> que tomará un valor <span class="math inline">\(Post = 0\)</span> para todas las observaciones antes de la implementación de la reserva y un valor de <span class="math inline">\(Post = 1\)</span> una vez que la reserva haya sido implementada. Al igual que cuando comparamos 2011 contra 2010, la diferencia entre años o entre <span class="math inline">\(Post\)</span> será de 1 (<span class="math inline">\(2011 - 2010 = 1\)</span>; <span class="math inline">\(1 - 0 = 1\)</span>).</p>
+<p>Para obtener la diferencia entre sitios, definimos otra variablle llamada <span class="math inline">\(Zona\)</span> que tomará un valor de <span class="math inline">\(Zona = 0\)</span> para las observaciones realizadas en el control y un valor de <span class="math inline">\(Zona = 1\)</span> para las observaciones de la reserva. Finalmente, podemos “interactuar” (multiplicar) estas variables para generar un <em>término de interacción</em>, de tal manera que <span class="math inline">\(Zona \times Post = 0\)</span> para todas las observaciones del control y la observación de la reserva <strong>antes</strong> de la implementación, y <span class="math inline">\(Zona \times Post = 1\)</span> para las observaciones de la reserva <strong>después</strong> de la implementación.</p>
+<p>Por lo tanto, podemos definir un modelo lineal múltiple que contenga una variable para el tiempo, una para la zona y otra para la interacción entre estas, de la siguiente manera:</p>
+<p><span class="math display">\[
+I = \alpha + \beta_1Post + \beta_2Zona + \beta_3Zona \times Post + \epsilon
+\]</span></p>
+<p>En esta especificación, estimamos los coeficientes <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta_1\)</span>, <span class="math inline">\(\beta_2\)</span> y <span class="math inline">\(\beta_3\)</span> por medio de mínimos cuadrados ordinarios. Estos coeficientes presentarán la siguiente información:</p>
+<ul>
+<li><span class="math inline">\(\alpha\)</span>: promedio del indicador en la zona control antes de la implementación</li>
+<li><span class="math inline">\(\beta_1\)</span>: cambio a través del tiempo</li>
+<li><span class="math inline">\(\beta_2\)</span>: cambio a través de sitios</li>
+<li><span class="math inline">\(\beta_3\)</span>: restante del cambio entre reservas y sitios (este es el efecto de la reserva)</li>
+</ul>
+<p>La interpretación de estos coeficientes puede ser un poco compleja, pero el siguiente ejemplo puede ayudarnos a aclarar dudas. Ajustando el modelo lineal a los datos de la Figura <a href="analisis.html#fig:baci-multi">2.1</a>, obtenemos los coeficientes mostrados en la Tabla <a href="analisis.html#tab:reg">2.2</a>.</p>
+<table style="text-align:center">
+<caption>
+<span id="tab:reg">Tabla 2.2: </span><strong>Coeficientes estimados mediante la regresión lineal múltiple.</strong>
+</caption>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Variable dependiente
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="1" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+indicador
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+alpha
+</td>
+<td>
+2.000 (1.000)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+B1
+</td>
+<td>
+3.000 (1.414)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+B2
+</td>
+<td>
+2.000 (1.414)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+B3
+</td>
+<td>
+2.000 (2.000)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+R<sup>2</sup>
+</td>
+<td>
+0.867
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Residual Std. Error
+</td>
+<td>
+1.414 (df = 4)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+F Statistic
+</td>
+<td>
+8.667<sup>**</sup> (df = 3; 4)
+</td>
+</tr>
+<tr>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>La Tabla <a href="analisis.html#tab:reg">2.2</a> muestra los valores estimados para los coeficientes. Los números entre paréntesis presentan el error estándar al rededor de la estimación. Además, presenta la varianza explicada por el modelo ajustado, en este caso con un valor de <span class="math inline">\(R^2 = 0.87\)</span>.</p>
+<p>Para interpretar los coeficientes, debemos sustituirlos en la ecuación anterior. Por lo tanto, obtenemos lo siguiente:</p>
+<p><span class="math display">\[
+I = 2 + (3 \times Post) + (2\times Zona) + (2 \times Zona \times Post)
+\]</span></p>
+<p>Podemos usar esta acuación para calcular el valor promedio del indicador <span class="math inline">\(I\)</span> en cada sitio y cada perido según los valores de las variables <span class="math inline">\(Post\)</span>, <span class="math inline">\(Zona\)</span> y <span class="math inline">\(Zona \times Post\)</span>.</p>
+<div id="valor-antes-en-el-control" class="section level4">
+<h4><span class="header-section-number">2.2.1.1</span> Valor antes en el control</h4>
+<p>Primero, debemos definir los valores de las variables según el sitio y periodo en el que estamos. Para los valores antes de la implementación sabemos que <span class="math inline">\(Post = 0\)</span>. Para los valores del sitio control sabemos que <span class="math inline">\(Zona = 0\)</span>. Sustituimos estos valores en la fórmula anterior y obtenemos</p>
+<p><span class="math display">\[
+\begin{split}
+I &amp;= 2 + (3 \times 0) + (2\times 0) + (2 \times 0 \times 0) \\
+I &amp;= 2 + 0 + 0 + 0 \\
+I &amp;= 2
+\end{split}
+\]</span></p>
+<p>Este ejercicio sugiere que el valor promedio del indicador en el control antes de la intervención es de 2. La inspección visual de la Figura <a href="analisis.html#fig:baci-multi">2.1</a> confirma esto.</p>
 </div>
+<div id="valor-despues-en-el-control" class="section level4">
+<h4><span class="header-section-number">2.2.1.2</span> Valor después en el control</h4>
+<p>En este caso, <span class="math inline">\(Post = 1\)</span> pero seguimos con <span class="math inline">\(Zona = 0\)</span>:</p>
+<p><span class="math display">\[
+\begin{split}
+I &amp;= 2 + (3 \times 1) + (2\times 0) + (2 \times 0 \times 0) \\
+I &amp;= 2 + 3 + 0 + 0 \\
+I &amp;= 5
+\end{split}
+\]</span></p>
+<p>Ahora identificamos que el promedio del indicador en el control después de la intervención es de 5, como lo vemos en la Figura <a href="analisis.html#fig:baci-multi">2.1</a>.</p>
+</div>
+<div id="valor-antes-en-la-reserva" class="section level4">
+<h4><span class="header-section-number">2.2.1.3</span> Valor antes en la reserva</h4>
+<p>Ahora, regresamos a tener <span class="math inline">\(Post = 0\)</span> pero con <span class="math inline">\(Zona = 1\)</span>, pues estamos en la reserva:</p>
+<p><span class="math display">\[
+\begin{split}
+I &amp;= 2 + (3 \times 0) + (2\times 1) + (2 \times 0 \times 0) \\
+I &amp;= 2 + 0 + 2 + 0 \\
+I &amp;= 4
+\end{split}
+\]</span></p>
+<p>En este caso el promedio del indicador en la reserva antes de la intervención es de 4 (Figura <a href="analisis.html#fig:baci-multi">2.1</a>).</p>
+</div>
+<div id="valor-despues-en-la-reserva" class="section level4">
+<h4><span class="header-section-number">2.2.1.4</span> Valor después en la reserva</h4>
+<p>Para calcular el valor en el sitio de reserva después de la intervención, tendremos <span class="math inline">\(Post = 1\)</span> y <span class="math inline">\(Zona =1\)</span>. Hagamos el ejercicio sin incluir el término de interacción por ahora:</p>
+<p><span class="math display">\[
+\begin{split}
+I &amp;= 2 + (3 \times 1) + (2\times 1) \\
+I &amp;= 2 + 3 + 2 \\
+I &amp;= 7
+\end{split}
+\]</span></p>
+<p>¿Por qué obtenemos un valor de 7 si la reserva presenta un valor de 9 después de su implementación? En este caso, no hemos aún incluido el valor del término de interacción, por lo que obtenemos el valor que la reserva habría presentado si la reserva no se hubiera implementado. Este es el contrafactual, mostrado como la línea punteada roja en la Figura <a href="analisis.html#fig:baci-multi">2.1</a>. Al incluir el término de interacción, obtenemos:</p>
+<p><span class="math display">\[
+\begin{split}
+I &amp;= 2 + (3 \times 1) + (2\times 1) + (2\times 1 \times 1)\\
+I &amp;= 2 + 3 + 2 + 2\\
+I &amp;= 9
+\end{split}
+\]</span></p>
+<p>El término de interacción captura la diferncia entre lo que debería de haberse observado para la reserva y lo que realmente se observó. Es decir, la diferencia entre las líneas rojas. Este término es el efecto de la reserva.</p>
+<p>Aunque esto puede parecer complicado, la realidad es que puede implementarse con una línea de código como <code>lm(indicador ~ post * zona, data = datos)</code>. Mejor aún, MAREA se encarga de generar las variables <span class="math inline">\(Post\)</span> y <span class="math inline">\(Zona\)</span> y de ajustar los coeficientes. Otra</p>
+</div>
+</div>
+<div id="socioeconomicos-y-de-gobernanza" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Socioeconómicos y de gobernanza</h3>
+
+</div>
+</div>
+<!-- </div> -->
 <h3>Referencias</h3>
 <div id="refs" class="references">
+<div id="ref-suman_2010">
+<p>Suman, Craig S, Andrea Saenz-Arroyo, Cyndi Dawson, and Mary C Luna. 2010. <em>Manual de Instruccion de Reef Check California: Guia de Instruccion Para El Monitoreo Del Bosque de Sargazo En La Peninsula de Baja California</em>. Pacific Palisades, CA, USA: Reef Check Foundation.</p>
+</div>
 <div id="ref-villaseorderbez_2017">
 <p>Villaseñor-Derbez, Juan Carlos, Caio Faro, Melaina Wright, and Jael Martínez. 2017. “Una Guía Para Evaluar La Efectividad de Las Zonas de No Pesca En México.” TURFeffect. <a href="https://doi.org/10.13140/RG.2.2.22025.65121">https://doi.org/10.13140/RG.2.2.22025.65121</a>.</p>
 </div>
@@ -213,8 +416,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="requisitos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="objetivos-e-indicadores.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="uso-de-marea.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -244,7 +447,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jcvdav/curso_marea/edit/master/index.Rmd",
+"link": "https://github.com/jcvdav/curso_marea/edit/master/02_evaluacion.Rmd",
 "text": "Edit"
 },
 "download": ["evaluacion-reservas.pdf", "evaluacion-reservas.epub"],

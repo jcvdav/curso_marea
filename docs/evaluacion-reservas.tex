@@ -498,7 +498,7 @@ Recuperar especies de inerés comercial &  &  & x &  & x &  &  &  &  & x\\
 La lista de indicadores presentada es el resultado de un proceso de
 depuración de más de 40 indicadores iniciales obtenidos de la literatura
 científica
-\citetext{\citealp[\citet{lester_2009}]{halpern_2002}; \citealp{lester_2008}; \citealp{micheli_2012}; \citealp{halpern_2013}; \citealp{basurto_2013}; \citealp{leslie_2015}}.
+\citep{halpern_2002, lester_2009, lester_2008, micheli_2012, halpern_2013, basurto_2013, leslie_2015}.
 El proceso de selección incluyó pescadores, investigadores, gestores
 ambientales y personal de agencias de gobeierno. Los indicadores fueron
 elegidos según su facilidad de medición, la existencia de información
@@ -581,12 +581,241 @@ Los indicadores de gobernanza son:
 \hypertarget{analisis}{%
 \section{Análisis}\label{analisis}}
 
+Una vez definidos los indicadores, debemos establecer formas de
+analizarlo. La metodología de colecta de datos no es parte central de
+este manual, y ha sido descrita a detalle en otros trabajos
+\citep{suman_2010, villaseorderbez_2017, villasenorderbez_2018}. En esta
+sección describimos el análisis de Diferencias entre Diferencias
+empleado para estimar el efecto de la reserva en los indicadores
+biológicos y los análisis para indicadores socioeconómicos y de
+gobernanza.
+
 \hypertarget{inferencia-de-causalidad}{%
 \subsection{Inferencia de causalidad}\label{inferencia-de-causalidad}}
 
-\hypertarget{socioeconomicos-y-de-governanza}{%
+Como se mencionó en la Sección \ref{antes-despues-dentro-fuera}, MAERA
+usa un análisis de Diferencias en Diferencias. Pero ¿cómo funciona este
+análisis cuando tenemos más de cuatro observciones? El análisis puede
+hacerse por medio de una regresión lineal múltiple.
+
+Retomando el ejemplo del capítulo anterior (Captítulo
+\ref{antecedentes}), podemos imaginarnos un caso en el que tenemos dos
+observaciones para cada sitio en cada periodo. En tal caso, podríamos
+calcular el promedio de cada sitio en cada periodo. La Figura
+\ref{fig:baci-multi} muestra las observaciones como puntos y los
+promedios como líneas. En este caso, podríamos calcular la pendiente de
+cada línea (esto es, el cambio en el tiempo) y así obtener el
+contrafactual (línea punteada roja) y calcular el efecto de la reserva.
+
+\begin{figure}
+\centering
+\includegraphics{evaluacion-reservas_files/figure-latex/baci-multi-1.pdf}
+\caption{\label{fig:baci-multi}Diseño muestreal antes-despues-dentro-fuera
+con dos observaciones por sitio y periodo (puntos). Las líneas sólidas
+muestran las tendencias promedio de cada sitio con azul para el control
+y rojo para la reserva. La línea punteada roja muestra el contrafactual
+de la reserva. Las líneas punteadas negras horizontales y verticales
+presentan los promedios de cada sitio y periodo.}
+\end{figure}
+
+Como el cambio a través del tiempo es básicamente una pendiente, podemos
+usar una regersión lineal múltiple para obtener esos valores. En el caso
+de Diferencias en Diferencias, nos interesan 3 cambios o pendientes: i)
+La diferencia a través del tiempo y ii) La diferencia entre sitios y
+iii) La diferencia entre estas diferencias.
+
+Para calcular la diferencia a través del tiempo, podems definir una
+variable llamada \(Post\) que tomará un valor \(Post = 0\) para todas
+las observaciones antes de la implementación de la reserva y un valor de
+\(Post = 1\) una vez que la reserva haya sido implementada. Al igual que
+cuando comparamos 2011 contra 2010, la diferencia entre años o entre
+\(Post\) será de 1 (\(2011 - 2010 = 1\); \(1 - 0 = 1\)).
+
+Para obtener la diferencia entre sitios, definimos otra variablle
+llamada \(Zona\) que tomará un valor de \(Zona = 0\) para las
+observaciones realizadas en el control y un valor de \(Zona = 1\) para
+las observaciones de la reserva. Finalmente, podemos ``interactuar''
+(multiplicar) estas variables para generar un \emph{término de
+interacción}, de tal manera que \(Zona \times Post = 0\) para todas las
+observaciones del control y la observación de la reserva \textbf{antes}
+de la implementación, y \(Zona \times Post = 1\) para las observaciones
+de la reserva \textbf{después} de la implementación.
+
+Por lo tanto, podemos definir un modelo lineal múltiple que contenga una
+variable para el tiempo, una para la zona y otra para la interacción
+entre estas, de la siguiente manera:
+
+\[
+I = \alpha + \beta_1Post + \beta_2Zona + \beta_3Zona \times Post + \epsilon
+\]
+
+En esta especificación, estimamos los coeficientes \(\alpha\),
+\(\beta_1\), \(\beta_2\) y \(\beta_3\) por medio de mínimos cuadrados
+ordinarios. Estos coeficientes presentarán la siguiente información:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\alpha\): promedio del indicador en la zona control antes de la
+  implementación
+\item
+  \(\beta_1\): cambio a través del tiempo
+\item
+  \(\beta_2\): cambio a través de sitios
+\item
+  \(\beta_3\): restante del cambio entre reservas y sitios (este es el
+  efecto de la reserva)
+\end{itemize}
+
+La interpretación de estos coeficientes puede ser un poco compleja, pero
+el siguiente ejemplo puede ayudarnos a aclarar dudas. Ajustando el
+modelo lineal a los datos de la Figura \ref{fig:baci-multi}, obtenemos
+los coeficientes mostrados en la Tabla \ref{tab:reg}.
+
+\begin{table}[!htbp] \centering 
+  \caption{Coeficientes estimados mediante la regresión lineal múltiple.} 
+  \label{tab:reg} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{Variable dependiente} \\ 
+\cline{2-2} 
+\\[-1.8ex] & indicador \\ 
+\hline \\[-1.8ex] 
+ \alpha & 2.000 (1.000) \\ 
+  B1 & 3.000 (1.414) \\ 
+  B2 & 2.000 (1.414) \\ 
+  B3 & 2.000 (2.000) \\ 
+ \hline \\[-1.8ex] 
+Observations & 8 \\ 
+R$^{2}$ & 0.867 \\ 
+Residual Std. Error & 1.414 (df = 4) \\ 
+F Statistic & 8.667$^{**}$ (df = 3; 4) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+
+La Tabla \ref{tab:reg} muestra los valores estimados para los
+coeficientes. Los números entre paréntesis presentan el error estándar
+al rededor de la estimación. Además, presenta la varianza explicada por
+el modelo ajustado, en este caso con un valor de \(R^2 = 0.87\).
+
+Para interpretar los coeficientes, debemos sustituirlos en la ecuación
+anterior. Por lo tanto, obtenemos lo siguiente:
+
+\[
+I = 2 + (3 \times Post) + (2\times Zona) + (2 \times Zona \times Post)
+\]
+
+Podemos usar esta acuación para calcular el valor promedio del indicador
+\(I\) en cada sitio y cada perido según los valores de las variables
+\(Post\), \(Zona\) y \(Zona \times Post\).
+
+\hypertarget{valor-antes-en-el-control}{%
+\subsubsection{Valor antes en el
+control}\label{valor-antes-en-el-control}}
+
+Primero, debemos definir los valores de las variables según el sitio y
+periodo en el que estamos. Para los valores antes de la implementación
+sabemos que \(Post = 0\). Para los valores del sitio control sabemos que
+\(Zona = 0\). Sustituimos estos valores en la fórmula anterior y
+obtenemos
+
+\[
+\begin{split}
+I &= 2 + (3 \times 0) + (2\times 0) + (2 \times 0 \times 0) \\
+I &= 2 + 0 + 0 + 0 \\
+I &= 2
+\end{split}
+\]
+
+Este ejercicio sugiere que el valor promedio del indicador en el control
+antes de la intervención es de 2. La inspección visual de la Figura
+\ref{fig:baci-multi} confirma esto.
+
+\hypertarget{valor-despues-en-el-control}{%
+\subsubsection{Valor después en el
+control}\label{valor-despues-en-el-control}}
+
+En este caso, \(Post = 1\) pero seguimos con \(Zona = 0\):
+
+\[
+\begin{split}
+I &= 2 + (3 \times 1) + (2\times 0) + (2 \times 0 \times 0) \\
+I &= 2 + 3 + 0 + 0 \\
+I &= 5
+\end{split}
+\]
+
+Ahora identificamos que el promedio del indicador en el control después
+de la intervención es de 5, como lo vemos en la Figura
+\ref{fig:baci-multi}.
+
+\hypertarget{valor-antes-en-la-reserva}{%
+\subsubsection{Valor antes en la
+reserva}\label{valor-antes-en-la-reserva}}
+
+Ahora, regresamos a tener \(Post = 0\) pero con \(Zona = 1\), pues
+estamos en la reserva:
+
+\[
+\begin{split}
+I &= 2 + (3 \times 0) + (2\times 1) + (2 \times 0 \times 0) \\
+I &= 2 + 0 + 2 + 0 \\
+I &= 4
+\end{split}
+\]
+
+En este caso el promedio del indicador en la reserva antes de la
+intervención es de 4 (Figura \ref{fig:baci-multi}).
+
+\hypertarget{valor-despues-en-la-reserva}{%
+\subsubsection{Valor después en la
+reserva}\label{valor-despues-en-la-reserva}}
+
+Para calcular el valor en el sitio de reserva después de la
+intervención, tendremos \(Post = 1\) y \(Zona =1\). Hagamos el ejercicio
+sin incluir el término de interacción por ahora:
+
+\[
+\begin{split}
+I &= 2 + (3 \times 1) + (2\times 1) \\
+I &= 2 + 3 + 2 \\
+I &= 7
+\end{split}
+\]
+
+¿Por qué obtenemos un valor de 7 si la reserva presenta un valor de 9
+después de su implementación? En este caso, no hemos aún incluido el
+valor del término de interacción, por lo que obtenemos el valor que la
+reserva habría presentado si la reserva no se hubiera implementado. Este
+es el contrafactual, mostrado como la línea punteada roja en la Figura
+\ref{fig:baci-multi}. Al incluir el término de interacción, obtenemos:
+
+\[
+\begin{split}
+I &= 2 + (3 \times 1) + (2\times 1) + (2\times 1 \times 1)\\
+I &= 2 + 3 + 2 + 2\\
+I &= 9
+\end{split}
+\]
+
+El término de interacción captura la diferncia entre lo que debería de
+haberse observado para la reserva y lo que realmente se observó. Es
+decir, la diferencia entre las líneas rojas. Este término es el efecto
+de la reserva.
+
+Aunque esto puede parecer complicado, la realidad es que puede
+implementarse con una línea de código como
+\texttt{lm(indicador\ \textasciitilde{}\ post\ *\ zona,\ data\ =\ datos)}.
+Mejor aún, MAREA se encarga de generar las variables \(Post\) y \(Zona\)
+y de ajustar los coeficientes. Otra
+
+\hypertarget{socioeconomicos-y-de-gobernanza}{%
 \subsection{Socioeconómicos y de
-governanza}\label{socioeconomicos-y-de-governanza}}
+gobernanza}\label{socioeconomicos-y-de-gobernanza}}
 
 \hypertarget{uso-de-marea}{%
 \chapter{Uso de MAREA}\label{uso-de-marea}}

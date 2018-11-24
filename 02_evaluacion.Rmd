@@ -21,7 +21,7 @@ read.csv(here::here("tab","oi.csv"),
   knitr::kable(booktabs = T, caption = "Matriz de objetivos e indicadores. Cada columna representa un indicador biológico (B) o socioeconómico (S). Los indicadores de gobernanza no se muestran, pues sugerimos que todos sean utilizados sin importar el objetivo.")
 ```
 
-La lista de indicadores presentada es el resultado de un proceso de depuración de más de 40 indicadores iniciales obtenidos de la literatura científica [@halpern_2002:@lester_2009;@lester_2008;@micheli_2012;@halpern_2013;@basurto_2013;@leslie_2015]. El proceso de selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobeierno. Los indicadores fueron elegidos según su facilidad de medición, la existencia de información anterior y presencia de programas de monitoreo que los midan anualmente. Además de separar explícitamente los indicadores en las ctegorías previamente mencionadas, también hay una separación implícita entre indicadores que cambian por efecto de la reserva (por ejemplo, **B** - Biomasa) o indicadores que pueden explicar la efectividad -o ausencia de- de la reserva, como **G5** - Pesca ilegal.
+La lista de indicadores presentada es el resultado de un proceso de depuración de más de 40 indicadores iniciales obtenidos de la literatura científica [@halpern_2002;@lester_2009;@lester_2008;@micheli_2012;@halpern_2013;@basurto_2013;@leslie_2015]. El proceso de selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobeierno. Los indicadores fueron elegidos según su facilidad de medición, la existencia de información anterior y presencia de programas de monitoreo que los midan anualmente. Además de separar explícitamente los indicadores en las ctegorías previamente mencionadas, también hay una separación implícita entre indicadores que cambian por efecto de la reserva (por ejemplo, **B** - Biomasa) o indicadores que pueden explicar la efectividad -o ausencia de- de la reserva, como **G5** - Pesca ilegal.
 
 Los indicadores biológicos son:
 
@@ -57,9 +57,210 @@ Los indicadores de gobernanza son:
 - **G14** - Efectividad percibida
 - **G15** - Impacto social de la reserva
 
-## Análisis 
+## Análisis
+
+Una vez definidos los indicadores, debemos establecer formas de analizarlo. La metodología de colecta de datos no es parte central de este manual, y ha sido descrita a detalle en otros trabajos [@suman_2010;@villaseorderbez_2017;@villasenorderbez_2018]. En esta sección describimos el análisis de Diferencias entre Diferencias empleado para estimar el efecto de la reserva en los indicadores biológicos y los análisis para indicadores socioeconómicos y de gobernanza.
 
 ### Inferencia de causalidad
 
-### Socioeconómicos y de governanza
+Como se mencionó en la Sección \@ref(antes-despues-dentro-fuera), MAERA usa un análisis de Diferencias en Diferencias. Pero ¿cómo funciona este análisis cuando tenemos más de cuatro observciones? El análisis puede hacerse por medio de una regresión lineal múltiple.
+
+Retomando el ejemplo del capítulo anterior (Captítulo \@ref(antecedentes)), podemos imaginarnos un caso en el que tenemos dos observaciones para cada sitio en cada periodo. En tal caso, podríamos calcular el promedio de cada sitio en cada periodo. La Figura \@ref(fig:baci-multi) muestra las observaciones como puntos y los promedios como líneas. En este caso, podríamos calcular la pendiente de cada línea (esto es, el cambio en el tiempo) y así obtener el contrafactual (línea punteada roja) y calcular el efecto de la reserva.
+
+```{r baci-multi, fig.cap = "Diseño muestreal antes-despues-dentro-fuera con dos observaciones por sitio y periodo (puntos). Las líneas sólidas muestran las tendencias promedio de cada sitio con azul para el control y rojo para la reserva. La línea punteada roja muestra el contrafactual de la reserva. Las líneas punteadas negras horizontales y verticales presentan los promedios de cada sitio y periodo."}
+df <- tibble(zona = c("Control", "Reserva", "Control", "Reserva"),
+             tiempo = c("Antes", "Antes", "Despues", "Despues"),
+             ano = c(2010, 2010, 2011, 2011),
+             valor = c(1, 3, 4, 8)) %>% 
+  rbind(tibble(zona = c("Control", "Reserva", "Control", "Reserva"),
+             tiempo = c("Antes", "Antes", "Despues", "Despues"),
+             ano = c(2010, 2010, 2011, 2011),
+             valor = c(3, 5, 6, 10)))
+
+
+dfv <- tibble(x1 = c(2010, 2011, 2009.5, 2009.5, 2009.5),
+              x2 = c(2010, 2011, 2010, 2011, 2011),
+              y1 = c(0, 0, 4, 5, 9),
+              y2 = c(4, 9, 4, 5, 9))
+
+dfc <- tibble(x1 = 2010, x2 = 2011, y1 = 4, y2 = 7)
+
+ggplot(data = df) +
+  stat_summary(geom = "line", fun.y = "mean", size = 2, mapping = aes(x = ano, y = valor, color = zona)) +
+  geom_point(size = 4, mapping = aes(x = ano, y = valor, color = zona), alpha = 0.5)  +
+  theme_bw() +
+  theme(legend.position = "none",
+        panel.grid = element_blank()) +
+  guides(color = guide_legend(title = "Zona"),
+         alpha = guide_legend(title = "Zona")) +
+  scale_color_brewer(palette = "Set1", direction = -1) +
+  labs(x = "Año", y = "") +
+  scale_x_continuous(breaks = 2009:2012,
+                     limits = c(2009.5, 2011.5),
+                     expand = c(0,0)) +
+  scale_y_continuous(breaks = c(0, 2, 4, 6, 8, 10),
+                     limits = c(0, 10)) +
+  scale_alpha_manual(values = c(0.3, 1)) +
+  geom_segment(aes(x = x1, xend = x2, y = y1, yend = y2), data = dfv, linetype = "dashed") +
+  geom_segment(aes(x = x1, xend = x2, y = y1, yend = y2), data = dfc, linetype = "dotted", color = "red", size = 2, alpha = 0.5)
+```
+
+Como el cambio a través del tiempo es básicamente una pendiente, podemos usar una regersión lineal múltiple para obtener esos valores. En el caso de Diferencias en Diferencias, nos interesan 3 cambios o pendientes: i) La diferencia a través del tiempo y ii) La diferencia entre sitios y iii) La diferencia entre estas diferencias.
+
+Para calcular la diferencia a través del tiempo, podems definir una variable llamada $Post$ que tomará un valor $Post = 0$ para todas las observaciones antes de la implementación de la reserva y un valor de $Post = 1$ una vez que la reserva haya sido implementada. Al igual que cuando comparamos 2011 contra 2010, la diferencia entre años o entre $Post$ será de 1 ($2011 - 2010 = 1$; $1 - 0 = 1$).
+
+Para obtener la diferencia entre sitios, definimos otra variablle llamada $Zona$ que tomará un valor de $Zona = 0$ para las observaciones realizadas en el control y un valor de $Zona = 1$ para las observaciones de la reserva. Finalmente, podemos "interactuar" (multiplicar) estas variables para generar un *término de interacción*, de tal manera que $Zona \times Post = 0$ para todas las observaciones del control y la observación de la reserva **antes** de la implementación, y $Zona \times Post = 1$ para las observaciones de la reserva **después** de la implementación.
+
+Por lo tanto, podemos definir un modelo lineal múltiple que contenga una variable para el tiempo, una para la zona y otra para la interacción entre estas, de la siguiente manera:
+
+$$
+I = \alpha + \beta_1Post + \beta_2Zona + \beta_3Zona \times Post + \epsilon
+$$
+
+En esta especificación, estimamos los coeficientes $\alpha$, $\beta_1$, $\beta_2$ y $\beta_3$ por medio de mínimos cuadrados ordinarios. Estos coeficientes presentarán la siguiente información:
+
+- $\alpha$: promedio del indicador en la zona control antes de la implementación
+- $\beta_1$: cambio a través del tiempo
+- $\beta_2$: cambio a través de sitios
+- $\beta_3$: restante del cambio entre reservas y sitios (este es el efecto de la reserva)
+
+La interpretación de estos coeficientes puede ser un poco compleja, pero el siguiente ejemplo puede ayudarnos a aclarar dudas. Ajustando el modelo lineal a los datos de la Figura \@ref(fig:baci-multi), obtenemos los coeficientes mostrados en la Tabla \@ref(tab:reg).
+
+```{r reg, results = "asis"}
+df %>% 
+  mutate(post = (tiempo == "Despues") * 1,
+         zona = (zona == "Reserva") * 1,
+         indicador = valor) %>% 
+  lm(indicador ~ post * zona, data = .) %>% 
+  stargazer::stargazer(header = F,
+                       intercept.bottom = F,
+                       single.row = T,
+                       title = "Coeficientes estimados mediante la regresión lineal múltiple.",
+                       covariate.labels = c("\\alpha", "B1", "B2", "B3"),
+                       type = ifelse(knitr:::is_latex_output(), "latex", "html"),
+                       dep.var.caption = "Variable dependiente",
+                       label = "reg", omit.stat = "adj.rsq")
+```
+
+La Tabla \@ref(tab:reg) muestra los valores estimados para los coeficientes. Los números entre paréntesis presentan el error estándar al rededor de la estimación. Además, presenta la varianza explicada por el modelo ajustado, en este caso con un valor de $R^2 = 0.87$.
+
+Para interpretar los coeficientes, debemos sustituirlos en la ecuación anterior. Por lo tanto, obtenemos lo siguiente:
+
+$$
+I = 2 + (3 \times Post) + (2\times Zona) + (2 \times Zona \times Post)
+$$
+
+Podemos usar esta acuación para calcular el valor promedio del indicador $I$ en cada sitio y cada perido según los valores de las variables $Post$, $Zona$ y $Zona \times Post$.
+
+#### Valor antes en el control
+
+Primero, debemos definir los valores de las variables según el sitio y periodo en el que estamos. Para los valores antes de la implementación sabemos que $Post = 0$. Para los valores del sitio control sabemos que $Zona = 0$. Sustituimos estos valores en la fórmula anterior y obtenemos
+
+$$
+\begin{split}
+I &= 2 + (3 \times 0) + (2\times 0) + (2 \times 0 \times 0) \\
+I &= 2 + 0 + 0 + 0 \\
+I &= 2
+\end{split}
+$$
+
+Este ejercicio sugiere que el valor promedio del indicador en el control antes de la intervención es de 2. La inspección visual de la Figura \@ref(fig:baci-multi) confirma esto.
+
+#### Valor después en el control
+
+En este caso, $Post = 1$ pero seguimos con $Zona = 0$:
+
+$$
+\begin{split}
+I &= 2 + (3 \times 1) + (2\times 0) + (2 \times 0 \times 0) \\
+I &= 2 + 3 + 0 + 0 \\
+I &= 5
+\end{split}
+$$
+
+Ahora identificamos que el promedio del indicador en el control después de la intervención es de 5, como lo vemos en la Figura \@ref(fig:baci-multi).
+
+#### Valor antes en la reserva
+
+Ahora, regresamos a tener $Post = 0$ pero con $Zona = 1$, pues estamos en la reserva:
+
+$$
+\begin{split}
+I &= 2 + (3 \times 0) + (2\times 1) + (2 \times 0 \times 0) \\
+I &= 2 + 0 + 2 + 0 \\
+I &= 4
+\end{split}
+$$
+
+En este caso el promedio del indicador en la reserva antes de la intervención es de 4 (Figura \@ref(fig:baci-multi)).
+
+#### Valor después en la reserva
+
+Para calcular el valor en el sitio de reserva después de la intervención, tendremos $Post = 1$ y $Zona =1$. Hagamos el ejercicio sin incluir el término de interacción por ahora:
+
+$$
+\begin{split}
+I &= 2 + (3 \times 1) + (2\times 1) \\
+I &= 2 + 3 + 2 \\
+I &= 7
+\end{split}
+$$
+
+¿Por qué obtenemos un valor de 7 si la reserva presenta un valor de 9 después de su implementación? En este caso, no hemos aún incluido el valor del término de interacción, por lo que obtenemos el valor que la reserva habría presentado si la reserva no se hubiera implementado. Este es el contrafactual, mostrado como la línea punteada roja en la Figura \@ref(fig:baci-multi). Al incluir el término de interacción, obtenemos:
+
+$$
+\begin{split}
+I &= 2 + (3 \times 1) + (2\times 1) + (2\times 1 \times 1)\\
+I &= 2 + 3 + 2 + 2\\
+I &= 9
+\end{split}
+$$
+
+El término de interacción captura la diferncia entre lo que debería de haberse observado para la reserva y lo que realmente se observó. Es decir, la diferencia entre las líneas rojas. Este término es el efecto de la reserva.
+
+Aunque esto puede parecer complicado, la realidad es que puede implementarse con una línea de código como `lm(indicador ~ post * zona, data = datos)`. Mejor aún, MAREA se encarga de generar las variables $Post$ y $Zona$ y de ajustar los coeficientes. Otra
+
+
+### Socioeconómicos y de gobernanza
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

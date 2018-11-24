@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   <link rel="shortcut icon" href="marea.ico" type="image/x-icon">
-<link rel="prev" href="capacidades-y-limitaciones.html">
-<link rel="next" href="indicadores-biologicos-para-1-reserva.html">
+<link rel="prev" href="dentro-fuera.html">
+<link rel="next" href="evaluacion-de-reservas.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -188,16 +188,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ejercicios-con-marea" class="section level1">
-<h1><span class="header-section-number">Capítulo 4</span> Ejercicios con MAREA</h1> 
+<div id="antes-despues-dentro-fuera" class="section level2">
+<h2><span class="header-section-number">1.3</span> Antes-Después-Dentro-Fuera</h2>
+<p>Las secciones anteriores muestran que las evaluaciones antes-después o dentro-fuera pueden ignorar factores importantes y, por lo tanto, producir estimaciones incorrectas del efecto de una reserva. ¿Esto quiere decir que las evaluaciones de <span class="citation">Wantiez, Thollot, and Kulbicki (<a href="#ref-wantiez_1997">1997</a>)</span> y <span class="citation">Guidetti et al. (<a href="#ref-guidetti_2014">2014</a>)</span> están equivocadas? ¡Para nada! Sus conclusiones indican que hay diferencias a través del tiempo, o entre sitios reserva y sitios control, lo cual es cierto. Sin embargo, no es posible atribuir la totalidad de las diferencias observadas a las reservas.</p>
+<p>Cuando hablamos de intervenciones de manejo, nos interesa saber cual es el <em>impacto neto</em> de la intervención. En este sentido, y retomando los ejemplos de las Figuras <a href="antes-despues-dentro-fuera.html#fig:disenos">1.1</a>A-B, queremos descomponer el incremento de la reserva en sus tres partes: i) El incremento causado por la evolución temporal, ii) el incremento <em>aparente</em> causado por las diferencias originales, y iii) el <em>incremento neto</em> una vez que tomamos en cuenta los anteriores.</p>
+<p>Para poder medir el impacto neto, es necesario conocer las trayectorias temporales (diferencia a través del tiempo) y las diferencias entre sitios. Para esto, es necesario tener un diseño muestreal de antes-después-control-impacto. En otras palabras, debemos tener observaciones en la reserva y el control antes y después de la implementación de la reserva. Una menor cantidad de trabajos han evaluado reservas marinas con esta aproximación, pues requiere de muchos datos <span class="citation">(Moland et al. <a href="#ref-moland_2013">2013</a>; Villaseñor-Derbez et al. <a href="#ref-villasenorderbez_2018">2018</a>)</span>. Sin embargo, esto permite atribuir parte de los cambios observados a las reservas.</p>
+<p>Por ejemplo, en la Figura <a href="antes-despues-dentro-fuera.html#fig:disenos">1.1</a>C se muestran las mismas tendencias que en los casos anteriores. En este caso, el evaluador conoce las diferencias temporales de la reserva (de 4 a 9 = 5) y del control (de 2 a 5 = 3). Com se mencionó antes, hay muchos factores que podrían causar cambios a través del tiempo, incluso en la ausencia de una reserva. En este caso, el sitio control presenta un incremento de 3 unidades. ¿Entonces, qué habría pasado con el sitio de reserva si no hubiera recibido protección?</p>
+<p>En teoría, el sitio debería de haber seguido la misma tendencia que el sitio control. Es decir, debería de mostrar un incremento de 3 unidades. La Figura <a href="antes-despues-dentro-fuera.html#fig:disenos">1.1</a>C muestra una línea roja punteada representando este caso hipotético. Por lo tanto, la diferencia entre lo observado (línea sólida) y lo que habría pasado (línea punteada) puede ser atribuida a la protección. En otras palabras, de las 5 unidades de diferencia que muestra la reserva, 3 son por otros factores y 2 por la reserva. En este caso, podríamos entonces concluir que 2 de las unidades son causadas por la reserva.</p>
+<p>Esta técnica se conoce en econometría como <em>Diferencia entre Diferencias</em>, pues se calcula la diferencia a través del tiempo y a través de sitios. El remanente de esta operación es entonces el efecto neto observado. Desde luego, hay una serie de supuestos que debemos tener en cuenta, como la factibilidad de que nuestro sitio control sea realmente representativo. Además, al evaluar una reserva no tendremos sólamente 4 puntos, pues por lo general usaremos datos de monitoreos submarinos con muchas más observaciones. El siguiente capítulo (Capítulo <a href="evaluacion-de-reservas.html#evaluacion-de-reservas">2</a>) habla más sobre los métodos de regresiones utilizados en este caso, así como las otras dimensiones evaluadas por MAREA.</p>
+<div class="figure"><span id="fig:disenos"></span>
+<img src="evaluacion-reservas_files/figure-html/disenos-1.svg" alt="Ejemplos de evaluaciones antes-después (A), dentro-fuera (B) y antes-después-dentro-fuera (C) para una reserva hipotética implementada al final del 2010. Rojo representa reserva y azul control, los colores opacos indican datos no observados u omitidos en cada tipo de evaluación. La línea punteada en la figura C represente la evolución que se hubiera esperado del sitio protegido si la reserva no se hubiera implementado." width="384" />
+<p class="caption">
+Figura 1.1: Ejemplos de evaluaciones antes-después (A), dentro-fuera (B) y antes-después-dentro-fuera (C) para una reserva hipotética implementada al final del 2010. Rojo representa reserva y azul control, los colores opacos indican datos no observados u omitidos en cada tipo de evaluación. La línea punteada en la figura C represente la evolución que se hubiera esperado del sitio protegido si la reserva no se hubiera implementado.
+</p>
+</div>
+
+</div>
+<!-- </div> -->
+<h3>Referencias</h3>
+<div id="refs" class="references">
+<div id="ref-wantiez_1997">
+<p>Wantiez, L., P. Thollot, and M. Kulbicki. 1997. “Effects of Marine Reserves on Coral Reef Fish Communities from Five Islands in New Caledonia.” <em>Coral Reefs</em> 16 (4): 215–24. <a href="https://doi.org/10.1007/s003380050077">https://doi.org/10.1007/s003380050077</a>.</p>
+</div>
+<div id="ref-guidetti_2014">
+<p>Guidetti, Paolo, Pasquale Baiata, Enric Ballesteros, Antonio Di Franco, Bernat Hereu, Enrique Macpherson, Fiorenza Micheli, et al. 2014. “Large-Scale Assessment of Mediterranean Marine Protected Areas Effects on Fish Assemblages.” <em>PLoS ONE</em> 9 (4): e91841. <a href="https://doi.org/10.1371/journal.pone.0091841">https://doi.org/10.1371/journal.pone.0091841</a>.</p>
+</div>
+<div id="ref-moland_2013">
+<p>Moland, E., E. M. Olsen, H. Knutsen, P. Garrigou, S. H. Espeland, A. R. Kleiven, C. Andre, and J. A. Knutsen. 2013. “Lobster and Cod Benefit from Small-Scale Northern Marine Protected Areas: Inference from an Empirical Before-After Control-Impact Study.” <em>Proceedings of the Royal Society B: Biological Sciences</em> 280 (1754): 20122679–9. <a href="https://doi.org/10.1098/rspb.2012.2679">https://doi.org/10.1098/rspb.2012.2679</a>.</p>
+</div>
+<div id="ref-villasenorderbez_2018">
+<p>Villaseñor-Derbez, Juan Carlos, Caio Faro, Melaina Wright, Jael Martínez, Sean Fitzgerald, Stuart Fulton, Maria del Mar Mancha-Cisneros, et al. 2018. “A User-Friendly Tool to Evaluate the Effectiveness of No-Take Marine Reserves.” <em>PLOS ONE</em> 13 (1): 1–21. <a href="https://doi.org/10.1371/journal.pone.0191821">https://doi.org/10.1371/journal.pone.0191821</a>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="capacidades-y-limitaciones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="indicadores-biologicos-para-1-reserva.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="dentro-fuera.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="evaluacion-de-reservas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -227,7 +256,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/jcvdav/curso_marea/edit/master/04_ejercicios_marea.Rmd",
+"link": "https://github.com/jcvdav/curso_marea/edit/master/01_antecedentes.Rmd",
 "text": "Edit"
 },
 "download": ["evaluacion-reservas.pdf", "evaluacion-reservas.epub"],
