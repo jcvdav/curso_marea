@@ -6,7 +6,9 @@ La metodología propuesta e implementada en MAREA utiliza una serie de indicador
 
 ## Objetivos e indicadores
 
-Como cualquier otra intervención de manejo, las reservas marinas deben de tener objetivos claros\footnotecite{Idealmente, usaremos objetivos [SMART](https://en.wikipedia.org/wiki/SMART_criteria)}. Los objetivos nos ayudan a identificar los cambios que deseamos ver y, por lo tanto, seleccionar indicadores para evaluar la efectividad de la intervención.
+Como cualquier otra intervención de manejo, las reservas marinas deben de tener objetivos claros[^smart]. Los objetivos nos ayudan a identificar los cambios que deseamos ver y, por lo tanto, seleccionar indicadores para evaluar la efectividad de la intervención.
+
+[^smart]: Idealmente, usaremos objetivos [SMART](https://en.wikipedia.org/wiki/SMART_criteria)
 
 En práctica, los objetivos suelen ser difusos y se encuentran escondidos en documentos oficiales. Habrá ocasiones en las que diferentes agencias, cuerpos o actores tengan percepciones distintas sobre los objetivos. Otras, las reservas tendrán objetivos muy específicos (por ejemplo "Duplicar la biomasa de mero en los primeros 10 años"). Por lo tanto, es difícil generar una lista de todos los objetivos e indicadores posibles.
 
@@ -19,10 +21,9 @@ read.csv(here::here("tab","oi.csv"),
   knitr::kable(booktabs = T, caption = "Matriz de objetivos e indicadores. Cada columna representa un indicador biológico (B) o socioeconómico (S). Los indicadores de gobernanza no se muestran, pues sugerimos que todos sean utilizados sin importar el objetivo.")
 ```
 
+La lista de indicadores presentada es el resultado de un proceso de depuración de más de 40 indicadores iniciales obtenidos de la literatura científica [@halpern_2002:@lester_2009;@lester_2008;@micheli_2012;@halpern_2013;@basurto_2013;@leslie_2015]. El proceso de selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobeierno. Los indicadores fueron elegidos según su facilidad de medición, la existencia de información anterior y presencia de programas de monitoreo que los midan anualmente. Además de separar explícitamente los indicadores en las ctegorías previamente mencionadas, también hay una separación implícita entre indicadores que cambian por efecto de la reserva (por ejemplo, **B** - Biomasa) o indicadores que pueden explicar la efectividad -o ausencia de- de la reserva, como **G5** - Pesca ilegal.
 
-### Indicadores biológicos
-
-La lista de indicadores presentada fue el resultado de un proceso de selección con más de 40 indicadores iniciales. Los indicadores restantes fueron depurados según la facilidad de medición, existencia de información anterior, presencia de programas de monitoreo que los midan anualmente. La selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobeierno. Los indicadores biológicos son[^spp_obj]:
+Los indicadores biológicos son:
 
 - **B1** - Índice de diversidad de Shannon
 - **B2** - Riqueza de especies
@@ -32,9 +33,29 @@ La lista de indicadores presentada fue el resultado de un proceso de selección 
 - **B6** - Nivel trófico medio
 - **B7** - Biomasa
 
-[^spp_obj]: La biomasa y la densidad de organismos puede aplicarse a todas las especies o a especies de interés particular.
+Los indicadores socioeconómicos son:
 
-Tabla aquí
+- **S1** - Arribos totales
+- **S2** - Ingresos totales
+- **S3** - Oportunidades económicas alternativas a la pesca
+
+Los indicadores de gobernanza son:
+
+- **G1** - Acceso a la pesquería
+- **G2** - Número de pescadores
+- **G3** - Reconocimiento legal de la reserva
+- **G4** - Tipo de reserva
+- **G5** - Pesca ilegal
+- **G6** - Plan de manejo
+- **G7** - Procuración y vigilancia de la reserva
+- **G8** - Tamaño de la reserva
+- **G9** - Razonamiento para la localización de la reserva
+- **G10** - Presencia de organizaciones pesqueras
+- **G11** - Tipo de organizaciones pesqueras
+- **G12** - Representación
+- **G13** - Regulaciones internas
+- **G14** - Efectividad percibida
+- **G15** - Impacto social de la reserva
 
 ## Análisis 
 

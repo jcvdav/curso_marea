@@ -252,18 +252,21 @@ años.
 Este manual se divide en dos partes. La Parte 1 se compone de tres
 capítulos: El Capítulo \ref{antecedentes} presenta una revisión de otros
 métodos usados para evaluar reservas marinas. El Capítulo
-\ref{metodologia-de-marea} introduce la metodología usada por MAREA, con
-un énfasis en los \emph{Objetivos} e \emph{Indicadores} utilizados, así
-como el modelo de Diferencias-en-Diferencias utilizado para estimar el
-efecto de la reserva. Finalmente el Capítulo \ref{introduccion-a-marea}
-provee una introducción a MAREA, incluyendo el tipo y formato de datos
+\ref{evaluacion-de-reservas} introduce la metodología usada por MAREA,
+con un énfasis en los \emph{Objetivos} e \emph{Indicadores} utilizados,
+así como el modelo de Diferencias entre Diferencias para estimar el
+efecto de la reserva. Finalmente el Capítulo \ref{uso-de-marea} provee
+una introducción a MAREA, incluyendo el tipo y formato de datos
 necesarios, los 6 pasos de la evaluación, la interpretación de los
 resultados y una discusión de sus capacidades y limitaciones.
 
-La Parte 2 consta de dos capítulos. El Capítulo \ref{uso-de-marea}
-contiene cuatro ejercicios, representativos de operaciones comunes a
-realiza con MAREA. El Capítulo \ref{errores-y-soluciones} presenta
-algunos de los errores comunes y sus soluciones.
+La Parte 2 consta de dos capítulos. El Capítulo
+\ref{ejercicios-con-marea} contiene cinco ejercicios, representativos de
+operaciones comunes a realiza con MAREA. El Capítulo
+\ref{errores-y-soluciones} presenta algunos de los errores comunes y sus
+soluciones.
+
+\mainmatter
 
 \hypertarget{part-parte-i}{%
 \part{Parte I}\label{part-parte-i}}
@@ -272,14 +275,15 @@ algunos de los errores comunes y sus soluciones.
 \chapter{Antecedentes}\label{antecedentes}}
 
 La evaluación de reservas marinas no es algo nuevo. Sin embargo, muy
-pocos trabajos las han evaluado utilizando técnicas que distingan entre
-correlación y causalidad. Por lo tanto, es útil hacer una recapitulación
-de metodologías comúnmente usadas antes de presentar la metodología
-utilizada por MAREA. Este capítulo se enfoca en los indicadores y
-diseños muestreales, presentando casos publicados en la literatura
-científica. Revisaremos tres diseños de muestro generales que se han
-utilizado en la evaluación de reservas marinas y discutiremos sus
-ventajas y desventajas, así como las implicaciones en el manejo.
+pocos trabajos las han evaluado utilizando técnicas que permitan
+atribuir las diferencias observadas únicamente a las reservas. Por lo
+tanto, es útil hacer una recapitulación de metodologías comúnmente
+usadas antes de presentar la metodología utilizada por MAREA. Este
+capítulo se enfoca en los indicadores y diseños muestreales, presentando
+casos publicados en la literatura científica. Revisaremos tres diseños
+de muestro generales que se han utilizado en la evaluación de reservas
+marinas y discutiremos sus ventajas y desventajas, así como las
+implicaciones en el manejo.
 
 \hypertarget{antes-despues}{%
 \section{Antes-Después}\label{antes-despues}}
@@ -308,7 +312,7 @@ cambios, sería necesario un sitio control con el cual comparar
 similar al de la reserva, pero que presenta actividad pesquera.
 
 La Figura \ref{fig:disenos}A muestra un caso hipotético de una
-evaluación antres-después. En este caso, el indicador en la reserva
+evaluación antes-después. En este caso, el indicador en la reserva
 incrementó de 4 a 9 unidades. En esta evaluación, concluiríamos que la
 reserva resulta en un incremento de 5 unidades al año. Sin embargo, la
 línea azul muestra la tendencia temporal del control, mostrada en opaco
@@ -354,7 +358,7 @@ Las secciones anteriores muestran que las evaluaciones antes-después o
 dentro-fuera pueden ignorar factores importantes y, por lo tanto,
 producir estimaciones incorrectas del efecto de una reserva. ¿Esto
 quiere decir que las evaluaciones de \citet{wantiez_1997} y
-\citet{guidetti_2014} están equivocados? ¡Para nada! Sus conclusiones
+\citet{guidetti_2014} están equivocadas? ¡Para nada! Sus conclusiones
 indican que hay diferencias a través del tiempo, o entre sitios reserva
 y sitios control, lo cual es cierto. Sin embargo, no es posible atribuir
 la totalidad de las diferencias observadas a las reservas.
@@ -367,16 +371,46 @@ por la evolución temporal, ii) el incremento \emph{aparente} causado por
 las diferencias originales, y iii) el \emph{incremento neto} una vez que
 tomamos en cuenta los anteriores.
 
-Por ejemplo \citep{moland_2013, villasenorderbez_2018}
+Para poder medir el impacto neto, es necesario conocer las trayectorias
+temporales (diferencia a través del tiempo) y las diferencias entre
+sitios. Para esto, es necesario tener un diseño muestreal de
+antes-después-control-impacto. En otras palabras, debemos tener
+observaciones en la reserva y el control antes y después de la
+implementación de la reserva. Una menor cantidad de trabajos han
+evaluado reservas marinas con esta aproximación, pues requiere de muchos
+datos \citep{moland_2013, villasenorderbez_2018}. Sin embargo, esto
+permite atribuir parte de los cambios observados a las reservas.
 
-Una menor cantidad de trabajos han evaluado reservas marinas con esta
-aproximación, pues es necesario tener datos en la reserva y el control
-antes y después de la implementación. Evidentemente, esto requiere de
-más planeación y recursos. Sin embargo, sin este diseño muestreal es
-difícil poder descomponer los patrones observados en los cambios
-anteriormente mencionados.
+Por ejemplo, en la Figura \ref{fig:disenos}C se muestran las mismas
+tendencias que en los casos anteriores. En este caso, el evaluador
+conoce las diferencias temporales de la reserva (de 4 a 9 = 5) y del
+control (de 2 a 5 = 3). Com se mencionó antes, hay muchos factores que
+podrían causar cambios a través del tiempo, incluso en la ausencia de
+una reserva. En este caso, el sitio control presenta un incremento de 3
+unidades. ¿Entonces, qué habría pasado con el sitio de reserva si no
+hubiera recibido protección?
 
-Importancia del Contrafactual (Davies, Mees \& Milner-Gulland, 2017)
+En teoría, el sitio debería de haber seguido la misma tendencia que el
+sitio control. Es decir, debería de mostrar un incremento de 3 unidades.
+La Figura \ref{fig:disenos}C muestra una línea roja punteada
+representando este caso hipotético. Por lo tanto, la diferencia entre lo
+observado (línea sólida) y lo que habría pasado (línea punteada) puede
+ser atribuida a la protección. En otras palabras, de las 5 unidades de
+diferencia que muestra la reserva, 3 son por otros factores y 2 por la
+reserva. En este caso, podríamos entonces concluir que 2 de las unidades
+son causadas por la reserva.
+
+Esta técnica se conoce en econometría como \emph{Diferencia entre
+Diferencias}, pues se calcula la diferencia a través del tiempo y a
+través de sitios. El remanente de esta operación es entonces el efecto
+neto observado. Desde luego, hay una serie de supuestos que debemos
+tener en cuenta, como la factibilidad de que nuestro sitio control sea
+realmente representativo. Además, al evaluar una reserva no tendremos
+sólamente 4 puntos, pues por lo general usaremos datos de monitoreos
+submarinos con muchas más observaciones. El siguiente capítulo (Capítulo
+\ref{evaluacion-de-reservas}) habla más sobre los métodos de regresiones
+utilizados en este caso, así como las otras dimensiones evaluadas por
+MAREA.
 
 \begin{figure}
 \centering
@@ -390,22 +424,172 @@ la evolución que se hubiera esperado del sitio protegido si la reserva
 no se hubiera implementado.}
 \end{figure}
 
-\hypertarget{metodologia-de-marea}{%
-\chapter{Metodología de MAREA}\label{metodologia-de-marea}}
+\hypertarget{evaluacion-de-reservas}{%
+\chapter{Evaluación de reservas}\label{evaluacion-de-reservas}}
 
-Importancia de incorporar dimensiones socioeconómicas y de gobernanza
-(Basurto \& Nenadovic, 2012; Basurto, Gelcich \& Ostrom, 2013) Halpern
-tripple bottom down
+Las reservas marinas son sistemas socio-ecológicos complejos. Su
+efectividad depende de las interacciones y combinaciones de factores
+sociales y ambientales. Por muchos años, la ciencia de reservas marinas
+sea ha enfocado en comprender los efectos ecológicos de estas áreas,
+reportando aumentos en biomasa, riqueza y densidad de organismos o
+beneficios de mitigación de cambio climático y protección ambiental
+\citep{lester_2009, micheli_2012, giakoumi_2017, sala_2017, roberts_2017}.
+Más recientemente, algunos trabajos se han enfocado en la relación entre
+estructuras de governanza y aspectos socioeconómicos y la efectividad de
+las reservas \citep{halpern_2013, lpezangarita_2014, mascia_2017}. Por
+lo tanto, es importante que la evaluación de reservas tome en cuenta las
+dimensiones ecológicas, socioeconómicas y de governanza.
+
+La metodología propuesta e implementada en MAREA utiliza una serie de
+indicadores de cada dimensión. Los indicadores sugeriods pueden ser
+usados en función de los objetivos de la reserva o de otras preguntas de
+interés. En este capítulo definimos los objetivos generales para los
+cuales las reservas pueden ser implementadas y los indicadores sugeridos
+para cada caso. Después explicamos a profundidad cómo MAREA utiliza el
+análisis de Diferencias entre Diferencias presentado previamente en el
+capítulo anterior (Capítulo \ref{antecedentes}).
 
 \hypertarget{objetivos-e-indicadores}{%
 \section{Objetivos e indicadores}\label{objetivos-e-indicadores}}
 
-\hypertarget{analisis-de-inferencia-de-causalidad}{%
-\section{Análisis de inferencia de
-causalidad}\label{analisis-de-inferencia-de-causalidad}}
+Como cualquier otra intervención de manejo, las reservas marinas deben
+de tener objetivos claros\footnote{Idealmente, usaremos objetivos
+  \href{https://en.wikipedia.org/wiki/SMART_criteria}{SMART}}. Los
+objetivos nos ayudan a identificar los cambios que deseamos ver y, por
+lo tanto, seleccionar indicadores para evaluar la efectividad de la
+intervención.
 
-\hypertarget{introduccion-a-marea}{%
-\chapter{Introducción a MAREA}\label{introduccion-a-marea}}
+En práctica, los objetivos suelen ser difusos y se encuentran escondidos
+en documentos oficiales. Habrá ocasiones en las que diferentes agencias,
+cuerpos o actores tengan percepciones distintas sobre los objetivos.
+Otras, las reservas tendrán objetivos muy específicos (por ejemplo
+``Duplicar la biomasa de mero en los primeros 10 años''). Por lo tanto,
+es difícil generar una lista de todos los objetivos e indicadores
+posibles.
+
+En su lugar, la metodología desarrollada por
+\citet{villasenorderbez_2018} e implementada en MAREA presenta una serie
+de 7 objetivos generales a los cuales se asignan 25 indicadores
+divididos en indicadores biológicos (n = 7), socioeconómicos (n = 3) y
+de gobernanza (n = 15). Los 7 objetivos están inspirados en la
+normatividad de las zonas de refugio pesquero \citep{nom}, pero agrupan
+muchos otros objetivos más particulares.
+
+\begin{table}
+
+\caption{\label{tab:tabla-oi}Matriz de objetivos e indicadores. Cada columna representa un indicador biológico (B) o socioeconómico (S). Los indicadores de gobernanza no se muestran, pues sugerimos que todos sean utilizados sin importar el objetivo.}
+\centering
+\begin{tabular}[t]{lllllllllll}
+\toprule
+Objetivo & B1 & B2 & B3 & B4 & B5 & B6 & B7 & S1 & S2 & S3\\
+\midrule
+Evitar la sobreexplotación &  &  & x & x & x & x & x & x & x & x\\
+Conservar especies bajo protección especial &  &  & x &  & x &  &  & x & x & x\\
+Mantener procesos biológicos & x & x &  & x & x & x & x &  &  & x\\
+Mejorar la productividad de las zonas de pesca &  &  &  & x & x &  & x & x & x & x\\
+Preservar la biodiversidad y los ecosistemas & x & x &  & x & x & x & x &  &  & x\\
+\addlinespace
+Recuperar especies sobreexplotadas &  &  & x &  & x &  &  &  &  & x\\
+Recuperar especies de inerés comercial &  &  & x &  & x &  &  &  &  & x\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La lista de indicadores presentada es el resultado de un proceso de
+depuración de más de 40 indicadores iniciales obtenidos de la literatura
+científica
+\citetext{\citealp[\citet{lester_2009}]{halpern_2002}; \citealp{lester_2008}; \citealp{micheli_2012}; \citealp{halpern_2013}; \citealp{basurto_2013}; \citealp{leslie_2015}}.
+El proceso de selección incluyó pescadores, investigadores, gestores
+ambientales y personal de agencias de gobeierno. Los indicadores fueron
+elegidos según su facilidad de medición, la existencia de información
+anterior y presencia de programas de monitoreo que los midan anualmente.
+Además de separar explícitamente los indicadores en las ctegorías
+previamente mencionadas, también hay una separación implícita entre
+indicadores que cambian por efecto de la reserva (por ejemplo,
+\textbf{B} - Biomasa) o indicadores que pueden explicar la efectividad
+-o ausencia de- de la reserva, como \textbf{G5} - Pesca ilegal.
+
+Los indicadores biológicos son:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{B1} - Índice de diversidad de Shannon
+\item
+  \textbf{B2} - Riqueza de especies
+\item
+  \textbf{B3} - Densidad de organismos maduros (proporción de organismos
+  mayores a la talla de primera maduréz)
+\item
+  \textbf{B4} - Densidad de organismos
+\item
+  \textbf{B5} - Presencia de una perturbación ambiental
+\item
+  \textbf{B6} - Nivel trófico medio
+\item
+  \textbf{B7} - Biomasa
+\end{itemize}
+
+Los indicadores socioeconómicos son:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{S1} - Arribos totales
+\item
+  \textbf{S2} - Ingresos totales
+\item
+  \textbf{S3} - Oportunidades económicas alternativas a la pesca
+\end{itemize}
+
+Los indicadores de gobernanza son:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{G1} - Acceso a la pesquería
+\item
+  \textbf{G2} - Número de pescadores
+\item
+  \textbf{G3} - Reconocimiento legal de la reserva
+\item
+  \textbf{G4} - Tipo de reserva
+\item
+  \textbf{G5} - Pesca ilegal
+\item
+  \textbf{G6} - Plan de manejo
+\item
+  \textbf{G7} - Procuración y vigilancia de la reserva
+\item
+  \textbf{G8} - Tamaño de la reserva
+\item
+  \textbf{G9} - Razonamiento para la localización de la reserva
+\item
+  \textbf{G10} - Presencia de organizaciones pesqueras
+\item
+  \textbf{G11} - Tipo de organizaciones pesqueras
+\item
+  \textbf{G12} - Representación
+\item
+  \textbf{G13} - Regulaciones internas
+\item
+  \textbf{G14} - Efectividad percibida
+\item
+  \textbf{G15} - Impacto social de la reserva
+\end{itemize}
+
+\hypertarget{analisis}{%
+\section{Análisis}\label{analisis}}
+
+\hypertarget{inferencia-de-causalidad}{%
+\subsection{Inferencia de causalidad}\label{inferencia-de-causalidad}}
+
+\hypertarget{socioeconomicos-y-de-governanza}{%
+\subsection{Socioeconómicos y de
+governanza}\label{socioeconomicos-y-de-governanza}}
+
+\hypertarget{uso-de-marea}{%
+\chapter{Uso de MAREA}\label{uso-de-marea}}
 
 Presentaremos los pasos necesarios para evaluar una reserva con MAREA.
 Ya conoceremos los datos y análisis, por lo que no nos limitaremos a
@@ -448,8 +632,8 @@ conclusiones definitivas sobre el desempeño de la reserva.
 \hypertarget{part-parte-ii}{%
 \part{Parte II}\label{part-parte-ii}}
 
-\hypertarget{uso-de-marea}{%
-\chapter{Uso de MAREA}\label{uso-de-marea}}
+\hypertarget{ejercicios-con-marea}{%
+\chapter{Ejercicios con MAREA}\label{ejercicios-con-marea}}
 
 \hypertarget{indicadores-biologicos-para-1-reserva}{%
 \section{Indicadores biológicos para 1
@@ -546,7 +730,8 @@ generaremos únicamente información biológica y económica de peces.
 \CommentTok{# ANP es NA}
 \NormalTok{ANP <-}\StringTok{ }\OtherTok{NA}
 
-\CommentTok{# Lista de posibles buzos monitores (http://www.laff.bren.ucsb.edu/laff-network/alumni)}
+\CommentTok{# Lista de posibles buzos monitores}
+\CommentTok{# (http://www.laff.bren.ucsb.edu/laff-network/alumni)}
 \NormalTok{buzo_monitor <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"Caio Faro"}\NormalTok{,}
                   \StringTok{"Alexandra Smith"}\NormalTok{,}
                   \StringTok{"Diana Flores"}\NormalTok{, }
@@ -560,7 +745,13 @@ generaremos únicamente información biológica y económica de peces.
                   \StringTok{"Catalina Milagros"}\NormalTok{)}
 
 \CommentTok{# Horas iniciales arbitrarias}
-\NormalTok{hora_inicial <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"6:50"}\NormalTok{, }\StringTok{"8:40"}\NormalTok{, }\StringTok{"10:20"}\NormalTok{, }\StringTok{"12:15"}\NormalTok{, }\StringTok{"13:40"}\NormalTok{, }\StringTok{"14:45"}\NormalTok{, }\StringTok{"15:20"}\NormalTok{)}
+\NormalTok{hora_inicial <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"6:50"}\NormalTok{,}
+                  \StringTok{"8:40"}\NormalTok{,}
+                  \StringTok{"10:20"}\NormalTok{,}
+                  \StringTok{"12:15"}\NormalTok{,}
+                  \StringTok{"13:40"}\NormalTok{,}
+                  \StringTok{"14:45"}\NormalTok{,}
+                  \StringTok{"15:20"}\NormalTok{)}
 
 \CommentTok{# Rango de profundidades iniciales posibles}
 \NormalTok{profundidad_inicial <-}\StringTok{ }\DecValTok{5}\OperatorTok{:}\DecValTok{27}
@@ -568,7 +759,8 @@ generaremos únicamente información biológica y económica de peces.
 \CommentTok{# Esta funcion inventa una profundidad final}
 \CommentTok{# segun la profundidad inicial}
 \NormalTok{profundidad_final <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(profundidad_inicial)\{}
-  \KeywordTok{round}\NormalTok{(profundidad_inicial }\OperatorTok{+}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{), }\DataTypeTok{digits =} \DecValTok{1}\NormalTok{)}
+  \KeywordTok{round}\NormalTok{(profundidad_inicial }\OperatorTok{+}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n =} \DecValTok{1}\NormalTok{, }\DataTypeTok{mean =} \DecValTok{0}\NormalTok{, }\DataTypeTok{sd =} \DecValTok{1}\NormalTok{),}
+        \DataTypeTok{digits =} \DecValTok{1}\NormalTok{)}
 \NormalTok{\}}
 
 \CommentTok{# Rango de temperaturas}
@@ -707,7 +899,7 @@ generaremos únicamente información biológica y económica de peces.
       
 \NormalTok{      Dia <-}\StringTok{ }\NormalTok{dia}
       
-      \CommentTok{# Aleatoriamente muestreamos un mes de la lista anterior (mes)}
+      \CommentTok{# Aleatoriamente muestreamos un mes de la lista anterior}
 \NormalTok{      Mes <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ mes,}
                     \DataTypeTok{size =}\NormalTok{ 1L)}
       
@@ -765,7 +957,8 @@ generaremos únicamente información biológica y económica de peces.
         \CommentTok{# definir el numero de grupos de tallas observados}
 \NormalTok{        nobs <-}\StringTok{ }\KeywordTok{sample}\NormalTok{(}\DataTypeTok{x =} \DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{size =}\NormalTok{ 1L)}
         
-        \CommentTok{# Definir un ciclo para iterar cada grupo de observaciones de una spp}
+        \CommentTok{# Definir un ciclo para iterar cada grupo de}
+        \CommentTok{# observaciones de una spp}
         \ControlFlowTok{for}\NormalTok{(m }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{nobs)\{}
           
           \CommentTok{# Escoger una talla aleatoria segun la funcion anterior}
@@ -819,25 +1012,28 @@ generaremos únicamente información biológica y económica de peces.
 \NormalTok{datos }\OperatorTok{%<>%}
 \StringTok{  }\KeywordTok{drop_na}\NormalTok{(dia) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(Dia, Mes, Ano, Estado, Comunidad, Sitio, Latitud,}
-\NormalTok{           Longitud, Habitat, Zona, TipoProteccion, ANP, BuzoMonitor, }
-\NormalTok{           HoraInicial, ProfundidadInicial, ProfundidadFinal,}
-\NormalTok{           Temperatura, Visibilidad, Corriente, Transecto, Genero,}
-\NormalTok{           Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, RC) }\OperatorTok{%>%}\StringTok{ }
+\NormalTok{           Longitud, Habitat, Zona, TipoProteccion, ANP,}
+\NormalTok{           BuzoMonitor,  HoraInicial, ProfundidadInicial,}
+\NormalTok{           ProfundidadFinal, Temperatura, Visibilidad, Corriente,}
+\NormalTok{           Transecto, Genero, Especie, GeneroEspecie, Sexo,}
+\NormalTok{           Talla, ClaseTalla, RC) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{Abundancia =} \KeywordTok{sum}\NormalTok{(Abundancia, }\DataTypeTok{na.rm =}\NormalTok{ T)) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{ungroup}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{select}\NormalTok{(Dia, Mes, Ano, Estado, Comunidad, Sitio, Latitud,}
-\NormalTok{         Longitud, Habitat, Zona, TipoProteccion, ANP, BuzoMonitor, }
-\NormalTok{         HoraInicial, ProfundidadInicial, ProfundidadFinal,}
-\NormalTok{         Temperatura, Visibilidad, Corriente, Transecto, Genero,}
-\NormalTok{         Especie, GeneroEspecie, Sexo, Talla, ClaseTalla, Abundancia, RC)}
+\NormalTok{           Longitud, Habitat, Zona, TipoProteccion, ANP,}
+\NormalTok{           BuzoMonitor,  HoraInicial, ProfundidadInicial,}
+\NormalTok{           ProfundidadFinal, Temperatura, Visibilidad, Corriente,}
+\NormalTok{           Transecto, Genero, Especie, GeneroEspecie, Sexo,}
+\NormalTok{           Talla, ClaseTalla, Abundancia, RC)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Graficar los datos}
-\NormalTok{datos }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Ano, }\DataTypeTok{y =}\NormalTok{ Abundancia, }\DataTypeTok{color =}\NormalTok{ Zona, }\DataTypeTok{group =}\NormalTok{ Sitio, }\DataTypeTok{linetype =}\NormalTok{ RC)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ datos,}
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Ano, }\DataTypeTok{y =}\NormalTok{ Abundancia,}
+                     \DataTypeTok{color =}\NormalTok{ Zona, }\DataTypeTok{group =}\NormalTok{ Sitio, }\DataTypeTok{linetype =}\NormalTok{ RC)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{stat_summary}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{fun.y =} \StringTok{"mean"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{GeneroEspecie, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{scales =} \StringTok{"free_y"}\NormalTok{) }\OperatorTok{+}
@@ -875,8 +1071,9 @@ agregar tendencias}
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Graficar los datos}
-\NormalTok{datos }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Ano, }\DataTypeTok{y =}\NormalTok{ Abundancia, }\DataTypeTok{color =}\NormalTok{ Zona, }\DataTypeTok{group =}\NormalTok{ Sitio, }\DataTypeTok{linetype =}\NormalTok{ RC)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ datos,}
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Ano, }\DataTypeTok{y =}\NormalTok{ Abundancia,}
+                     \DataTypeTok{color =}\NormalTok{ Zona, }\DataTypeTok{group =}\NormalTok{ Sitio, }\DataTypeTok{linetype =}\NormalTok{ RC)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{stat_summary}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{fun.y =} \StringTok{"mean"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{GeneroEspecie, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{scales =} \StringTok{"free_y"}\NormalTok{) }\OperatorTok{+}
@@ -898,8 +1095,9 @@ una reserva funciona y otra no.}
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Graficar los datos}
-\NormalTok{datos }\OperatorTok{%>%}\StringTok{ }
-\StringTok{  }\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Ano, }\DataTypeTok{y =}\NormalTok{ Talla, }\DataTypeTok{color =}\NormalTok{ Zona, }\DataTypeTok{group =}\NormalTok{ Sitio, }\DataTypeTok{linetype =}\NormalTok{ RC)) }\OperatorTok{+}
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ datos,}
+       \DataTypeTok{mapping =} \KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Ano, }\DataTypeTok{y =}\NormalTok{ Abundancia,}
+                     \DataTypeTok{color =}\NormalTok{ Zona, }\DataTypeTok{group =}\NormalTok{ Sitio, }\DataTypeTok{linetype =}\NormalTok{ RC)) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{alpha =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{stat_summary}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"line"}\NormalTok{, }\DataTypeTok{fun.y =} \StringTok{"mean"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{1}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{GeneroEspecie, }\DataTypeTok{ncol =} \DecValTok{3}\NormalTok{, }\DataTypeTok{scales =} \StringTok{"free_y"}\NormalTok{) }\OperatorTok{+}
