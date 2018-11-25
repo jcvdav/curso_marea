@@ -249,18 +249,22 @@ años.
 \hypertarget{estructura}{%
 \subsection{Estructura}\label{estructura}}
 
-Este manual se divide en dos partes. La Parte 1 se compone de tres
-capítulos: El Capítulo \ref{antecedentes} presenta una revisión de otros
-métodos usados para evaluar reservas marinas. El Capítulo
-\ref{evaluacion-de-reservas} introduce la metodología usada por MAREA,
-con un énfasis en los \emph{Objetivos} e \emph{Indicadores} utilizados,
-así como el modelo de Diferencias entre Diferencias para estimar el
-efecto de la reserva. Finalmente el Capítulo \ref{uso-de-marea} provee
-una introducción a MAREA, incluyendo el tipo y formato de datos
-necesarios, los 6 pasos de la evaluación, la interpretación de los
-resultados y una discusión de sus capacidades y limitaciones.
+Este manual se divide en tres partes. La Parte 1 presenta la App de
+Costeo (Capítulo \ref{app-de-costeo}) y describe las secciones de la
+ventana, así como su uso y funcionalidad.
 
-La Parte 2 consta de dos capítulos. El Capítulo
+La Parte 2 se compone de tres capítulos: El Capítulo \ref{antecedentes}
+presenta una revisión de otros métodos usados para evaluar reservas
+marinas. El Capítulo \ref{evaluacion-de-reservas} introduce la
+metodología usada por MAREA, con un énfasis en los \emph{Objetivos} e
+\emph{Indicadores} utilizados, así como el modelo de Diferencias entre
+Diferencias para estimar el efecto de la reserva. Finalmente el Capítulo
+\ref{uso-de-marea} provee una introducción a MAREA, incluyendo el tipo y
+formato de datos necesarios, los 6 pasos de la evaluación, la
+interpretación de los resultados y una discusión de sus capacidades y
+limitaciones.
+
+La Parte 3 consta de dos capítulos. El Capítulo
 \ref{ejercicios-con-marea} contiene cinco ejercicios, representativos de
 operaciones comunes a realiza con MAREA. El Capítulo
 \ref{errores-y-soluciones} presenta algunos de los errores comunes y sus
@@ -270,6 +274,86 @@ soluciones.
 
 \hypertarget{part-parte-i}{%
 \part{Parte I}\label{part-parte-i}}
+
+\hypertarget{app-de-costeo}{%
+\chapter{App de costeo}\label{app-de-costeo}}
+
+El número de iniciativas para establecer redes de reservas marinas está
+en aumento, y la gran mayoría de los esfuerzos se realizan con fondos
+filantrópicos. Sin embargo, al iniciar el proceso para establecer
+reservas marinas es común que los costos proyectados al futuro no estén
+claramente definidos. Esto puede afectar la sustentabilidad de la
+reserva marina al largo plazo, sobre todo si el costo de mantenerla y
+operarla es mayor al beneficio que puede proporcionar a la comunidad.
+
+\href{https://cobi.org.mx/}{COBI} ha trabajado durante 19 años para
+establecer, evaluar y mantener las reservas marinas en colaboración con
+las comunidades pesqueras de México. Nuestro modelo de reservas marinas
+consiste de cuatro fases:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Implementación} - procesos inclusivos en el que las partes
+  interesadas participen en el proceso de diseño, definición de
+  objetivos y la selección del sitio
+\item
+  \textbf{Monitoreo} - después de que la reserva se ha creado, miembros
+  de la comunidad están capacitados para recopilar datos para evaluar la
+  reserva
+\item
+  \textbf{Operación} -- acciones relacionadas a la vigilancia
+  comunitaria, señalización y comunicación de resultados
+\item
+  \textbf{Renovación} -- manejo adaptativo basado en los datos recogidos
+  por la comunidad para garantizar el funcionamiento eficaz de la
+  reserva.
+\end{enumerate}
+
+Este calculador de costos contempla todos los pasos necesarios para
+establecer una reserva marina utilizado el modelo COBI, con el objetivo
+de ayudar a comunidades, organizaciones de la sociedad civil y tomadores
+de decisiones de planear sus inversiones con mayor claridad y
+transparencia. La Figura \ref{fig:shiny-costeo} presenta la pantalla de
+bienvenida de la aplicación.
+
+\href{https://turfeffect.shinyapps.io/AppCosteo/}{\includegraphics{evaluacion-reservas_files/figure-latex/shiny-costeo-1.png}}
+
+La app tiene dos secciones principales. Del lado izquierdo se muestra
+una barra de herramientas que el usuario puede usar para navegar por las
+secciones de \texttt{Ingresar\ costos} y \texttt{Presupuesto}, así como
+ajustar el tipo de cambio, ver los cambios al total en tiempo real y
+eventualmente descargar el presupuesto detallado u obtener un link para
+compartir el estado de la app. La barra de herramientas se puede ocultar
+y mostrar. La segunda sección es el área de trabajo, que al inicio
+muestra una descripción similar a la del texto anterior.
+
+Los costos unitarios y cantidades pueden ser editados en la sección de
+\texttt{Ingresar\ costos}. La app de costeo contiene los rubros más
+comunes de cada fase, además de presentar valores predeterminados y
+editables para cada uno. Por ejemplo, navegando a
+\texttt{Ingresar\ costos} \textgreater{}\textgreater{}
+\texttt{Implementación} \textgreater{}\textgreater{}
+\texttt{Definición\ de\ objetivos} \textgreater{}\textgreater{}
+\texttt{Gasolina} veremos un valor de 1 en la columna de costos y 80 en
+la columna de cantidades. En este caso, los costos están en dólares
+estadounidenses, pero la app es agnóstica a una moneda en especial.
+
+Este proceso se repite para cada una de las fases y rubros necesarios.
+Una vez terminado, el usuario puede navegar a la sección de
+\texttt{Presupuesto}. Aquí aparecen gráficas interactivas que muestran
+en detalle los costos estimados por fase y concepto. Las gráficas pueden
+editarse para mostrar los costos en otras unidades, cambiar el tamaño
+del texto e incluso el esquema de colores.
+
+Al confirmar que el presupuesto es correcto, el usuario puede ir a la
+sección de herramientas y seleccionar la opción de
+\texttt{Descargar\ presupuesto} que se muestra en el botón opaco. Esto
+descargará un archivo de excel con el presupuesto detallado.
+
+\hypertarget{part-parte-ii}{%
+\part{Parte II}\label{part-parte-ii}}
 
 \hypertarget{antecedentes}{%
 \chapter{Antecedentes}\label{antecedentes}}
@@ -507,7 +591,7 @@ Además de separar explícitamente los indicadores en las ctegorías
 previamente mencionadas, también hay una separación implícita entre
 indicadores que cambian por efecto de la reserva (por ejemplo,
 \textbf{B} - Biomasa) o indicadores que pueden explicar la efectividad
--o ausencia de- de la reserva, como \textbf{G5} - Pesca ilegal.
+de la reserva, como \textbf{G5} - Pesca ilegal.
 
 Los indicadores biológicos son:
 
@@ -667,10 +751,14 @@ ordinarios. Estos coeficientes presentarán la siguiente información:
   efecto de la reserva)
 \end{itemize}
 
-La interpretación de estos coeficientes puede ser un poco compleja, pero
-el siguiente ejemplo puede ayudarnos a aclarar dudas. Ajustando el
-modelo lineal a los datos de la Figura \ref{fig:baci-multi}, obtenemos
-los coeficientes mostrados en la Tabla \ref{tab:reg}.
+Esto es quivalente a un ANOVA de dos vías con un término de interacción.
+La ventaja de hacerlo así es que no solamente podemos decir si hay o no
+diferencias, si no que también inferir algo sobre la magnitud de estas
+diferencias. La interpretación de estos coeficientes puede ser un poco
+compleja, pero el siguiente ejemplo puede ayudarnos a aclarar dudas.
+Ajustando el modelo lineal a los datos de la Figura
+\ref{fig:baci-multi}, obtenemos los coeficientes mostrados en la Tabla
+\ref{tab:reg}.
 
 \begin{table}[!htbp] \centering 
   \caption{Coeficientes estimados mediante la regresión lineal múltiple.} 
@@ -682,7 +770,7 @@ los coeficientes mostrados en la Tabla \ref{tab:reg}.
 \cline{2-2} 
 \\[-1.8ex] & indicador \\ 
 \hline \\[-1.8ex] 
- \alpha & 2.000 (1.000) \\ 
+ alpha & 2.000 (1.000) \\ 
   B1 & 3.000 (1.414) \\ 
   B2 & 2.000 (1.414) \\ 
   B3 & 2.000 (2.000) \\ 
@@ -700,7 +788,14 @@ F Statistic & 8.667$^{**}$ (df = 3; 4) \\
 La Tabla \ref{tab:reg} muestra los valores estimados para los
 coeficientes. Los números entre paréntesis presentan el error estándar
 al rededor de la estimación. Además, presenta la varianza explicada por
-el modelo ajustado, en este caso con un valor de \(R^2 = 0.87\).
+el modelo, en este caso con un valor de \(R^2 = 0.87\)\footnote{El
+  modelo completo de MAREA incluye covariables que pueden ayudar a
+  explicar mayor parte de la variación en los datos. Estos incluyen la
+  profundidad, visibilidad y temperatura asociadas a cada observación.
+  En este caso, 13\% de la variación faltante es debido a la
+  manipulación manual de los datos, pero podríamos esperar que las
+  covariables antes mencionadas expliquen algo de la variación en los
+  datos.}.
 
 Para interpretar los coeficientes, debemos sustituirlos en la ecuación
 anterior. Por lo tanto, obtenemos lo siguiente:
@@ -804,18 +899,52 @@ I &= 9
 
 El término de interacción captura la diferncia entre lo que debería de
 haberse observado para la reserva y lo que realmente se observó. Es
-decir, la diferencia entre las líneas rojas. Este término es el efecto
-de la reserva.
+decir, la diferencia entre las líneas rojas. Este término es el
+\textbf{efecto de la reserva}. En este sentido, podemos entonces
+concluir que una reserva marina causó un incremento de 2 unidades en el
+indicador.
 
-Aunque esto puede parecer complicado, la realidad es que puede
-implementarse con una línea de código como
-\texttt{lm(indicador\ \textasciitilde{}\ post\ *\ zona,\ data\ =\ datos)}.
-Mejor aún, MAREA se encarga de generar las variables \(Post\) y \(Zona\)
-y de ajustar los coeficientes. Otra
+Aunque la regresión lineal y el álgebra pueden parecer complicados, en
+la realidad todo puede implementarse con una línea de código (como
+\texttt{lm(indicador\ \textasciitilde{}\ post\ *\ zona,\ data\ =\ datos)}).
+Mejor aún, MAREA se encarga de generar las variables \(Post\) y
+\(Zona\), ajustar el modelo, obtener los coeficientes y reportar los
+resultados. En el siguiente capítulo (Capítulo \ref{uso-de-marea}),
+describimos el uso de MAREA y demostramos que con 6 sencillos pasos
+podemos evaluar todos los indicadores y obtener reportes para compartir.
 
 \hypertarget{socioeconomicos-y-de-gobernanza}{%
 \subsection{Socioeconómicos y de
 gobernanza}\label{socioeconomicos-y-de-gobernanza}}
+
+Ahora pasamos a describir el análisis de los indicadores socioeconómicos
+y de gobernanza. Los primeros dos
+\protect\hyperlink{objetivos-e-indicadores}{indicadores socioeconómicos}
+son numéricos, pues representan los arribos (masa) e ingresos (dinero)
+que generan las pesquerías de la comunidad. En este caso, no tenemos una
+comunidad control, pero podemos aún inferir algo de los cambios mediante
+una evaluación antes-después. Para esto, MAREA implementa una forma
+reducida del modelo anterior:
+
+\[
+I = \alpha + \beta_1Post + \epsilon
+\]
+
+Lo anterior es equivalente a realizar una prueba t de student de dos
+colas con muestras pareadas. Un valor de \(\beta_1 = 0\) indicaría que
+no hay cambio en el indicador. Como se mencionó en el Capítulo
+\ref{antecedentes}, una evaluación antes-después no toma en cuenta otros
+factores exógenos y por lo tanto no podemos inferir causalidad. Sin
+embargo, la información obtenida sigue siendo útil al evaluar las
+reservas y el contexto social en el que se desarrollan.
+
+La mayoría de los indicadores de gobernanza son cuantitativos. Por lo
+tanto, no existe una evaluación numérica de estos. En su lugar,
+\citet{villasenorderbez_2018} realizaron una revisión literaria para
+identificar valores asociados a impactos positivos y negativos en la
+reserva. Por ejemplo, el indicador \textbf{G5} - Pesca Ilegal nos indica
+la presencia y / o el grado de pesca ilegal en la reserva, lo que
+sabemos es detrimental.
 
 \hypertarget{uso-de-marea}{%
 \chapter{Uso de MAREA}\label{uso-de-marea}}
@@ -858,11 +987,15 @@ conclusiones definitivas sobre el desempeño de la reserva.
 \hypertarget{capacidades-y-limitaciones}{%
 \section{Capacidades y limitaciones}\label{capacidades-y-limitaciones}}
 
-\hypertarget{part-parte-ii}{%
-\part{Parte II}\label{part-parte-ii}}
+h
+
+\hypertarget{part-parte-iii}{%
+\part{Parte III}\label{part-parte-iii}}
 
 \hypertarget{ejercicios-con-marea}{%
 \chapter{Ejercicios con MAREA}\label{ejercicios-con-marea}}
+
+Hola hola
 
 \hypertarget{indicadores-biologicos-para-1-reserva}{%
 \section{Indicadores biológicos para 1
@@ -882,6 +1015,8 @@ simultáneamente}\label{indicadores-biologicos-para-varias-reservas-simultaneame
 
 \hypertarget{errores-y-soluciones}{%
 \chapter{Errores y soluciones}\label{errores-y-soluciones}}
+
+Hola
 
 \hypertarget{especie-indicador-no-tiene-diseno-baci}{%
 \section{Especie / Indicador no tiene diseño

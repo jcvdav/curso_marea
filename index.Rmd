@@ -43,9 +43,11 @@ La aplicación de costeo es mucho más sencilla. Esta app permite obtener los co
 
 ### Estructura
 
-Este manual se divide en dos partes. La Parte 1 se compone de tres capítulos: El Capítulo \@ref(antecedentes) presenta una revisión de otros métodos usados para evaluar reservas marinas. El Capítulo \@ref(evaluacion-de-reservas) introduce la metodología usada por MAREA, con un énfasis en los *Objetivos* e *Indicadores* utilizados, así como el modelo de Diferencias entre Diferencias para estimar el efecto de la reserva. Finalmente el Capítulo \@ref(uso-de-marea) provee una introducción a MAREA, incluyendo el tipo y formato de datos necesarios, los 6 pasos de la evaluación, la interpretación de los resultados y una discusión de sus capacidades y limitaciones.
+Este manual se divide en tres partes. La Parte 1 presenta la App de Costeo (Capítulo \@ref(app-de-costeo)) y describe las secciones de la ventana, así como su uso y funcionalidad.
 
-La Parte 2 consta de dos capítulos. El Capítulo \@ref(ejercicios-con-marea) contiene cinco ejercicios, representativos de operaciones comunes a realiza con MAREA. El Capítulo \@ref(errores-y-soluciones) presenta algunos de los errores comunes y sus soluciones.
+La Parte 2 se compone de tres capítulos: El Capítulo \@ref(antecedentes) presenta una revisión de otros métodos usados para evaluar reservas marinas. El Capítulo \@ref(evaluacion-de-reservas) introduce la metodología usada por MAREA, con un énfasis en los *Objetivos* e *Indicadores* utilizados, así como el modelo de Diferencias entre Diferencias para estimar el efecto de la reserva. Finalmente el Capítulo \@ref(uso-de-marea) provee una introducción a MAREA, incluyendo el tipo y formato de datos necesarios, los 6 pasos de la evaluación, la interpretación de los resultados y una discusión de sus capacidades y limitaciones.
+
+La Parte 3 consta de dos capítulos. El Capítulo \@ref(ejercicios-con-marea) contiene cinco ejercicios, representativos de operaciones comunes a realiza con MAREA. El Capítulo \@ref(errores-y-soluciones) presenta algunos de los errores comunes y sus soluciones.
 
 
 

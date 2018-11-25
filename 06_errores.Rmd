@@ -1,5 +1,7 @@
 # Errores y soluciones
 
+Hola
+
 ## Especie / Indicador no tiene diseño BACI
 
 ## Diferentes especies en bases biológicas vs pesca

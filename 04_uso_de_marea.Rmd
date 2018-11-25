@@ -13,3 +13,5 @@ Para poder usar MAREA sin problemas, es necesario que los datos tengan el format
 Comenzaremos por describir los resultados que produce MAREA: la tabla de puntuación y el reporte técnico. Primero discutiremos sobre el desempeño de la reserva utilizando únicamente la tabla de puntuación. Después, descargaremos el reporte técnico que produce MAREA para llegar a conclusiones definitivas sobre el desempeño de la reserva.
 
 ## Capacidades y limitaciones
+
+h

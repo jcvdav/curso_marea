@@ -21,7 +21,7 @@ read.csv(here::here("tab","oi.csv"),
   knitr::kable(booktabs = T, caption = "Matriz de objetivos e indicadores. Cada columna representa un indicador biológico (B) o socioeconómico (S). Los indicadores de gobernanza no se muestran, pues sugerimos que todos sean utilizados sin importar el objetivo.")
 ```
 
-La lista de indicadores presentada es el resultado de un proceso de depuración de más de 40 indicadores iniciales obtenidos de la literatura científica [@halpern_2002;@lester_2009;@lester_2008;@micheli_2012;@halpern_2013;@basurto_2013;@leslie_2015]. El proceso de selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobeierno. Los indicadores fueron elegidos según su facilidad de medición, la existencia de información anterior y presencia de programas de monitoreo que los midan anualmente. Además de separar explícitamente los indicadores en las ctegorías previamente mencionadas, también hay una separación implícita entre indicadores que cambian por efecto de la reserva (por ejemplo, **B** - Biomasa) o indicadores que pueden explicar la efectividad -o ausencia de- de la reserva, como **G5** - Pesca ilegal.
+La lista de indicadores presentada es el resultado de un proceso de depuración de más de 40 indicadores iniciales obtenidos de la literatura científica [@halpern_2002;@lester_2009;@lester_2008;@micheli_2012;@halpern_2013;@basurto_2013;@leslie_2015]. El proceso de selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobeierno. Los indicadores fueron elegidos según su facilidad de medición, la existencia de información anterior y presencia de programas de monitoreo que los midan anualmente. Además de separar explícitamente los indicadores en las ctegorías previamente mencionadas, también hay una separación implícita entre indicadores que cambian por efecto de la reserva (por ejemplo, **B** - Biomasa) o indicadores que pueden explicar la efectividad de la reserva, como **G5** - Pesca ilegal.
 
 Los indicadores biológicos son:
 
@@ -124,7 +124,7 @@ En esta especificación, estimamos los coeficientes $\alpha$, $\beta_1$, $\beta_
 - $\beta_2$: cambio a través de sitios
 - $\beta_3$: restante del cambio entre reservas y sitios (este es el efecto de la reserva)
 
-La interpretación de estos coeficientes puede ser un poco compleja, pero el siguiente ejemplo puede ayudarnos a aclarar dudas. Ajustando el modelo lineal a los datos de la Figura \@ref(fig:baci-multi), obtenemos los coeficientes mostrados en la Tabla \@ref(tab:reg).
+Esto es quivalente a un ANOVA de dos vías con un término de interacción. La ventaja de hacerlo así es que no solamente podemos decir si hay o no diferencias, si no que también inferir algo sobre la magnitud de estas diferencias. La interpretación de estos coeficientes puede ser un poco compleja, pero el siguiente ejemplo puede ayudarnos a aclarar dudas. Ajustando el modelo lineal a los datos de la Figura \@ref(fig:baci-multi), obtenemos los coeficientes mostrados en la Tabla \@ref(tab:reg).
 
 ```{r reg, results = "asis"}
 df %>% 
@@ -136,13 +136,16 @@ df %>%
                        intercept.bottom = F,
                        single.row = T,
                        title = "Coeficientes estimados mediante la regresión lineal múltiple.",
-                       covariate.labels = c("\\alpha", "B1", "B2", "B3"),
+                       covariate.labels = c("alpha", "B1", "B2", "B3"),
                        type = ifelse(knitr:::is_latex_output(), "latex", "html"),
                        dep.var.caption = "Variable dependiente",
-                       label = "reg", omit.stat = "adj.rsq")
+                       label = "reg",
+                       omit.stat = "adj.rsq")
 ```
 
-La Tabla \@ref(tab:reg) muestra los valores estimados para los coeficientes. Los números entre paréntesis presentan el error estándar al rededor de la estimación. Además, presenta la varianza explicada por el modelo ajustado, en este caso con un valor de $R^2 = 0.87$.
+La Tabla \@ref(tab:reg) muestra los valores estimados para los coeficientes. Los números entre paréntesis presentan el error estándar al rededor de la estimación. Además, presenta la varianza explicada por el modelo, en este caso con un valor de $R^2 = 0.87$[^covars].
+
+[^covars]: El modelo completo de MAREA incluye covariables que pueden ayudar a explicar mayor parte de la variación en los datos. Estos incluyen la profundidad, visibilidad y temperatura asociadas a cada observación. En este caso, 13% de la variación faltante es debido a la manipulación manual de los datos, pero podríamos esperar que las covariables antes mencionadas expliquen algo de la variación en los datos.
 
 Para interpretar los coeficientes, debemos sustituirlos en la ecuación anterior. Por lo tanto, obtenemos lo siguiente:
 
@@ -216,13 +219,22 @@ I &= 9
 \end{split}
 $$
 
-El término de interacción captura la diferncia entre lo que debería de haberse observado para la reserva y lo que realmente se observó. Es decir, la diferencia entre las líneas rojas. Este término es el efecto de la reserva.
+El término de interacción captura la diferncia entre lo que debería de haberse observado para la reserva y lo que realmente se observó. Es decir, la diferencia entre las líneas rojas. Este término es el **efecto de la reserva**. En este sentido, podemos entonces concluir que una reserva marina causó un incremento de 2 unidades en el indicador.
 
-Aunque esto puede parecer complicado, la realidad es que puede implementarse con una línea de código como `lm(indicador ~ post * zona, data = datos)`. Mejor aún, MAREA se encarga de generar las variables $Post$ y $Zona$ y de ajustar los coeficientes. Otra
+Aunque la regresión lineal y el álgebra pueden parecer complicados, en la realidad todo puede implementarse con una línea de código (como `lm(indicador ~ post * zona, data = datos)`). Mejor aún, MAREA se encarga de generar las variables $Post$ y $Zona$, ajustar el modelo, obtener los coeficientes y reportar los resultados. En el siguiente capítulo (Capítulo \@ref(uso-de-marea)), describimos el uso de MAREA y demostramos que con 6 sencillos pasos podemos evaluar todos los indicadores y obtener reportes para compartir.
 
 
 ### Socioeconómicos y de gobernanza
 
+Ahora pasamos a describir el análisis de los indicadores socioeconómicos y de gobernanza. Los primeros dos [indicadores socioeconómicos ](#objetivos-e-indicadores) son numéricos, pues representan los arribos (masa) e ingresos (dinero) que generan las pesquerías de la comunidad. En este caso, no tenemos una comunidad control, pero podemos aún inferir algo de los cambios mediante una evaluación antes-después. Para esto, MAREA implementa una forma reducida del modelo anterior:
+
+$$
+I = \alpha + \beta_1Post + \epsilon
+$$
+
+Lo anterior es equivalente a realizar una prueba t de student de dos colas con muestras pareadas. Un valor de $\beta_1 = 0$ indicaría que no hay cambio en el indicador. Como se mencionó en el Capítulo \@ref(antecedentes), una evaluación antes-después no toma en cuenta otros factores exógenos y por lo tanto no podemos inferir causalidad. Sin embargo, la información obtenida sigue siendo útil al evaluar las reservas y el contexto social en el que se desarrollan.
+
+La mayoría de los indicadores de gobernanza son cuantitativos. Por lo tanto, no existe una evaluación numérica de estos. En su lugar, @villasenorderbez_2018 realizaron una revisión literaria para identificar valores asociados a impactos positivos y negativos en la reserva. Por ejemplo, el indicador **G5** - Pesca Ilegal nos indica la presencia y / o el grado de pesca ilegal en la reserva, lo que sabemos es detrimental.
 
 
 
