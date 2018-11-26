@@ -1,0 +1,22 @@
+Orden de columna,Nombre de Columna,Descripción,Ejemplo
+1,id,"Un código único de identificación del transecto, compuesto por Dia, Mes, Ano, Comunidad, Sitio, Zona y Transecto, separado por guiones.","“01-01-2017-El Rosario-Punta Baja-Reserva-1” Hace referencia a el primer transecto en la reserva de Punta Baja, en El Rosario el primero de enero del 2017."
+2,Dia,"El día de muestreo, un número entre 1 y 31",“01” Para el primer día del mes y “31” para el último día del mes
+3,Mes,"El mes de muestreo, dos dígitos  entre 1 y 12",“01” Para enero y  “12” para diciembre
+4,Ano,"El año de muestreo, expresado en 4 dígitos",2017
+5,Comunidad,La comunidad asociada al sitio,"El Rosario, en Baja California"
+6,Sitio,El nombre del sitio de muestreo,"Punta Baja, que es un sitio de El Rosario"
+7,Zona,Indica si es un sitio control o reserva,“Reserva” que indica que Punta Baja es una reserva
+8,RC,Los pares reserva-control,“Punta Baja - Lazaro” Indica que Lázaro es el control de Punta Baja
+9,Latitud,"Latitud, expresada en grados decimales de por lo menos cuatro dígitos. No es necesario incluir N o S, esto se indica con los signos.",28.4573 Para un sitio en el hemisferio norte; -18.5429 Para un sitio en el hemisferio sur
+10,Longitud,"Longitud, expresada en grados decimales de por lo menos cuatro dígitos. No es necesario incluir E o W, esto se indica con los signos.",-115.3249 Para un sitio en el hemisferio oeste; 29.7812 Para un sitio en el hemisferio este
+11,Transecto,Utilizar números enteros consecutivos para cada año y sitio.,1
+12,Profundidad,"Profundidad del transecto, en metros",18
+13,Visibilidad,"Visibilidad del transecto, en metros",12
+14,Temperatura,"Temperatura del fondo, en °C",22
+15,GeneroEspecie,El nombre científico de la especie,Mycteroperca xenarcha
+16,Longitud*,"Longitud total, en centímetros",20
+17,Abundancia,Número de organismos observados,10
+18,a*,El índice ponderal en la ecuación de crecimiento alométrico,0.00001
+19,b*,El factor alométrico en la ecuación de crecimiento alométrico,3.02
+20,NivelTrofico*,El nivel trófico de la especie,3.5
+21,LT50*,La longitud de primera madurez de la especie,25

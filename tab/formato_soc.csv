@@ -1,0 +1,8 @@
+Orden de Columnas,Nombre de columnas,Descripción,Ejemplo
+1,Ano,"El año, expresado como un entero de 4 dígitos",2017
+2,GeneroEspecie,El nombre científico del recurso,Panulirus interruptus
+3,NombreComun,El nombre común del recurso,Langosta roja
+4,ArribosTotales,"Arribos anuales, en Kg",40000
+5,IngresosTotales,"Los ingresos generados, en pesos mexicanos",10000000
+6,CPI,Índice de Precio al Consumidor,4.018617
+7,PrecioPromedio,Valor promedio en pesos / Kg,250
