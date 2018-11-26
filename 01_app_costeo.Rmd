@@ -16,8 +16,7 @@ El número de iniciativas para establecer redes de reservas marinas está en aum
 Este calculador de costos contempla todos los pasos necesarios para establecer una reserva marina utilizado el modelo COBI, con el objetivo de ayudar a comunidades, organizaciones de la sociedad civil y tomadores de decisiones de planear sus inversiones con mayor claridad y transparencia. La  Figura \@ref(fig:shiny-costeo) presenta la pantalla de bienvenida de la aplicación.
 
 ```{r shiny-costeo, fig.cap = "Shiny app de Costeo de Reservas, la app está disponible en https://turfeffect.shinyapps.io/AppCosteo/"}
-knitr::include_app("https://turfeffect.shinyapps.io/AppCosteo/", 
-  height = "500px")
+knitr::include_graphics(path = here::here("img", "app_costeo.PNG"))
 ```
 
 La app tiene dos secciones principales. Del lado izquierdo se muestra una barra de herramientas que el usuario puede usar para navegar por las secciones de `Ingresar costos` y `Presupuesto`, así como ajustar el tipo de cambio, ver los cambios al total en tiempo real y eventualmente descargar el presupuesto detallado u obtener un link para compartir el estado de la app. La barra de herramientas se puede ocultar y mostrar. La segunda sección es el área de trabajo, que al inicio muestra una descripción similar a la del texto anterior.

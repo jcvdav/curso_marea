@@ -113,9 +113,10 @@ Para obtener la diferencia entre sitios, definimos otra variablle llamada $Zona$
 
 Por lo tanto, podemos definir un modelo lineal múltiple que contenga una variable para el tiempo, una para la zona y otra para la interacción entre estas, de la siguiente manera:
 
-$$
+\begin{equation} 
 I = \alpha + \beta_1Post + \beta_2Zona + \beta_3Zona \times Post + \epsilon
-$$
+(\#eq:did)
+\end{equation}
 
 En esta especificación, estimamos los coeficientes $\alpha$, $\beta_1$, $\beta_2$ y $\beta_3$ por medio de mínimos cuadrados ordinarios. Estos coeficientes presentarán la siguiente información:
 

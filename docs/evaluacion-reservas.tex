@@ -318,7 +318,12 @@ de decisiones de planear sus inversiones con mayor claridad y
 transparencia. La Figura \ref{fig:shiny-costeo} presenta la pantalla de
 bienvenida de la aplicación.
 
-\href{https://turfeffect.shinyapps.io/AppCosteo/}{\includegraphics{evaluacion-reservas_files/figure-latex/shiny-costeo-1.png}}
+\begin{figure}
+\centering
+\includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/app_costeo.PNG}
+\caption{\label{fig:shiny-costeo}Shiny app de Costeo de Reservas, la app
+está disponible en \url{https://turfeffect.shinyapps.io/AppCosteo/}}
+\end{figure}
 
 La app tiene dos secciones principales. Del lado izquierdo se muestra
 una barra de herramientas que el usuario puede usar para navegar por las
@@ -729,9 +734,10 @@ Por lo tanto, podemos definir un modelo lineal múltiple que contenga una
 variable para el tiempo, una para la zona y otra para la interacción
 entre estas, de la siguiente manera:
 
-\[
+\begin{equation} 
 I = \alpha + \beta_1Post + \beta_2Zona + \beta_3Zona \times Post + \epsilon
-\]
+\label{eq:did}
+\end{equation}
 
 En esta especificación, estimamos los coeficientes \(\alpha\),
 \(\beta_1\), \(\beta_2\) y \(\beta_3\) por medio de mínimos cuadrados
@@ -949,45 +955,263 @@ sabemos es detrimental.
 \hypertarget{uso-de-marea}{%
 \chapter{Uso de MAREA}\label{uso-de-marea}}
 
-Presentaremos los pasos necesarios para evaluar una reserva con MAREA.
-Ya conoceremos los datos y análisis, por lo que no nos limitaremos a
-aprender su uso, sino comprender las operaciones y procesos que realiza.
-Esto permitirá anticipar errores y comprender las capacidades y
-limitaciones de MAREA. Comentaremos sobre la manera de prevenir errores
-y, en caso de que existan, reportarlos para su arreglo. Usaremos Isla
-Natividad como ejemplo para llevar a cabo la evaluación de la reserva de
-``La Plana / Las Cuevas''.
+El Capítulo \ref{antecedentes} describió las diferentes formas de
+evaluar reservas. El Capítulo \ref{evaluacion-de-reservas} describió la
+lista de objetivos e indicadores y la metodología de MAREA. Este
+capítulo presenta los pasos necesarios para evaluar una reserva con
+MAREA. Comenzamos con una breve descripción de los datos, seguido de los
+seis pasos necesarios para realizar la evaluación, la guía de
+interpretación de resultados y una breve mención de las capacidades y
+limitaciones de MAREA.
+
+Los participantes del curso recibirán datos simulados para hacer los
+ejercicios del Capítulo \ref{ejercicios-con-marea}. Sin embargo, el
+usuario de MAREA puede descargar ejemplos de datos en la pestaña de
+datos dentro de la aplicación.
 
 \hypertarget{tipos-y-formatos-de-datos}{%
 \section{Tipos y formatos de datos}\label{tipos-y-formatos-de-datos}}
 
 Para poder usar MAREA sin problemas, es necesario que los datos tengan
-el formato correcto. Se presentarán los conceptos de datos largos y
-anchos, y discutiremos sobre las ventajas de cada uno. Usaremos bases en
-ambos formatos para identificar las ventajas / desventajas de cada una y
-justificaremos el uso de datos largos en MAREA. Hablaremos sobre buenas
-prácticas de mantenimiento de bases de datos, nombres de columnas y
-metadatos. Terminaremos hablando de las extensiones (e.g. *.csv) en las
-que se pueden exportar los datos / importar datos desde Excel.
+el formato correcto y estén en formato comaseparado (\texttt{*.csv}).
+Esta sección no pretende discutir en su totalidad el formato de datos.
+En su lugar, mencionamos brevemente algunos detalles importantes sobre
+el formato. La descripción detallada de los datos puede encontrarse en
+el manual operativo de MAREA \citep{villaseorderbez_2017}.
+
+\hypertarget{datos-biologicos}{%
+\subsection{Datos biológicos}\label{datos-biologicos}}
+
+MAREA utiliza tres tipos de datos: biológicos, socioeconómicos y de
+gobernanza. Los datos biológicos provienen de los censos visuales hechos
+en las zonas reserva y control. MAREA puede recibir dos bases biológicas
+distintas, una de peces y otra de invertebrados. Las bases de datos
+biológicos deberán contener, por lo menos, las columnas presentadas en
+la Tabla \ref{tab:formato}.
+
+\begin{table}
+
+\caption{\label{tab:formato}Requerimientos mínimos para los nombres de columna de la base de datos biológicos.}
+\centering
+\begin{tabular}[t]{rlll}
+\toprule
+Orden de columna & Nombre de Columna & Descripción & Ejemplo\\
+\midrule
+1 & id & Un código único de identificación del transecto, compuesto por Dia, Mes, Ano, Comunidad, Sitio, Zona y Transecto, separado por guiones. & “01-01-2017-El Rosario-Punta Baja-Reserva-1” Hace referencia a el primer transecto en la reserva de Punta Baja, en El Rosario el primero de enero del 2017.\\
+2 & Dia & El día de muestreo, un número entre 1 y 31 & “01” Para el primer día del mes y “31” para el último día del mes\\
+3 & Mes & El mes de muestreo, dos dígitos  entre 1 y 12 & “01” Para enero y  “12” para diciembre\\
+4 & Ano & El año de muestreo, expresado en 4 dígitos & 2017\\
+5 & Comunidad & La comunidad asociada al sitio & El Rosario, en Baja California\\
+\addlinespace
+6 & Sitio & El nombre del sitio de muestreo & Punta Baja, que es un sitio de El Rosario\\
+7 & Zona & Indica si es un sitio control o reserva & “Reserva” que indica que Punta Baja es una reserva\\
+8 & RC & Los pares reserva-control & “Punta Baja - Lazaro” Indica que Lázaro es el control de Punta Baja\\
+9 & Latitud & Latitud, expresada en grados decimales de por lo menos cuatro dígitos. No es necesario incluir N o S, esto se indica con los signos. & 28.4573 Para un sitio en el hemisferio norte; -18.5429 Para un sitio en el hemisferio sur\\
+10 & Longitud & Longitud, expresada en grados decimales de por lo menos cuatro dígitos. No es necesario incluir E o W, esto se indica con los signos. & -115.3249 Para un sitio en el hemisferio oeste; 29.7812 Para un sitio en el hemisferio este\\
+\addlinespace
+11 & Transecto & Utilizar números enteros consecutivos para cada año y sitio. & 1\\
+12 & Profundidad & Profundidad del transecto, en metros & 18\\
+13 & Visibilidad & Visibilidad del transecto, en metros & 12\\
+14 & Temperatura & Temperatura del fondo, en °C & 22\\
+15 & GeneroEspecie & El nombre científico de la especie & Mycteroperca xenarcha\\
+\addlinespace
+16 & Longitud* & Longitud total, en centímetros & 20\\
+17 & Abundancia & Número de organismos observados & 10\\
+18 & a* & El índice ponderal en la ecuación de crecimiento alométrico & 0.00001\\
+19 & b* & El factor alométrico en la ecuación de crecimiento alométrico & 3.02\\
+20 & NivelTrofico* & El nivel trófico de la especie & 3.5\\
+21 & LT50* & La longitud de primera madurez de la especie & 25\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Otras columnas importantes, pero no estrictamente necesaria podrían ser:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  BuzoMonitor: El nombre del buzo que colectó la información
+\item
+  Tiempo de inicio del transecto, en minutos de buceo
+\item
+  Tiempo final del transecto, en minutos de buceo
+\item
+  Habitat: Tipo de hábitat en el sitio
+\item
+  Genero: El género de la especie
+\item
+  Especie: La especie de la especie
+\item
+  NombreComun: Nombre común de la especie en español
+\item
+  Observaciones: Notas de interés u observaciones relevantes.
+\end{enumerate}
+
+De las columnas presentadas en la Tabla \ref{tab:formato}, la más
+importante es \texttt{RC}. Esta columna es la que le indica a MAREA la
+relación entre sitios reserva y control. En una base con más de 2
+sitios, MAREA utiliza esta columna para saber qué sitios seleccionar al
+hacer el análisis.
+
+\hypertarget{datos-socioeconomicos}{%
+\subsection{Datos socioeconómicos}\label{datos-socioeconomicos}}
+
+Los datos socioeconómicos deberán contener información de los arribos e
+ingresos anuales de cada especie. Además, deberán de contar con el
+índice del precio al consumidor usado para normalizar los datos de
+ingresos. Este índice puede ser obtenido por medio de la
+\href{https://data.oecd.org/price/inflation-cpi.htm}{OCDE}.
+
+\begin{table}
+
+\caption{\label{tab:formato-soc}Requerimientos mínimos para los nombres de columna de la base de datos socioeconómicos.}
+\centering
+\begin{tabular}[t]{rlll}
+\toprule
+Orden de columna & Nombre de Columna & Descripción & Ejemplo\\
+\midrule
+1 & Ano & El año, expresado como un entero de 4 dígitos & 2017\\
+2 & GeneroEspecie & El nombre científico del recurso & Panulirus interruptus\\
+3 & NombreComun & El nombre común del recurso & Langosta roja\\
+4 & ArribosTotales & Arribos anuales, en Kg & 40000\\
+5 & IngresosTotales & Los ingresos generados, en pesos mexicanos & 10000000\\
+\addlinespace
+6 & CPI & Índice de Precio al Consumidor & 4.018617\\
+7 & PrecioPromedio & Valor promedio en pesos / Kg & 250\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\hypertarget{gobernanza}{%
+\subsection{Gobernanza}\label{gobernanza}}
+
+Los datos de gobernanza se obtienen por medio de entrevistas y por lo
+tanto son más complejos. Para facilitar el uso de la entrevista
+sugerida, MAREA provee también una base de datos de Access que permite
+capturas la información de las entrevistas y obtener la base con el
+formato deseado. La base de Access se puede descargar en el menú lateral
+de MAREA.
+
+\hypertarget{notas-importantes}{%
+\subsection{Notas importantes}\label{notas-importantes}}
+
+\hypertarget{nombres-de-columnas}{%
+\subsubsection{Nombres de columnas}\label{nombres-de-columnas}}
+
+Los nombres de columnas deben de evitar utilizar caracteres especiales
+(por ejemplo, ° / * \% \#) y otros que puedan hacer tu base imposible de
+leer en otras plataformas, como los acentos y las diéresis. Los nombres
+de columnas también deberán evitar espacios o paréntesis. Si una
+variable está compuesta por dos palabras, deberás considerar renombrarla
+a algo más simple. Por ejemplo ``número de transecto'' puede ser
+simplemente ``transecto''. Alternativamente, si reducir el nombre de la
+variable no es una opción, puedes escribirlo en formato ``camllo''
+(i.e.~usar una mayúscula para cada primer letra de cada palabra). Por
+ejemplo, la variable ``Genero especie'' se convierte en
+``GeneroEspecie''. Además, omite utilizar unidades en los nombres de las
+columnas. Como se explicó antes, los nombres de columnas deben de
+incluir la menor información posible, y las unidades están disponibles
+en los metadatos.
+
+\hypertarget{comunidades-y-sitios}{%
+\subsubsection{Comunidades y sitios}\label{comunidades-y-sitios}}
+
+Algo importante para mantener presente es la necesidad de usar nombres
+idénticos para comunidades y sitios de muestreo en toda la base de
+datos. Por ejemplo, nombrar a la comunidad ``Santa Maria'' en la base de
+datos biofísica, pero ``Sta. Maria'' en la base de datos socioeconómica
+no es un procedimiento correcto. Como humanos, somos capaces de
+identificar esas diferencias. Sin embargo, una computadora las
+identificará como palabras estrictamente diferentes y causará que MAREA
+falle.
 
 \hypertarget{evaluacion-de-reservas-en-6-etapas}{%
 \section{Evaluación de reservas en 6
 etapas}\label{evaluacion-de-reservas-en-6-etapas}}
 
+MAREA está diseñada para evaluar las reservas en seis pasos, divididos
+por pestañas mostradas en la App. La Figura \ref{fig:shiny-marea}
+presenta la pantalla de bienvenida de la aplicación.
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/Tab1.png}
+\caption{\label{fig:shiny-marea}Aplicación para la evaluación de reservas
+marinas, la app está disponible en
+\url{https://turfeffect.shinyapps.io/marea/}}
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  La primer pestaña presenta una introducción a MAREA y un resumen del
+  proceso de evaluación (Figura \ref{fig:workflow}).
+\item
+  El usuario navega a la segunda pestaña, donde especifica los objetivos
+  de las reservas a evaluar y MAREA selecciona los objetivos según la
+  Tabla \ref{tab:tabla-oi}. Recuerda que puedes modificar los
+  indicadores seleccionados según tu interés.
+\item
+  La tercer pestaña permite al usuario cargar los datos y dercargar
+  bases de ejemplo.
+\item
+  La cuarta pestaña utiliza la columna \texttt{RC} mencionada en la
+  Tabla \ref{tab:formato} para presentar las reservas y controles que
+  pueden ser evaluados, así como el año de implementación de la reserva,
+  información sore el tamaño y la lista de especies objetivo a elegir.
+\item
+  La quinta pestaña presenta una confirmación de lo que el usuario
+  seleccionó.
+\item
+  La sexta presenta los resultados de forma resumida con una tarjeta de
+  puntuación y un botón para descargar el reporte en \texttt{*.pdf}.
+\end{itemize}
+
+\citet{villaseorderbez_2017} presenta una descripción detallada de cada
+una de las pestañas.
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/workflow.png}
+\caption{\label{fig:workflow}Diagrama de flujo de MAREA, explicando lo que
+sucede en cada una de las 6 pestañas.}
+\end{figure}
+
 \hypertarget{interpretacion-de-resultados}{%
 \section{Interpretación de
 resultados}\label{interpretacion-de-resultados}}
 
-Comenzaremos por describir los resultados que produce MAREA: la tabla de
-puntuación y el reporte técnico. Primero discutiremos sobre el desempeño
-de la reserva utilizando únicamente la tabla de puntuación. Después,
-descargaremos el reporte técnico que produce MAREA para llegar a
-conclusiones definitivas sobre el desempeño de la reserva.
+El primer resultado es la tarjeta de puntiación (Figura
+\ref{fig:resultados}), que presenta un recuadro coloreado para cada
+indicador evaluado. El código de colores está indicado por la leyenda
+mostrada en la Figura \ref{fig:leyenda}.
 
-\hypertarget{capacidades-y-limitaciones}{%
-\section{Capacidades y limitaciones}\label{capacidades-y-limitaciones}}
+Para los indicadores biológicos, el color está dado por el signo y
+significancia del efecto de la reserva (el \(\beta_3\) de la ecuación
+\eqref{eq:did}). Para los socioeconómicos, el color está dado por el signo
+y significancia de la pendiente de la regresión. Para los indicadores de
+gobernanza, el rojo señala que el valor del indicador tiene efectos
+negativos y el verde efectos positivos. Color amarillo para los
+indicadores de gobernazna indica que la influencia del valor no está
+clara o que el indicador no fue definido. El usuario puede descargar un
+reporte en extenso al oprimir el botón \texttt{Descargar\ Reporte} en la
+esquina superior derecha.
 
-h
+\begin{figure}
+\centering
+\includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/AllResults.png}
+\caption{\label{fig:resultados}Scorecard produced by MAREA for the ``La
+Plana / Las Cuevas'' marine reserve in Isla Natividad, Mexico.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/leyenda.png}
+\caption{\label{fig:leyenda}Leyenda usada para la interpretación de la
+tarjeta de puntuación. Los colores indican la dirección del cambio y la
+intensidad la significancia estadística.}
+\end{figure}
 
 \hypertarget{part-parte-iii}{%
 \part{Parte III}\label{part-parte-iii}}
@@ -997,21 +1221,21 @@ h
 
 Hola hola
 
-\hypertarget{indicadores-biologicos-para-1-reserva}{%
-\section{Indicadores biológicos para 1
-reserva}\label{indicadores-biologicos-para-1-reserva}}
+\hypertarget{indicadores-biologicos}{%
+\section{Indicadores biológicos}\label{indicadores-biologicos}}
 
-\hypertarget{indicadores-biologicos-y-especie-objetivo-para-1-reserva}{%
-\section{Indicadores biológicos y especie objetivo para 1
-reserva}\label{indicadores-biologicos-y-especie-objetivo-para-1-reserva}}
+\hypertarget{especie-objetivo}{%
+\section{Especie objetivo}\label{especie-objetivo}}
 
-\hypertarget{todos-los-indicadores-para-1-reserva}{%
-\section{Todos los indicadores para 1
-reserva}\label{todos-los-indicadores-para-1-reserva}}
+\hypertarget{todos-los-indicadores}{%
+\section{Todos los indicadores}\label{todos-los-indicadores}}
 
-\hypertarget{indicadores-biologicos-para-varias-reservas-simultaneamente}{%
-\section{Indicadores biológicos para varias reservas,
-simultáneamente}\label{indicadores-biologicos-para-varias-reservas-simultaneamente}}
+\hypertarget{datos-de-biometria}{%
+\section{Datos de biometría}\label{datos-de-biometria}}
+
+\hypertarget{mas-de-una-reserva-a-la-vez}{%
+\section{Más de una reserva a la
+vez}\label{mas-de-una-reserva-a-la-vez}}
 
 \hypertarget{errores-y-soluciones}{%
 \chapter{Errores y soluciones}\label{errores-y-soluciones}}

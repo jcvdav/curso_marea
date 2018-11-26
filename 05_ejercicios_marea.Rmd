@@ -4,10 +4,12 @@
 
 Hola hola
 
-## Indicadores biológicos para 1 reserva
+## Indicadores biológicos
 
-## Indicadores biológicos y especie objetivo para 1 reserva
+## Especie objetivo
 
-## Todos los indicadores para 1 reserva
+## Todos los indicadores
 
-## Indicadores biológicos para varias reservas, simultáneamente
+## Datos de biometría
+
+## Más de una reserva a la vez

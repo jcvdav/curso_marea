@@ -1,17 +1,101 @@
 # Uso de MAREA
 
-Presentaremos los pasos necesarios para evaluar una reserva con MAREA. Ya conoceremos los datos y análisis, por lo que no nos limitaremos a aprender su uso, sino comprender las operaciones y procesos que realiza. Esto permitirá anticipar errores y comprender las capacidades y limitaciones de MAREA. Comentaremos sobre la manera de prevenir errores y, en caso de que existan, reportarlos para su arreglo. Usaremos Isla Natividad como ejemplo para llevar a cabo la evaluación de la reserva de “La Plana / Las Cuevas”.
+El Capítulo \@ref(antecedentes) describió las diferentes formas de evaluar reservas. El Capítulo \@ref(evaluacion-de-reservas) describió la lista de objetivos e indicadores y la metodología de MAREA. Este capítulo presenta los pasos necesarios para evaluar una reserva con MAREA. Comenzamos con una breve descripción de los datos, seguido de los seis pasos necesarios para realizar la evaluación, la guía de interpretación de resultados y una breve mención de las capacidades y limitaciones de MAREA.
+
+Los participantes del curso recibirán datos simulados para hacer los ejercicios del Capítulo \@ref(ejercicios-con-marea). Sin embargo, el usuario de MAREA puede descargar ejemplos de datos en la pestaña de datos dentro de la aplicación.
 
 ## Tipos y formatos de datos
 
-Para poder usar MAREA sin problemas, es necesario que los datos tengan el formato correcto. Se presentarán los conceptos de datos largos y anchos, y discutiremos sobre las ventajas de cada uno. Usaremos bases en ambos formatos para identificar las ventajas / desventajas de cada una y justificaremos el uso de datos largos en MAREA. Hablaremos sobre buenas prácticas de mantenimiento de bases de datos, nombres de columnas y metadatos. Terminaremos hablando de las extensiones (e.g. *.csv) en las que se pueden exportar los datos / importar datos desde Excel.
+Para poder usar MAREA sin problemas, es necesario que los datos tengan el formato correcto y estén en formato comaseparado (`*.csv`). Esta sección no pretende discutir en su totalidad el formato de datos. En su lugar, mencionamos brevemente algunos detalles importantes sobre el formato. La descripción detallada de los datos puede encontrarse en el manual operativo de MAREA [@villaseorderbez_2017].
+
+### Datos biológicos
+
+MAREA utiliza tres tipos de datos: biológicos, socioeconómicos y de gobernanza. Los datos biológicos provienen de los censos visuales hechos en las zonas reserva y control. MAREA puede recibir dos bases biológicas distintas, una de peces y otra de invertebrados. Las bases de datos biológicos deberán contener, por lo menos, las columnas presentadas en la Tabla \@ref(tab:formato).
+
+```{r formato}
+read.csv(here::here("tab", "formato.csv"),
+         stringsAsFactors = F,
+         strip.white = T) %>% 
+  knitr::kable(booktabs = T,
+               caption = "Requerimientos mínimos para los nombres de columna de la base de datos biológicos.",
+               col.names = c("Orden de columna", "Nombre de Columna", "Descripción", "Ejemplo"))
+```
+
+Otras columnas importantes, pero no estrictamente necesaria podrían ser:
+
+1. BuzoMonitor: El nombre del buzo que colectó la información
+2. Tiempo de inicio del transecto, en minutos de buceo
+3. Tiempo final del transecto, en minutos de buceo
+4. Habitat: Tipo de hábitat en el sitio
+5. Genero: El género de la especie
+6. Especie: La especie de la especie
+7. NombreComun: Nombre común de la especie en español
+8. Observaciones: Notas de interés u observaciones relevantes.
+
+De las columnas presentadas en la Tabla \@ref(tab:formato), la más importante es `RC`. Esta columna es la que le indica a MAREA la relación entre sitios reserva y control. En una base con más de 2 sitios, MAREA utiliza esta columna para saber qué sitios seleccionar al hacer el análisis.
+
+### Datos socioeconómicos
+
+Los datos socioeconómicos deberán contener información de los arribos e ingresos anuales de cada especie. Además, deberán de contar con el índice del precio al consumidor usado para normalizar los datos de ingresos. Este índice puede ser obtenido por medio de la [OCDE](https://data.oecd.org/price/inflation-cpi.htm).
+
+```{r formato-soc}
+read.csv(here::here("tab", "formato_soc.csv"),
+         stringsAsFactors = F,
+         strip.white = T) %>% 
+  knitr::kable(booktabs = T,
+               caption = "Requerimientos mínimos para los nombres de columna de la base de datos socioeconómicos.",
+               col.names = c("Orden de columna", "Nombre de Columna", "Descripción", "Ejemplo"))
+```
+
+### Gobernanza
+
+Los datos de gobernanza se obtienen por medio de entrevistas y por lo tanto son más complejos. Para facilitar el uso de la entrevista sugerida, MAREA provee también una base de datos de Access que permite capturas la información de las entrevistas y obtener la base con el formato deseado. La base de Access se puede descargar en el menú lateral de MAREA.
+
+### Notas importantes
+
+#### Nombres de columnas
+
+Los nombres de columnas deben de evitar utilizar caracteres especiales (por ejemplo, ° / * % \#) y otros que puedan hacer tu base imposible de leer en otras plataformas, como los acentos y las diéresis. Los nombres de columnas también deberán evitar espacios o paréntesis. Si una variable está compuesta por dos palabras, deberás considerar renombrarla a algo más simple. Por ejemplo “número de transecto” puede ser simplemente “transecto”. Alternativamente, si reducir el nombre de la variable no es una opción, puedes escribirlo en formato “camllo” (i.e. usar una mayúscula para cada primer letra de cada palabra). Por ejemplo, la variable “Genero especie” se convierte en “GeneroEspecie”. Además, omite utilizar unidades en los nombres de las columnas. Como se explicó antes, los nombres de columnas deben de incluir la menor información posible, y las unidades están disponibles en los metadatos.
+
+#### Comunidades y sitios
+
+Algo importante para mantener presente es la necesidad de usar nombres idénticos para comunidades y sitios de muestreo en toda la base de datos. Por ejemplo, nombrar a la comunidad “Santa Maria” en la base de datos biofísica, pero “Sta. Maria” en la base de datos socioeconómica no es un procedimiento correcto. Como humanos, somos capaces de identificar esas diferencias. Sin embargo, una computadora las identificará como palabras estrictamente diferentes y causará que MAREA falle.
+
 
 ## Evaluación de reservas en 6 etapas
 
+MAREA está diseñada para evaluar las reservas en seis pasos, divididos por pestañas mostradas en la App. La  Figura \@ref(fig:shiny-marea) presenta la pantalla de bienvenida de la aplicación.
+
+```{r shiny-marea, fig.cap = "Aplicación para la evaluación de reservas marinas, la app está disponible en https://turfeffect.shinyapps.io/marea/"}
+knitr::include_graphics(path = here::here("img", "Tab1.png"))
+```
+
+- La primer pestaña presenta una introducción a MAREA y un resumen del proceso de evaluación (Figura \@ref(fig:workflow)).
+- El usuario navega a la segunda pestaña, donde especifica los objetivos de las reservas a evaluar y MAREA selecciona los objetivos según la Tabla \@ref(tab:tabla-oi). Recuerda que puedes modificar los indicadores seleccionados según tu interés.
+- La tercer pestaña permite al usuario cargar los datos y dercargar bases de ejemplo.
+- La cuarta pestaña utiliza la columna `RC` mencionada en la Tabla \@ref(tab:formato) para presentar las reservas y controles que pueden ser evaluados, así como el año de implementación de la reserva, información sore el tamaño y la lista de especies objetivo a elegir.
+- La quinta pestaña presenta una confirmación de lo que el usuario seleccionó.
+- La sexta presenta los resultados de forma resumida con una tarjeta de puntuación y un botón para descargar el reporte en `*.pdf`.
+
+@villaseorderbez_2017 presenta una descripción detallada de cada una de las pestañas.
+
+```{r workflow, fig.cap = "Diagrama de flujo de MAREA, explicando lo que sucede en cada una de las 6 pestañas."}
+knitr::include_graphics(path = here::here("img", "workflow.png"))
+```
+
+
 ## Interpretación de resultados
 
-Comenzaremos por describir los resultados que produce MAREA: la tabla de puntuación y el reporte técnico. Primero discutiremos sobre el desempeño de la reserva utilizando únicamente la tabla de puntuación. Después, descargaremos el reporte técnico que produce MAREA para llegar a conclusiones definitivas sobre el desempeño de la reserva.
+El primer resultado es la tarjeta de puntiación (Figura \@ref(fig:resultados)), que presenta un recuadro coloreado para cada indicador evaluado. El código de colores está indicado por la leyenda mostrada en la Figura \@ref(fig:leyenda).
 
-## Capacidades y limitaciones
+Para los indicadores biológicos, el color está dado por el signo y significancia del efecto de la reserva (el $\beta_3$ de la ecuación \@ref(eq:did)). Para los socioeconómicos, el color está dado por el signo y significancia de la pendiente de la regresión. Para los indicadores de gobernanza, el rojo señala que el valor del indicador tiene efectos negativos y el verde efectos positivos. Color amarillo para los indicadores de gobernazna indica que la influencia del valor no está clara o que el indicador no fue definido. El usuario puede descargar un reporte en extenso al oprimir el botón `Descargar Reporte` en la esquina superior derecha.
 
-h
+```{r leyenda, fig.cap = "Leyenda usada para la interpretación de la tarjeta de puntuación. Los colores indican la dirección del cambio y la intensidad la significancia estadística."}
+knitr::include_graphics(path = here::here("img", "leyenda.png"))
+```
+
+```{r resultados, fig.cap = "Scorecard produced by MAREA for the “La Plana / Las Cuevas” marine reserve in Isla Natividad, Mexico."}
+knitr::include_graphics(path = here::here("img", "AllResults.png"))
+```
+
+
