@@ -136,7 +136,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I Parte I</b></span></li>
-<li class="chapter" data-level="1" data-path="app-de-costeo.html"><a href="app-de-costeo.html"><i class="fa fa-check"></i><b>1</b> App de costeo</a></li>
+<li class="chapter" data-level="1" data-path="app-de-costeo.html"><a href="app-de-costeo.html"><i class="fa fa-check"></i><b>1</b> App de costeo</a><ul>
+<li class="chapter" data-level="1.1" data-path="app-de-costeo.html"><a href="app-de-costeo.html#uso-de-la-app"><i class="fa fa-check"></i><b>1.1</b> Uso de la App</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="app-de-costeo.html"><a href="app-de-costeo.html#ejercicio"><i class="fa fa-check"></i><b>1.1.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="1.1.2" data-path="app-de-costeo.html"><a href="app-de-costeo.html#pasos-sugeridos"><i class="fa fa-check"></i><b>1.1.2</b> Pasos sugeridos</a></li>
+<li class="chapter" data-level="1.1.3" data-path="app-de-costeo.html"><a href="app-de-costeo.html#resultados"><i class="fa fa-check"></i><b>1.1.3</b> Resultados</a></li>
+</ul></li>
+</ul></li>
 <li class="part"><span><b>II Parte II</b></span></li>
 <li class="chapter" data-level="2" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>2</b> Antecedentes</a><ul>
 <li class="chapter" data-level="2.1" data-path="antecedentes.html"><a href="antecedentes.html#antes-despues"><i class="fa fa-check"></i><b>2.1</b> Antes-Después</a></li>
@@ -199,16 +205,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">Costeo y Evaluación de Reservas Marinas</h1>
 <h3 class="subtitle"><em>Una guía para gestores ambientales</em></h3>
 <h4 class="author"><em>Juan Carlos Villaseñor-Derbez</em></h4>
-<h4 class="date"><em>Bren School of Environmental Science &amp; Management, UCSB</em></h4>
+<h4 class="date"><em>Bren School of Environmental Science &amp; Management, UCSB
+<a href="mailto:juancarlos@ucsb.edu" class="email">juancarlos@ucsb.edu</a></em></h4>
 </div>
 <div id="antes-de-empezar" class="section level1 unnumbered">
 <h1>Antes de empezar</h1>
-<p>Este manual es la segunda iteración de los esfuerzos por impulsar el uso de metodologías estandarizadas para la evaluación de reservas marinas. Trabajos anteriores incluyen el manual generalizado de evaluación de reservas marinas en México <span class="citation">(Villaseñor-Derbez et al., <a href="#ref-villaseorderbez_2017">2017</a>)</span> y la publicación arbitrada que presenta a <a href="https://turfeffect.shinyapps.io/marea/">MAREA</a> como una herramienta amigable y gratuita <span class="citation">(Villaseñor-Derbez et al., <a href="#ref-villasenorderbez_2018">2018</a>)</span>. Esta versión del manual pretende incorporar partes de ambos trabajos, pero también incluye una serie de ejercicios prácticos para el uso de MAREA y la nueva App de Costeo de Reservas. Además, el manual está públicamente disponible en <a href="https://jcvdav.github.io/curso_marea/">internet</a>, donde el lector puede descargar el manual como PDF o EPUB para Kindle.</p>
+<p>Este manual es la segunda iteración de los esfuerzos por impulsar el uso de metodologías estandarizadas para la evaluación de reservas marinas. Trabajos anteriores incluyen el manual generalizado de evaluación de reservas marinas en México <span class="citation">(Villaseñor-Derbez et al., <a href="#ref-villaseorderbez_2017">2017</a>)</span> y la publicación arbitrada que presenta a <a href="https://turfeffect.shinyapps.io/marea/">MAREA</a> como una herramienta amigable y gratuita <span class="citation">(Villaseñor-Derbez et al., <a href="#ref-villasenorderbez_2018">2018</a>)</span>. Esta versión del manual pretende incorporar partes de ambos trabajos, pero también incluye una serie de ejercicios prácticos para el uso de MAREA y la nueva App de Costeo de Reservas. Además, el manual está públicamente disponible en <a href="https://jcvdav.github.io/curso_marea/">internet</a>, donde el lector puede descargar el manual como PDF o EPUB para Kindle<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 <p>Aunque el manual y la Aplicación para Evaluación de Reservas Marinas (MAREA) pueden ser utilizados alrededor del mundo, es importante mencionar que el proyecto fue diseñado para evaluar la efectividad de las reservas marinas en México. Por lo tanto, las metodologías utilizadas reflejan las necesidades de las comunidades costeras mexicanas, y no debe de interpretarse como un conjunto de instrucciones definitivas. Aún así, creemos que la guía ha sido creada para permitir su aplicación en otros lugares con el mismo fin.</p>
 <div id="requisitos" class="section level2">
 <h2><span class="header-section-number">0.1</span> Requisitos</h2>
-<p>MAREA y la nueva App de Costeo de Reservas son aplicaciones web, y para poder utilizarlas es necesario tener un explorador de internet y una conexión estable. Aunque no siempre tenemos acceso a internet, este formato nos evita problemas de compatibilidad entre diferentes sistemas operativos. Si tienes un explorador de internet y una conexión estable, puedes usar estas Apps.</p>
-<p>Si participaste en uno de los cursos presenciales, el USB que recibise contiene este manual como PDF y EPUB además de los <a href="https://github.com/jcvdav/curso_marea/materiales/datos">datos sintéticos</a> para los ejercicios prácticos y las <a href="https://github.com/jcvdav/curso_marea/materiales/diapositivas">diapositivas del curso</a>. Puedes distribuir libremente estos materiales, o descargarlos desde el <a href="https://github.com/jcvdav/curso_marea">repositorio de GitHub</a>. La versión en línea siempre será la más actualizada.</p>
+<p>MAREA y la nueva App de Costeo de Reservas son aplicaciones web desarrolladas en R utilizando el paquete <code>shiny</code> <span class="citation">(Chang et al., <a href="#ref-R-shiny">2018</a>; R Core Team, <a href="#ref-R-base">2018</a>)</span>. Para poder utilizarlas es necesario tener un explorador de internet y una conexión estable. Aunque no siempre tenemos acceso a internet, utilizar aplicaciones <em>“en la nuve”</em> nos evita problemas de compatibilidad entre diferentes sistemas operativos. Si tienes un explorador de internet y una conexión estable, puedes usar estas Apps.</p>
+<p>Este manual va acompañado de datos sintéticos para los ejercicios prácticos. Puedes descargar estos materiales gratuitamente en el <a href="https://github.com/jcvdav/curso_marea_datos">repositorio de GitHub</a>, y distribuirlos con atribución.</p>
 </div>
 <div id="sobre-este-libro" class="section level2">
 <h2><span class="header-section-number">0.2</span> Sobre este libro</h2>
@@ -238,12 +245,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-villasenorderbez_2018">
 <p>Villaseñor-Derbez, J. C., Faro, C., Wright, M., Martínez, J., Fitzgerald, S., Fulton, S., et al. (2018). A user-friendly tool to evaluate the effectiveness of no-take marine reserves. <em>PLOS ONE</em> 13, 1–21. doi:<a href="https://doi.org/10.1371/journal.pone.0191821">10.1371/journal.pone.0191821</a>.</p>
 </div>
+<div id="ref-R-shiny">
+<p>Chang, W., Cheng, J., Allaire, J., Xie, Y., and McPherson, J. (2018). <em>Shiny: Web application framework for r</em>. Available at: <a href="https://CRAN.R-project.org/package=shiny">https://CRAN.R-project.org/package=shiny</a>.</p>
+</div>
+<div id="ref-R-base">
+<p>R Core Team (2018). <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing Available at: <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+</div>
 <div id="ref-nom">
 <p>NOM-049-SAG/PESC (2014). NORMA oficial mexicana nom-049-sag/pesc-2014, que determina el procedimiento para establecer zonas de refugio para los recursos pesqueros en aguas de jurisdicción federal de los estados unidos mexicanos. <em>DOF</em>.</p>
 </div>
 <div id="ref-uribe_2010">
 <p>Uribe, P., Moguel, S., Torre, J., Bourillon, L., and Saenz, A. (2010). <em>Implementación de reservas marinas en méxico</em>. 1st ed. Mexico.</p>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>El manual puede ser compartido y distribuido libremente. Sin embargo, esta versión se encuentra en proceso de edición y puede contener errores. Comentarios y sugerencias de edición son bienvenidos en <a href="juancarlos@ucsb.edu">juancarlos@ucsb.edu</a> o con el botón de edición en la barra de herramientas de la versión online. La versión más actualizada siempre estará disponible en internet en: <a href="https://jcvdav.github.io/curso_marea">https://jcvdav.github.io/curso_marea</a>. El manual fue generado utilizando <code>bookdown</code> <span class="citation">(Xie, <a href="#ref-R-bookdown">2018</a>)</span>.<a href="index.html#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
             </section>
 

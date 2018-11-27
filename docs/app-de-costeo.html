@@ -136,7 +136,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I Parte I</b></span></li>
-<li class="chapter" data-level="1" data-path="app-de-costeo.html"><a href="app-de-costeo.html"><i class="fa fa-check"></i><b>1</b> App de costeo</a></li>
+<li class="chapter" data-level="1" data-path="app-de-costeo.html"><a href="app-de-costeo.html"><i class="fa fa-check"></i><b>1</b> App de costeo</a><ul>
+<li class="chapter" data-level="1.1" data-path="app-de-costeo.html"><a href="app-de-costeo.html#uso-de-la-app"><i class="fa fa-check"></i><b>1.1</b> Uso de la App</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="app-de-costeo.html"><a href="app-de-costeo.html#ejercicio"><i class="fa fa-check"></i><b>1.1.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="1.1.2" data-path="app-de-costeo.html"><a href="app-de-costeo.html#pasos-sugeridos"><i class="fa fa-check"></i><b>1.1.2</b> Pasos sugeridos</a></li>
+<li class="chapter" data-level="1.1.3" data-path="app-de-costeo.html"><a href="app-de-costeo.html#resultados"><i class="fa fa-check"></i><b>1.1.3</b> Resultados</a></li>
+</ul></li>
+</ul></li>
 <li class="part"><span><b>II Parte II</b></span></li>
 <li class="chapter" data-level="2" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>2</b> Antecedentes</a><ul>
 <li class="chapter" data-level="2.1" data-path="antecedentes.html"><a href="antecedentes.html#antes-despues"><i class="fa fa-check"></i><b>2.1</b> Antes-Después</a></li>
@@ -198,7 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="app-de-costeo" class="section level1">
 <h1><span class="header-section-number">Capítulo 1</span> App de costeo</h1>
 <p>El número de iniciativas para establecer redes de reservas marinas está en aumento, y la gran mayoría de los esfuerzos se realizan con fondos filantrópicos. Sin embargo, al iniciar el proceso para establecer reservas marinas es común que los costos proyectados al futuro no estén claramente definidos. Esto puede afectar la sustentabilidad de la reserva marina al largo plazo, sobre todo si el costo de mantenerla y operarla es mayor al beneficio que puede proporcionar a la comunidad.</p>
-<p><a href="https://cobi.org.mx/">COBI</a> ha trabajado durante 19 años para establecer, evaluar y mantener las reservas marinas en colaboración con las comunidades pesqueras de México. Nuestro modelo de reservas marinas consiste de cuatro fases:</p>
+<p><a href="https://cobi.org.mx/">COBI</a> ha trabajado durante 19 años para establecer, evaluar y mantener las reservas marinas en colaboración con las comunidades pesqueras de México. Nuestro modelo de reservas marinas comprende de cuatro fases:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Implementación</strong> - procesos inclusivos en el que las partes interesadas participen en el proceso de diseño, definición de objetivos y la selección del sitio</li>
 <li><strong>Monitoreo</strong> - después de que la reserva se ha creado, miembros de la comunidad están capacitados para recopilar datos para evaluar la reserva</li>
@@ -216,7 +222,41 @@ Figura 1.1: Shiny app de Costeo de Reservas, la app está disponible en <a href=
 <p>Los costos unitarios y cantidades pueden ser editados en la sección de <code>Ingresar costos</code>. La app de costeo contiene los rubros más comunes de cada fase, además de presentar valores predeterminados y editables para cada uno. Por ejemplo, navegando a <code>Ingresar costos</code> &gt;&gt; <code>Implementación</code> &gt;&gt; <code>Definición de objetivos</code> &gt;&gt; <code>Gasolina</code> veremos un valor de 1 en la columna de costos y 80 en la columna de cantidades. En este caso, los costos están en dólares estadounidenses, pero la app es agnóstica a una moneda en especial.</p>
 <p>Este proceso se repite para cada una de las fases y rubros necesarios. Una vez terminado, el usuario puede navegar a la sección de <code>Presupuesto</code>. Aquí aparecen gráficas interactivas que muestran en detalle los costos estimados por fase y concepto. Las gráficas pueden editarse para mostrar los costos en otras unidades, cambiar el tamaño del texto e incluso el esquema de colores.</p>
 <p>Al confirmar que el presupuesto es correcto, el usuario puede ir a la sección de herramientas y seleccionar la opción de <code>Descargar presupuesto</code> que se muestra en el botón opaco. Esto descargará un archivo de excel con el presupuesto detallado.</p>
+<div id="uso-de-la-app" class="section level2">
+<h2><span class="header-section-number">1.1</span> Uso de la App</h2>
+<div id="ejercicio" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Ejercicio</h3>
+<p>Supongamos que queremos diseñar e implementar (pero no monitorear ni evaluar aún) una red de reservas marinas. ¿Cuál sería el costo total?</p>
+<p>Responde las siguientes preguntas:</p>
+<ul>
+<li>¿Cuál es el monto total en dólares?</li>
+<li>¿Cuál es el monto total en tu moneda local?</li>
+</ul>
+<p>Al terminar, descarga una de las figuras después de incrementar el tamaño de letra y cambiar el esquema de colores. Descarga también el presupuesto detallado.</p>
+</div>
+<div id="pasos-sugeridos" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Pasos sugeridos</h3>
+<ul>
+<li><p>Navega a la App de Costeo en <a href="https://turfeffect.shinyapps.io/AppCosteo/">https://turfeffect.shinyapps.io/AppCosteo/</a>.</p></li>
+<li><p>Inicia navegando a las secciones de <code>Monitoreo</code>, <code>Operación</code> y <code>Renovación</code> y modificando todos los valores de las columnas de cantidades para que estén en 0. Ahora, regresa a la primera sección (<code>Implementación</code>) y modifica los valores de acuerdo a tus necesidades y conocimientos de costos.</p></li>
+<li><p>Usa la caja de conversión de moneda y ajusta el valor de 1 dolar estadounidense al valor de tu moneda.</p></li>
+<li><p>Ahora navega a la sección de <code>Presupuesto</code> y modifica las gráficas para que el tamaño de letra sea de 12 y el esquema de colores sea “Pares”.</p></li>
+<li><p>Al poner el cursos sobre las imágenes, aparecerá una barra de herramientas. Utiliza el ícono de una cámara para exportar la imagen como <code>*.PNG</code>.</p></li>
+<li><p>En la sección de <code>Herramientas</code>, haz click en el boton de <code>Descargar presupuesto</code>.</p></li>
+</ul>
+</div>
+<div id="resultados" class="section level3">
+<h3><span class="header-section-number">1.1.3</span> Resultados</h3>
+<p>Mis resultados se muestran en la Figura <a href="app-de-costeo.html#fig:resultados-costeo">1.2</a>. En mi caso, el proyecto de implementación tiene un costo de $10,058 USD o $201,160 MXP. Puedo ver que la mayor parte de los costos (¡$5,000 USD!) provienen de la estrategia de comunicación.</p>
+<div class="figure"><span id="fig:resultados-costeo"></span>
+<img src="img/app_costeo_estado.PNG" alt="Shiny app de Costeo de Reservas mostrando los costos de diseño e implementación de una reserva."  />
+<p class="caption">
+Figura 1.2: Shiny app de Costeo de Reservas mostrando los costos de diseño e implementación de una reserva.
+</p>
+</div>
 
+</div>
+</div>
 </div>
 
 

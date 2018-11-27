@@ -168,10 +168,22 @@
 \providecommand{\subtitle}[1]{}
 \subtitle{Una guía para gestores ambientales}
 \author{Juan Carlos Villaseñor-Derbez}
-\date{Bren School of Environmental Science \& Management, UCSB}
+\date{Bren School of Environmental Science \& Management, UCSB
+\href{mailto:juancarlos@ucsb.edu}{\nolinkurl{juancarlos@ucsb.edu}}}
 
 \begin{document}
 \maketitle
+
+%\cleardoublepage\newpage\thispagestyle{empty}\null
+%\cleardoublepage\newpage\thispagestyle{empty}\null
+%\cleardoublepage\newpage
+\thispagestyle{empty}
+\begin{center}
+Villaseñor-Derbez J.C. 2018. Costeo y Evaluación de Reservas Marinas: Una guía para gestores ambientales.
+\end{center}
+
+\setlength{\abovedisplayskip}{-5pt}
+\setlength{\abovedisplayshortskip}{-5pt}
 
 {
 \setcounter{tocdepth}{2}
@@ -192,7 +204,15 @@ versión del manual pretende incorporar partes de ambos trabajos, pero
 también incluye una serie de ejercicios prácticos para el uso de MAREA y
 la nueva App de Costeo de Reservas. Además, el manual está públicamente
 disponible en \href{https://jcvdav.github.io/curso_marea/}{internet},
-donde el lector puede descargar el manual como PDF o EPUB para Kindle.
+donde el lector puede descargar el manual como PDF o EPUB para
+Kindle\footnote{El manual puede ser compartido y distribuido libremente.
+  Sin embargo, esta versión se encuentra en proceso de edición y puede
+  contener errores. Comentarios y sugerencias de edición son bienvenidos
+  en \url{juancarlos@ucsb.edu} o con el botón de edición en la barra de
+  herramientas de la versión online. La versión más actualizada siempre
+  estará disponible en internet en:
+  \url{https://jcvdav.github.io/curso_marea}. El manual fue generado
+  utilizando \texttt{bookdown} \citep{R-bookdown}.}.
 
 Aunque el manual y la Aplicación para Evaluación de Reservas Marinas
 (MAREA) pueden ser utilizados alrededor del mundo, es importante
@@ -206,22 +226,19 @@ su aplicación en otros lugares con el mismo fin.
 \hypertarget{requisitos}{%
 \section{Requisitos}\label{requisitos}}
 
-MAREA y la nueva App de Costeo de Reservas son aplicaciones web, y para
-poder utilizarlas es necesario tener un explorador de internet y una
-conexión estable. Aunque no siempre tenemos acceso a internet, este
-formato nos evita problemas de compatibilidad entre diferentes sistemas
-operativos. Si tienes un explorador de internet y una conexión estable,
-puedes usar estas Apps.
+MAREA y la nueva App de Costeo de Reservas son aplicaciones web
+desarrolladas en R utilizando el paquete \texttt{shiny}
+\citep{R-base, R-shiny}. Para poder utilizarlas es necesario tener un
+explorador de internet y una conexión estable. Aunque no siempre tenemos
+acceso a internet, utilizar aplicaciones \emph{``en la nuve''} nos evita
+problemas de compatibilidad entre diferentes sistemas operativos. Si
+tienes un explorador de internet y una conexión estable, puedes usar
+estas Apps.
 
-Si participaste en uno de los cursos presenciales, el USB que recibise
-contiene este manual como PDF y EPUB además de los
-\href{https://github.com/jcvdav/curso_marea/materiales/datos}{datos
-sintéticos} para los ejercicios prácticos y las
-\href{https://github.com/jcvdav/curso_marea/materiales/diapositivas}{diapositivas
-del curso}. Puedes distribuir libremente estos materiales, o
-descargarlos desde el
-\href{https://github.com/jcvdav/curso_marea}{repositorio de GitHub}. La
-versión en línea siempre será la más actualizada.
+Este manual va acompañado de datos sintéticos para los ejercicios
+prácticos. Puedes descargar estos materiales gratuitamente en el
+\href{https://github.com/jcvdav/curso_marea_datos}{repositorio de
+GitHub}, y distribuirlos con atribución.
 
 \hypertarget{sobre-este-libro}{%
 \section{Sobre este libro}\label{sobre-este-libro}}
@@ -289,7 +306,7 @@ operarla es mayor al beneficio que puede proporcionar a la comunidad.
 \href{https://cobi.org.mx/}{COBI} ha trabajado durante 19 años para
 establecer, evaluar y mantener las reservas marinas en colaboración con
 las comunidades pesqueras de México. Nuestro modelo de reservas marinas
-consiste de cuatro fases:
+comprende de cuatro fases:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -356,6 +373,73 @@ Al confirmar que el presupuesto es correcto, el usuario puede ir a la
 sección de herramientas y seleccionar la opción de
 \texttt{Descargar\ presupuesto} que se muestra en el botón opaco. Esto
 descargará un archivo de excel con el presupuesto detallado.
+
+\hypertarget{uso-de-la-app}{%
+\section{Uso de la App}\label{uso-de-la-app}}
+
+\hypertarget{ejercicio}{%
+\subsection{Ejercicio}\label{ejercicio}}
+
+Supongamos que queremos diseñar e implementar (pero no monitorear ni
+evaluar aún) una red de reservas marinas. ¿Cuál sería el costo total?
+
+Responde las siguientes preguntas:
+
+\begin{itemize}
+\tightlist
+\item
+  ¿Cuál es el monto total en dólares?
+\item
+  ¿Cuál es el monto total en tu moneda local?
+\end{itemize}
+
+Al terminar, descarga una de las figuras después de incrementar el
+tamaño de letra y cambiar el esquema de colores. Descarga también el
+presupuesto detallado.
+
+\hypertarget{pasos-sugeridos}{%
+\subsection{Pasos sugeridos}\label{pasos-sugeridos}}
+
+\begin{itemize}
+\item
+  Navega a la App de Costeo en
+  \url{https://turfeffect.shinyapps.io/AppCosteo/}.
+\item
+  Inicia navegando a las secciones de \texttt{Monitoreo},
+  \texttt{Operación} y \texttt{Renovación} y modificando todos los
+  valores de las columnas de cantidades para que estén en 0. Ahora,
+  regresa a la primera sección (\texttt{Implementación}) y modifica los
+  valores de acuerdo a tus necesidades y conocimientos de costos.
+\item
+  Usa la caja de conversión de moneda y ajusta el valor de 1 dolar
+  estadounidense al valor de tu moneda.
+\item
+  Ahora navega a la sección de \texttt{Presupuesto} y modifica las
+  gráficas para que el tamaño de letra sea de 12 y el esquema de colores
+  sea ``Pares''.
+\item
+  Al poner el cursos sobre las imágenes, aparecerá una barra de
+  herramientas. Utiliza el ícono de una cámara para exportar la imagen
+  como \texttt{*.PNG}.
+\item
+  En la sección de \texttt{Herramientas}, haz click en el boton de
+  \texttt{Descargar\ presupuesto}.
+\end{itemize}
+
+\hypertarget{resultados}{%
+\subsection{Resultados}\label{resultados}}
+
+Mis resultados se muestran en la Figura \ref{fig:resultados-costeo}. En
+mi caso, el proyecto de implementación tiene un costo de \$10,058 USD o
+\$201,160 MXP. Puedo ver que la mayor parte de los costos (¡\$5,000
+USD!) provienen de la estrategia de comunicación.
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/app_costeo_estado.PNG}
+\caption{\label{fig:resultados-costeo}Shiny app de Costeo de Reservas
+mostrando los costos de diseño e implementación de una reserva.}
+\end{figure}
 
 \hypertarget{part-parte-ii}{%
 \part{Parte II}\label{part-parte-ii}}
@@ -1200,17 +1284,17 @@ esquina superior derecha.
 
 \begin{figure}
 \centering
-\includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/AllResults.png}
-\caption{\label{fig:resultados}Scorecard produced by MAREA for the ``La
-Plana / Las Cuevas'' marine reserve in Isla Natividad, Mexico.}
-\end{figure}
-
-\begin{figure}
-\centering
 \includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/leyenda.png}
 \caption{\label{fig:leyenda}Leyenda usada para la interpretación de la
 tarjeta de puntuación. Los colores indican la dirección del cambio y la
 intensidad la significancia estadística.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/AllResults.png}
+\caption{\label{fig:resultados}Scorecard produced by MAREA for the ``La
+Plana / Las Cuevas'' marine reserve in Isla Natividad, Mexico.}
 \end{figure}
 
 \hypertarget{part-parte-iii}{%
@@ -1704,7 +1788,7 @@ tendencias (+2 cm anual) despés del primer año. Note como una reserva
 funciona y otra no.}
 \end{figure}
 
-\bibliography{references.bib}
+\bibliography{references.bib,packages.bib}
 
 \backmatter
 \printindex

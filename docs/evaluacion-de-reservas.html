@@ -136,7 +136,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="part"><span><b>I Parte I</b></span></li>
-<li class="chapter" data-level="1" data-path="app-de-costeo.html"><a href="app-de-costeo.html"><i class="fa fa-check"></i><b>1</b> App de costeo</a></li>
+<li class="chapter" data-level="1" data-path="app-de-costeo.html"><a href="app-de-costeo.html"><i class="fa fa-check"></i><b>1</b> App de costeo</a><ul>
+<li class="chapter" data-level="1.1" data-path="app-de-costeo.html"><a href="app-de-costeo.html#uso-de-la-app"><i class="fa fa-check"></i><b>1.1</b> Uso de la App</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="app-de-costeo.html"><a href="app-de-costeo.html#ejercicio"><i class="fa fa-check"></i><b>1.1.1</b> Ejercicio</a></li>
+<li class="chapter" data-level="1.1.2" data-path="app-de-costeo.html"><a href="app-de-costeo.html#pasos-sugeridos"><i class="fa fa-check"></i><b>1.1.2</b> Pasos sugeridos</a></li>
+<li class="chapter" data-level="1.1.3" data-path="app-de-costeo.html"><a href="app-de-costeo.html#resultados"><i class="fa fa-check"></i><b>1.1.3</b> Resultados</a></li>
+</ul></li>
+</ul></li>
 <li class="part"><span><b>II Parte II</b></span></li>
 <li class="chapter" data-level="2" data-path="antecedentes.html"><a href="antecedentes.html"><i class="fa fa-check"></i><b>2</b> Antecedentes</a><ul>
 <li class="chapter" data-level="2.1" data-path="antecedentes.html"><a href="antecedentes.html#antes-despues"><i class="fa fa-check"></i><b>2.1</b> Antes-Después</a></li>
@@ -201,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>La metodología propuesta e implementada en MAREA utiliza una serie de indicadores de cada dimensión. Los indicadores sugeriods pueden ser usados en función de los objetivos de la reserva o de otras preguntas de interés. En este capítulo definimos los objetivos generales para los cuales las reservas pueden ser implementadas y los indicadores sugeridos para cada caso. Después explicamos a profundidad cómo MAREA utiliza el análisis de Diferencias entre Diferencias presentado previamente en el capítulo anterior (Capítulo <a href="antecedentes.html#antecedentes">2</a>).</p>
 <div id="objetivos-e-indicadores" class="section level2">
 <h2><span class="header-section-number">3.1</span> Objetivos e indicadores</h2>
-<p>Como cualquier otra intervención de manejo, las reservas marinas deben de tener objetivos claros<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Los objetivos nos ayudan a identificar los cambios que deseamos ver y, por lo tanto, seleccionar indicadores para evaluar la efectividad de la intervención.</p>
+<p>Como cualquier otra intervención de manejo, las reservas marinas deben de tener objetivos claros<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Los objetivos nos ayudan a identificar los cambios que deseamos ver y, por lo tanto, seleccionar indicadores para evaluar la efectividad de la intervención.</p>
 <p>En práctica, los objetivos suelen ser difusos y se encuentran escondidos en documentos oficiales. Habrá ocasiones en las que diferentes agencias, cuerpos o actores tengan percepciones distintas sobre los objetivos. Otras, las reservas tendrán objetivos muy específicos (por ejemplo “Duplicar la biomasa de mero en los primeros 10 años”). Por lo tanto, es difícil generar una lista de todos los objetivos e indicadores posibles.</p>
 <p>En su lugar, la metodología desarrollada por <span class="citation">Villaseñor-Derbez et al. (<a href="#ref-villasenorderbez_2018">2018</a>)</span> e implementada en MAREA presenta una serie de 7 objetivos generales a los cuales se asignan 25 indicadores divididos en indicadores biológicos (n = 7), socioeconómicos (n = 3) y de gobernanza (n = 15). Los 7 objetivos están inspirados en la normatividad de las zonas de refugio pesquero <span class="citation">(NOM-049-SAG/PESC, <a href="#ref-nom">2014</a>)</span>, pero agrupan muchos otros objetivos más particulares.</p>
 <table>
@@ -493,7 +499,7 @@ F Statistic
 </td>
 </tr>
 </table>
-<p>La Tabla <a href="evaluacion-de-reservas.html#tab:reg">3.2</a> muestra los valores estimados para los coeficientes. Los números entre paréntesis presentan el error estándar al rededor de la estimación. Además, presenta la varianza explicada por el modelo, en este caso con un valor de <span class="math inline">\(R^2 = 0.87\)</span><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
+<p>La Tabla <a href="evaluacion-de-reservas.html#tab:reg">3.2</a> muestra los valores estimados para los coeficientes. Los números entre paréntesis presentan el error estándar al rededor de la estimación. Además, presenta la varianza explicada por el modelo, en este caso con un valor de <span class="math inline">\(R^2 = 0.87\)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
 <p>Para interpretar los coeficientes, debemos sustituirlos en la ecuación anterior. Por lo tanto, obtenemos lo siguiente:</p>
 <p><span class="math display">\[
 I = 2 + (3 \times Post) + (2\times Zona) + (2 \times Zona \times Post)
@@ -622,9 +628,9 @@ I = \alpha + \beta_1Post + \epsilon
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>Idealmente, usaremos objetivos <a href="https://en.wikipedia.org/wiki/SMART_criteria">SMART</a><a href="evaluacion-de-reservas.html#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>El modelo completo de MAREA incluye covariables que pueden ayudar a explicar mayor parte de la variación en los datos. Estos incluyen la profundidad, visibilidad y temperatura asociadas a cada observación. En este caso, 13% de la variación faltante es debido a la manipulación manual de los datos, pero podríamos esperar que las covariables antes mencionadas expliquen algo de la variación en los datos.<a href="evaluacion-de-reservas.html#fnref2" class="footnote-back">↩</a></p></li>
+<ol start="2">
+<li id="fn2"><p>Idealmente, usaremos objetivos <a href="https://en.wikipedia.org/wiki/SMART_criteria">SMART</a><a href="evaluacion-de-reservas.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>El modelo completo de MAREA incluye covariables que pueden ayudar a explicar mayor parte de la variación en los datos. Estos incluyen la profundidad, visibilidad y temperatura asociadas a cada observación. En este caso, 13% de la variación faltante es debido a la manipulación manual de los datos, pero podríamos esperar que las covariables antes mencionadas expliquen algo de la variación en los datos.<a href="evaluacion-de-reservas.html#fnref3" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
