@@ -34,7 +34,7 @@ Aunque el manual y la Aplicación para Evaluación de Reservas Marinas (MAREA) p
 
 ## Requisitos
 
-MAREA y la nueva App de Costeo de Reservas son aplicaciones web desarrolladas en R utilizando el paquete `shiny` [@R-base;@R-shiny]. Para poder utilizarlas es necesario tener un explorador de internet y una conexión estable. Aunque no siempre tenemos acceso a internet, utilizar aplicaciones *"en la nuve"* nos evita problemas de compatibilidad entre diferentes sistemas operativos. Si tienes un explorador de internet y una conexión estable, puedes usar estas Apps.
+MAREA y la nueva App de Costeo de Reservas son aplicaciones web desarrolladas en R utilizando el paquete `shiny` [@R-base;@R-shiny]. Para poder utilizarlas es necesario tener un explorador de internet y una conexión estable. Aunque no siempre tenemos acceso a internet, utilizar aplicaciones *"en la nube"* nos evita problemas de compatibilidad entre diferentes sistemas operativos. Si tienes un explorador de internet y una conexión estable, puedes usar estas Apps.
 
 Este manual va acompañado de datos sintéticos para los ejercicios prácticos. Puedes descargar estos materiales gratuitamente en el [repositorio de GitHub](https://github.com/jcvdav/curso_marea_datos), y distribuirlos con atribución.
 
