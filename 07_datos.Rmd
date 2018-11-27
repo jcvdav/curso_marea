@@ -366,7 +366,7 @@ datos <- read.csv(file = here::here("materiales", "datos", "datos_crudos.csv"),
 ```
 
 
-```{r graficar-datos, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos antes de agregar tendencias"}
+```{r graficar-datos, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de los datos antes de agregar tendencias."}
 # Graficar los datos
 ggplot(data = datos,
        mapping = aes(x = Ano, y = Abundancia,
@@ -395,7 +395,7 @@ datos <- datos %>%
   select(-neg)
 ```
 
-```{r graficar-datos-abundancias, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las abundancias con tendencias (10% anual) despés del primer año. Note como una reserva funciona y otra no."}
+```{r graficar-datos-abundancias, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las abundancias con tendencias (10% anual) después del primer año. Note como una reserva funciona y otra no."}
 # Graficar los datos
 ggplot(data = datos,
        mapping = aes(x = Ano, y = Abundancia,
@@ -409,7 +409,7 @@ ggplot(data = datos,
   xlab("Año")
 ```
 
-```{r graficar-datos-tallas, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las tallas con tendencias (+2 cm anual) despés del primer año. Note como una reserva funciona y otra no."}
+```{r graficar-datos-tallas, echo = T, fig.height = 7.2, fig.width = 6, fig.cap = "Series de tiempo de las tallas con tendencias (+2 cm anual) después del primer año. Note como una reserva funciona y otra no."}
 # Graficar los datos
 ggplot(data = datos,
        mapping = aes(x = Ano, y = Abundancia,
@@ -423,11 +423,24 @@ ggplot(data = datos,
   xlab("Año")
 ```
 
-```{r exportar-datos, echp = T}
+```{r exportar-datos, echo = T}
 write.csv(x = datos,
           file = here::here("materiales", "datos", "datos_peces.csv"),
           row.names = F)
 ```
+
+```{r datos-rc, echo = T}
+# Generar datos para comparación de todas las reservas y todos los controles.
+datos_rc <- datos %>% 
+  mutate(RC = "Reserva - Control")
+```
+
+```{r exportar-rc, echo = T}
+write.csv(x = datos_rc,
+          file = here::here("materiales", "datos", "datos_peces_rc.csv"),
+          row.names = F)
+```
+
 
 
 

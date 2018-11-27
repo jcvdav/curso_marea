@@ -1788,6 +1788,30 @@ tendencias (+2 cm anual) despés del primer año. Note como una reserva
 funciona y otra no.}
 \end{figure}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.csv}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ datos,}
+          \DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"materiales"}\NormalTok{, }\StringTok{"datos"}\NormalTok{, }\StringTok{"datos_peces.csv"}\NormalTok{),}
+          \DataTypeTok{row.names =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Generar datos para comparación de todas las reservas y todos los controles.}
+\NormalTok{datos_rc <-}\StringTok{ }\NormalTok{datos }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{RC =} \StringTok{"Reserva - Control"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{write.csv}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ datos_rc,}
+          \DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"materiales"}\NormalTok{, }\StringTok{"datos"}\NormalTok{, }\StringTok{"datos_peces_rc.csv"}\NormalTok{),}
+          \DataTypeTok{row.names =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
 \bibliography{references.bib,packages.bib}
 
 \backmatter
