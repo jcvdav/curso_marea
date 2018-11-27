@@ -2,10 +2,12 @@
 title: "Costeo y Evaluación de Reservas Marinas"
 subtitle: "Una guía para gestores ambientales"
 author: "Juan Carlos Villaseñor-Derbez"
-date: "Bren School of Environmental Science & Management, UCSB"
+date: |
+  Bren School of Environmental Science & Management, UCSB
+  juancarlos@ucsb.edu
 documentclass: krantz
 site: bookdown::bookdown_site
-bibliography: [references.bib]
+bibliography: [references.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: "jcvdav/curso_marea"
@@ -24,15 +26,17 @@ knitr::opts_chunk$set(echo = FALSE,
 
 # Antes de empezar {-}
 
-Este manual es la segunda iteración de los esfuerzos por impulsar el uso de metodologías estandarizadas para la evaluación de reservas marinas. Trabajos anteriores incluyen el manual generalizado de evaluación de reservas marinas en México [@villaseorderbez_2017] y la publicación arbitrada que presenta a [MAREA](https://turfeffect.shinyapps.io/marea/) como una herramienta amigable y gratuita [@villasenorderbez_2018]. Esta versión del manual pretende incorporar partes de ambos trabajos, pero también incluye una serie de ejercicios prácticos para el uso de MAREA y la nueva App de Costeo de Reservas. Además, el manual está públicamente disponible en [internet](https://jcvdav.github.io/curso_marea/), donde el lector puede descargar el manual como PDF o EPUB para Kindle.
+Este manual es la segunda iteración de los esfuerzos por impulsar el uso de metodologías estandarizadas para la evaluación de reservas marinas. Trabajos anteriores incluyen el manual generalizado de evaluación de reservas marinas en México [@villaseorderbez_2017] y la publicación arbitrada que presenta a [MAREA](https://turfeffect.shinyapps.io/marea/) como una herramienta amigable y gratuita [@villasenorderbez_2018]. Esta versión del manual pretende incorporar partes de ambos trabajos, pero también incluye una serie de ejercicios prácticos para el uso de MAREA y la nueva App de Costeo de Reservas. Además, el manual está públicamente disponible en [internet](https://jcvdav.github.io/curso_marea/), donde el lector puede descargar el manual como PDF o EPUB para Kindle[^*].
+
+[^*]: El manual puede ser compartido y distribuido libremente. Sin embargo, esta versión se encuentra en proceso de edición y puede contener errores. Comentarios y sugerencias de edición son bienvenidos en [juancarlos@ucsb.edu](juancarlos@ucsb.edu) o con el botón de edición en la barra de herramientas de la versión online. La versión más actualizada siempre estará disponible en internet en:  [https://jcvdav.github.io/curso_marea](https://jcvdav.github.io/curso_marea). El manual fue generado utilizando `bookdown` [@R-bookdown].
 
 Aunque el manual y la Aplicación para Evaluación de Reservas Marinas (MAREA) pueden ser utilizados alrededor del mundo, es importante mencionar que el proyecto fue diseñado para evaluar la efectividad de las reservas marinas en México. Por lo tanto, las metodologías utilizadas reflejan las necesidades de las comunidades costeras mexicanas, y no debe de interpretarse como un conjunto de instrucciones definitivas. Aún así, creemos que la guía ha sido creada para permitir su aplicación en otros lugares con el mismo fin.
 
 ## Requisitos
 
-MAREA y la nueva App de Costeo de Reservas son aplicaciones web, y para poder utilizarlas es necesario tener un explorador de internet y una conexión estable. Aunque no siempre tenemos acceso a internet, este formato nos evita problemas de compatibilidad entre diferentes sistemas operativos. Si tienes un explorador de internet y una conexión estable, puedes usar estas Apps.
+MAREA y la nueva App de Costeo de Reservas son aplicaciones web desarrolladas en R utilizando el paquete `shiny` [@R-base;@R-shiny]. Para poder utilizarlas es necesario tener un explorador de internet y una conexión estable. Aunque no siempre tenemos acceso a internet, utilizar aplicaciones *"en la nuve"* nos evita problemas de compatibilidad entre diferentes sistemas operativos. Si tienes un explorador de internet y una conexión estable, puedes usar estas Apps.
 
-Si participaste en uno de los cursos presenciales, el USB que recibise contiene este manual como PDF y EPUB además de los [datos sintéticos](https://github.com/jcvdav/curso_marea/materiales/datos) para los ejercicios prácticos y las [diapositivas del curso](https://github.com/jcvdav/curso_marea/materiales/diapositivas). Puedes distribuir libremente estos materiales, o descargarlos desde el [repositorio de GitHub](https://github.com/jcvdav/curso_marea). La versión en línea siempre será la más actualizada.
+Este manual va acompañado de datos sintéticos para los ejercicios prácticos. Puedes descargar estos materiales gratuitamente en el [repositorio de GitHub](https://github.com/jcvdav/curso_marea_datos), y distribuirlos con atribución.
 
 ## Sobre este libro
 

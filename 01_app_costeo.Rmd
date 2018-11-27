@@ -6,7 +6,7 @@
 
 El número de iniciativas para establecer redes de reservas marinas está en aumento, y la gran mayoría de los esfuerzos se realizan con fondos filantrópicos. Sin embargo, al iniciar el proceso para establecer reservas marinas es común que los costos proyectados al futuro no estén claramente definidos. Esto puede afectar la sustentabilidad de la reserva marina al largo plazo, sobre todo si el costo de mantenerla y operarla es mayor al beneficio que puede proporcionar a la comunidad.
 
-[COBI](https://cobi.org.mx/) ha trabajado durante 19 años para establecer, evaluar y mantener las reservas marinas en colaboración con las comunidades pesqueras de México. Nuestro modelo de reservas marinas consiste de cuatro fases:
+[COBI](https://cobi.org.mx/) ha trabajado durante 19 años para establecer, evaluar y mantener las reservas marinas en colaboración con las comunidades pesqueras de México. Nuestro modelo de reservas marinas comprende de cuatro fases:
 
 1. **Implementación** - procesos inclusivos en el que las partes interesadas participen en el proceso de diseño, definición de objetivos y la selección del sitio
 2. **Monitoreo** - después de que la reserva se ha creado, miembros de la comunidad están capacitados para recopilar datos para evaluar la reserva
@@ -26,3 +26,69 @@ Los costos unitarios y cantidades pueden ser editados en la sección de `Ingresa
 Este proceso se repite para cada una de las fases y rubros necesarios. Una vez terminado, el usuario puede navegar a la sección de `Presupuesto`. Aquí aparecen gráficas interactivas que muestran en detalle los costos estimados por fase y concepto. Las gráficas pueden editarse para mostrar los costos en otras unidades, cambiar el tamaño del texto e incluso el esquema de colores.
 
 Al confirmar que el presupuesto es correcto, el usuario puede ir a la sección de herramientas y seleccionar la opción de `Descargar presupuesto` que se muestra en el botón opaco. Esto descargará un archivo de excel con el presupuesto detallado.
+
+## Uso de la App
+
+### Ejercicio
+
+Supongamos que queremos diseñar e implementar (pero no monitorear ni evaluar aún) una red de reservas marinas. ¿Cuál sería el costo total?
+
+Responde las siguientes preguntas: 
+
+- ¿Cuál es el monto total en dólares?
+- ¿Cuál es el monto total en tu moneda local?
+
+Al terminar, descarga una de las figuras después de incrementar el tamaño de letra y cambiar el esquema de colores. Descarga también el presupuesto detallado.
+
+### Pasos sugeridos
+
+- Navega a la App de Costeo en [https://turfeffect.shinyapps.io/AppCosteo/](https://turfeffect.shinyapps.io/AppCosteo/).
+
+- Inicia navegando a las secciones de `Monitoreo`, `Operación` y `Renovación` y modificando todos los valores de las columnas de cantidades para que estén en 0. Ahora, regresa a la primera sección (`Implementación`) y modifica los valores de acuerdo a tus necesidades y conocimientos de costos.
+
+- Usa la caja de conversión de moneda y ajusta el valor de 1 dolar estadounidense al valor de tu moneda.
+
+- Ahora navega a la sección de `Presupuesto` y modifica las gráficas para que el tamaño de letra sea de 12 y el esquema de colores sea "Pares".
+
+- Al poner el cursos sobre las imágenes, aparecerá una barra de herramientas. Utiliza el ícono de una cámara para exportar la imagen como `*.PNG`.
+
+- En la sección de `Herramientas`, haz click en el boton de `Descargar presupuesto`.
+
+### Resultados
+
+Mis resultados se muestran en la Figura \@ref(fig:resultados-costeo). En mi caso, el proyecto de implementación tiene un costo de \$10,058 USD o \$201,160 MXP. Puedo ver que la mayor parte de los costos (¡\$5,000 USD!) provienen de la estrategia de comunicación.
+
+```{r resultados-costeo, fig.cap = "Shiny app de Costeo de Reservas mostrando los costos de diseño e implementación de una reserva."}
+knitr::include_graphics(path = here::here("img", "app_costeo_estado.PNG"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

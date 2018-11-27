@@ -64,7 +64,7 @@ Algo importante para mantener presente es la necesidad de usar nombres idéntico
 
 ## Evaluación de reservas en 6 etapas
 
-MAREA está diseñada para evaluar las reservas en seis pasos, divididos por pestañas mostradas en la App. La  Figura \@ref(fig:shiny-marea) presenta la pantalla de bienvenida de la aplicación.
+MAREA está diseñada para evaluar las reservas en seis pasos, divididos por pestañas mostradas en la App. La Figura \@ref(fig:shiny-marea) presenta la pantalla de bienvenida de la aplicación.
 
 ```{r shiny-marea, fig.cap = "Aplicación para la evaluación de reservas marinas, la app está disponible en https://turfeffect.shinyapps.io/marea/"}
 knitr::include_graphics(path = here::here("img", "Tab1.png"))
