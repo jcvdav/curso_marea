@@ -99,10 +99,10 @@ En teoría, el sitio debería de haber seguido la misma tendencia que el sitio c
 Esta técnica se conoce en econometría como *Diferencia entre Diferencias*, pues se calcula la diferencia a través del tiempo y a través de sitios. El remanente de esta operación es entonces el efecto neto observado. Desde luego, hay una serie de supuestos que debemos tener en cuenta, como la factibilidad de que nuestro sitio control sea realmente representativo. Además, al evaluar una reserva no tendremos sólamente 4 puntos, pues por lo general usaremos datos de monitoreos submarinos con muchas más observaciones. El siguiente capítulo (Capítulo \@ref(evaluacion-de-reservas)) habla más sobre los métodos de regresiones utilizados en este caso, así como las otras dimensiones evaluadas por MAREA.
 
 ```{r adci}
-dfv <- tibble(x1 = c(2010, 2011, 2009.5, 2009.5, 2009.5),
-              x2 = c(2010, 2011, 2010, 2011, 2011),
-              y1 = c(0, 0, 4, 5, 9),
-              y2 = c(4, 9, 4, 5, 9))
+dfv <- tibble(x1 = c(2010, 2011, 2009.5, 2009.5, 2009.5, 2009.5),
+              x2 = c(2010, 2011, 2010, 2011, 2011, 2010),
+              y1 = c(0, 0, 4, 5, 9, 2),
+              y2 = c(4, 9, 4, 5, 9, 2))
 
 dfc <- tibble(x1 = 2010, x2 = 2011, y1 = 4, y2 = 7)
 
