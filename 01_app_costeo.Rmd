@@ -13,13 +13,13 @@ El número de iniciativas para establecer redes de reservas marinas está en aum
 3. **Operación** – acciones relacionadas a la vigilancia comunitaria, señalización y comunicación de resultados
 4. **Renovación** – manejo adaptativo basado en los datos recogidos por la comunidad para garantizar el funcionamiento eficaz de la reserva.
 
-Este calculador de costos contempla todos los pasos necesarios para establecer una reserva marina utilizado el modelo COBI, con el objetivo de ayudar a comunidades, organizaciones de la sociedad civil y tomadores de decisiones de planear sus inversiones con mayor claridad y transparencia. La  Figura \@ref(fig:shiny-costeo) presenta la pantalla de bienvenida de la aplicación.
+Este calculador de costos contempla todos los pasos necesarios para establecer una reserva marina utilizado el modelo COBI, con el objetivo de ayudar a comunidades, organizaciones de la sociedad civil y tomadores de decisiones a planear sus inversiones con mayor claridad y transparencia. La  Figura \@ref(fig:shiny-costeo) presenta la pantalla de bienvenida de la aplicación.
 
 ```{r shiny-costeo, fig.cap = "Shiny app de Costeo de Reservas, la app está disponible en https://turfeffect.shinyapps.io/AppCosteo/"}
 knitr::include_graphics(path = here::here("img", "app_costeo.PNG"))
 ```
 
-La app tiene dos secciones principales. Del lado izquierdo se muestra una barra de herramientas que el usuario puede usar para navegar por las secciones de `Ingresar costos` y `Presupuesto`, así como ajustar el tipo de cambio, ver los cambios al total en tiempo real y eventualmente descargar el presupuesto detallado u obtener un link para compartir el estado de la app. La barra de herramientas se puede ocultar y mostrar. La segunda sección es el área de trabajo, que al inicio muestra una descripción similar a la del texto anterior.
+La app tiene dos secciones principales. Del lado izquierdo se muestra una barra de herramientas que el usuario puede usar para navegar por las secciones de `Ingresar costos` y `Presupuesto`, así como ajustar el tipo de cambio, ver los cambios en el total en tiempo real y eventualmente descargar el presupuesto detallado u obtener un link para compartir el estado de la app. La barra de herramientas se puede ocultar y mostrar. La segunda sección es el área de trabajo, que al inicio muestra una descripción similar a la del texto anterior.
 
 Los costos unitarios y cantidades pueden ser editados en la sección de `Ingresar costos`. La app de costeo contiene los rubros más comunes de cada fase, además de presentar valores predeterminados y editables para cada uno. Por ejemplo, navegando a `Ingresar costos` >> `Implementación` >> `Definición de objetivos` >> `Gasolina` veremos un valor de 1 en la columna de costos y 80 en la columna de cantidades. En este caso, los costos están en dólares estadounidenses, pero la app es agnóstica a una moneda en especial.
 
