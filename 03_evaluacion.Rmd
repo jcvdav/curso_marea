@@ -1,8 +1,8 @@
 # Evaluación de reservas
 
-Las reservas marinas son sistemas socio-ecológicos complejos. Su efectividad depende de las interacciones y combinaciones de factores sociales y ambientales. Por muchos años, la ciencia de reservas marinas sea ha enfocado en comprender los efectos ecológicos de estas áreas, reportando aumentos en biomasa, riqueza y densidad de organismos o beneficios de mitigación de cambio climático y protección ambiental [@lester_2009;@micheli_2012;@giakoumi_2017;@sala_2017;@roberts_2017]. Más recientemente, algunos trabajos se han enfocado en la relación entre estructuras de governanza y aspectos socioeconómicos y la efectividad de las reservas [@halpern_2013;@lpezangarita_2014;@mascia_2017]. Por lo tanto, es importante que la evaluación de reservas tome en cuenta las dimensiones ecológicas, socioeconómicas y de governanza.
+Las reservas marinas son sistemas socio-ecológicos complejos. Su efectividad depende de las interacciones y combinaciones de factores sociales y ambientales. Por muchos años, la ciencia de reservas marinas se ha enfocado en comprender los efectos ecológicos de estas áreas, reportando aumentos en biomasa, riqueza y densidad de organismos o beneficios de mitigación de cambio climático y protección ambiental [@lester_2009;@micheli_2012;@giakoumi_2017;@sala_2017;@roberts_2017]. Más recientemente, algunos trabajos se han enfocado en la relación entre estructuras de gobernanza y aspectos socioeconómicos, así como la efectividad de las reservas [@halpern_2013;@lpezangarita_2014;@mascia_2017]. Por lo tanto, es importante que la evaluación de reservas tome en cuenta las dimensiones ecológicas, socioeconómicas y de gobernanza.
 
-La metodología propuesta e implementada en MAREA utiliza una serie de indicadores de cada dimensión. Los indicadores sugeriods pueden ser usados en función de los objetivos de la reserva o de otras preguntas de interés. En este capítulo definimos los objetivos generales para los cuales las reservas pueden ser implementadas y los indicadores sugeridos para cada caso. Después explicamos a profundidad cómo MAREA utiliza el análisis de Diferencias entre Diferencias presentado previamente en el capítulo anterior (Capítulo \@ref(antecedentes)).
+La metodología propuesta e implementada en MAREA utiliza una serie de indicadores de cada dimensión. Los indicadores sugeridos pueden ser usados en función de los objetivos de la reserva o de otras preguntas de interés. En este capítulo definimos los objetivos generales para los cuales las reservas pueden ser implementadas y los indicadores sugeridos para cada caso. Después explicamos a profundidad cómo MAREA utiliza el análisis de Diferencias entre Diferencias presentado previamente en el capítulo anterior (Capítulo \@ref(antecedentes)).
 
 ## Objetivos e indicadores
 
@@ -10,7 +10,7 @@ Como cualquier otra intervención de manejo, las reservas marinas deben de tener
 
 [^smart]: Idealmente, usaremos objetivos [SMART](https://en.wikipedia.org/wiki/SMART_criteria)
 
-En práctica, los objetivos suelen ser difusos y se encuentran escondidos en documentos oficiales. Habrá ocasiones en las que diferentes agencias, cuerpos o actores tengan percepciones distintas sobre los objetivos. Otras, las reservas tendrán objetivos muy específicos (por ejemplo "Duplicar la biomasa de mero en los primeros 10 años"). Por lo tanto, es difícil generar una lista de todos los objetivos e indicadores posibles.
+En la práctica, los objetivos suelen ser difusos y se encuentran escondidos en documentos oficiales. Habrá ocasiones en las que diferentes agencias, cuerpos o actores tengan percepciones distintas sobre los objetivos. En otras, las reservas tendrán objetivos muy específicos (por ejemplo "Duplicar la biomasa de mero en los primeros 10 años"). Por lo tanto, es difícil generar una lista de todos los objetivos e indicadores posibles.
 
 En su lugar, la metodología desarrollada por @villasenorderbez_2018 e implementada en MAREA presenta una serie de 7 objetivos generales a los cuales se asignan 25 indicadores divididos en indicadores biológicos (n = 7), socioeconómicos (n = 3) y de gobernanza (n = 15). Los 7 objetivos están inspirados en la normatividad de las zonas de refugio pesquero [@nom], pero agrupan muchos otros objetivos más particulares. 
 
@@ -21,7 +21,7 @@ read.csv(here::here("tab","oi.csv"),
   knitr::kable(booktabs = T, caption = "Matriz de objetivos e indicadores. Cada columna representa un indicador biológico (B) o socioeconómico (S). Los indicadores de gobernanza no se muestran, pues sugerimos que todos sean utilizados sin importar el objetivo.")
 ```
 
-La lista de indicadores presentada es el resultado de un proceso de depuración de más de 40 indicadores iniciales obtenidos de la literatura científica [@halpern_2002;@lester_2009;@lester_2008;@micheli_2012;@halpern_2013;@basurto_2013;@leslie_2015]. El proceso de selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobeierno. Los indicadores fueron elegidos según su facilidad de medición, la existencia de información anterior y presencia de programas de monitoreo que los midan anualmente. Además de separar explícitamente los indicadores en las ctegorías previamente mencionadas, también hay una separación implícita entre indicadores que cambian por efecto de la reserva (por ejemplo, **B** - Biomasa) o indicadores que pueden explicar la efectividad de la reserva, como **G5** - Pesca ilegal.
+La lista de indicadores presentada es el resultado de un proceso de depuración de más de 40 indicadores iniciales obtenidos de la literatura científica [@halpern_2002;@lester_2009;@lester_2008;@micheli_2012;@halpern_2013;@basurto_2013;@leslie_2015]. El proceso de selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobierno. Los indicadores fueron elegidos según su facilidad de medición, la existencia de información anterior y presencia de programas de monitoreo que los midan anualmente. Además de separar explícitamente los indicadores en las categorías previamente mencionadas, también hay una separación implícita entre indicadores que cambian por defecto de la reserva (por ejemplo, **B** - Biomasa) o indicadores que pueden explicar la efectividad de la reserva, como **G5** - Pesca ilegal.
 
 Los indicadores biológicos son:
 
@@ -59,11 +59,11 @@ Los indicadores de gobernanza son:
 
 ## Análisis
 
-Una vez definidos los indicadores, debemos establecer formas de analizarlo. La metodología de colecta de datos no es parte central de este manual, y ha sido descrita a detalle en otros trabajos [@suman_2010;@villaseorderbez_2017;@villasenorderbez_2018]. En esta sección describimos el análisis de Diferencias entre Diferencias empleado para estimar el efecto de la reserva en los indicadores biológicos y los análisis para indicadores socioeconómicos y de gobernanza.
+Una vez definidos los indicadores, debemos establecer formas de analizarlos. La metodología de colecta de datos no es parte central de este manual, y ha sido descrita a detalle en otros trabajos [@suman_2010;@villaseorderbez_2017;@villasenorderbez_2018]. En esta sección describimos el análisis de Diferencias entre Diferencias empleado para estimar el efecto de la reserva en los indicadores biológicos y los análisis para indicadores socioeconómicos y de gobernanza.
 
 ### Inferencia de causalidad
 
-Como se mencionó en la Sección \@ref(antes-despues-dentro-fuera), MAERA usa un análisis de Diferencias en Diferencias. Pero ¿cómo funciona este análisis cuando tenemos más de cuatro observciones? El análisis puede hacerse por medio de una regresión lineal múltiple.
+Como se mencionó en la Sección \@ref(antes-despues-dentro-fuera), MAERA usa un análisis de Diferencias en Diferencias. Pero ¿cómo funciona este análisis cuando tenemos más de cuatro observaciones? El análisis puede hacerse por medio de una regresión lineal múltiple.
 
 Retomando el ejemplo del capítulo anterior (Captítulo \@ref(antecedentes)), podemos imaginarnos un caso en el que tenemos dos observaciones para cada sitio en cada periodo. En tal caso, podríamos calcular el promedio de cada sitio en cada periodo. La Figura \@ref(fig:baci-multi) muestra las observaciones como puntos y los promedios como líneas. En este caso, podríamos calcular la pendiente de cada línea (esto es, el cambio en el tiempo) y así obtener el contrafactual (línea punteada roja) y calcular el efecto de la reserva.
 
@@ -105,9 +105,9 @@ ggplot(data = df) +
   geom_segment(aes(x = x1, xend = x2, y = y1, yend = y2), data = dfc, linetype = "dotted", color = "red", size = 2, alpha = 0.5)
 ```
 
-Como el cambio a través del tiempo es básicamente una pendiente, podemos usar una regersión lineal múltiple para obtener esos valores. En el caso de Diferencias en Diferencias, nos interesan 3 cambios o pendientes: i) La diferencia a través del tiempo y ii) La diferencia entre sitios y iii) La diferencia entre estas diferencias.
+Como el cambio a través del tiempo es básicamente una pendiente, podemos usar una regresión lineal múltiple para obtener esos valores. En el caso de Diferencias en Diferencias, nos interesan 3 cambios o pendientes: i) La diferencia a través del tiempo y ii) La diferencia entre sitios y iii) La diferencia entre estas diferencias.
 
-Para calcular la diferencia a través del tiempo, podems definir una variable llamada $Post$ que tomará un valor $Post = 0$ para todas las observaciones antes de la implementación de la reserva y un valor de $Post = 1$ una vez que la reserva haya sido implementada. Al igual que cuando comparamos 2011 contra 2010, la diferencia entre años o entre $Post$ será de 1 ($2011 - 2010 = 1$; $1 - 0 = 1$).
+Para calcular la diferencia a través del tiempo, podemos definir una variable llamada $Post$ que tomará un valor $Post = 0$ para todas las observaciones antes de la implementación de la reserva y un valor de $Post = 1$ una vez que la reserva haya sido implementada. Al igual que cuando comparamos 2011 contra 2010, la diferencia entre años o entre $Post$ será de 1 ($2011 - 2010 = 1$; $1 - 0 = 1$).
 
 Para obtener la diferencia entre sitios, definimos otra variablle llamada $Zona$ que tomará un valor de $Zona = 0$ para las observaciones realizadas en el control y un valor de $Zona = 1$ para las observaciones de la reserva. Finalmente, podemos "interactuar" (multiplicar) estas variables para generar un *término de interacción*, de tal manera que $Zona \times Post = 0$ para todas las observaciones del control y la observación de la reserva **antes** de la implementación, y $Zona \times Post = 1$ para las observaciones de la reserva **después** de la implementación.
 
@@ -220,14 +220,14 @@ I &= 9
 \end{split}
 $$
 
-El término de interacción captura la diferncia entre lo que debería de haberse observado para la reserva y lo que realmente se observó. Es decir, la diferencia entre las líneas rojas. Este término es el **efecto de la reserva**. En este sentido, podemos entonces concluir que una reserva marina causó un incremento de 2 unidades en el indicador.
+El término de interacción captura la diferencia entre lo que debería de haberse observado para la reserva y lo que realmente se observó. Es decir, la diferencia entre las líneas rojas. Este término es el **efecto de la reserva**. En este sentido, podemos entonces concluir que una reserva marina causó un incremento de 2 unidades en el indicador.
 
 Aunque la regresión lineal y el álgebra pueden parecer complicados, en la realidad todo puede implementarse con una línea de código (como `lm(indicador ~ post * zona, data = datos)`). Mejor aún, MAREA se encarga de generar las variables $Post$ y $Zona$, ajustar el modelo, obtener los coeficientes y reportar los resultados. En el siguiente capítulo (Capítulo \@ref(uso-de-marea)), describimos el uso de MAREA y demostramos que con 6 sencillos pasos podemos evaluar todos los indicadores y obtener reportes para compartir.
 
 
 ### Socioeconómicos y de gobernanza
 
-Ahora pasamos a describir el análisis de los indicadores socioeconómicos y de gobernanza. Los primeros dos [indicadores socioeconómicos ](#objetivos-e-indicadores) son numéricos, pues representan los arribos (masa) e ingresos (dinero) que generan las pesquerías de la comunidad. En este caso, no tenemos una comunidad control, pero podemos aún inferir algo de los cambios mediante una evaluación antes-después. Para esto, MAREA implementa una forma reducida del modelo anterior:
+Ahora pasamos a describir el análisis de los indicadores socioeconómicos y de gobernanza. Los primeros dos [indicadores socioeconómicos ](#objetivos-e-indicadores) son numéricos, puesto que representan los arribos (masa) e ingresos (dinero) que generan las pesquerías de la comunidad. En este caso, no tenemos una comunidad control, pero podemos aún inferir algo de los cambios mediante una evaluación antes-después. Para esto, MAREA implementa una forma reducida del modelo anterior:
 
 $$
 I = \alpha + \beta_1Post + \epsilon
