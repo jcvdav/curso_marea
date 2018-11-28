@@ -2,14 +2,36 @@
 
 # Ejercicios con MAREA
 
-Hola hola
+Paso a paso en vivo
 
 ## Indicadores biológicos
 
+Datos necesrios:
+
+- [`datos_peces.csv`](https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces.csv)
+
 ## Especie objetivo
 
-## Todos los indicadores
+Datos necesrios:
+
+- [`datos_peces.csv`](https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces.csv)
 
 ## Datos de biometría
 
+Datos necesrios:
+
+- [`datos_peces_abnt.csv`](https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces_abnt.csv)
+
 ## Más de una reserva a la vez
+
+Datos necesrios:
+
+- [`datos_peces_rc.csv`](https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces_rc.csv)
+
+## Todos los indicadores
+
+Datos necesrios:
+
+- [`datos_peces2.csv`](https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces2.csv)
+- [`datos_socioeco2.csv`](https://github.com/jcvdav/curso_marea_datos/blob/master/datos_socioeco2.csv)
+- [`datos_gobernanza2.csv`](https://github.com/jcvdav/curso_marea_datos/blob/master/datos_gobernanza2.csv)

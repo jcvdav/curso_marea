@@ -424,6 +424,7 @@ ggplot(data = datos,
 ```
 
 ```{r exportar-datos, echo = T}
+# Exportar datos
 write.csv(x = datos,
           file = here::here("materiales", "datos", "datos_peces.csv"),
           row.names = F)
@@ -436,10 +437,29 @@ datos_rc <- datos %>%
 ```
 
 ```{r exportar-rc, echo = T}
+#Exportar datos RC
 write.csv(x = datos_rc,
           file = here::here("materiales", "datos", "datos_peces_rc.csv"),
           row.names = F)
 ```
+
+```{r biometrics}
+# Join with biometric data
+datos_abnt <- datos %>% 
+  left_join(select(MPAtools::species_bio, GeneroEspecie, a, b, NT, Lm)) %>% 
+  mutate(NT = NT + 0.2,
+         a = a * 1.1,
+         b = b * 1.1,
+         Lm = Lm * 0.75)
+```
+
+```{r exportar-abnt, echo = T}
+#Exportar datos RC
+write.csv(x = datos_abnt,
+          file = here::here("materiales", "datos", "datos_peces_abnt.csv"),
+          row.names = F)
+```
+
 
 
 

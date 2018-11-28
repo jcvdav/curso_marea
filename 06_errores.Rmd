@@ -1,6 +1,6 @@
 # Errores y soluciones
 
-Hola
+Forzar algunos errores en vivo
 
 ## Especie / Indicador no tiene diseño BACI
 

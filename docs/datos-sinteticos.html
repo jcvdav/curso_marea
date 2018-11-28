@@ -170,9 +170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="ejercicios-con-marea.html"><a href="ejercicios-con-marea.html"><i class="fa fa-check"></i><b>5</b> Ejercicios con MAREA</a><ul>
 <li class="chapter" data-level="5.1" data-path="ejercicios-con-marea.html"><a href="ejercicios-con-marea.html#indicadores-biologicos"><i class="fa fa-check"></i><b>5.1</b> Indicadores biológicos</a></li>
 <li class="chapter" data-level="5.2" data-path="ejercicios-con-marea.html"><a href="ejercicios-con-marea.html#especie-objetivo"><i class="fa fa-check"></i><b>5.2</b> Especie objetivo</a></li>
-<li class="chapter" data-level="5.3" data-path="ejercicios-con-marea.html"><a href="ejercicios-con-marea.html#todos-los-indicadores"><i class="fa fa-check"></i><b>5.3</b> Todos los indicadores</a></li>
-<li class="chapter" data-level="5.4" data-path="ejercicios-con-marea.html"><a href="ejercicios-con-marea.html#datos-de-biometria"><i class="fa fa-check"></i><b>5.4</b> Datos de biometría</a></li>
-<li class="chapter" data-level="5.5" data-path="ejercicios-con-marea.html"><a href="ejercicios-con-marea.html#mas-de-una-reserva-a-la-vez"><i class="fa fa-check"></i><b>5.5</b> Más de una reserva a la vez</a></li>
+<li class="chapter" data-level="5.3" data-path="ejercicios-con-marea.html"><a href="ejercicios-con-marea.html#datos-de-biometria"><i class="fa fa-check"></i><b>5.3</b> Datos de biometría</a></li>
+<li class="chapter" data-level="5.4" data-path="ejercicios-con-marea.html"><a href="ejercicios-con-marea.html#mas-de-una-reserva-a-la-vez"><i class="fa fa-check"></i><b>5.4</b> Más de una reserva a la vez</a></li>
+<li class="chapter" data-level="5.5" data-path="ejercicios-con-marea.html"><a href="ejercicios-con-marea.html#todos-los-indicadores"><i class="fa fa-check"></i><b>5.5</b> Todos los indicadores</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="errores-y-soluciones.html"><a href="errores-y-soluciones.html"><i class="fa fa-check"></i><b>6</b> Errores y soluciones</a><ul>
 <li class="chapter" data-level="6.1" data-path="errores-y-soluciones.html"><a href="errores-y-soluciones.html#especie-indicador-no-tiene-diseno-baci"><i class="fa fa-check"></i><b>6.1</b> Especie / Indicador no tiene diseño BACI</a></li>
@@ -605,15 +605,21 @@ Figura A.2: Series de tiempo de las abundancias con tendencias (10% anual) despu
 Figura A.3: Series de tiempo de las tallas con tendencias (+2 cm anual) después del primer año. Note como una reserva funciona y otra no.
 </p>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">write.csv</span>(<span class="dt">x =</span> datos,</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">          <span class="dt">file =</span> here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;materiales&quot;</span>, <span class="st">&quot;datos&quot;</span>, <span class="st">&quot;datos_peces.csv&quot;</span>),</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">          <span class="dt">row.names =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Exportar datos</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw">write.csv</span>(<span class="dt">x =</span> datos,</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">          <span class="dt">file =</span> here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;materiales&quot;</span>, <span class="st">&quot;datos&quot;</span>, <span class="st">&quot;datos_peces.csv&quot;</span>),</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">          <span class="dt">row.names =</span> F)</a></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Generar datos para comparación de todas las reservas y todos los controles.</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">datos_rc &lt;-<span class="st"> </span>datos <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">RC =</span> <span class="st">&quot;Reserva - Control&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">write.csv</span>(<span class="dt">x =</span> datos_rc,</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">          <span class="dt">file =</span> here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;materiales&quot;</span>, <span class="st">&quot;datos&quot;</span>, <span class="st">&quot;datos_peces_rc.csv&quot;</span>),</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">          <span class="dt">row.names =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co">#Exportar datos RC</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">write.csv</span>(<span class="dt">x =</span> datos_rc,</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">          <span class="dt">file =</span> here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;materiales&quot;</span>, <span class="st">&quot;datos&quot;</span>, <span class="st">&quot;datos_peces_rc.csv&quot;</span>),</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">          <span class="dt">row.names =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co">#Exportar datos RC</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">write.csv</span>(<span class="dt">x =</span> datos_abnt,</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">          <span class="dt">file =</span> here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;materiales&quot;</span>, <span class="st">&quot;datos&quot;</span>, <span class="st">&quot;datos_peces_abnt.csv&quot;</span>),</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">          <span class="dt">row.names =</span> F)</a></code></pre></div>
 
 </div>
             </section>

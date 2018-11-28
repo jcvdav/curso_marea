@@ -230,7 +230,7 @@ MAREA y la nueva App de Costeo de Reservas son aplicaciones web
 desarrolladas en R utilizando el paquete \texttt{shiny}
 \citep{R-base, R-shiny}. Para poder utilizarlas es necesario tener un
 explorador de internet y una conexión estable. Aunque no siempre tenemos
-acceso a internet, utilizar aplicaciones \emph{``en la nuve''} nos evita
+acceso a internet, utilizar aplicaciones \emph{``en la nube''} nos evita
 problemas de compatibilidad entre diferentes sistemas operativos. Si
 tienes un explorador de internet y una conexión estable, puedes usar
 estas Apps.
@@ -249,7 +249,7 @@ GitHub}, y distribuirlos con atribución.
 El desarrollo de MAREA fue motivado por la necesidad de proveer
 metodologías estandarizadas para evaluar las zonas de refugio pesquero,
 un tipo de reservas marinas diseñadas como herramientas de manejo
-pesuero \citep{nom}. MAREA es una plataforma amigable que usa técnicas
+pesquero \citep{nom}. MAREA es una plataforma amigable que usa técnicas
 econométricas de inferencia de causalidad para estimar el efecto de una
 reserva en una serie de indicadores de interés. Los resultados generados
 pueden ser comunicados con las tarjetas de puntuaciones o con el reporte
@@ -1303,28 +1303,72 @@ Plana / Las Cuevas'' marine reserve in Isla Natividad, Mexico.}
 \hypertarget{ejercicios-con-marea}{%
 \chapter{Ejercicios con MAREA}\label{ejercicios-con-marea}}
 
-Hola hola
+Paso a paso en vivo
 
 \hypertarget{indicadores-biologicos}{%
 \section{Indicadores biológicos}\label{indicadores-biologicos}}
 
+Datos necesrios:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces.csv}{\texttt{datos\_peces.csv}}
+\end{itemize}
+
 \hypertarget{especie-objetivo}{%
 \section{Especie objetivo}\label{especie-objetivo}}
 
-\hypertarget{todos-los-indicadores}{%
-\section{Todos los indicadores}\label{todos-los-indicadores}}
+Datos necesrios:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces.csv}{\texttt{datos\_peces.csv}}
+\end{itemize}
 
 \hypertarget{datos-de-biometria}{%
 \section{Datos de biometría}\label{datos-de-biometria}}
+
+Datos necesrios:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces_abnt.csv}{\texttt{datos\_peces\_abnt.csv}}
+\end{itemize}
 
 \hypertarget{mas-de-una-reserva-a-la-vez}{%
 \section{Más de una reserva a la
 vez}\label{mas-de-una-reserva-a-la-vez}}
 
+Datos necesrios:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces_rc.csv}{\texttt{datos\_peces\_rc.csv}}
+\end{itemize}
+
+\hypertarget{todos-los-indicadores}{%
+\section{Todos los indicadores}\label{todos-los-indicadores}}
+
+Datos necesrios:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/jcvdav/curso_marea_datos/blob/master/datos_peces2.csv}{\texttt{datos\_peces2.csv}}
+\item
+  \href{https://github.com/jcvdav/curso_marea_datos/blob/master/datos_socioeco2.csv}{\texttt{datos\_socioeco2.csv}}
+\item
+  \href{https://github.com/jcvdav/curso_marea_datos/blob/master/datos_gobernanza2.csv}{\texttt{datos\_gobernanza2.csv}}
+\end{itemize}
+
 \hypertarget{errores-y-soluciones}{%
 \chapter{Errores y soluciones}\label{errores-y-soluciones}}
 
-Hola
+Forzar algunos errores en vivo
 
 \hypertarget{especie-indicador-no-tiene-diseno-baci}{%
 \section{Especie / Indicador no tiene diseño
@@ -1720,7 +1764,7 @@ generaremos únicamente información biológica y económica de peces.
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-1.pdf}
 \caption{\label{fig:graficar-datos}Series de tiempo de los datos antes de
-agregar tendencias}
+agregar tendencias.}
 \end{figure}
 
 \begin{Shaded}
@@ -1760,8 +1804,8 @@ agregar tendencias}
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-abundancias-1.pdf}
 \caption{\label{fig:graficar-datos-abundancias}Series de tiempo de las
-abundancias con tendencias (10\% anual) despés del primer año. Note como
-una reserva funciona y otra no.}
+abundancias con tendencias (10\% anual) después del primer año. Note
+como una reserva funciona y otra no.}
 \end{figure}
 
 \begin{Shaded}
@@ -1784,12 +1828,13 @@ una reserva funciona y otra no.}
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-tallas-1.pdf}
 \caption{\label{fig:graficar-datos-tallas}Series de tiempo de las tallas con
-tendencias (+2 cm anual) despés del primer año. Note como una reserva
+tendencias (+2 cm anual) después del primer año. Note como una reserva
 funciona y otra no.}
 \end{figure}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# Exportar datos}
 \KeywordTok{write.csv}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ datos,}
           \DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"materiales"}\NormalTok{, }\StringTok{"datos"}\NormalTok{, }\StringTok{"datos_peces.csv"}\NormalTok{),}
           \DataTypeTok{row.names =}\NormalTok{ F)}
@@ -1806,8 +1851,18 @@ funciona y otra no.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{#Exportar datos RC}
 \KeywordTok{write.csv}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ datos_rc,}
           \DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"materiales"}\NormalTok{, }\StringTok{"datos"}\NormalTok{, }\StringTok{"datos_peces_rc.csv"}\NormalTok{),}
+          \DataTypeTok{row.names =}\NormalTok{ F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Exportar datos RC}
+\KeywordTok{write.csv}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ datos_abnt,}
+          \DataTypeTok{file =}\NormalTok{ here}\OperatorTok{::}\KeywordTok{here}\NormalTok{(}\StringTok{"materiales"}\NormalTok{, }\StringTok{"datos"}\NormalTok{, }\StringTok{"datos_peces_abnt.csv"}\NormalTok{),}
           \DataTypeTok{row.names =}\NormalTok{ F)}
 \end{Highlighting}
 \end{Shaded}
