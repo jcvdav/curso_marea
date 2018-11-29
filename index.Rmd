@@ -44,7 +44,7 @@ Este manual va acompañado de datos sintéticos para los ejercicios prácticos. 
 
 El desarrollo de MAREA fue motivado por la necesidad de proveer metodologías estandarizadas para evaluar las zonas de refugio pesquero, un tipo de reservas marinas diseñadas como herramientas de manejo pesquero [@nom]. MAREA es una plataforma amigable que usa técnicas econométricas de inferencia de causalidad para estimar el efecto de una reserva en una serie de indicadores de interés. Los resultados generados pueden ser comunicados con las tarjetas de puntuaciones o con el reporte automatizado que el usuario puede descargar.
 
-La aplicación de costeo es mucho más sencilla. Esta app permite obtener los costos de operación asociados al diseño, implementación y monitoreo y evaluación de una reserva marina comunitaria siguiendo la metodología de [COBI](https://cobi.org.mx/) [@uribe_2010]. Aunque el usuario puede agregar diferentes rubros, las categorías predeterminadas están basadas en la experiencia que COBI ha adquirido a lo largo de los años.
+La aplicación de costeo es mucho más sencilla. Esta app permite obtener los costos de operación asociados al diseño, implementación y monitoreo, así como la evaluación de una reserva marina comunitaria siguiendo la metodología de [COBI](https://cobi.org.mx/) [@uribe_2010]. Aunque el usuario puede agregar diferentes rubros, las categorías predeterminadas están basadas en la experiencia que COBI ha adquirido a lo largo de los años.
 
 ### Estructura
 
