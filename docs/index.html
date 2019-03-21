@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Costeo y Evaluación de Reservas Marinas</title>
   <meta name="description" content="Manual de evaluación de reservas marinas para gestores ambientales.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Costeo y Evaluación de Reservas Marinas" />
   <meta property="og:type" content="book" />
@@ -35,6 +35,7 @@
 <link rel="next" href="app-de-costeo.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -203,10 +204,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Costeo y Evaluación de Reservas Marinas</h1>
-<h3 class="subtitle"><em>Una guía para gestores ambientales</em></h3>
-<h4 class="author"><em>Juan Carlos Villaseñor-Derbez</em></h4>
-<h4 class="date"><em>Bren School of Environmental Science &amp; Management, UCSB
-<a href="mailto:juancarlos@ucsb.edu" class="email">juancarlos@ucsb.edu</a></em></h4>
+<h2 class="subtitle"><em>Una guía para gestores ambientales</em></h2>
+<p class="author"><em>Juan Carlos Villaseñor-Derbez</em></p>
+<p class="date"><em>Bren School of Environmental Science &amp; Management, UCSB
+<a href="mailto:juancarlos@ucsb.edu" class="email">juancarlos@ucsb.edu</a></em></p>
 </div>
 <div id="antes-de-empezar" class="section level1 unnumbered">
 <h1>Antes de empezar</h1>
@@ -221,8 +222,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">0.2</span> Sobre este libro</h2>
 <div id="motivacion" class="section level3">
 <h3><span class="header-section-number">0.2.1</span> Motivación</h3>
-<p>El desarrollo de MAREA fue motivado por la necesidad de proveer metodologías estandarizadas para evaluar las zonas de refugio pesquero, un tipo de reservas marinas diseñadas como herramientas de manejo pesquero <span class="citation">(NOM-049-SAG/PESC, <a href="#ref-nom">2014</a>)</span>. MAREA es una plataforma amigable que usa técnicas econométricas de inferencia de causalidad para estimar el efecto de una reserva en una serie de indicadores de interés. Los resultados generados pueden ser comunicados con las tarjetas de puntuaciones o con el reporte automatizado que el usuario puede descargar.</p>
 <p>La aplicación de costeo es mucho más sencilla. Esta app permite obtener los costos de operación asociados al diseño, implementación y monitoreo, así como la evaluación de una reserva marina comunitaria siguiendo la metodología de <a href="https://cobi.org.mx/">COBI</a> <span class="citation">(Uribe et al., <a href="#ref-uribe_2010">2010</a>)</span>. Aunque el usuario puede agregar diferentes rubros, las categorías predeterminadas están basadas en la experiencia que COBI ha adquirido a lo largo de los años.</p>
+<p>El desarrollo de MAREA fue motivado por la necesidad de proveer metodologías estandarizadas para evaluar las zonas de refugio pesquero, un tipo de reservas marinas diseñadas como herramientas de manejo pesquero en México <span class="citation">(NOM-049-SAG/PESC, <a href="#ref-nom">2014</a>)</span>. MAREA es una plataforma amigable que usa técnicas econométricas de inferencia de causalidad para estimar el efecto de una reserva en una serie de indicadores de interés. Los resultados generados pueden ser comunicados con las tarjetas de puntuaciones o con el reporte automatizado que el usuario puede descargar.</p>
 </div>
 <div id="estructura" class="section level3">
 <h3><span class="header-section-number">0.2.2</span> Estructura</h3>
@@ -251,11 +252,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="ref-R-base">
 <p>R Core Team (2018). <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing Available at: <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
 </div>
-<div id="ref-nom">
-<p>NOM-049-SAG/PESC (2014). NORMA oficial mexicana nom-049-sag/pesc-2014, que determina el procedimiento para establecer zonas de refugio para los recursos pesqueros en aguas de jurisdicción federal de los estados unidos mexicanos. <em>DOF</em>.</p>
-</div>
 <div id="ref-uribe_2010">
 <p>Uribe, P., Moguel, S., Torre, J., Bourillon, L., and Saenz, A. (2010). <em>Implementación de reservas marinas en méxico</em>. 1st ed. Mexico.</p>
+</div>
+<div id="ref-nom">
+<p>NOM-049-SAG/PESC (2014). NORMA oficial mexicana nom-049-sag/pesc-2014, que determina el procedimiento para establecer zonas de refugio para los recursos pesqueros en aguas de jurisdicción federal de los estados unidos mexicanos. <em>DOF</em>.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -290,7 +291,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -302,6 +303,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/jcvdav/curso_marea/edit/master/index.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["evaluacion-reservas.pdf", "evaluacion-reservas.epub"],
 "toc": {
@@ -317,7 +322,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

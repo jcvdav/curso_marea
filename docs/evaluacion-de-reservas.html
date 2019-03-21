@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Costeo y Evaluación de Reservas Marinas</title>
+  <title>Capítulo 3 Evaluación de reservas | Costeo y Evaluación de Reservas Marinas</title>
   <meta name="description" content="Manual de evaluación de reservas marinas para gestores ambientales.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Costeo y Evaluación de Reservas Marinas" />
+  <meta property="og:title" content="Capítulo 3 Evaluación de reservas | Costeo y Evaluación de Reservas Marinas" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="img/flow.tif" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="jcvdav/curso_marea" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Costeo y Evaluación de Reservas Marinas" />
+  <meta name="twitter:title" content="Capítulo 3 Evaluación de reservas | Costeo y Evaluación de Reservas Marinas" />
   
   <meta name="twitter:description" content="Manual de evaluación de reservas marinas para gestores ambientales." />
   <meta name="twitter:image" content="img/flow.tif" />
@@ -35,6 +35,7 @@
 <link rel="next" href="uso-de-marea.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -385,10 +386,10 @@ I = \alpha + \beta_1Post + \beta_2Zona + \beta_3Zona \times Post + \epsilon
 <li><span class="math inline">\(\beta_2\)</span>: cambio a través de sitios</li>
 <li><span class="math inline">\(\beta_3\)</span>: restante del cambio entre reservas y sitios (este es el efecto de la reserva)</li>
 </ul>
-<p>Esto es quivalente a un ANOVA de dos vías con un término de interacción. La ventaja de hacerlo así es que no solamente podemos decir si hay o no diferencias, si no que también inferir algo sobre la magnitud de estas diferencias. La interpretación de estos coeficientes puede ser un poco compleja, pero el siguiente ejemplo puede ayudarnos a aclarar dudas. Ajustando el modelo lineal a los datos de la Figura <a href="evaluacion-de-reservas.html#fig:baci-multi">3.1</a>, obtenemos los coeficientes mostrados en la Tabla <a href="evaluacion-de-reservas.html#tab:reg">3.2</a>.</p>
+<p>Esto es quivalente a un ANOVA de dos vías con un término de interacción. La ventaja de hacerlo así es que no solamente podemos decir si hay o no diferencias, si no que también inferir algo sobre la magnitud de estas diferencias. La interpretación de estos coeficientes puede ser un poco compleja, pero el siguiente ejemplo puede ayudarnos a aclarar dudas. Ajustando el modelo lineal a los datos de la Figura <a href="evaluacion-de-reservas.html#fig:baci-multi">3.1</a>, obtenemos los coeficientes mostrados en la Tabla <a href="#tab:reg"><strong>??</strong></a>.</p>
 <table style="text-align:center">
 <caption>
-<span id="tab:reg">Tabla 3.2: </span><strong>Coeficientes estimados mediante la regresión lineal múltiple.</strong>
+<strong>Coeficientes estimados mediante la regresión lineal múltiple.</strong>
 </caption>
 <tr>
 <td colspan="2" style="border-bottom: 1px solid black">
@@ -499,7 +500,7 @@ F Statistic
 </td>
 </tr>
 </table>
-<p>La Tabla <a href="evaluacion-de-reservas.html#tab:reg">3.2</a> muestra los valores estimados para los coeficientes. Los números entre paréntesis presentan el error estándar al rededor de la estimación. Además, presenta la varianza explicada por el modelo, en este caso con un valor de <span class="math inline">\(R^2 = 0.87\)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
+<p>La Tabla <a href="#tab:reg"><strong>??</strong></a> muestra los valores estimados para los coeficientes. Los números entre paréntesis presentan el error estándar al rededor de la estimación. Además, presenta la varianza explicada por el modelo, en este caso con un valor de <span class="math inline">\(R^2 = 0.87\)</span><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
 <p>Para interpretar los coeficientes, debemos sustituirlos en la ecuación anterior. Por lo tanto, obtenemos lo siguiente:</p>
 <p><span class="math display">\[
 I = 2 + (3 \times Post) + (2\times Zona) + (2 \times Zona \times Post)
@@ -659,7 +660,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -671,6 +672,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/jcvdav/curso_marea/edit/master/03_evaluacion.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["evaluacion-reservas.pdf", "evaluacion-reservas.epub"],
 "toc": {
@@ -686,7 +691,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

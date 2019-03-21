@@ -193,52 +193,16 @@ Villaseñor-Derbez J.C. 2018. Costeo y Evaluación de Reservas Marinas: Una guí
 \chapter*{Antes de empezar}\label{antes-de-empezar}}
 
 
-Este manual es la segunda iteración de los esfuerzos por impulsar el uso
-de metodologías estandarizadas para la evaluación de reservas marinas.
-Trabajos anteriores incluyen el manual generalizado de evaluación de
-reservas marinas en México \citep{villaseorderbez_2017} y la publicación
-arbitrada que presenta a
-\href{https://turfeffect.shinyapps.io/marea/}{MAREA} como una
-herramienta amigable y gratuita \citep{villasenorderbez_2018}. Esta
-versión del manual pretende incorporar partes de ambos trabajos, pero
-también incluye una serie de ejercicios prácticos para el uso de MAREA y
-la nueva App de Costeo de Reservas. Además, el manual está públicamente
-disponible en \href{https://jcvdav.github.io/curso_marea/}{internet},
-donde el lector puede descargar el manual como PDF o EPUB para
-Kindle\footnote{El manual puede ser compartido y distribuido libremente.
-  Sin embargo, esta versión se encuentra en proceso de edición y puede
-  contener errores. Comentarios y sugerencias de edición son bienvenidos
-  en \url{juancarlos@ucsb.edu} o con el botón de edición en la barra de
-  herramientas de la versión online. La versión más actualizada siempre
-  estará disponible en internet en:
-  \url{https://jcvdav.github.io/curso_marea}. El manual fue generado
-  utilizando \texttt{bookdown} \citep{R-bookdown}.}.
+Este manual es la segunda iteración de los esfuerzos por impulsar el uso de metodologías estandarizadas para la evaluación de reservas marinas. Trabajos anteriores incluyen el manual generalizado de evaluación de reservas marinas en México \citep{villaseorderbez_2017} y la publicación arbitrada que presenta a \href{https://turfeffect.shinyapps.io/marea/}{MAREA} como una herramienta amigable y gratuita \citep{villasenorderbez_2018}. Esta versión del manual pretende incorporar partes de ambos trabajos, pero también incluye una serie de ejercicios prácticos para el uso de MAREA y la nueva App de Costeo de Reservas. Además, el manual está públicamente disponible en \href{https://jcvdav.github.io/curso_marea/}{internet}, donde el lector puede descargar el manual como PDF o EPUB para Kindle\footnote{El manual puede ser compartido y distribuido libremente. Sin embargo, esta versión se encuentra en proceso de edición y puede contener errores. Comentarios y sugerencias de edición son bienvenidos en \url{juancarlos@ucsb.edu} o con el botón de edición en la barra de herramientas de la versión online. La versión más actualizada siempre estará disponible en internet en: \url{https://jcvdav.github.io/curso_marea}. El manual fue generado utilizando \texttt{bookdown} \citep{R-bookdown}.}.
 
-Aunque el manual y la Aplicación para Evaluación de Reservas Marinas
-(MAREA) pueden ser utilizados alrededor del mundo, es importante
-mencionar que el proyecto fue diseñado para evaluar la efectividad de
-las reservas marinas en México. Por lo tanto, las metodologías
-utilizadas reflejan las necesidades de las comunidades costeras
-mexicanas, y no debe de interpretarse como un conjunto de instrucciones
-definitivas. Aún así, creemos que la guía ha sido creada para permitir
-su aplicación en otros lugares con el mismo fin.
+Aunque el manual y la Aplicación para Evaluación de Reservas Marinas (MAREA) pueden ser utilizados alrededor del mundo, es importante mencionar que el proyecto fue diseñado para evaluar la efectividad de las reservas marinas en México. Por lo tanto, las metodologías utilizadas reflejan las necesidades de las comunidades costeras mexicanas, y no debe de interpretarse como un conjunto de instrucciones definitivas. Aún así, creemos que la guía ha sido creada para permitir su aplicación en otros lugares con el mismo fin.
 
 \hypertarget{requisitos}{%
 \section{Requisitos}\label{requisitos}}
 
-MAREA y la nueva App de Costeo de Reservas son aplicaciones web
-desarrolladas en R utilizando el paquete \texttt{shiny}
-\citep{R-base, R-shiny}. Para poder utilizarlas es necesario tener un
-explorador de internet y una conexión estable. Aunque no siempre tenemos
-acceso a internet, utilizar aplicaciones \emph{``en la nube''} nos evita
-problemas de compatibilidad entre diferentes sistemas operativos. Si
-tienes un explorador de internet y una conexión estable, puedes usar
-estas Apps.
+MAREA y la nueva App de Costeo de Reservas son aplicaciones web desarrolladas en R utilizando el paquete \texttt{shiny} \citep{R-base, R-shiny}. Para poder utilizarlas es necesario tener un explorador de internet y una conexión estable. Aunque no siempre tenemos acceso a internet, utilizar aplicaciones \emph{``en la nube''} nos evita problemas de compatibilidad entre diferentes sistemas operativos. Si tienes un explorador de internet y una conexión estable, puedes usar estas Apps.
 
-Este manual va acompañado de datos sintéticos para los ejercicios
-prácticos. Puedes descargar estos materiales gratuitamente en el
-\href{https://github.com/jcvdav/curso_marea_datos}{repositorio de
-GitHub}, y distribuirlos con atribución.
+Este manual va acompañado de datos sintéticos para los ejercicios prácticos. Puedes descargar estos materiales gratuitamente en el \href{https://github.com/jcvdav/curso_marea_datos}{repositorio de GitHub}, y distribuirlos con atribución.
 
 \hypertarget{sobre-este-libro}{%
 \section{Sobre este libro}\label{sobre-este-libro}}
@@ -246,46 +210,18 @@ GitHub}, y distribuirlos con atribución.
 \hypertarget{motivacion}{%
 \subsection{Motivación}\label{motivacion}}
 
-El desarrollo de MAREA fue motivado por la necesidad de proveer
-metodologías estandarizadas para evaluar las zonas de refugio pesquero,
-un tipo de reservas marinas diseñadas como herramientas de manejo
-pesquero \citep{nom}. MAREA es una plataforma amigable que usa técnicas
-econométricas de inferencia de causalidad para estimar el efecto de una
-reserva en una serie de indicadores de interés. Los resultados generados
-pueden ser comunicados con las tarjetas de puntuaciones o con el reporte
-automatizado que el usuario puede descargar.
+La aplicación de costeo es mucho más sencilla. Esta app permite obtener los costos de operación asociados al diseño, implementación y monitoreo, así como la evaluación de una reserva marina comunitaria siguiendo la metodología de \href{https://cobi.org.mx/}{COBI} \citep{uribe_2010}. Aunque el usuario puede agregar diferentes rubros, las categorías predeterminadas están basadas en la experiencia que COBI ha adquirido a lo largo de los años.
 
-La aplicación de costeo es mucho más sencilla. Esta app permite obtener
-los costos de operación asociados al diseño, implementación y monitoreo,
-así como la evaluación de una reserva marina comunitaria siguiendo la
-metodología de \href{https://cobi.org.mx/}{COBI} \citep{uribe_2010}.
-Aunque el usuario puede agregar diferentes rubros, las categorías
-predeterminadas están basadas en la experiencia que COBI ha adquirido a
-lo largo de los años.
+El desarrollo de MAREA fue motivado por la necesidad de proveer metodologías estandarizadas para evaluar las zonas de refugio pesquero, un tipo de reservas marinas diseñadas como herramientas de manejo pesquero en México \citep{nom}. MAREA es una plataforma amigable que usa técnicas econométricas de inferencia de causalidad para estimar el efecto de una reserva en una serie de indicadores de interés. Los resultados generados pueden ser comunicados con las tarjetas de puntuaciones o con el reporte automatizado que el usuario puede descargar.
 
 \hypertarget{estructura}{%
 \subsection{Estructura}\label{estructura}}
 
-Este manual se divide en tres partes. La Parte 1 presenta la App de
-Costeo (Capítulo \ref{app-de-costeo}) y describe las secciones de la
-ventana, así como su uso y funcionalidad.
+Este manual se divide en tres partes. La Parte 1 presenta la App de Costeo (Capítulo \ref{app-de-costeo}) y describe las secciones de la ventana, así como su uso y funcionalidad.
 
-La Parte 2 se compone de tres capítulos: El Capítulo \ref{antecedentes}
-presenta una revisión de otros métodos usados para evaluar reservas
-marinas. El Capítulo \ref{evaluacion-de-reservas} introduce la
-metodología usada por MAREA, con un énfasis en los \emph{Objetivos} e
-\emph{Indicadores} utilizados, así como el modelo de Diferencias entre
-Diferencias para estimar el efecto de la reserva. Finalmente el Capítulo
-\ref{uso-de-marea} provee una introducción a MAREA, incluyendo el tipo y
-formato de datos necesarios, los 6 pasos de la evaluación, la
-interpretación de los resultados y una discusión de sus capacidades y
-limitaciones.
+La Parte 2 se compone de tres capítulos: El Capítulo \ref{antecedentes} presenta una revisión de otros métodos usados para evaluar reservas marinas. El Capítulo \ref{evaluacion-de-reservas} introduce la metodología usada por MAREA, con un énfasis en los \emph{Objetivos} e \emph{Indicadores} utilizados, así como el modelo de Diferencias entre Diferencias para estimar el efecto de la reserva. Finalmente el Capítulo \ref{uso-de-marea} provee una introducción a MAREA, incluyendo el tipo y formato de datos necesarios, los 6 pasos de la evaluación, la interpretación de los resultados y una discusión de sus capacidades y limitaciones.
 
-La Parte 3 consta de dos capítulos. El Capítulo
-\ref{ejercicios-con-marea} contiene cinco ejercicios, representativos de
-operaciones comunes a realiza con MAREA. El Capítulo
-\ref{errores-y-soluciones} presenta algunos de los errores comunes y sus
-soluciones.
+La Parte 3 consta de dos capítulos. El Capítulo \ref{ejercicios-con-marea} contiene cinco ejercicios, representativos de operaciones comunes a realiza con MAREA. El Capítulo \ref{errores-y-soluciones} presenta algunos de los errores comunes y sus soluciones.
 
 \mainmatter
 
@@ -295,84 +231,38 @@ soluciones.
 \hypertarget{app-de-costeo}{%
 \chapter{App de costeo}\label{app-de-costeo}}
 
-El número de iniciativas para establecer redes de reservas marinas está
-en aumento, y la gran mayoría de los esfuerzos se realizan con fondos
-filantrópicos. Sin embargo, al iniciar el proceso para establecer
-reservas marinas es común que los costos proyectados al futuro no estén
-claramente definidos. Esto puede afectar la sustentabilidad de la
-reserva marina al largo plazo, sobre todo si el costo de mantenerla y
-operarla es mayor al beneficio que puede proporcionar a la comunidad.
+El número de iniciativas para establecer redes de reservas marinas está en aumento, y la gran mayoría de los esfuerzos se realizan con fondos filantrópicos. Sin embargo, al iniciar el proceso para establecer reservas marinas es común que los costos proyectados al futuro no estén claramente definidos. Esto puede afectar la sustentabilidad de la reserva marina al largo plazo, sobre todo si el costo de mantenerla y operarla es mayor al beneficio que puede proporcionar a la comunidad.
 
-\href{https://cobi.org.mx/}{COBI} ha trabajado durante 19 años para
-establecer, evaluar y mantener las reservas marinas en colaboración con
-las comunidades pesqueras de México. Nuestro modelo de reservas marinas
-comprende de cuatro fases:
+\href{https://cobi.org.mx/}{COBI} ha trabajado durante 19 años para establecer, evaluar y mantener las reservas marinas en colaboración con las comunidades pesqueras de México. Nuestro modelo de reservas marinas comprende de cuatro fases:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \textbf{Implementación} - procesos inclusivos en el que las partes
-  interesadas participen en el proceso de diseño, definición de
-  objetivos y la selección del sitio
+  \textbf{Implementación} - procesos inclusivos en el que las partes interesadas participen en el proceso de diseño, definición de objetivos y la selección del sitio
 \item
-  \textbf{Monitoreo} - después de que la reserva se ha creado, miembros
-  de la comunidad están capacitados para recopilar datos para evaluar la
-  reserva
+  \textbf{Monitoreo} - después de que la reserva se ha creado, miembros de la comunidad están capacitados para recopilar datos para evaluar la reserva
 \item
-  \textbf{Operación} -- acciones relacionadas a la vigilancia
-  comunitaria, señalización y comunicación de resultados
+  \textbf{Operación} -- acciones relacionadas a la vigilancia comunitaria, señalización y comunicación de resultados
 \item
-  \textbf{Renovación} -- manejo adaptativo basado en los datos recogidos
-  por la comunidad para garantizar el funcionamiento eficaz de la
-  reserva.
+  \textbf{Renovación} -- manejo adaptativo basado en los datos recogidos por la comunidad para garantizar el funcionamiento eficaz de la reserva.
 \end{enumerate}
 
-Este calculador de costos contempla todos los pasos necesarios para
-establecer una reserva marina utilizado el modelo COBI, con el objetivo
-de ayudar a comunidades, organizaciones de la sociedad civil y tomadores
-de decisiones a planear sus inversiones con mayor claridad y
-transparencia. La Figura \ref{fig:shiny-costeo} presenta la pantalla de
-bienvenida de la aplicación.
+Este calculador de costos contempla todos los pasos necesarios para establecer una reserva marina utilizado el modelo COBI, con el objetivo de ayudar a comunidades, organizaciones de la sociedad civil y tomadores de decisiones a planear sus inversiones con mayor claridad y transparencia. La Figura \ref{fig:shiny-costeo} presenta la pantalla de bienvenida de la aplicación.
 
 \begin{figure}
 \centering
 \includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/app_costeo.PNG}
-\caption{\label{fig:shiny-costeo}Shiny app de Costeo de Reservas, la app
-está disponible en \url{https://turfeffect.shinyapps.io/AppCosteo/}}
+\caption{\label{fig:shiny-costeo}Shiny app de Costeo de Reservas, la app está disponible en \url{https://turfeffect.shinyapps.io/AppCosteo/}}
 \end{figure}
 
-La app tiene dos secciones principales. Del lado izquierdo se muestra
-una barra de herramientas que el usuario puede usar para navegar por las
-secciones de \texttt{Ingresar\ costos} y \texttt{Presupuesto}, así como
-ajustar el tipo de cambio, ver los cambios en el total en tiempo real y
-eventualmente descargar el presupuesto detallado u obtener un link para
-compartir el estado de la app. La barra de herramientas se puede ocultar
-y mostrar. La segunda sección es el área de trabajo, que al inicio
-muestra una descripción similar a la del texto anterior.
+La app tiene dos secciones principales. Del lado izquierdo se muestra una barra de herramientas que el usuario puede usar para navegar por las secciones de \texttt{Ingresar\ costos} y \texttt{Presupuesto}, así como ajustar el tipo de cambio, ver los cambios en el total en tiempo real y eventualmente descargar el presupuesto detallado u obtener un link para compartir el estado de la app. La barra de herramientas se puede ocultar y mostrar. La segunda sección es el área de trabajo, que al inicio muestra una descripción similar a la del texto anterior.
 
-Los costos unitarios y cantidades pueden ser editados en la sección de
-\texttt{Ingresar\ costos}. La app de costeo contiene los rubros más
-comunes de cada fase, además de presentar valores predeterminados y
-editables para cada uno. Por ejemplo, navegando a
-\texttt{Ingresar\ costos} \textgreater{}\textgreater{}
-\texttt{Implementación} \textgreater{}\textgreater{}
-\texttt{Definición\ de\ objetivos} \textgreater{}\textgreater{}
-\texttt{Gasolina} veremos un valor de 1 en la columna de costos y 80 en
-la columna de cantidades. En este caso, los costos están en dólares
-estadounidenses, pero la app es agnóstica a una moneda en especial.
+Los costos unitarios y cantidades pueden ser editados en la sección de \texttt{Ingresar\ costos}. La app de costeo contiene los rubros más comunes de cada fase, además de presentar valores predeterminados y editables para cada uno. Por ejemplo, navegando a \texttt{Ingresar\ costos} \textgreater{}\textgreater{} \texttt{Implementación} \textgreater{}\textgreater{} \texttt{Definición\ de\ objetivos} \textgreater{}\textgreater{} \texttt{Gasolina} veremos un valor de 1 en la columna de costos y 80 en la columna de cantidades. En este caso, los costos están en dólares estadounidenses, pero la app es agnóstica a una moneda en especial.
 
-Este proceso se repite para cada una de las fases y rubros necesarios.
-Una vez terminado, el usuario puede navegar a la sección de
-\texttt{Presupuesto}. Aquí aparecen gráficas interactivas que muestran
-en detalle los costos estimados por fase y concepto. Las gráficas pueden
-editarse para mostrar los costos en otras unidades, cambiar el tamaño
-del texto e incluso el esquema de colores.
+Este proceso se repite para cada una de las fases y rubros necesarios. Una vez terminado, el usuario puede navegar a la sección de \texttt{Presupuesto}. Aquí aparecen gráficas interactivas que muestran en detalle los costos estimados por fase y concepto. Las gráficas pueden editarse para mostrar los costos en otras unidades, cambiar el tamaño del texto e incluso el esquema de colores.
 
-Al confirmar que el presupuesto es correcto, el usuario puede ir a la
-sección de herramientas y seleccionar la opción de
-\texttt{Descargar\ presupuesto} que se muestra en el botón opaco. Esto
-descargará un archivo de excel con el presupuesto detallado.
+Al confirmar que el presupuesto es correcto, el usuario puede ir a la sección de herramientas y seleccionar la opción de \texttt{Descargar\ presupuesto} que se muestra en el botón opaco. Esto descargará un archivo de excel con el presupuesto detallado.
 
 \hypertarget{uso-de-la-app}{%
 \section{Uso de la App}\label{uso-de-la-app}}
@@ -380,8 +270,7 @@ descargará un archivo de excel con el presupuesto detallado.
 \hypertarget{ejercicio}{%
 \subsection{Ejercicio}\label{ejercicio}}
 
-Supongamos que queremos diseñar e implementar (pero no monitorear ni
-evaluar aún) una red de reservas marinas. ¿Cuál sería el costo total?
+Supongamos que queremos diseñar e implementar (pero no monitorear ni evaluar aún) una red de reservas marinas. ¿Cuál sería el costo total?
 
 Responde las siguientes preguntas:
 
@@ -393,52 +282,35 @@ Responde las siguientes preguntas:
   ¿Cuál es el monto total en tu moneda local?
 \end{itemize}
 
-Al terminar, descarga una de las figuras después de incrementar el
-tamaño de letra y cambiar el esquema de colores. Descarga también el
-presupuesto detallado.
+Al terminar, descarga una de las figuras después de incrementar el tamaño de letra y cambiar el esquema de colores. Descarga también el presupuesto detallado.
 
 \hypertarget{pasos-sugeridos}{%
 \subsection{Pasos sugeridos}\label{pasos-sugeridos}}
 
 \begin{itemize}
 \item
-  Navega a la App de Costeo en
-  \url{https://turfeffect.shinyapps.io/AppCosteo/}.
+  Navega a la App de Costeo en \url{https://turfeffect.shinyapps.io/AppCosteo/}.
 \item
-  Inicia navegando a las secciones de \texttt{Monitoreo},
-  \texttt{Operación} y \texttt{Renovación} y modificando todos los
-  valores de las columnas de cantidades para que estén en 0. Ahora,
-  regresa a la primera sección (\texttt{Implementación}) y modifica los
-  valores de acuerdo a tus necesidades y conocimientos de costos.
+  Inicia navegando a las secciones de \texttt{Monitoreo}, \texttt{Operación} y \texttt{Renovación} y modificando todos los valores de las columnas de cantidades para que estén en 0. Ahora, regresa a la primera sección (\texttt{Implementación}) y modifica los valores de acuerdo a tus necesidades y conocimientos de costos.
 \item
-  Usa la caja de conversión de moneda y ajusta el valor de 1 dolar
-  estadounidense al valor de tu moneda.
+  Usa la caja de conversión de moneda y ajusta el valor de 1 dolar estadounidense al valor de tu moneda.
 \item
-  Ahora navega a la sección de \texttt{Presupuesto} y modifica las
-  gráficas para que el tamaño de letra sea de 12 y el esquema de colores
-  sea ``Pares''.
+  Ahora navega a la sección de \texttt{Presupuesto} y modifica las gráficas para que el tamaño de letra sea de 12 y el esquema de colores sea ``Pares''.
 \item
-  Al poner el cursos sobre las imágenes, aparecerá una barra de
-  herramientas. Utiliza el ícono de una cámara para exportar la imagen
-  como \texttt{*.PNG}.
+  Al poner el cursos sobre las imágenes, aparecerá una barra de herramientas. Utiliza el ícono de una cámara para exportar la imagen como \texttt{*.PNG}.
 \item
-  En la sección de \texttt{Herramientas}, haz click en el boton de
-  \texttt{Descargar\ presupuesto}.
+  En la sección de \texttt{Herramientas}, haz click en el boton de \texttt{Descargar\ presupuesto}.
 \end{itemize}
 
 \hypertarget{resultados}{%
 \subsection{Resultados}\label{resultados}}
 
-Mis resultados se muestran en la Figura \ref{fig:resultados-costeo}. En
-mi caso, el proyecto de implementación tiene un costo de \$10,058 USD o
-\$201,160 MXP. Puedo ver que la mayor parte de los costos (¡\$5,000
-USD!) provienen de la estrategia de comunicación.
+Mis resultados se muestran en la Figura \ref{fig:resultados-costeo}. En mi caso, el proyecto de implementación tiene un costo de \$10,058 USD o \$201,160 MXP. Puedo ver que la mayor parte de los costos (¡\$5,000 USD!) provienen de la estrategia de comunicación.
 
 \begin{figure}
 \centering
 \includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/app_costeo_estado.PNG}
-\caption{\label{fig:resultados-costeo}Shiny app de Costeo de Reservas
-mostrando los costos de diseño e implementación de una reserva.}
+\caption{\label{fig:resultados-costeo}Shiny app de Costeo de Reservas mostrando los costos de diseño e implementación de una reserva.}
 \end{figure}
 
 \hypertarget{part-parte-ii}{%
@@ -447,213 +319,68 @@ mostrando los costos de diseño e implementación de una reserva.}
 \hypertarget{antecedentes}{%
 \chapter{Antecedentes}\label{antecedentes}}
 
-La evaluación de reservas marinas no es algo nuevo. Sin embargo, muy
-pocos trabajos las han evaluado utilizando técnicas que permitan
-atribuir las diferencias observadas únicamente a las reservas. Por lo
-tanto, es útil hacer una recapitulación de metodologías comúnmente
-usadas antes de presentar la metodología utilizada por MAREA. Este
-capítulo se enfoca en los indicadores y diseños muestreales, presentando
-casos publicados en la literatura científica. Revisaremos tres diseños
-de muestro generales que se han utilizado en la evaluación de reservas
-marinas y discutiremos sus ventajas y desventajas, así como las
-implicaciones en el manejo.
+La evaluación de reservas marinas no es algo nuevo. Sin embargo, muy pocos trabajos las han evaluado utilizando técnicas que permitan atribuir las diferencias observadas únicamente a las reservas. Por lo tanto, es útil hacer una recapitulación de metodologías comúnmente usadas antes de presentar la metodología utilizada por MAREA. Este capítulo se enfoca en los indicadores y diseños muestreales, presentando casos publicados en la literatura científica. Revisaremos tres diseños de muestro generales que se han utilizado en la evaluación de reservas marinas y discutiremos sus ventajas y desventajas, así como las implicaciones en el manejo.
 
 \hypertarget{antes-despues}{%
 \section{Antes-Después}\label{antes-despues}}
 
-Una de las formas más comunes de evaluar reservas marinas es mediante la
-comparación de indicadores biológicos antes y después de la
-implementación de la reserva. Por ejemplo \citet{wantiez_1997} evaluan
-el efecto de las reservas marinas en las comunidades de peces de cinco
-islas en Nueva Celadonia. El trabajo compara número de especies
-(riqueza), número de organismos (densidades) y biomasa obtenidas para
-nueve sitios en 1990 y 1994. Aunque las reservas fueron establecidas en
-1989, la vigilancia y cumplimiento de las reglas comienza en 1990.
-Aunque los autores identifican pocos cambios estadísticamente
-significativos (solamente dos sitios muestran un incremento en
-densidad), la metodología empleada ignora otras eventos que puedan haber
-causado los efectos observados.
+Una de las formas más comunes de evaluar reservas marinas es mediante la comparación de indicadores biológicos antes y después de la implementación de la reserva. Por ejemplo \citet{wantiez_1997} evaluan el efecto de las reservas marinas en las comunidades de peces de cinco islas en Nueva Celadonia. El trabajo compara número de especies (riqueza), número de organismos (densidades) y biomasa obtenidas para nueve sitios en 1990 y 1994. Aunque las reservas fueron establecidas en 1989, la vigilancia y cumplimiento de las reglas comienza en 1990. Aunque los autores identifican pocos cambios estadísticamente significativos (solamente dos sitios muestran un incremento en densidad), la metodología empleada ignora otras eventos que puedan haber causado los efectos observados.
 
-Por ejemplo, es posible que entre 1990 y 1994 hayan existido
-intervenciones de manejo pesquero que redujeran el esfuerzo de pesca, el
-ambiente pudo haber sufrido cambios que modificaran la productividad del
-sistema, la sobrepesca de especies depredadoras o una serie de años de
-buen reclutamiento podrían llevar a observar incrementos en densidad
-\citep{szuwalski_2017, chavez_2003}. Para poder distinguir este tipo de
-cambios, sería necesario un sitio control con el cual comparar
-\citep{betti_2017}. Un sitio control podría ser un área con hábitat
-similar al de la reserva, pero que presenta actividad pesquera.
+Por ejemplo, es posible que entre 1990 y 1994 hayan existido intervenciones de manejo pesquero que redujeran el esfuerzo de pesca, el ambiente pudo haber sufrido cambios que modificaran la productividad del sistema, la sobrepesca de especies depredadoras o una serie de años de buen reclutamiento podrían llevar a observar incrementos en densidad \citep{szuwalski_2017, chavez_2003}. Para poder distinguir este tipo de cambios, sería necesario un sitio control con el cual comparar \citep{betti_2017}. Un sitio control podría ser un área con hábitat similar al de la reserva, pero que presenta actividad pesquera.
 
-La Figura \ref{fig:disenos}A muestra un caso hipotético de una
-evaluación antes-después. En este caso, el indicador en la reserva
-incrementó de 4 a 9 unidades. En esta evaluación, concluiríamos que la
-reserva resulta en un incremento de 5 unidades al año. Sin embargo, la
-línea azul muestra la tendencia temporal del control, mostrada en opaco
-para representar que el evaluador no observa esa información.
+La Figura \ref{fig:disenos}A muestra un caso hipotético de una evaluación antes-después. En este caso, el indicador en la reserva incrementó de 4 a 9 unidades. En esta evaluación, concluiríamos que la reserva resulta en un incremento de 5 unidades al año. Sin embargo, la línea azul muestra la tendencia temporal del control, mostrada en opaco para representar que el evaluador no observa esa información.
 
 \hypertarget{dentro-fuera}{%
 \section{Dentro-Fuera}\label{dentro-fuera}}
 
-Muchos trabajos evitan el problema de cambios temporales al evaluar
-indicadores dentro y fuera de las zonas protegidas en una fecha única.
-Por ejemplo, \citet{guidetti_2014} comparan 30 localidades del
-Mediterráneo, que dividen en reservas estrictas, reservas intermedias y
-áreas de pesca. El trabajo reporta diferencias en biomasa y riqueza
--pero no en densidades- con las reservas estrictas mostrando el mayor
-efecto. Aunque el hábitat es similar entre grupos de sitios, esta
-aproximación no toma encuenta las trayectorias o estados intrínsecos de
-cada localidad ni otras inherentes diferencias espaciales que uno debe
-tomar en cuenta.
+Muchos trabajos evitan el problema de cambios temporales al evaluar indicadores dentro y fuera de las zonas protegidas en una fecha única. Por ejemplo, \citet{guidetti_2014} comparan 30 localidades del Mediterráneo, que dividen en reservas estrictas, reservas intermedias y áreas de pesca. El trabajo reporta diferencias en biomasa y riqueza -pero no en densidades- con las reservas estrictas mostrando el mayor efecto. Aunque el hábitat es similar entre grupos de sitios, esta aproximación no toma encuenta las trayectorias o estados intrínsecos de cada localidad ni otras inherentes diferencias espaciales que uno debe tomar en cuenta.
 
-En este caso, es posible que los sitios de pesca y reservas intermedias
-siempre mostraran menor biomasa y riqueza, incluso antes de la
-implementación de las reservas estrictas. También es posible que los
-valores dentro de las reservas se hayan mantenido constantes desde su
-creación, pero que las condiciones fuera de las reservas se hayan
-deteriorado. Cualquiera de estas situaciones podría causar los patrones
-observados, y un diseño muestreal que compare reservas contra zonas
-control difícilmente podrá rechazar estas explicaciones alternas.
+En este caso, es posible que los sitios de pesca y reservas intermedias siempre mostraran menor biomasa y riqueza, incluso antes de la implementación de las reservas estrictas. También es posible que los valores dentro de las reservas se hayan mantenido constantes desde su creación, pero que las condiciones fuera de las reservas se hayan deteriorado. Cualquiera de estas situaciones podría causar los patrones observados, y un diseño muestreal que compare reservas contra zonas control difícilmente podrá rechazar estas explicaciones alternas.
 
-La Figura \ref{fig:disenos}B muestra un ejemplo de una evaluación donde
-se compara dentro-fuera. Esta comparación indica que hay 4 unidades más
-en la reserva que en el control. Este ejercicio ignora el hecho de que,
-incluso antes de la implementación de la reserva, el sitio de reserva
-presentaba una diferencia de 2 unidades. En este diseño muestreal el
-evaluador no observa los valores históricos, por lo que aparecen en
-opaco. Estos ejemplos muestran como los mismos datos pueden resultar en
-estimaciones distintas, según la información que se tome en cuenta.
-¿Entonces, cuál es el valor correcto? En realidad, ninguno de estos.
+La Figura \ref{fig:disenos}B muestra un ejemplo de una evaluación donde se compara dentro-fuera. Esta comparación indica que hay 4 unidades más en la reserva que en el control. Este ejercicio ignora el hecho de que, incluso antes de la implementación de la reserva, el sitio de reserva presentaba una diferencia de 2 unidades. En este diseño muestreal el evaluador no observa los valores históricos, por lo que aparecen en opaco. Estos ejemplos muestran como los mismos datos pueden resultar en estimaciones distintas, según la información que se tome en cuenta. ¿Entonces, cuál es el valor correcto? En realidad, ninguno de estos.
 
 \hypertarget{antes-despues-dentro-fuera}{%
 \section{Antes-Después-Dentro-Fuera}\label{antes-despues-dentro-fuera}}
 
-Las secciones anteriores muestran que las evaluaciones antes-después o
-dentro-fuera pueden ignorar factores importantes y, por lo tanto,
-producir estimaciones incorrectas del efecto de una reserva. ¿Esto
-quiere decir que las evaluaciones de \citet{wantiez_1997} y
-\citet{guidetti_2014} están equivocadas? ¡Para nada! Sus conclusiones
-indican que hay diferencias a través del tiempo, o entre sitios reserva
-y sitios control, lo cual es cierto. Sin embargo, no es posible atribuir
-la totalidad de las diferencias observadas a las reservas.
+Las secciones anteriores muestran que las evaluaciones antes-después o dentro-fuera pueden ignorar factores importantes y, por lo tanto, producir estimaciones incorrectas del efecto de una reserva. ¿Esto quiere decir que las evaluaciones de \citet{wantiez_1997} y \citet{guidetti_2014} están equivocadas? ¡Para nada! Sus conclusiones indican que hay diferencias a través del tiempo, o entre sitios reserva y sitios control, lo cual es cierto. Sin embargo, no es posible atribuir la totalidad de las diferencias observadas a las reservas.
 
-Cuando hablamos de intervenciones de manejo, nos interesa saber cual es
-el \emph{impacto neto} de la intervención. En este sentido, y retomando
-los ejemplos de las Figuras \ref{fig:disenos}A-B, queremos descomponer
-el incremento de la reserva en sus tres partes: i) El incremento causado
-por la evolución temporal, ii) el incremento \emph{aparente} causado por
-las diferencias originales, y iii) el \emph{incremento neto} una vez que
-tomamos en cuenta los anteriores.
+Cuando hablamos de intervenciones de manejo, nos interesa saber cual es el \emph{impacto neto} de la intervención. En este sentido, y retomando los ejemplos de las Figuras \ref{fig:disenos}A-B, queremos descomponer el incremento de la reserva en sus tres partes: i) El incremento causado por la evolución temporal, ii) el incremento \emph{aparente} causado por las diferencias originales, y iii) el \emph{incremento neto} una vez que tomamos en cuenta los anteriores.
 
-Para poder medir el impacto neto, es necesario conocer las trayectorias
-temporales (diferencia a través del tiempo) y las diferencias entre
-sitios. Para esto, es necesario tener un diseño muestreal de
-antes-después-control-impacto. En otras palabras, debemos tener
-observaciones en la reserva y el control antes y después de la
-implementación de la reserva. Una menor cantidad de trabajos han
-evaluado reservas marinas con esta aproximación, pues requiere de muchos
-datos \citep{moland_2013, villasenorderbez_2018}. Sin embargo, esto
-permite atribuir parte de los cambios observados a las reservas.
+Para poder medir el impacto neto, es necesario conocer las trayectorias temporales (diferencia a través del tiempo) y las diferencias entre sitios. Para esto, es necesario tener un diseño muestreal de antes-después-control-impacto. En otras palabras, debemos tener observaciones en la reserva y el control antes y después de la implementación de la reserva. Una menor cantidad de trabajos han evaluado reservas marinas con esta aproximación, pues requiere de muchos datos \citep{moland_2013, villasenorderbez_2018}. Sin embargo, esto permite atribuir parte de los cambios observados a las reservas.
 
-Por ejemplo, en la Figura \ref{fig:disenos}C se muestran las mismas
-tendencias que en los casos anteriores. En este caso, el evaluador
-conoce las diferencias temporales de la reserva (de 4 a 9 = 5) y del
-control (de 2 a 5 = 3). Com se mencionó antes, hay muchos factores que
-podrían causar cambios a través del tiempo, incluso en la ausencia de
-una reserva. En este caso, el sitio control presenta un incremento de 3
-unidades. ¿Entonces, qué habría pasado con el sitio de reserva si no
-hubiera recibido protección?
+Por ejemplo, en la Figura \ref{fig:disenos}C se muestran las mismas tendencias que en los casos anteriores. En este caso, el evaluador conoce las diferencias temporales de la reserva (de 4 a 9 = 5) y del control (de 2 a 5 = 3). Com se mencionó antes, hay muchos factores que podrían causar cambios a través del tiempo, incluso en la ausencia de una reserva. En este caso, el sitio control presenta un incremento de 3 unidades. ¿Entonces, qué habría pasado con el sitio de reserva si no hubiera recibido protección?
 
-En teoría, el sitio debería de haber seguido la misma tendencia que el
-sitio control. Es decir, debería de mostrar un incremento de 3 unidades.
-La Figura \ref{fig:disenos}C muestra una línea roja punteada
-representando este caso hipotético. Por lo tanto, la diferencia entre lo
-observado (línea sólida) y lo que habría pasado (línea punteada) puede
-ser atribuida a la protección. En otras palabras, de las 5 unidades de
-diferencia que muestra la reserva, 3 son por otros factores y 2 por la
-reserva. En este caso, podríamos entonces concluir que 2 de las unidades
-son causadas por la reserva.
+En teoría, el sitio debería de haber seguido la misma tendencia que el sitio control. Es decir, debería de mostrar un incremento de 3 unidades. La Figura \ref{fig:disenos}C muestra una línea roja punteada representando este caso hipotético. Por lo tanto, la diferencia entre lo observado (línea sólida) y lo que habría pasado (línea punteada) puede ser atribuida a la protección. En otras palabras, de las 5 unidades de diferencia que muestra la reserva, 3 son por otros factores y 2 por la reserva. En este caso, podríamos entonces concluir que 2 de las unidades son causadas por la reserva.
 
-Esta técnica se conoce en econometría como \emph{Diferencia entre
-Diferencias}, pues se calcula la diferencia a través del tiempo y a
-través de sitios. El remanente de esta operación es entonces el efecto
-neto observado. Desde luego, hay una serie de supuestos que debemos
-tener en cuenta, como la factibilidad de que nuestro sitio control sea
-realmente representativo. Además, al evaluar una reserva no tendremos
-sólamente 4 puntos, pues por lo general usaremos datos de monitoreos
-submarinos con muchas más observaciones. El siguiente capítulo (Capítulo
-\ref{evaluacion-de-reservas}) habla más sobre los métodos de regresiones
-utilizados en este caso, así como las otras dimensiones evaluadas por
-MAREA.
+Esta técnica se conoce en econometría como \emph{Diferencia entre Diferencias}, pues se calcula la diferencia a través del tiempo y a través de sitios. El remanente de esta operación es entonces el efecto neto observado. Desde luego, hay una serie de supuestos que debemos tener en cuenta, como la factibilidad de que nuestro sitio control sea realmente representativo. Además, al evaluar una reserva no tendremos sólamente 4 puntos, pues por lo general usaremos datos de monitoreos submarinos con muchas más observaciones. El siguiente capítulo (Capítulo \ref{evaluacion-de-reservas}) habla más sobre los métodos de regresiones utilizados en este caso, así como las otras dimensiones evaluadas por MAREA.
 
 \begin{figure}
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/disenos-1.pdf}
-\caption{\label{fig:disenos}Ejemplos de evaluaciones antes-después (A),
-dentro-fuera (B) y antes-después-dentro-fuera (C) para una reserva
-hipotética implementada al final del 2010. Rojo representa reserva y
-azul control, los colores opacos indican datos no observados u omitidos
-en cada tipo de evaluación. La línea punteada en la figura C represente
-la evolución que se hubiera esperado del sitio protegido si la reserva
-no se hubiera implementado.}
+\caption{\label{fig:disenos}Ejemplos de evaluaciones antes-después (A), dentro-fuera (B) y antes-después-dentro-fuera (C) para una reserva hipotética implementada al final del 2010. Rojo representa reserva y azul control, los colores opacos indican datos no observados u omitidos en cada tipo de evaluación. La línea punteada en la figura C represente la evolución que se hubiera esperado del sitio protegido si la reserva no se hubiera implementado.}
 \end{figure}
 
 \hypertarget{evaluacion-de-reservas}{%
 \chapter{Evaluación de reservas}\label{evaluacion-de-reservas}}
 
-Las reservas marinas son sistemas socio-ecológicos complejos. Su
-efectividad depende de las interacciones y combinaciones de factores
-sociales y ambientales. Por muchos años, la ciencia de reservas marinas
-se ha enfocado en comprender los efectos ecológicos de estas áreas,
-reportando aumentos en biomasa, riqueza y densidad de organismos o
-beneficios de mitigación de cambio climático y protección ambiental
-\citep{lester_2009, micheli_2012, giakoumi_2017, sala_2017, roberts_2017}.
-Más recientemente, algunos trabajos se han enfocado en la relación entre
-estructuras de gobernanza y aspectos socioeconómicos, así como la
-efectividad de las reservas
-\citep{halpern_2013, lpezangarita_2014, mascia_2017}. Por lo tanto, es
-importante que la evaluación de reservas tome en cuenta las dimensiones
-ecológicas, socioeconómicas y de gobernanza.
+Las reservas marinas son sistemas socio-ecológicos complejos. Su efectividad depende de las interacciones y combinaciones de factores sociales y ambientales. Por muchos años, la ciencia de reservas marinas se ha enfocado en comprender los efectos ecológicos de estas áreas, reportando aumentos en biomasa, riqueza y densidad de organismos o beneficios de mitigación de cambio climático y protección ambiental \citep{lester_2009, micheli_2012, giakoumi_2017, sala_2017, roberts_2017}. Más recientemente, algunos trabajos se han enfocado en la relación entre estructuras de gobernanza y aspectos socioeconómicos, así como la efectividad de las reservas \citep{halpern_2013, lpezangarita_2014, mascia_2017}. Por lo tanto, es importante que la evaluación de reservas tome en cuenta las dimensiones ecológicas, socioeconómicas y de gobernanza.
 
-La metodología propuesta e implementada en MAREA utiliza una serie de
-indicadores de cada dimensión. Los indicadores sugeridos pueden ser
-usados en función de los objetivos de la reserva o de otras preguntas de
-interés. En este capítulo definimos los objetivos generales para los
-cuales las reservas pueden ser implementadas y los indicadores sugeridos
-para cada caso. Después explicamos a profundidad cómo MAREA utiliza el
-análisis de Diferencias entre Diferencias presentado previamente en el
-capítulo anterior (Capítulo \ref{antecedentes}).
+La metodología propuesta e implementada en MAREA utiliza una serie de indicadores de cada dimensión. Los indicadores sugeridos pueden ser usados en función de los objetivos de la reserva o de otras preguntas de interés. En este capítulo definimos los objetivos generales para los cuales las reservas pueden ser implementadas y los indicadores sugeridos para cada caso. Después explicamos a profundidad cómo MAREA utiliza el análisis de Diferencias entre Diferencias presentado previamente en el capítulo anterior (Capítulo \ref{antecedentes}).
 
 \hypertarget{objetivos-e-indicadores}{%
 \section{Objetivos e indicadores}\label{objetivos-e-indicadores}}
 
-Como cualquier otra intervención de manejo, las reservas marinas deben
-de tener objetivos claros\footnote{Idealmente, usaremos objetivos
-  \href{https://en.wikipedia.org/wiki/SMART_criteria}{SMART}}. Los
-objetivos nos ayudan a identificar los cambios que deseamos ver y, por
-lo tanto, seleccionar indicadores para evaluar la efectividad de la
-intervención.
+Como cualquier otra intervención de manejo, las reservas marinas deben de tener objetivos claros\footnote{Idealmente, usaremos objetivos \href{https://en.wikipedia.org/wiki/SMART_criteria}{SMART}}. Los objetivos nos ayudan a identificar los cambios que deseamos ver y, por lo tanto, seleccionar indicadores para evaluar la efectividad de la intervención.
 
-En la práctica, los objetivos suelen ser difusos y se encuentran
-escondidos en documentos oficiales. Habrá ocasiones en las que
-diferentes agencias, cuerpos o actores tengan percepciones distintas
-sobre los objetivos. En otras, las reservas tendrán objetivos muy
-específicos (por ejemplo ``Duplicar la biomasa de mero en los primeros
-10 años''). Por lo tanto, es difícil generar una lista de todos los
-objetivos e indicadores posibles.
+En la práctica, los objetivos suelen ser difusos y se encuentran escondidos en documentos oficiales. Habrá ocasiones en las que diferentes agencias, cuerpos o actores tengan percepciones distintas sobre los objetivos. En otras, las reservas tendrán objetivos muy específicos (por ejemplo ``Duplicar la biomasa de mero en los primeros 10 años''). Por lo tanto, es difícil generar una lista de todos los objetivos e indicadores posibles.
 
-En su lugar, la metodología desarrollada por
-\citet{villasenorderbez_2018} e implementada en MAREA presenta una serie
-de 7 objetivos generales a los cuales se asignan 25 indicadores
-divididos en indicadores biológicos (n = 7), socioeconómicos (n = 3) y
-de gobernanza (n = 15). Los 7 objetivos están inspirados en la
-normatividad de las zonas de refugio pesquero \citep{nom}, pero agrupan
-muchos otros objetivos más particulares.
+En su lugar, la metodología desarrollada por \citet{villasenorderbez_2018} e implementada en MAREA presenta una serie de 7 objetivos generales a los cuales se asignan 25 indicadores divididos en indicadores biológicos (n = 7), socioeconómicos (n = 3) y de gobernanza (n = 15). Los 7 objetivos están inspirados en la normatividad de las zonas de refugio pesquero \citep{nom}, pero agrupan muchos otros objetivos más particulares.
 
-\begin{table}
+\begin{table}[t]
 
 \caption{\label{tab:tabla-oi}Matriz de objetivos e indicadores. Cada columna representa un indicador biológico (B) o socioeconómico (S). Los indicadores de gobernanza no se muestran, pues sugerimos que todos sean utilizados sin importar el objetivo.}
 \centering
-\begin{tabular}[t]{lllllllllll}
+\begin{tabular}{lllllllllll}
 \toprule
 Objetivo & B1 & B2 & B3 & B4 & B5 & B6 & B7 & S1 & S2 & S3\\
 \midrule
@@ -669,19 +396,7 @@ Recuperar especies de inerés comercial &  &  & x &  & x &  &  &  &  & x\\
 \end{tabular}
 \end{table}
 
-La lista de indicadores presentada es el resultado de un proceso de
-depuración de más de 40 indicadores iniciales obtenidos de la literatura
-científica
-\citep{halpern_2002, lester_2009, lester_2008, micheli_2012, halpern_2013, basurto_2013, leslie_2015}.
-El proceso de selección incluyó pescadores, investigadores, gestores
-ambientales y personal de agencias de gobierno. Los indicadores fueron
-elegidos según su facilidad de medición, la existencia de información
-anterior y presencia de programas de monitoreo que los midan anualmente.
-Además de separar explícitamente los indicadores en las categorías
-previamente mencionadas, también hay una separación implícita entre
-indicadores que cambian por defecto de la reserva (por ejemplo,
-\textbf{B} - Biomasa) o indicadores que pueden explicar la efectividad
-de la reserva, como \textbf{G5} - Pesca ilegal.
+La lista de indicadores presentada es el resultado de un proceso de depuración de más de 40 indicadores iniciales obtenidos de la literatura científica \citep{halpern_2002, lester_2009, lester_2008, micheli_2012, halpern_2013, basurto_2013, leslie_2015}. El proceso de selección incluyó pescadores, investigadores, gestores ambientales y personal de agencias de gobierno. Los indicadores fueron elegidos según su facilidad de medición, la existencia de información anterior y presencia de programas de monitoreo que los midan anualmente. Además de separar explícitamente los indicadores en las categorías previamente mencionadas, también hay una separación implícita entre indicadores que cambian por defecto de la reserva (por ejemplo, \textbf{B} - Biomasa) o indicadores que pueden explicar la efectividad de la reserva, como \textbf{G5} - Pesca ilegal.
 
 Los indicadores biológicos son:
 
@@ -692,8 +407,7 @@ Los indicadores biológicos son:
 \item
   \textbf{B2} - Riqueza de especies
 \item
-  \textbf{B3} - Densidad de organismos maduros (proporción de organismos
-  mayores a la talla de primera maduréz)
+  \textbf{B3} - Densidad de organismos maduros (proporción de organismos mayores a la talla de primera maduréz)
 \item
   \textbf{B4} - Densidad de organismos
 \item
@@ -755,105 +469,53 @@ Los indicadores de gobernanza son:
 \hypertarget{analisis}{%
 \section{Análisis}\label{analisis}}
 
-Una vez definidos los indicadores, debemos establecer formas de
-analizarlos. La metodología de colecta de datos no es parte central de
-este manual, y ha sido descrita a detalle en otros trabajos
-\citep{suman_2010, villaseorderbez_2017, villasenorderbez_2018}. En esta
-sección describimos el análisis de Diferencias entre Diferencias
-empleado para estimar el efecto de la reserva en los indicadores
-biológicos y los análisis para indicadores socioeconómicos y de
-gobernanza.
+Una vez definidos los indicadores, debemos establecer formas de analizarlos. La metodología de colecta de datos no es parte central de este manual, y ha sido descrita a detalle en otros trabajos \citep{suman_2010, villaseorderbez_2017, villasenorderbez_2018}. En esta sección describimos el análisis de Diferencias entre Diferencias empleado para estimar el efecto de la reserva en los indicadores biológicos y los análisis para indicadores socioeconómicos y de gobernanza.
 
 \hypertarget{inferencia-de-causalidad}{%
 \subsection{Inferencia de causalidad}\label{inferencia-de-causalidad}}
 
-Como se mencionó en la Sección \ref{antes-despues-dentro-fuera}, MAERA
-usa un análisis de Diferencias en Diferencias. Pero ¿cómo funciona este
-análisis cuando tenemos más de cuatro observaciones? El análisis puede
-hacerse por medio de una regresión lineal múltiple.
+Como se mencionó en la Sección \ref{antes-despues-dentro-fuera}, MAERA usa un análisis de Diferencias en Diferencias. Pero ¿cómo funciona este análisis cuando tenemos más de cuatro observaciones? El análisis puede hacerse por medio de una regresión lineal múltiple.
 
-Retomando el ejemplo del capítulo anterior (Captítulo
-\ref{antecedentes}), podemos imaginarnos un caso en el que tenemos dos
-observaciones para cada sitio en cada periodo. En tal caso, podríamos
-calcular el promedio de cada sitio en cada periodo. La Figura
-\ref{fig:baci-multi} muestra las observaciones como puntos y los
-promedios como líneas. En este caso, podríamos calcular la pendiente de
-cada línea (esto es, el cambio en el tiempo) y así obtener el
-contrafactual (línea punteada roja) y calcular el efecto de la reserva.
+Retomando el ejemplo del capítulo anterior (Captítulo \ref{antecedentes}), podemos imaginarnos un caso en el que tenemos dos observaciones para cada sitio en cada periodo. En tal caso, podríamos calcular el promedio de cada sitio en cada periodo. La Figura \ref{fig:baci-multi} muestra las observaciones como puntos y los promedios como líneas. En este caso, podríamos calcular la pendiente de cada línea (esto es, el cambio en el tiempo) y así obtener el contrafactual (línea punteada roja) y calcular el efecto de la reserva.
 
 \begin{figure}
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/baci-multi-1.pdf}
-\caption{\label{fig:baci-multi}Diseño muestreal antes-despues-dentro-fuera
-con dos observaciones por sitio y periodo (puntos). Las líneas sólidas
-muestran las tendencias promedio de cada sitio con azul para el control
-y rojo para la reserva. La línea punteada roja muestra el contrafactual
-de la reserva. Las líneas punteadas negras horizontales y verticales
-presentan los promedios de cada sitio y periodo.}
+\caption{\label{fig:baci-multi}Diseño muestreal antes-despues-dentro-fuera con dos observaciones por sitio y periodo (puntos). Las líneas sólidas muestran las tendencias promedio de cada sitio con azul para el control y rojo para la reserva. La línea punteada roja muestra el contrafactual de la reserva. Las líneas punteadas negras horizontales y verticales presentan los promedios de cada sitio y periodo.}
 \end{figure}
 
-Como el cambio a través del tiempo es básicamente una pendiente, podemos
-usar una regresión lineal múltiple para obtener esos valores. En el caso
-de Diferencias en Diferencias, nos interesan 3 cambios o pendientes: i)
-La diferencia a través del tiempo y ii) La diferencia entre sitios y
-iii) La diferencia entre estas diferencias.
+Como el cambio a través del tiempo es básicamente una pendiente, podemos usar una regresión lineal múltiple para obtener esos valores. En el caso de Diferencias en Diferencias, nos interesan 3 cambios o pendientes: i) La diferencia a través del tiempo y ii) La diferencia entre sitios y iii) La diferencia entre estas diferencias.
 
-Para calcular la diferencia a través del tiempo, podemos definir una
-variable llamada \(Post\) que tomará un valor \(Post = 0\) para todas
-las observaciones antes de la implementación de la reserva y un valor de
-\(Post = 1\) una vez que la reserva haya sido implementada. Al igual que
-cuando comparamos 2011 contra 2010, la diferencia entre años o entre
-\(Post\) será de 1 (\(2011 - 2010 = 1\); \(1 - 0 = 1\)).
+Para calcular la diferencia a través del tiempo, podemos definir una variable llamada \(Post\) que tomará un valor \(Post = 0\) para todas las observaciones antes de la implementación de la reserva y un valor de \(Post = 1\) una vez que la reserva haya sido implementada. Al igual que cuando comparamos 2011 contra 2010, la diferencia entre años o entre \(Post\) será de 1 (\(2011 - 2010 = 1\); \(1 - 0 = 1\)).
 
-Para obtener la diferencia entre sitios, definimos otra variablle
-llamada \(Zona\) que tomará un valor de \(Zona = 0\) para las
-observaciones realizadas en el control y un valor de \(Zona = 1\) para
-las observaciones de la reserva. Finalmente, podemos ``interactuar''
-(multiplicar) estas variables para generar un \emph{término de
-interacción}, de tal manera que \(Zona \times Post = 0\) para todas las
-observaciones del control y la observación de la reserva \textbf{antes}
-de la implementación, y \(Zona \times Post = 1\) para las observaciones
-de la reserva \textbf{después} de la implementación.
+Para obtener la diferencia entre sitios, definimos otra variablle llamada \(Zona\) que tomará un valor de \(Zona = 0\) para las observaciones realizadas en el control y un valor de \(Zona = 1\) para las observaciones de la reserva. Finalmente, podemos ``interactuar'' (multiplicar) estas variables para generar un \emph{término de interacción}, de tal manera que \(Zona \times Post = 0\) para todas las observaciones del control y la observación de la reserva \textbf{antes} de la implementación, y \(Zona \times Post = 1\) para las observaciones de la reserva \textbf{después} de la implementación.
 
-Por lo tanto, podemos definir un modelo lineal múltiple que contenga una
-variable para el tiempo, una para la zona y otra para la interacción
-entre estas, de la siguiente manera:
+Por lo tanto, podemos definir un modelo lineal múltiple que contenga una variable para el tiempo, una para la zona y otra para la interacción entre estas, de la siguiente manera:
 
 \begin{equation} 
 I = \alpha + \beta_1Post + \beta_2Zona + \beta_3Zona \times Post + \epsilon
 \label{eq:did}
 \end{equation}
 
-En esta especificación, estimamos los coeficientes \(\alpha\),
-\(\beta_1\), \(\beta_2\) y \(\beta_3\) por medio de mínimos cuadrados
-ordinarios. Estos coeficientes presentarán la siguiente información:
+En esta especificación, estimamos los coeficientes \(\alpha\), \(\beta_1\), \(\beta_2\) y \(\beta_3\) por medio de mínimos cuadrados ordinarios. Estos coeficientes presentarán la siguiente información:
 
 \begin{itemize}
 \tightlist
 \item
-  \(\alpha\): promedio del indicador en la zona control antes de la
-  implementación
+  \(\alpha\): promedio del indicador en la zona control antes de la implementación
 \item
   \(\beta_1\): cambio a través del tiempo
 \item
   \(\beta_2\): cambio a través de sitios
 \item
-  \(\beta_3\): restante del cambio entre reservas y sitios (este es el
-  efecto de la reserva)
+  \(\beta_3\): restante del cambio entre reservas y sitios (este es el efecto de la reserva)
 \end{itemize}
 
-Esto es quivalente a un ANOVA de dos vías con un término de interacción.
-La ventaja de hacerlo así es que no solamente podemos decir si hay o no
-diferencias, si no que también inferir algo sobre la magnitud de estas
-diferencias. La interpretación de estos coeficientes puede ser un poco
-compleja, pero el siguiente ejemplo puede ayudarnos a aclarar dudas.
-Ajustando el modelo lineal a los datos de la Figura
-\ref{fig:baci-multi}, obtenemos los coeficientes mostrados en la Tabla
-\ref{tab:reg}.
+Esto es quivalente a un ANOVA de dos vías con un término de interacción. La ventaja de hacerlo así es que no solamente podemos decir si hay o no diferencias, si no que también inferir algo sobre la magnitud de estas diferencias. La interpretación de estos coeficientes puede ser un poco compleja, pero el siguiente ejemplo puede ayudarnos a aclarar dudas. Ajustando el modelo lineal a los datos de la Figura \ref{fig:baci-multi}, obtenemos los coeficientes mostrados en la Tabla \ref{tab:reg}.
 
 \begin{table}[!htbp] \centering 
   \caption{Coeficientes estimados mediante la regresión lineal múltiple.} 
-  \label{tab:reg} 
+  \label{reg} 
 \begin{tabular}{@{\extracolsep{5pt}}lc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
@@ -876,38 +538,20 @@ F Statistic & 8.667$^{**}$ (df = 3; 4) \\
 \end{tabular} 
 \end{table}
 
-La Tabla \ref{tab:reg} muestra los valores estimados para los
-coeficientes. Los números entre paréntesis presentan el error estándar
-al rededor de la estimación. Además, presenta la varianza explicada por
-el modelo, en este caso con un valor de \(R^2 = 0.87\)\footnote{El
-  modelo completo de MAREA incluye covariables que pueden ayudar a
-  explicar mayor parte de la variación en los datos. Estos incluyen la
-  profundidad, visibilidad y temperatura asociadas a cada observación.
-  En este caso, 13\% de la variación faltante es debido a la
-  manipulación manual de los datos, pero podríamos esperar que las
-  covariables antes mencionadas expliquen algo de la variación en los
-  datos.}.
+La Tabla \ref{tab:reg} muestra los valores estimados para los coeficientes. Los números entre paréntesis presentan el error estándar al rededor de la estimación. Además, presenta la varianza explicada por el modelo, en este caso con un valor de \(R^2 = 0.87\)\footnote{El modelo completo de MAREA incluye covariables que pueden ayudar a explicar mayor parte de la variación en los datos. Estos incluyen la profundidad, visibilidad y temperatura asociadas a cada observación. En este caso, 13\% de la variación faltante es debido a la manipulación manual de los datos, pero podríamos esperar que las covariables antes mencionadas expliquen algo de la variación en los datos.}.
 
-Para interpretar los coeficientes, debemos sustituirlos en la ecuación
-anterior. Por lo tanto, obtenemos lo siguiente:
+Para interpretar los coeficientes, debemos sustituirlos en la ecuación anterior. Por lo tanto, obtenemos lo siguiente:
 
 \[
 I = 2 + (3 \times Post) + (2\times Zona) + (2 \times Zona \times Post)
 \]
 
-Podemos usar esta acuación para calcular el valor promedio del indicador
-\(I\) en cada sitio y cada perido según los valores de las variables
-\(Post\), \(Zona\) y \(Zona \times Post\).
+Podemos usar esta acuación para calcular el valor promedio del indicador \(I\) en cada sitio y cada perido según los valores de las variables \(Post\), \(Zona\) y \(Zona \times Post\).
 
 \hypertarget{valor-antes-en-el-control}{%
-\subsubsection{Valor antes en el
-control}\label{valor-antes-en-el-control}}
+\subsubsection{Valor antes en el control}\label{valor-antes-en-el-control}}
 
-Primero, debemos definir los valores de las variables según el sitio y
-periodo en el que estamos. Para los valores antes de la implementación
-sabemos que \(Post = 0\). Para los valores del sitio control sabemos que
-\(Zona = 0\). Sustituimos estos valores en la fórmula anterior y
-obtenemos
+Primero, debemos definir los valores de las variables según el sitio y periodo en el que estamos. Para los valores antes de la implementación sabemos que \(Post = 0\). Para los valores del sitio control sabemos que \(Zona = 0\). Sustituimos estos valores en la fórmula anterior y obtenemos
 
 \[
 \begin{split}
@@ -917,13 +561,10 @@ I &= 2
 \end{split}
 \]
 
-Este ejercicio sugiere que el valor promedio del indicador en el control
-antes de la intervención es de 2. La inspección visual de la Figura
-\ref{fig:baci-multi} confirma esto.
+Este ejercicio sugiere que el valor promedio del indicador en el control antes de la intervención es de 2. La inspección visual de la Figura \ref{fig:baci-multi} confirma esto.
 
 \hypertarget{valor-despues-en-el-control}{%
-\subsubsection{Valor después en el
-control}\label{valor-despues-en-el-control}}
+\subsubsection{Valor después en el control}\label{valor-despues-en-el-control}}
 
 En este caso, \(Post = 1\) pero seguimos con \(Zona = 0\):
 
@@ -935,16 +576,12 @@ I &= 5
 \end{split}
 \]
 
-Ahora identificamos que el promedio del indicador en el control después
-de la intervención es de 5, como lo vemos en la Figura
-\ref{fig:baci-multi}.
+Ahora identificamos que el promedio del indicador en el control después de la intervención es de 5, como lo vemos en la Figura \ref{fig:baci-multi}.
 
 \hypertarget{valor-antes-en-la-reserva}{%
-\subsubsection{Valor antes en la
-reserva}\label{valor-antes-en-la-reserva}}
+\subsubsection{Valor antes en la reserva}\label{valor-antes-en-la-reserva}}
 
-Ahora, regresamos a tener \(Post = 0\) pero con \(Zona = 1\), pues
-estamos en la reserva:
+Ahora, regresamos a tener \(Post = 0\) pero con \(Zona = 1\), pues estamos en la reserva:
 
 \[
 \begin{split}
@@ -954,16 +591,12 @@ I &= 4
 \end{split}
 \]
 
-En este caso el promedio del indicador en la reserva antes de la
-intervención es de 4 (Figura \ref{fig:baci-multi}).
+En este caso el promedio del indicador en la reserva antes de la intervención es de 4 (Figura \ref{fig:baci-multi}).
 
 \hypertarget{valor-despues-en-la-reserva}{%
-\subsubsection{Valor después en la
-reserva}\label{valor-despues-en-la-reserva}}
+\subsubsection{Valor después en la reserva}\label{valor-despues-en-la-reserva}}
 
-Para calcular el valor en el sitio de reserva después de la
-intervención, tendremos \(Post = 1\) y \(Zona =1\). Hagamos el ejercicio
-sin incluir el término de interacción por ahora:
+Para calcular el valor en el sitio de reserva después de la intervención, tendremos \(Post = 1\) y \(Zona =1\). Hagamos el ejercicio sin incluir el término de interacción por ahora:
 
 \[
 \begin{split}
@@ -973,12 +606,7 @@ I &= 7
 \end{split}
 \]
 
-¿Por qué obtenemos un valor de 7 si la reserva presenta un valor de 9
-después de su implementación? En este caso, no hemos aún incluido el
-valor del término de interacción, por lo que obtenemos el valor que la
-reserva habría presentado si la reserva no se hubiera implementado. Este
-es el contrafactual, mostrado como la línea punteada roja en la Figura
-\ref{fig:baci-multi}. Al incluir el término de interacción, obtenemos:
+¿Por qué obtenemos un valor de 7 si la reserva presenta un valor de 9 después de su implementación? En este caso, no hemos aún incluido el valor del término de interacción, por lo que obtenemos el valor que la reserva habría presentado si la reserva no se hubiera implementado. Este es el contrafactual, mostrado como la línea punteada roja en la Figura \ref{fig:baci-multi}. Al incluir el término de interacción, obtenemos:
 
 \[
 \begin{split}
@@ -988,97 +616,45 @@ I &= 9
 \end{split}
 \]
 
-El término de interacción captura la diferencia entre lo que debería de
-haberse observado para la reserva y lo que realmente se observó. Es
-decir, la diferencia entre las líneas rojas. Este término es el
-\textbf{efecto de la reserva}. En este sentido, podemos entonces
-concluir que una reserva marina causó un incremento de 2 unidades en el
-indicador.
+El término de interacción captura la diferencia entre lo que debería de haberse observado para la reserva y lo que realmente se observó. Es decir, la diferencia entre las líneas rojas. Este término es el \textbf{efecto de la reserva}. En este sentido, podemos entonces concluir que una reserva marina causó un incremento de 2 unidades en el indicador.
 
-Aunque la regresión lineal y el álgebra pueden parecer complicados, en
-la realidad todo puede implementarse con una línea de código (como
-\texttt{lm(indicador\ \textasciitilde{}\ post\ *\ zona,\ data\ =\ datos)}).
-Mejor aún, MAREA se encarga de generar las variables \(Post\) y
-\(Zona\), ajustar el modelo, obtener los coeficientes y reportar los
-resultados. En el siguiente capítulo (Capítulo \ref{uso-de-marea}),
-describimos el uso de MAREA y demostramos que con 6 sencillos pasos
-podemos evaluar todos los indicadores y obtener reportes para compartir.
+Aunque la regresión lineal y el álgebra pueden parecer complicados, en la realidad todo puede implementarse con una línea de código (como \texttt{lm(indicador\ \textasciitilde{}\ post\ *\ zona,\ data\ =\ datos)}). Mejor aún, MAREA se encarga de generar las variables \(Post\) y \(Zona\), ajustar el modelo, obtener los coeficientes y reportar los resultados. En el siguiente capítulo (Capítulo \ref{uso-de-marea}), describimos el uso de MAREA y demostramos que con 6 sencillos pasos podemos evaluar todos los indicadores y obtener reportes para compartir.
 
 \hypertarget{socioeconomicos-y-de-gobernanza}{%
-\subsection{Socioeconómicos y de
-gobernanza}\label{socioeconomicos-y-de-gobernanza}}
+\subsection{Socioeconómicos y de gobernanza}\label{socioeconomicos-y-de-gobernanza}}
 
-Ahora pasamos a describir el análisis de los indicadores socioeconómicos
-y de gobernanza. Los primeros dos
-\protect\hyperlink{objetivos-e-indicadores}{indicadores socioeconómicos}
-son numéricos, puesto que representan los arribos (masa) e ingresos
-(dinero) que generan las pesquerías de la comunidad. En este caso, no
-tenemos una comunidad control, pero podemos aún inferir algo de los
-cambios mediante una evaluación antes-después. Para esto, MAREA
-implementa una forma reducida del modelo anterior:
+Ahora pasamos a describir el análisis de los indicadores socioeconómicos y de gobernanza. Los primeros dos \protect\hyperlink{objetivos-e-indicadores}{indicadores socioeconómicos} son numéricos, puesto que representan los arribos (masa) e ingresos (dinero) que generan las pesquerías de la comunidad. En este caso, no tenemos una comunidad control, pero podemos aún inferir algo de los cambios mediante una evaluación antes-después. Para esto, MAREA implementa una forma reducida del modelo anterior:
 
 \[
 I = \alpha + \beta_1Post + \epsilon
 \]
 
-Lo anterior es equivalente a realizar una prueba t de student de dos
-colas con muestras pareadas. Un valor de \(\beta_1 = 0\) indicaría que
-no hay cambio en el indicador. Como se mencionó en el Capítulo
-\ref{antecedentes}, una evaluación antes-después no toma en cuenta otros
-factores exógenos y por lo tanto no podemos inferir causalidad. Sin
-embargo, la información obtenida sigue siendo útil al evaluar las
-reservas y el contexto social en el que se desarrollan.
+Lo anterior es equivalente a realizar una prueba t de student de dos colas con muestras pareadas. Un valor de \(\beta_1 = 0\) indicaría que no hay cambio en el indicador. Como se mencionó en el Capítulo \ref{antecedentes}, una evaluación antes-después no toma en cuenta otros factores exógenos y por lo tanto no podemos inferir causalidad. Sin embargo, la información obtenida sigue siendo útil al evaluar las reservas y el contexto social en el que se desarrollan.
 
-La mayoría de los indicadores de gobernanza son cuantitativos. Por lo
-tanto, no existe una evaluación numérica de estos. En su lugar,
-\citet{villasenorderbez_2018} realizaron una revisión literaria para
-identificar valores asociados a impactos positivos y negativos en la
-reserva. Por ejemplo, el indicador \textbf{G5} - Pesca Ilegal nos indica
-la presencia y / o el grado de pesca ilegal en la reserva, lo que
-sabemos es detrimental.
+La mayoría de los indicadores de gobernanza son cuantitativos. Por lo tanto, no existe una evaluación numérica de estos. En su lugar, \citet{villasenorderbez_2018} realizaron una revisión literaria para identificar valores asociados a impactos positivos y negativos en la reserva. Por ejemplo, el indicador \textbf{G5} - Pesca Ilegal nos indica la presencia y / o el grado de pesca ilegal en la reserva, lo que sabemos es detrimental.
 
 \hypertarget{uso-de-marea}{%
 \chapter{Uso de MAREA}\label{uso-de-marea}}
 
-El Capítulo \ref{antecedentes} describió las diferentes formas de
-evaluar reservas. El Capítulo \ref{evaluacion-de-reservas} describió la
-lista de objetivos e indicadores y la metodología de MAREA. Este
-capítulo presenta los pasos necesarios para evaluar una reserva con
-MAREA. Comenzamos con una breve descripción de los datos, seguido de los
-seis pasos necesarios para realizar la evaluación, la guía de
-interpretación de resultados y una breve mención de las capacidades y
-limitaciones de MAREA.
+El Capítulo \ref{antecedentes} describió las diferentes formas de evaluar reservas. El Capítulo \ref{evaluacion-de-reservas} describió la lista de objetivos e indicadores y la metodología de MAREA. Este capítulo presenta los pasos necesarios para evaluar una reserva con MAREA. Comenzamos con una breve descripción de los datos, seguido de los seis pasos necesarios para realizar la evaluación, la guía de interpretación de resultados y una breve mención de las capacidades y limitaciones de MAREA.
 
-Los participantes del curso recibirán datos simulados para hacer los
-ejercicios del Capítulo \ref{ejercicios-con-marea}. Sin embargo, el
-usuario de MAREA puede descargar ejemplos de datos en la pestaña de
-datos dentro de la aplicación.
+Los participantes del curso recibirán datos simulados para hacer los ejercicios del Capítulo \ref{ejercicios-con-marea}. Sin embargo, el usuario de MAREA puede descargar ejemplos de datos en la pestaña de datos dentro de la aplicación.
 
 \hypertarget{tipos-y-formatos-de-datos}{%
 \section{Tipos y formatos de datos}\label{tipos-y-formatos-de-datos}}
 
-Para poder usar MAREA sin problemas, es necesario que los datos tengan
-el formato correcto y estén en formato comaseparado (\texttt{*.csv}).
-Esta sección no pretende discutir en su totalidad el formato de datos.
-En su lugar, mencionamos brevemente algunos detalles importantes sobre
-el formato. La descripción detallada de los datos puede encontrarse en
-el manual operativo de MAREA \citep{villaseorderbez_2017}.
+Para poder usar MAREA sin problemas, es necesario que los datos tengan el formato correcto y estén en formato comaseparado (\texttt{*.csv}). Esta sección no pretende discutir en su totalidad el formato de datos. En su lugar, mencionamos brevemente algunos detalles importantes sobre el formato. La descripción detallada de los datos puede encontrarse en el manual operativo de MAREA \citep{villaseorderbez_2017}.
 
 \hypertarget{datos-biologicos}{%
 \subsection{Datos biológicos}\label{datos-biologicos}}
 
-MAREA utiliza tres tipos de datos: biológicos, socioeconómicos y de
-gobernanza. Los datos biológicos provienen de los censos visuales hechos
-en las zonas reserva y control. MAREA puede recibir dos bases biológicas
-distintas, una de peces y otra de invertebrados. Las bases de datos
-biológicos deberán contener, por lo menos, las columnas presentadas en
-la Tabla \ref{tab:formato}.
+MAREA utiliza tres tipos de datos: biológicos, socioeconómicos y de gobernanza. Los datos biológicos provienen de los censos visuales hechos en las zonas reserva y control. MAREA puede recibir dos bases biológicas distintas, una de peces y otra de invertebrados. Las bases de datos biológicos deberán contener, por lo menos, las columnas presentadas en la Tabla \ref{tab:formato}.
 
-\begin{table}
+\begin{table}[t]
 
 \caption{\label{tab:formato}Requerimientos mínimos para los nombres de columna de la base de datos biológicos.}
 \centering
-\begin{tabular}[t]{rlll}
+\begin{tabular}{rlll}
 \toprule
 Orden de columna & Nombre de Columna & Descripción & Ejemplo\\
 \midrule
@@ -1105,6 +681,7 @@ Orden de columna & Nombre de Columna & Descripción & Ejemplo\\
 18 & a* & El índice ponderal en la ecuación de crecimiento alométrico & 0.00001\\
 19 & b* & El factor alométrico en la ecuación de crecimiento alométrico & 3.02\\
 20 & NivelTrofico* & El nivel trófico de la especie & 3.5\\
+\addlinespace
 21 & LT50* & La longitud de primera madurez de la especie & 25\\
 \bottomrule
 \end{tabular}
@@ -1133,26 +710,18 @@ Otras columnas importantes, pero no estrictamente necesaria podrían ser:
   Observaciones: Notas de interés u observaciones relevantes.
 \end{enumerate}
 
-De las columnas presentadas en la Tabla \ref{tab:formato}, la más
-importante es \texttt{RC}. Esta columna es la que le indica a MAREA la
-relación entre sitios reserva y control. En una base con más de 2
-sitios, MAREA utiliza esta columna para saber qué sitios seleccionar al
-hacer el análisis.
+De las columnas presentadas en la Tabla \ref{tab:formato}, la más importante es \texttt{RC}. Esta columna es la que le indica a MAREA la relación entre sitios reserva y control. En una base con más de 2 sitios, MAREA utiliza esta columna para saber qué sitios seleccionar al hacer el análisis.
 
 \hypertarget{datos-socioeconomicos}{%
 \subsection{Datos socioeconómicos}\label{datos-socioeconomicos}}
 
-Los datos socioeconómicos deberán contener información de los arribos e
-ingresos anuales de cada especie. Además, deberán de contar con el
-índice del precio al consumidor usado para normalizar los datos de
-ingresos. Este índice puede ser obtenido por medio de la
-\href{https://data.oecd.org/price/inflation-cpi.htm}{OCDE}.
+Los datos socioeconómicos deberán contener información de los arribos e ingresos anuales de cada especie. Además, deberán de contar con el índice del precio al consumidor usado para normalizar los datos de ingresos. Este índice puede ser obtenido por medio de la \href{https://data.oecd.org/price/inflation-cpi.htm}{OCDE}.
 
-\begin{table}
+\begin{table}[t]
 
 \caption{\label{tab:formato-soc}Requerimientos mínimos para los nombres de columna de la base de datos socioeconómicos.}
 \centering
-\begin{tabular}[t]{rlll}
+\begin{tabular}{rlll}
 \toprule
 Orden de columna & Nombre de Columna & Descripción & Ejemplo\\
 \midrule
@@ -1171,12 +740,7 @@ Orden de columna & Nombre de Columna & Descripción & Ejemplo\\
 \hypertarget{gobernanza}{%
 \subsection{Gobernanza}\label{gobernanza}}
 
-Los datos de gobernanza se obtienen por medio de entrevistas y por lo
-tanto son más complejos. Para facilitar el uso de la entrevista
-sugerida, MAREA provee también una base de datos de Access que permite
-capturas la información de las entrevistas y obtener la base con el
-formato deseado. La base de Access se puede descargar en el menú lateral
-de MAREA.
+Los datos de gobernanza se obtienen por medio de entrevistas y por lo tanto son más complejos. Para facilitar el uso de la entrevista sugerida, MAREA provee también una base de datos de Access que permite capturas la información de las entrevistas y obtener la base con el formato deseado. La base de Access se puede descargar en el menú lateral de MAREA.
 
 \hypertarget{notas-importantes}{%
 \subsection{Notas importantes}\label{notas-importantes}}
@@ -1184,118 +748,65 @@ de MAREA.
 \hypertarget{nombres-de-columnas}{%
 \subsubsection{Nombres de columnas}\label{nombres-de-columnas}}
 
-Los nombres de columnas deben de evitar utilizar caracteres especiales
-(por ejemplo, ° / * \% \#) y otros que puedan hacer tu base imposible de
-leer en otras plataformas, como los acentos y las diéresis. Los nombres
-de columnas también deberán evitar espacios o paréntesis. Si una
-variable está compuesta por dos palabras, deberás considerar renombrarla
-a algo más simple. Por ejemplo ``número de transecto'' puede ser
-simplemente ``transecto''. Alternativamente, si reducir el nombre de la
-variable no es una opción, puedes escribirlo en formato ``camllo''
-(i.e.~usar una mayúscula para cada primer letra de cada palabra). Por
-ejemplo, la variable ``Genero especie'' se convierte en
-``GeneroEspecie''. Además, omite utilizar unidades en los nombres de las
-columnas. Como se explicó antes, los nombres de columnas deben de
-incluir la menor información posible, y las unidades están disponibles
-en los metadatos.
+Los nombres de columnas deben de evitar utilizar caracteres especiales (por ejemplo, ° / * \% \#) y otros que puedan hacer tu base imposible de leer en otras plataformas, como los acentos y las diéresis. Los nombres de columnas también deberán evitar espacios o paréntesis. Si una variable está compuesta por dos palabras, deberás considerar renombrarla a algo más simple. Por ejemplo ``número de transecto'' puede ser simplemente ``transecto''. Alternativamente, si reducir el nombre de la variable no es una opción, puedes escribirlo en formato ``camllo'' (i.e.~usar una mayúscula para cada primer letra de cada palabra). Por ejemplo, la variable ``Genero especie'' se convierte en ``GeneroEspecie''. Además, omite utilizar unidades en los nombres de las columnas. Como se explicó antes, los nombres de columnas deben de incluir la menor información posible, y las unidades están disponibles en los metadatos.
 
 \hypertarget{comunidades-y-sitios}{%
 \subsubsection{Comunidades y sitios}\label{comunidades-y-sitios}}
 
-Algo importante para mantener presente es la necesidad de usar nombres
-idénticos para comunidades y sitios de muestreo en toda la base de
-datos. Por ejemplo, nombrar a la comunidad ``Santa Maria'' en la base de
-datos biofísica, pero ``Sta. Maria'' en la base de datos socioeconómica
-no es un procedimiento correcto. Como humanos, somos capaces de
-identificar esas diferencias. Sin embargo, una computadora las
-identificará como palabras estrictamente diferentes y causará que MAREA
-falle.
+Algo importante para mantener presente es la necesidad de usar nombres idénticos para comunidades y sitios de muestreo en toda la base de datos. Por ejemplo, nombrar a la comunidad ``Santa Maria'' en la base de datos biofísica, pero ``Sta. Maria'' en la base de datos socioeconómica no es un procedimiento correcto. Como humanos, somos capaces de identificar esas diferencias. Sin embargo, una computadora las identificará como palabras estrictamente diferentes y causará que MAREA falle.
 
 \hypertarget{evaluacion-de-reservas-en-6-etapas}{%
-\section{Evaluación de reservas en 6
-etapas}\label{evaluacion-de-reservas-en-6-etapas}}
+\section{Evaluación de reservas en 6 etapas}\label{evaluacion-de-reservas-en-6-etapas}}
 
-MAREA está diseñada para evaluar las reservas en seis pasos, divididos
-por pestañas mostradas en la App. La Figura \ref{fig:shiny-marea}
-presenta la pantalla de bienvenida de la aplicación.
+MAREA está diseñada para evaluar las reservas en seis pasos, divididos por pestañas mostradas en la App. La Figura \ref{fig:shiny-marea} presenta la pantalla de bienvenida de la aplicación.
 
 \begin{figure}
 \centering
 \includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/Tab1.png}
-\caption{\label{fig:shiny-marea}Aplicación para la evaluación de reservas
-marinas, la app está disponible en
-\url{https://turfeffect.shinyapps.io/marea/}}
+\caption{\label{fig:shiny-marea}Aplicación para la evaluación de reservas marinas, la app está disponible en \url{https://turfeffect.shinyapps.io/marea/}}
 \end{figure}
 
 \begin{itemize}
 \tightlist
 \item
-  La primer pestaña presenta una introducción a MAREA y un resumen del
-  proceso de evaluación (Figura \ref{fig:workflow}).
+  La primer pestaña presenta una introducción a MAREA y un resumen del proceso de evaluación (Figura \ref{fig:workflow}).
 \item
-  El usuario navega a la segunda pestaña, donde especifica los objetivos
-  de las reservas a evaluar y MAREA selecciona los objetivos según la
-  Tabla \ref{tab:tabla-oi}. Recuerda que puedes modificar los
-  indicadores seleccionados según tu interés.
+  El usuario navega a la segunda pestaña, donde especifica los objetivos de las reservas a evaluar y MAREA selecciona los objetivos según la Tabla \ref{tab:tabla-oi}. Recuerda que puedes modificar los indicadores seleccionados según tu interés.
 \item
-  La tercer pestaña permite al usuario cargar los datos y dercargar
-  bases de ejemplo.
+  La tercer pestaña permite al usuario cargar los datos y dercargar bases de ejemplo.
 \item
-  La cuarta pestaña utiliza la columna \texttt{RC} mencionada en la
-  Tabla \ref{tab:formato} para presentar las reservas y controles que
-  pueden ser evaluados, así como el año de implementación de la reserva,
-  información sore el tamaño y la lista de especies objetivo a elegir.
+  La cuarta pestaña utiliza la columna \texttt{RC} mencionada en la Tabla \ref{tab:formato} para presentar las reservas y controles que pueden ser evaluados, así como el año de implementación de la reserva, información sore el tamaño y la lista de especies objetivo a elegir.
 \item
-  La quinta pestaña presenta una confirmación de lo que el usuario
-  seleccionó.
+  La quinta pestaña presenta una confirmación de lo que el usuario seleccionó.
 \item
-  La sexta presenta los resultados de forma resumida con una tarjeta de
-  puntuación y un botón para descargar el reporte en \texttt{*.pdf}.
+  La sexta presenta los resultados de forma resumida con una tarjeta de puntuación y un botón para descargar el reporte en \texttt{*.pdf}.
 \end{itemize}
 
-\citet{villaseorderbez_2017} presenta una descripción detallada de cada
-una de las pestañas.
+\citet{villaseorderbez_2017} presenta una descripción detallada de cada una de las pestañas.
 
 \begin{figure}
 \centering
 \includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/workflow.png}
-\caption{\label{fig:workflow}Diagrama de flujo de MAREA, explicando lo que
-sucede en cada una de las 6 pestañas.}
+\caption{\label{fig:workflow}Diagrama de flujo de MAREA, explicando lo que sucede en cada una de las 6 pestañas.}
 \end{figure}
 
 \hypertarget{interpretacion-de-resultados}{%
-\section{Interpretación de
-resultados}\label{interpretacion-de-resultados}}
+\section{Interpretación de resultados}\label{interpretacion-de-resultados}}
 
-El primer resultado es la tarjeta de puntiación (Figura
-\ref{fig:resultados}), que presenta un recuadro coloreado para cada
-indicador evaluado. El código de colores está indicado por la leyenda
-mostrada en la Figura \ref{fig:leyenda}.
+El primer resultado es la tarjeta de puntiación (Figura \ref{fig:resultados}), que presenta un recuadro coloreado para cada indicador evaluado. El código de colores está indicado por la leyenda mostrada en la Figura \ref{fig:leyenda}.
 
-Para los indicadores biológicos, el color está dado por el signo y
-significancia del efecto de la reserva (el \(\beta_3\) de la ecuación
-\eqref{eq:did}). Para los socioeconómicos, el color está dado por el signo
-y significancia de la pendiente de la regresión. Para los indicadores de
-gobernanza, el rojo señala que el valor del indicador tiene efectos
-negativos y el verde efectos positivos. Color amarillo para los
-indicadores de gobernazna indica que la influencia del valor no está
-clara o que el indicador no fue definido. El usuario puede descargar un
-reporte en extenso al oprimir el botón \texttt{Descargar\ Reporte} en la
-esquina superior derecha.
+Para los indicadores biológicos, el color está dado por el signo y significancia del efecto de la reserva (el \(\beta_3\) de la ecuación \eqref{eq:did}). Para los socioeconómicos, el color está dado por el signo y significancia de la pendiente de la regresión. Para los indicadores de gobernanza, el rojo señala que el valor del indicador tiene efectos negativos y el verde efectos positivos. Color amarillo para los indicadores de gobernazna indica que la influencia del valor no está clara o que el indicador no fue definido. El usuario puede descargar un reporte en extenso al oprimir el botón \texttt{Descargar\ Reporte} en la esquina superior derecha.
 
 \begin{figure}
 \centering
 \includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/leyenda.png}
-\caption{\label{fig:leyenda}Leyenda usada para la interpretación de la
-tarjeta de puntuación. Los colores indican la dirección del cambio y la
-intensidad la significancia estadística.}
+\caption{\label{fig:leyenda}Leyenda usada para la interpretación de la tarjeta de puntuación. Los colores indican la dirección del cambio y la intensidad la significancia estadística.}
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics{C:/Users/JC/Documents/GitHub/curso_marea/img/AllResults.png}
-\caption{\label{fig:resultados}Scorecard produced by MAREA for the ``La
-Plana / Las Cuevas'' marine reserve in Isla Natividad, Mexico.}
+\caption{\label{fig:resultados}Scorecard produced by MAREA for the ``La Plana / Las Cuevas'' marine reserve in Isla Natividad, Mexico.}
 \end{figure}
 
 \hypertarget{part-parte-iii}{%
@@ -1340,8 +851,7 @@ Datos necesrios:
 \end{itemize}
 
 \hypertarget{mas-de-una-reserva-a-la-vez}{%
-\section{Más de una reserva a la
-vez}\label{mas-de-una-reserva-a-la-vez}}
+\section{Más de una reserva a la vez}\label{mas-de-una-reserva-a-la-vez}}
 
 Datos necesrios:
 
@@ -1372,12 +882,10 @@ Datos necesrios:
 Forzar algunos errores en vivo
 
 \hypertarget{especie-indicador-no-tiene-diseno-baci}{%
-\section{Especie / Indicador no tiene diseño
-BACI}\label{especie-indicador-no-tiene-diseno-baci}}
+\section{Especie / Indicador no tiene diseño BACI}\label{especie-indicador-no-tiene-diseno-baci}}
 
 \hypertarget{diferentes-especies-en-bases-biologicas-vs-pesca}{%
-\section{Diferentes especies en bases biológicas vs
-pesca}\label{diferentes-especies-en-bases-biologicas-vs-pesca}}
+\section{Diferentes especies en bases biológicas vs pesca}\label{diferentes-especies-en-bases-biologicas-vs-pesca}}
 
 \hypertarget{appendix-appendice}{%
 \appendix \addcontentsline{toc}{chapter}{\appendixname}}
@@ -1386,11 +894,7 @@ pesca}\label{diferentes-especies-en-bases-biologicas-vs-pesca}}
 \hypertarget{datos-sinteticos}{%
 \chapter{Datos sintéticos}\label{datos-sinteticos}}
 
-Este apéndice muestra el código usado para obtener los datos sintéticos
-del curso y el manual de evaluación. Primero, debemos definir una serie
-de variables que contengan los valores predeterminados o rangos de
-valores que cada variable puede tomar. Para los propósitos del curso,
-generaremos únicamente información biológica y económica de peces.
+Este apéndice muestra el código usado para obtener los datos sintéticos del curso y el manual de evaluación. Primero, debemos definir una serie de variables que contengan los valores predeterminados o rangos de valores que cada variable puede tomar. Para los propósitos del curso, generaremos únicamente información biológica y económica de peces.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1764,8 +1268,7 @@ generaremos únicamente información biológica y económica de peces.
 \begin{figure}
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-1.pdf}
-\caption{\label{fig:graficar-datos}Series de tiempo de los datos antes de
-agregar tendencias.}
+\caption{\label{fig:graficar-datos}Series de tiempo de los datos antes de agregar tendencias.}
 \end{figure}
 
 \begin{Shaded}
@@ -1804,9 +1307,7 @@ agregar tendencias.}
 \begin{figure}
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-abundancias-1.pdf}
-\caption{\label{fig:graficar-datos-abundancias}Series de tiempo de las
-abundancias con tendencias (10\% anual) después del primer año. Note
-como una reserva funciona y otra no.}
+\caption{\label{fig:graficar-datos-abundancias}Series de tiempo de las abundancias con tendencias (10\% anual) después del primer año. Note como una reserva funciona y otra no.}
 \end{figure}
 
 \begin{Shaded}
@@ -1828,9 +1329,7 @@ como una reserva funciona y otra no.}
 \begin{figure}
 \centering
 \includegraphics{evaluacion-reservas_files/figure-latex/graficar-datos-tallas-1.pdf}
-\caption{\label{fig:graficar-datos-tallas}Series de tiempo de las tallas con
-tendencias (+2 cm anual) después del primer año. Note como una reserva
-funciona y otra no.}
+\caption{\label{fig:graficar-datos-tallas}Series de tiempo de las tallas con tendencias (+2 cm anual) después del primer año. Note como una reserva funciona y otra no.}
 \end{figure}
 
 \begin{Shaded}
